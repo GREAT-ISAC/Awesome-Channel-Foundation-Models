@@ -7,7 +7,7 @@ A curated list of Channel Foundation Models (CFMs) that demonstrates how **AI em
 - Welcome to contact us to add your own work or other excellent CFMs to this list! We will review and update it in a timely manner.
 - For any questions, suggestions or corrections, please open an issue or contact the maintainers.
 
-Last Updated: March 18, 2026
+Last Updated: May 4, 2026
 
 ## Contents
 
@@ -19,7 +19,7 @@ Last Updated: March 18, 2026
 - [Discriminative Pretraining Approaches](#discriminative-pretraining-approaches)
   - [CSI-based](#csi-based-1)
   - [IQ-based](#iq-based-1)
-- [Combination Pretraining Approaches](#combination-pretraining-approaches)
+- [Other Pretraining Approaches](#other-pretraining-approaches)
 - [Multitask Pretraining Approaches](#multitask-pretraining-approaches)
 - [License](#license)
 
@@ -38,6 +38,25 @@ Last Updated: March 18, 2026
 ## Generative Pretraining Approaches
 
 ### CSI-based
+- **[AirFM-DDA](https://arxiv.org/abs/2605.00020)**
+  - **Paper Title**: `AirFM-DDA: Air-Interface Foundation Model in the Delay–Doppler–Angle Domain for AI-Native 6G`
+  - **Paper Authors**: `Kejia Bian, Meixia Tao, Jianhua Mo, Zhiyong Chen, and Leyan Chen`
+  - **Downstream Tasks**: Channel Extrapolation(time, freq), Channel Estimation
+
+- **[WiMamba](https://arxiv.org/abs/2603.26367)**
+  - **Paper Title**: `WiMamba: Linear-Scale Wireless Foundation Model`
+  - **Paper Authors**: `Tomer Raviv, Nir Shlezinger`
+  - **Downstream Tasks**: LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
+
+- **[MCM](https://ieeexplore.ieee.org/abstract/document/11442291)**
+  - **Paper Title**: `Scalable Pre-Trained Masked Channel Model of Wireless Communications`
+  - **Paper Authors**: `Jianhua Guo; Zhongsheng Deng; Zhen Qiao; Junkai Zhang; Jiang Xue; Dusit Niyato; Zongben Xu`
+  - **Downstream Tasks**: Channel Extrapolation(time), Channel Estimation, Channel Feedback
+
+- **[LWM-Temporal](https://arxiv.org/abs/2603.10024)**
+  - **Paper Title**: `LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning`
+  - **Paper Authors**: `Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb`
+  - **Downstream Tasks**: Channel Extrapolation(time)
 
 - **[HeterCSI](https://arxiv.org/abs/2601.18200)**
   - **Paper Title**: `HeterCSI: Channel-Adaptive Heterogeneous CSI Pretraining Framework for Generalized Wireless Foundation Models`
@@ -48,7 +67,8 @@ Last Updated: March 18, 2026
   - **Paper Title**: `CSI-MAE: A Masked Autoencoder-based Channel Foundation Model`
   - **Paper Authors**: `Jun Jiang, Xiaolong Ruan, Shugong Xu`
   - **Downstream Tasks**: Channel Extrapolation(time, freq), CSI Feedback, Positioning
-  - 
+
+
 - **[WiFo-2](https://arxiv.org/abs/2511.22222)**
   - **Paper Title**: `Foundation Model for Intelligent Wireless Communications`
   - **Paper Authors**: `Boxun Liu, Xuanyu Liu, Shijian Gao, Xiang Cheng, Liuqing Yang`
@@ -148,7 +168,14 @@ Last Updated: March 18, 2026
   - **Paper Authors**: `Omar Mashaal, Hatem Abou-Zeid`
   - **Downstream Tasks**: Modulation Classification, AoA Estimation, Beam Prediction, RF fingerprinting
 
-## Combination Pretraining Approaches
+## Other Pretraining Approaches
+
+- **[WWM](https://arxiv.org/abs/2603.25216)**
+  - **Paper Title**: `A Wireless World Model for AI-Native 6G Networks`
+  - **Paper Authors**: `Ziqi Chen, Yi Ren, Yixuan Huang, Qi Sun, Nan Li, Yuhong Huang, Chih-Lin I, Yifan Li, Liang Xia`
+  - **Input Modalities**: CSI, Point Cloud, Trajectory
+  - **Downstream Tasks**: Beam Prediction, Positioning, Channel Extrapolation(time, freq), CSI Feedback
+  
 
 - **[AM-FM](https://arxiv.org/abs/2602.11200)**
   - **Paper Title**: `AM-FM: A Foundation Model for Ambient Intelligence Through WiFi`
