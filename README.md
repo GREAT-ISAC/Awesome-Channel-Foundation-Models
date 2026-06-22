@@ -2,7 +2,7 @@
 
 A curated list of Channel Foundation Models (CFMs) that demonstrates how **AI empowers next-generation wireless communication**. As we advance towards 6G, CFMs are emerging as a critical technology to replace traditional task-specific modules with generalized, pretrained representations. This repository aims to collect CFMs, serving as a vital resource for facilitating research and development in **AI-native wireless networks**. These models leverage large-scale data to solve complex physical layer problems, offering new possibilities for channel-related tasks.
 
-**This list will be continuously updated.** If there are any omissions in the collection of the papers, please feel free to contact Jun Jiang at jun_jiang@shu.edu.cn.
+**This list will be continuously updated.** If there are any omissions in the collection of the papers, please feel free to contact Jun Jiang at Jun.Jiang25@student.xjtlu.edu.cn.
 
 - Welcome to contact us to add your own work or other excellent CFMs to this list! We will review and update it in a timely manner.
 - For any questions, suggestions or corrections, please open an issue or contact the maintainers.
