@@ -7,11 +7,12 @@ A curated list of Channel Foundation Models (CFMs) that demonstrates how **AI em
 - Welcome to contact us to add your own work or other excellent CFMs to this list! We will review and update it in a timely manner.
 - For any questions, suggestions or corrections, please open an issue or contact the maintainers.
 
-Last Updated: Jun 22, 2026
+Last Updated: July 02, 2026
 
 ## Contents
 
 - [Surveys & Perspectives](#surveys--perspectives)
+- [Foundation Model Backbones and Architectures](#foundation-model-backbones-and-architectures)
 - [Generative Pretraining Approaches](#generative-pretraining-approaches)
   - [CSI-based](#csi-based)
   - [IQ-based](#iq-based)
@@ -36,35 +37,30 @@ Last Updated: Jun 22, 2026
   - **摘要**: 人工智能（Artificial intelligence, AI）与通信的深度结合已成为6G的关键目标和标志之一。内生智能（Native AI）被认为是6G重要特征。本文在给出对内生智能理解探讨的基础上总结无线AI研究范式演进，指出基于监督学习的传统AI模型存在诸多局限，使其很难作为未来6G内生智能的重要组成部分。基于此，我们提出了信道基础模型（Channel Foundation Models, CFMs）并系统地介绍了其预训练方法，以及对各类信道相关任务的可能适配。作为对“什么是内生智能，什么样的AI能力是未来6G系统需要的”等问题的探讨和分享，我们认为6G内生智能需要具备强大任务适应性和场景泛化能力，CFMs有可能成为未来6G内生智能的技术选项之一。
   - **Note**: This invited position paper on CFM and 6G Native AI will be published by ZTE Communications soon (in Chinese). An early access version can be found in [CNKI](https://link.cnki.net/urlid/34.1228.TN.20260225.0923.002).
 
-## Generative Pretraining Approaches
+## Foundation Model Backbones and Architectures
 
-### CSI-based
+- **[Full-Domain Coupler](https://arxiv.org/abs/2606.22038)**
+  - **Paper Title**: `Full-Domain Coupler: A Wireless Native Neural Backbone for Channel Representation and Deduction`
+  - **Paper Authors**: `Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah`
+  - **Downstream Tasks**: Channel Estimation, Channel Interpolation, Channel Extrapolation(time), CSI Feedback
+  - **Note**: Proposes a backbone for full-domain time-space-frequency CSI coupling and representation learning.
 
 - **[ConsisFormer](https://arxiv.org/abs/2606.19953)**
   - **Paper Title**: `ConsisFormer: Compute-Efficient Transformer for Wireless Foundation Models Based on Channel Consistency`
   - **Paper Authors**: `Yuwei Wang, Li Sun, Tingting Yang, Liwen Jing, Yuxuan Shi, Maged Elkashlan, Mérouane Debbah`
   - **Downstream Tasks**: LOS/NLOS Identification, Channel Extrapolation(freq), Positioning, Beam Prediction
-
-- **[LAETwin-XL](https://ieeexplore.ieee.org/document/11570058)**
-  - **Paper Title**: `Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO`
-  - **Paper Authors**: `Mengyuan Li, Yu Han, Jiachen Tian, Chao-Kai Wen, Shi Jin`
-  - **Downstream Tasks**: Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
-  - **Note**: Uses a conditional denoising diffusion implicit model (CDDIM) for generative pre-training on incomplete channel observations.
+  - **Note**: Designs a compute-efficient WFM backbone using channel-consistency-aware token aggregation and feature recovery.
 
 - **[SpikeWFM](https://arxiv.org/abs/2606.00120)**
   - **Paper Title**: `SpikeWFM: Spiking-Aided Wireless Foundation Model for Robust Channel Prediction`
   - **Paper Authors**: `Liwen Jing, Yisha Lu, Tingting Yang, Li Sun, Yuxuan Shi, Yuwei Wang, Mengfan Zheng, Leiyang Xu`
   - **Downstream Tasks**: Channel Extrapolation(time)
+  - **Note**: Introduces a spiking-aided hybrid SNN-ANN architecture for robust wireless foundation models.
 
 - **[ComHymba](https://arxiv.org/abs/2605.23468)**
   - **Paper Title**: `ComHymba: Low-Complexity Domain-Informed Foundation Model for Wireless Communications`
   - **Paper Authors**: `Bowen Yang, Wei Chen, Jiaming Cheng, Bo Ai`
   - **Downstream Tasks**: Channel Reconstruction, Positioning, Path Loss Prediction, Beam Prediction, LOS/NLOS Identification
-
-- **[PilotWiMAE](https://arxiv.org/abs/2605.22856)**
-  - **Paper Title**: `PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels`
-  - **Paper Authors**: `Berkay Guler, Giovanni Geraci, Hamid Jafarkhani`
-  - **Downstream Tasks**: Beam Prediction, LOS/NLOS Identification, Channel Estimation
 
 - **[Adaptive 3D-RoPE](https://arxiv.org/abs/2605.00968)**
   - **Paper Title**: `Adaptive 3D-RoPE: Physics-Aligned Rotary Positional Encoding for Wireless Foundation Models`
@@ -75,21 +71,38 @@ Last Updated: Jun 22, 2026
   - **Paper Title**: `AirFM-DDA: Air-Interface Foundation Model in the Delay–Doppler–Angle Domain for AI-Native 6G`
   - **Paper Authors**: `Kejia Bian, Meixia Tao, Jianhua Mo, Zhiyong Chen, Leyan Chen`
   - **Downstream Tasks**: Channel Extrapolation(time, freq), Channel Estimation
+  - **Note**: Builds a DDA-domain air-interface architecture with window-based attention and frame-structure-aware positional encoding.
 
 - **[WiMamba](https://arxiv.org/abs/2603.26367)**
   - **Paper Title**: `WiMamba: Linear-Scale Wireless Foundation Model`
   - **Paper Authors**: `Tomer Raviv, Nir Shlezinger`
   - **Downstream Tasks**: LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
 
-- **[MCM](https://ieeexplore.ieee.org/abstract/document/11442291)**
-  - **Paper Title**: `Scalable Pre-Trained Masked Channel Model of Wireless Communications`
-  - **Paper Authors**: `Jianhua Guo, Zhongsheng Deng, Zhen Qiao, Junkai Zhang, Jiang Xue, Dusit Niyato, Zongben Xu`
-  - **Downstream Tasks**: Channel Extrapolation(time), Channel Estimation, Channel Feedback
-
 - **[LWM-Temporal](https://arxiv.org/abs/2603.10024)**
   - **Paper Title**: `LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning`
   - **Paper Authors**: `Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb`
   - **Downstream Tasks**: Channel Extrapolation(time)
+  - **Note**: Introduces sparse spatio-temporal attention for propagation-aligned channel representation learning.
+
+## Generative Pretraining Approaches
+
+### CSI-based
+
+- **[LAETwin-XL](https://ieeexplore.ieee.org/document/11570058)**
+  - **Paper Title**: `Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO`
+  - **Paper Authors**: `Mengyuan Li, Yu Han, Jiachen Tian, Chao-Kai Wen, Shi Jin`
+  - **Downstream Tasks**: Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
+  - **Note**: Uses a conditional denoising diffusion implicit model (CDDIM) for generative pre-training on incomplete channel observations.
+
+- **[PilotWiMAE](https://arxiv.org/abs/2605.22856)**
+  - **Paper Title**: `PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels`
+  - **Paper Authors**: `Berkay Guler, Giovanni Geraci, Hamid Jafarkhani`
+  - **Downstream Tasks**: Beam Prediction, LOS/NLOS Identification, Channel Estimation
+
+- **[MCM](https://ieeexplore.ieee.org/abstract/document/11442291)**
+  - **Paper Title**: `Scalable Pre-Trained Masked Channel Model of Wireless Communications`
+  - **Paper Authors**: `Jianhua Guo, Zhongsheng Deng, Zhen Qiao, Junkai Zhang, Jiang Xue, Dusit Niyato, Zongben Xu`
+  - **Downstream Tasks**: Channel Extrapolation(time), Channel Estimation, Channel Feedback
 
 - **[HeterCSI](https://arxiv.org/abs/2601.18200)**
   - **Paper Title**: `HeterCSI: Channel-Adaptive Heterogeneous CSI Pretraining Framework for Generalized Wireless Foundation Models`
@@ -101,7 +114,7 @@ Last Updated: Jun 22, 2026
   - **Paper Authors**: `Jun Jiang, Xiaolong Ruan, Shugong Xu`
   - **Downstream Tasks**: Channel Extrapolation(time, freq), CSI Feedback, Positioning
 
-- **[WiFo-2](https://arxiv.org/abs/2511.22222)**
+- **[WiFo-2](https://arxiv.org/abs/2511.22222v2)**
   - **Paper Title**: `WiFo-2: a generalist foundation model unifies heterogeneous wireless system design`
   - **Paper Authors**: `Boxun Liu, Xuanyu Liu, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing Yang`
   - **Downstream Tasks**: LOS/NLOS Identification, Sub-6 to mmWave Beam Prediction, Positioning, Vision-aided Channel Extrapolation(freq), CSI Feedback, AoA Estimation, Cross-band Channel Prediction, Signal Detection
@@ -174,6 +187,11 @@ Last Updated: Jun 22, 2026
 ## Discriminative Pretraining Approaches
 
 ### CSI-based
+- **[CSI-CLIP++](https://arxiv.org/abs/2606.25714)**
+  - **Paper Title**: `CSI-CLIP++: A Scalable Channel Foundation Model for Wireless Communication via CIR-CSI Consistency`
+  - **Paper Authors**: `Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu`
+  - **Downstream Tasks**: LOS/NLOS Identification, Beam Prediction, Positioning
+
 
 - **[CSI2Vec](https://arxiv.org/abs/2506.05237)**
   - **Paper Title**: `CSI2Vec: Towards a Universal CSI Feature Representation for Positioning and Channel Charting`
@@ -261,6 +279,12 @@ Last Updated: Jun 22, 2026
   - **Downstream Tasks**: Channel Estimation, MIMO Precoding, MIMO Detection, Channel Decoding, Positioning
 
 ## Foundation Model Adaptation and Inference Approaches
+
+- **[Early-Exit](https://arxiv.org/abs/2606.29640)**
+  - **Paper Title**: `Fast Wireless Foundation Models with Early-Exits`
+  - **Paper Authors**: `Omar Mashaal, Hatem Abou-Zeid`
+  - **Downstream Tasks**: RF Fingerprinting, Beam Prediction, Modulation Classification, Interference Classification, AoA Estimation
+  - **Note**: Proposes a multi-exit inference framework for frozen channel foundation models by attaching lightweight task-specific heads to intermediate encoder stages.
 
 - **[RAFC](https://arxiv.org/abs/2606.10277)**
   - **Paper Title**: `A Unified Adaptive Feature Composition Framework for Multi-Task Generalization in Wireless Foundation Models`
