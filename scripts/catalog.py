@@ -27,8 +27,6 @@ OUTPUTS = {
     "readme": ROOT / "README.md",
     "paper": ROOT / "papers" / "README.md",
     "dataset": ROOT / "datasets" / "README.md",
-    "model": ROOT / "models" / "README.md",
-    "benchmark": ROOT / "benchmarks" / "README.md",
     "simulation-tool": ROOT / "simulation-tools" / "README.md",
 }
 
@@ -219,13 +217,6 @@ def markdown_link(text: str, target: str) -> str:
     return f"[{text}]({target.replace(' ', '%20')})"
 
 
-def paper_link(paper: Mapping[str, Any], prefix: str = "../") -> str:
-    url = paper["paper_url"]
-    if url.startswith("docs/"):
-        url = prefix + url
-    return markdown_link(paper["short_name"], url)
-
-
 def full_paper_link(paper: Mapping[str, Any], prefix: str = "../") -> str:
     url = paper["paper_url"]
     if url.startswith("docs/"):
@@ -246,15 +237,19 @@ def qualified_link(item: Mapping[str, Any], target: Optional[str] = None) -> str
 
 
 def available_artifacts(paper: Mapping[str, Any]) -> List[str]:
+    ref_targets = {
+        "datasets": "../datasets/README.md#{}",
+        "models": "#{}",
+        "benchmarks": "../datasets/README.md#{}",
+        "simulation_tools": "../simulation-tools/README.md#{}",
+    }
     links = []
     for slot_name, slot in paper["artifacts"].items():
         if slot["status"] not in {"available", "restricted"}:
             continue
         item_links = []
         for item in slot["items"]:
-            target = item.get("url") or (
-                f"../{slot_name.replace('_', '-')}/README.md#{item['ref']}"
-            )
+            target = item.get("url") or ref_targets[slot_name].format(item["ref"])
             item_links.append(qualified_link(item, target))
         if item_links:
             links.append(f"**{ARTIFACT_LABELS[slot_name]}:** {', '.join(item_links)}")
@@ -311,7 +306,11 @@ def render_stage(title: str, anchor: str, papers: Sequence[Mapping[str, Any]]) -
     return "\n\n".join(chunks)
 
 
-def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
+def render_papers(
+    papers: Sequence[Mapping[str, Any]],
+    models: Sequence[Mapping[str, Any]],
+    all_records: Sequence[Mapping[str, Any]],
+) -> str:
     by_stage: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
     for paper in papers:
         by_stage[paper["stages"][0]].append(paper)
@@ -332,7 +331,8 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
         "  - [Supervised/Multitask](#objective-supervised-multitask)\n"
         "  - [Hybrid](#objective-hybrid)\n"
         "- [Adaptation & Transfer](#adaptation)\n"
-        "- [Inference & Deployment](#inference-deployment)",
+        "- [Inference & Deployment](#inference-deployment)\n"
+        "- [Pretrained Models](#pretrained-models)",
         render_stage(label("survey"), "surveys", by_stage["survey"]),
         render_stage(label("backbone"), "backbones", by_stage["backbone"]),
     ]
@@ -375,6 +375,25 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
             by_stage["inference-deployment"],
         )
     )
+    if models:
+        by_id = {record["id"]: record for record in all_records}
+        papers_by_id = {paper["id"]: paper for paper in papers}
+        model_section = [
+            '<a id="pretrained-models"></a>\n## Pretrained Models',
+            "Released checkpoints and model cards are kept with the paper catalog. Weight links in paper entries point to these records.",
+        ]
+        model_section.extend(
+            render_resource_record(
+                "model",
+                model,
+                by_id,
+                papers_by_id,
+                heading_level=3,
+                paper_target="#{}",
+            )
+            for model in sorted(models, key=lambda item: item["name"].lower())
+        )
+        sections.append("\n\n".join(model_section))
     return "\n\n".join(sections).rstrip() + "\n"
 
 
@@ -383,9 +402,14 @@ def resource_links(record: Mapping[str, Any]) -> str:
 
 
 def related_paper_links(
-    record: Mapping[str, Any], papers: Mapping[str, Mapping[str, Any]]
+    record: Mapping[str, Any],
+    papers: Mapping[str, Mapping[str, Any]],
+    target_pattern: str,
 ) -> str:
-    return ", ".join(paper_link(papers[item]) for item in record["related_papers"])
+    return ", ".join(
+        markdown_link(papers[item]["short_name"], target_pattern.format(item))
+        for item in record["related_papers"]
+    )
 
 
 def render_resource_record(
@@ -393,10 +417,14 @@ def render_resource_record(
     record: Mapping[str, Any],
     by_id: Mapping[str, Mapping[str, Any]],
     papers: Mapping[str, Mapping[str, Any]],
+    heading_level: int = 2,
+    paper_target: str = "../papers/README.md#{}",
+    dataset_target: str = "../datasets/README.md#{}",
 ) -> str:
+    heading = "#" * heading_level
     lines = [
         f'<a id="{record["id"]}"></a>',
-        f"## {record['name']}",
+        f"{heading} {record['name']}",
         record["description"],
     ]
     if kind == "dataset":
@@ -417,7 +445,7 @@ def render_resource_record(
         lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
     elif kind == "benchmark":
         datasets = ", ".join(
-            markdown_link(by_id[item]["name"], f"../datasets/README.md#{item}")
+            markdown_link(by_id[item]["name"], dataset_target.format(item))
             for item in record["datasets"]
         )
         lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
@@ -433,41 +461,73 @@ def render_resource_record(
             f"- **Capabilities:** {', '.join(label(item) for item in record['capabilities'])}"
         )
     lines.append(f"- **Links:** {resource_links(record)}")
-    related = related_paper_links(record, papers)
+    related = related_paper_links(record, papers, paper_target)
     if related:
         lines.append(f"- **Related papers:** {related}")
     return "\n".join(lines)
 
 
-def render_resources(
-    kind: str,
+def render_datasets_and_benchmarks(
+    datasets: Sequence[Mapping[str, Any]],
+    benchmarks: Sequence[Mapping[str, Any]],
+    all_records: Sequence[Mapping[str, Any]],
+) -> str:
+    by_id = {record["id"]: record for record in all_records}
+    papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
+    sections = [
+        generated_header(
+            "Datasets & Benchmark Projects",
+            "Datasets and their associated evaluation projects are presented together so tasks, data, and metrics can be followed in one place.",
+        ),
+        "## Contents\n\n"
+        "- [Datasets](#datasets)\n"
+        "- [Benchmark Projects](#benchmark-projects)",
+        '<a id="datasets"></a>\n## Datasets',
+    ]
+    sections.extend(
+        render_resource_record(
+            "dataset",
+            record,
+            by_id,
+            papers,
+            heading_level=3,
+        )
+        for record in sorted(datasets, key=lambda item: item["name"].lower())
+    )
+    sections.extend(
+        [
+            '<a id="benchmark-projects"></a>\n## Benchmark Projects',
+            "These are existing external evaluation projects; this repository does not provide a new benchmark runner in v1.",
+        ]
+    )
+    sections.extend(
+        render_resource_record(
+            "benchmark",
+            record,
+            by_id,
+            papers,
+            heading_level=3,
+            dataset_target="#{}",
+        )
+        for record in sorted(benchmarks, key=lambda item: item["name"].lower())
+    )
+    return "\n\n".join(sections).rstrip() + "\n"
+
+
+def render_simulation_tools(
     records: Sequence[Mapping[str, Any]],
     all_records: Sequence[Mapping[str, Any]],
 ) -> str:
-    config = {
-        "dataset": (
-            "Datasets",
-            "Measured and simulated datasets relevant to channel foundation-model training and evaluation.",
-        ),
-        "model": (
-            "Pretrained Models",
-            "Public checkpoints and model cards associated with cataloged foundation models.",
-        ),
-        "benchmark": (
-            "Benchmark Projects",
-            "Existing external evaluation projects; this repository does not provide a new benchmark runner in v1.",
-        ),
-        "simulation-tool": (
-            "Simulation Tools",
-            "Open-first channel, ray-tracing, and system simulation infrastructure useful for CFM data workflows.",
-        ),
-    }
-    title, intro = config[kind]
     by_id = {record["id"]: record for record in all_records}
     papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
-    sections = [generated_header(title, intro)]
+    sections = [
+        generated_header(
+            "Simulation Tools",
+            "Open-first channel, ray-tracing, and system simulation infrastructure useful for CFM data workflows.",
+        )
+    ]
     sections.extend(
-        render_resource_record(kind, record, by_id, papers)
+        render_resource_record("simulation-tool", record, by_id, papers)
         for record in sorted(records, key=lambda item: item["name"].lower())
     )
     if not records:
@@ -485,11 +545,13 @@ def render_outputs(records: Sequence[Mapping[str, Any]]) -> Dict[Path, str]:
         by_kind[record["kind"]].append(record)
     return {
         OUTPUTS["readme"]: render_readme(records),
-        OUTPUTS["paper"]: render_papers(by_kind["paper"]),
-        OUTPUTS["dataset"]: render_resources("dataset", by_kind["dataset"], records),
-        OUTPUTS["model"]: render_resources("model", by_kind["model"], records),
-        OUTPUTS["benchmark"]: render_resources("benchmark", by_kind["benchmark"], records),
-        OUTPUTS["simulation-tool"]: render_resources("simulation-tool", by_kind["simulation-tool"], records),
+        OUTPUTS["paper"]: render_papers(by_kind["paper"], by_kind["model"], records),
+        OUTPUTS["dataset"]: render_datasets_and_benchmarks(
+            by_kind["dataset"], by_kind["benchmark"], records
+        ),
+        OUTPUTS["simulation-tool"]: render_simulation_tools(
+            by_kind["simulation-tool"], records
+        ),
     }
 
 

@@ -20,6 +20,7 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
   - [Hybrid](#objective-hybrid)
 - [Adaptation & Transfer](#adaptation)
 - [Inference & Deployment](#inference-deployment)
+- [Pretrained Models](#pretrained-models)
 
 <a id="surveys"></a>
 ## Surveys & Perspectives
@@ -61,13 +62,13 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
 - **Full-Domain Coupler** — [Full-Domain Coupler: A Wireless Native Neural Backbone for Channel Representation and Deduction](https://arxiv.org/abs/2606.22038) (2026 · arXiv)
   - **Authors:** Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah
   - **Modalities:** CSI, CIR · **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
-  - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo), [DICHASUS](../datasets/README.md#dichasus) · **Weights:** [Released checkpoints](../models/README.md#coupler-checkpoints) · **Benchmark:** [Channel deduction evaluation](../benchmarks/README.md#coupler-channel-deduction)
+  - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo), [DICHASUS](../datasets/README.md#dichasus) · **Weights:** [Released checkpoints](#coupler-checkpoints) · **Benchmark:** [Channel deduction evaluation](../datasets/README.md#coupler-channel-deduction)
 
 <a id="lwm-temporal"></a>
 - **LWM-Temporal** — [LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning](https://arxiv.org/abs/2603.10024) (2026 · arXiv)
   - **Authors:** Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb
   - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation
-  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-temporal) · **Weights:** [LWM-Temporal checkpoint](../models/README.md#lwm-temporal-model)
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-temporal) · **Weights:** [LWM-Temporal checkpoint](#lwm-temporal-model)
 
 <a id="spikewfm"></a>
 - **SpikeWFM** — [SpikeWFM: Spiking-Aided Wireless Foundation Model for Robust Channel Prediction](https://arxiv.org/abs/2606.00120) (2026 · arXiv)
@@ -97,7 +98,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **HeterCSI** — [HeterCSI: Channel-Adaptive Heterogeneous CSI Pretraining Framework for Generalized Wireless Foundation Models](https://arxiv.org/abs/2601.18200) (2026 · arXiv)
   - **Authors:** Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui, Xiaofeng Tao
   - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
-  - **Weights:** [HeterCSI model card](../models/README.md#hetercsi-model)
+  - **Weights:** [HeterCSI model card](#hetercsi-model)
 
 <a id="mcm"></a>
 - **MCM** — [Scalable Pre-Trained Masked Channel Model of Wireless Communications](https://ieeexplore.ieee.org/abstract/document/11442291) (2026 · IEEE Transactions on Communications)
@@ -108,7 +109,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **PilotWiMAE** — [PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels](https://arxiv.org/abs/2605.22856) (2026 · arXiv)
   - **Authors:** Berkay Guler, Giovanni Geraci, Hamid Jafarkhani
   - **Modalities:** Pilot Observations, CSI · **Tasks:** Beam Prediction, LOS/NLOS Identification, Channel Estimation
-  - **Code:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Data:** [PilotWiMAE channel data](../datasets/README.md#pilotwimae-channels) · **Weights:** [PilotWiMAE weights](../models/README.md#pilotwimae-model) · **Benchmark:** [PilotWiMAE evaluation](../benchmarks/README.md#pilotwimae-evaluation) · **Simulator:** [CSIGen](../simulation-tools/README.md#csigen)
+  - **Code:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Data:** [PilotWiMAE channel data](../datasets/README.md#pilotwimae-channels) · **Weights:** [PilotWiMAE weights](#pilotwimae-model) · **Benchmark:** [PilotWiMAE evaluation](../datasets/README.md#pilotwimae-evaluation) · **Simulator:** [CSIGen](../simulation-tools/README.md#csigen)
 
 <a id="bert4mimo"></a>
 - **BERT4MIMO** — [BERT4MIMO: A Foundation Model using BERT Architecture for Massive MIMO Channel State Information Prediction](https://arxiv.org/abs/2501.01802) (2025 · arXiv)
@@ -124,7 +125,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **SpectrumFM** — [SpectrumFM: A Foundation Model for Intelligent Spectrum Management](https://arxiv.org/abs/2505.06256) (2025 · IEEE Journal on Selected Areas in Communications)
   - **Authors:** Fuhui Zhou, Chunyu Liu, Hao Zhang, Wei Wu, Qihui Wu, Tony Q. S. Quek, Chan-Byoung Chae
   - **Modalities:** Spectrum · **Tasks:** Spectrum Sensing, Anomaly Detection, Wireless Technology Classification
-  - **Code:** [Official implementation](https://github.com/ChunyuLiu188/SpectrumFM) · **Benchmark:** [SpectrumFM evaluation](../benchmarks/README.md#spectrumfm-evaluation)
+  - **Code:** [Official implementation](https://github.com/ChunyuLiu188/SpectrumFM) · **Benchmark:** [SpectrumFM evaluation](../datasets/README.md#spectrumfm-evaluation)
 
 <a id="bert4beam"></a>
 - **UBERT / BERT4beam** — [BERT4beam: Large AI Model Enabled Generalized Beamforming Optimization](https://arxiv.org/abs/2509.11056) (2025 · arXiv)
@@ -150,7 +151,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **LWM** — [Large Wireless Model (LWM): A Foundation Model for Wireless Channels](https://arxiv.org/abs/2411.08872) (2024 · arXiv)
   - **Authors:** Sadjad Alikhani, Gouranga Charan, Ahmed Alkhateeb
   - **Modalities:** CSI · **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
-  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo) · **Weights:** [LWM checkpoint](../models/README.md#lwm-model) · **Benchmark:** [LWM Challenge](../benchmarks/README.md#lwm-2025-challenge)
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo) · **Weights:** [LWM checkpoint](#lwm-model) · **Benchmark:** [LWM Challenge](../datasets/README.md#lwm-2025-challenge)
 
 <a id="wifo"></a>
 - **WiFo** — [WiFo: Wireless Foundation Model for Channel Prediction](https://arxiv.org/abs/2412.08908) (2024 · arXiv)
@@ -252,7 +253,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **LWM-Spectro** — [LWM-Spectro: A Foundation Model for Wireless Baseband Signal Spectrograms](https://arxiv.org/abs/2601.08780) (2026 · arXiv)
   - **Authors:** Namhyun Kim, Sadjad Alikhani, Ahmed Alkhateeb
   - **Modalities:** Spectrogram · **Tasks:** Modulation Classification, Joint SNR and Doppler Classification
-  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-spectro) · **Weights:** [LWM-Spectro checkpoint](../models/README.md#lwm-spectro-model)
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-spectro) · **Weights:** [LWM-Spectro checkpoint](#lwm-spectro-model)
 
 <a id="spa-mae"></a>
 - **SPA-MAE** — [SPA-MAE: A Physics-Guided CSI Foundation Model for Wireless Physical Layer](https://arxiv.org/abs/2605.19849) (2026 · arXiv)
@@ -287,7 +288,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **LWM-CDE** — [LWM-CDE: A Representation Space for Wireless Data Reasoning and Transferability](https://arxiv.org/abs/2605.24077) (2026 · arXiv)
   - **Authors:** Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb
   - **Modalities:** CSI · **Tasks:** LOS/NLOS Identification, Beam Prediction
-  - **Weights:** [LWM base checkpoint](../models/README.md#lwm-model)
+  - **Weights:** [LWM base checkpoint](#lwm-model)
 
 <a id="ra-lwlm"></a>
 - **RA-LWLM** — [RA-LWLM: Retrieval-Augmented In-Context Localization with Wireless Foundation Models](https://arxiv.org/abs/2606.01899) (2026 · arXiv)
@@ -306,3 +307,56 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 - **Early-Exit** — [Fast Wireless Foundation Models with Early-Exits](https://arxiv.org/abs/2606.29640) (2026 · arXiv)
   - **Authors:** Omar Mashaal, Hatem Abou-Zeid
   - **Modalities:** IQ · **Tasks:** RF Fingerprinting, Beam Prediction, Modulation Classification, Interference Classification, AoA Estimation
+
+<a id="pretrained-models"></a>
+## Pretrained Models
+
+Released checkpoints and model cards are kept with the paper catalog. Weight links in paper entries point to these records.
+
+<a id="coupler-checkpoints"></a>
+### Full-Domain Coupler Checkpoints
+Pretrained experiment archives released by the authors for channel representation and deduction evaluations.
+- **Profile:** PyTorch · Open · CSI, CIR
+- **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
+- **Links:** [Official repository and download instructions](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
+- **Related papers:** [Full-Domain Coupler](#full-domain-coupler)
+
+<a id="hetercsi-model"></a>
+### HeterCSI
+Author-published HeterCSI model card and files for heterogeneous CSI pretraining.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
+- **Links:** [Official Hugging Face repository](https://huggingface.co/Chenyu8998/HeterCSI)
+- **Related papers:** [HeterCSI](#hetercsi)
+
+<a id="lwm-model"></a>
+### Large Wireless Model (LWM)
+Official pretrained LWM checkpoint and accompanying inference code for wireless channel representations.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm) · [Official project page](https://lwm-wireless.net/)
+- **Related papers:** [LWM](#lwm), [LWM-CDE](#lwm-cde)
+
+<a id="lwm-spectro-model"></a>
+### LWM-Spectro
+Official LWM-Spectro model repository for baseband signal spectrogram representations.
+- **Profile:** PyTorch · Open · Spectrogram
+- **Tasks:** Modulation Classification, Joint SNR and Doppler Classification
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-spectro)
+- **Related papers:** [LWM-Spectro](#lwm-spectro)
+
+<a id="lwm-temporal-model"></a>
+### LWM-Temporal
+Official LWM-Temporal model repository for sparse spatio-temporal channel representation learning.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Time Channel Extrapolation
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-temporal)
+- **Related papers:** [LWM-Temporal](#lwm-temporal)
+
+<a id="pilotwimae-model"></a>
+### PilotWiMAE Weights
+Model weights and reference implementation released with the PilotWiMAE paper.
+- **Profile:** PyTorch · Open · Pilot Observations, CSI
+- **Tasks:** Channel Estimation, Beam Prediction, LOS/NLOS Identification
+- **Links:** [Official repository](https://github.com/BerkIGuler/PilotWiMAE)
+- **Related papers:** [PilotWiMAE](#pilotwimae)

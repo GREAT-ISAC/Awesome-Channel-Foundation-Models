@@ -107,7 +107,8 @@ class CatalogTests(unittest.TestCase):
 
     def test_paper_page_has_one_hierarchical_entry_per_paper(self):
         papers = [record for record in self.records if record["kind"] == "paper"]
-        rendered = catalog.render_papers(papers)
+        models = [record for record in self.records if record["kind"] == "model"]
+        rendered = catalog.render_papers(papers, models, self.records)
         for paper in papers:
             with self.subTest(paper=paper["id"]):
                 self.assertEqual(rendered.count(f'<a id="{paper["id"]}"></a>'), 1)
@@ -123,8 +124,24 @@ class CatalogTests(unittest.TestCase):
             "### Hybrid Objectives",
             "## Adaptation & Transfer",
             "## Inference & Deployment",
+            "## Pretrained Models",
         ):
             self.assertIn(heading, rendered)
+
+    def test_models_and_benchmarks_are_merged_into_parent_pages(self):
+        outputs = catalog.render_outputs(self.records)
+        paper_page = outputs[catalog.OUTPUTS["paper"]]
+        dataset_page = outputs[catalog.OUTPUTS["dataset"]]
+        for model in (record for record in self.records if record["kind"] == "model"):
+            self.assertEqual(paper_page.count(f'<a id="{model["id"]}"></a>'), 1)
+        for benchmark in (record for record in self.records if record["kind"] == "benchmark"):
+            self.assertEqual(dataset_page.count(f'<a id="{benchmark["id"]}"></a>'), 1)
+        self.assertIn("## Benchmark Projects", dataset_page)
+        homepage = outputs[catalog.OUTPUTS["readme"]]
+        self.assertNotIn("models/README.md", homepage)
+        self.assertNotIn("benchmarks/README.md", homepage)
+        self.assertFalse((ROOT / "models" / "README.md").exists())
+        self.assertFalse((ROOT / "benchmarks" / "README.md").exists())
 
     def test_public_pages_omit_maintenance_clutter(self):
         outputs = catalog.render_outputs(self.records)
@@ -140,7 +157,7 @@ class CatalogTests(unittest.TestCase):
             self.assertNotIn(phrase, homepage)
         for phrase in ("Not found", "Not released", "**Scope:**", "Last verified", "Browse by"):
             self.assertNotIn(phrase, papers)
-        for kind in ("dataset", "model", "benchmark", "simulation-tool"):
+        for kind in ("dataset", "simulation-tool"):
             resource_page = outputs[catalog.OUTPUTS[kind]]
             self.assertNotIn("**License:**", resource_page)
             self.assertNotIn("Verified", resource_page)

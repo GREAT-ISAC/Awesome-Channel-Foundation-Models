@@ -13,7 +13,7 @@ An author-released Sionna-based workflow for generating ray-traced CSI used by P
 - **Profile:** Ray Tracing · Open
 - **Capabilities:** Ray Tracing, CSI Generation, Scenario Configuration
 - **Links:** [Official repository](https://github.com/BerkIGuler/CSIGen)
-- **Related papers:** [PilotWiMAE](https://arxiv.org/abs/2605.22856)
+- **Related papers:** [PilotWiMAE](../papers/README.md#pilotwimae)
 
 <a id="laetwin-xl-toolchain"></a>
 ## LAETwin-XL Toolchain
@@ -21,7 +21,7 @@ A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios bu
 - **Profile:** Ray Tracing · Open
 - **Capabilities:** Ray Tracing, Channel Generation, Digital Twin, XL MIMO
 - **Links:** [Official repository](https://github.com/Lmyxxn/LAETwin-XL)
-- **Related papers:** [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058)
+- **Related papers:** [LAETwin-XL](../papers/README.md#laetwin-xl)
 
 <a id="matlab-5g-toolbox"></a>
 ## MATLAB 5G Toolbox
@@ -57,7 +57,7 @@ An open-source GPU-accelerated library for link-level simulation, ray tracing, a
 - **Profile:** Ray Tracing · Open
 - **Capabilities:** Ray Tracing, Link Level Simulation, System Level Simulation, Differentiable Modeling
 - **Links:** [Official repository](https://github.com/NVlabs/sionna)
-- **Related papers:** [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058), [PilotWiMAE](https://arxiv.org/abs/2605.22856)
+- **Related papers:** [LAETwin-XL](../papers/README.md#laetwin-xl), [PilotWiMAE](../papers/README.md#pilotwimae)
 
 <a id="wireless-insite"></a>
 ## Wireless InSite
