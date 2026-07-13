@@ -1,0 +1,20 @@
+kind: paper
+id: csi-mae
+short_name: CSI-MAE
+title: "CSI-MAE: A Masked Autoencoder-based Channel Foundation Model"
+authors: [Jun Jiang, Xiaolong Ruan, Shugong Xu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.03789
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation, csi-feedback, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

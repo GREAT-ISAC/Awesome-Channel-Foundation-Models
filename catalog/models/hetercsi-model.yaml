@@ -1,0 +1,14 @@
+kind: model
+id: hetercsi-model
+name: HeterCSI
+description: Author-published HeterCSI model card and files for heterogeneous CSI pretraining.
+scope: core-cfm
+links:
+  - {label: Official Hugging Face repository, url: https://huggingface.co/Chenyu8998/HeterCSI, provenance: official, availability: available, license: Apache-2.0}
+license: Apache-2.0
+related_papers: [hetercsi]
+last_verified: "2026-07-13"
+framework: PyTorch
+modalities: [csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation]
+access: open

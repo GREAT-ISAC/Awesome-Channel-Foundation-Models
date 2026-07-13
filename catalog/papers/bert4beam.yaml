@@ -1,0 +1,20 @@
+kind: paper
+id: bert4beam
+short_name: UBERT / BERT4beam
+title: "BERT4beam: Large AI Model Enabled Generalized Beamforming Optimization"
+authors: [Yuhang Li, Yang Lu, Wei Chen, Bo Ai, Zhiguo Ding, Dusit Niyato]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2509.11056
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [beamforming]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

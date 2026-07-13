@@ -1,0 +1,22 @@
+kind: paper
+id: 6g-native-ai-cfm
+short_name: 6G Native AI and CFM
+title: 6G Native AI and Channel Foundation Models
+authors: [Shugong Xu, Jun Jiang]
+year: 2026
+venue: ZTE Technology Journal
+paper_url: docs/6G Native AI and Channel Foundation Models.pdf
+local_url: docs/6G Native AI and Channel Foundation Models.pdf
+scope: core-cfm
+stages: [survey]
+objectives: []
+modalities: [csi]
+tasks: []
+summary: A position paper connecting channel foundation models with the requirements of 6G native AI.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

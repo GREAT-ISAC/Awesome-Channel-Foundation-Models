@@ -1,0 +1,21 @@
+kind: paper
+id: towards-cfm
+short_name: Towards CFMs
+title: "Towards channel foundation models (CFMs): Motivations, methodologies and opportunities"
+authors: [Jun Jiang, Yuan Gao, Xinyi Wu, Shugong Xu]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2507.13637
+scope: core-cfm
+stages: [survey]
+objectives: []
+modalities: [csi]
+tasks: []
+summary: Introduces the CFM concept and surveys motivations, methodologies, and research opportunities.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

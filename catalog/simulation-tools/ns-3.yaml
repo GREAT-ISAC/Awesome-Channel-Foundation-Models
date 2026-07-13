@@ -1,0 +1,13 @@
+kind: simulation-tool
+id: ns-3
+name: ns-3
+description: A discrete-event network simulator used for open, reproducible communication-system and protocol experiments.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official project site, url: https://www.nsnam.org/, provenance: official, availability: available, license: GPL-2.0-only}
+license: GPL-2.0-only
+related_papers: []
+last_verified: "2026-07-13"
+tool_type: system
+access: open
+capabilities: [network-simulation, protocol-modeling, system-level-simulation]

@@ -1,0 +1,14 @@
+kind: model
+id: lwm-spectro-model
+name: LWM-Spectro
+description: Official LWM-Spectro model repository for baseband signal spectrogram representations.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official Hugging Face repository, url: https://huggingface.co/wi-lab/lwm-spectro, provenance: official, availability: available, license: License not stated}
+license: License not stated
+related_papers: [lwm-spectro]
+last_verified: "2026-07-13"
+framework: PyTorch
+modalities: [spectrogram]
+tasks: [modulation-classification, snr-doppler-classification]
+access: open

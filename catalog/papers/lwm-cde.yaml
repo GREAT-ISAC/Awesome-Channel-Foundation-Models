@@ -1,0 +1,24 @@
+kind: paper
+id: lwm-cde
+short_name: LWM-CDE
+title: "LWM-CDE: A Representation Space for Wireless Data Reasoning and Transferability"
+authors: [Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.24077
+scope: related-method
+stages: [adaptation]
+objectives: [contrastive-alignment]
+modalities: [csi]
+tasks: [los-nlos-identification, beam-prediction]
+summary: Learns dataset-level embeddings over LWM representations to reason about transferability.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models:
+    status: available
+    items:
+      - {label: LWM base checkpoint, ref: lwm-model, provenance: official, availability: available, license: MIT}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

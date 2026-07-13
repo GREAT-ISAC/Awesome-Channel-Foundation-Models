@@ -1,0 +1,20 @@
+kind: paper
+id: unified-wireless-technology-fm
+short_name: M. Cheraghinia et al.
+title: A Unified Foundation Model for Wireless Technology Recognition and Localization
+authors: [Mohammad Cheraghinia, Eli De Poorter, Jaron Fontaine, Merouane Debbah, Adnan Shahid]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2505.19390
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [cir, iq]
+tasks: [wireless-technology-classification, los-nlos-identification, ranging-error-correction]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

@@ -1,0 +1,32 @@
+kind: paper
+id: lwm
+short_name: LWM
+title: "Large Wireless Model (LWM): A Foundation Model for Wireless Channels"
+authors: [Sadjad Alikhani, Gouranga Charan, Ahmed Alkhateeb]
+year: 2024
+venue: arXiv
+paper_url: https://arxiv.org/abs/2411.08872
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [robust-beamforming, los-nlos-identification, cross-band-beam-prediction]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official model repository, url: https://huggingface.co/wi-lab/lwm, provenance: official, availability: available, license: MIT}
+  datasets:
+    status: available
+    items:
+      - {label: DeepMIMO, ref: deepmimo, provenance: official, availability: available, license: Apache-2.0}
+  models:
+    status: available
+    items:
+      - {label: LWM checkpoint, ref: lwm-model, provenance: official, availability: available, license: MIT}
+  benchmarks:
+    status: available
+    items:
+      - {label: LWM Challenge, ref: lwm-2025-challenge, provenance: official, availability: available, license: Challenge-specific terms}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

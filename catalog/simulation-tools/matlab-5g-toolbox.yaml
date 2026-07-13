@@ -1,0 +1,13 @@
+kind: simulation-tool
+id: matlab-5g-toolbox
+name: MATLAB 5G Toolbox
+description: Commercial 5G waveform, link-level, channel-modeling, and conformance-test functionality from MathWorks.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official documentation, url: https://www.mathworks.com/help/5g/index.html, provenance: official, availability: restricted, license: Proprietary commercial license}
+license: Proprietary commercial license
+related_papers: []
+last_verified: "2026-07-13"
+tool_type: commercial
+access: restricted
+capabilities: [waveform-generation, channel-modeling, link-level-simulation, conformance-testing]

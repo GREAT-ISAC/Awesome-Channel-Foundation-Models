@@ -1,0 +1,20 @@
+kind: paper
+id: multimodal-ai-6g
+short_name: T. Jiao et al.
+title: "Addressing the Curse of Scenario and Task Generalization in AI-6G: A Multi-Modal Paradigm"
+authors: [Tianyu Jiao, Zhuoran Xiao, Yin Xu, Chenhui Ye, Yihang Huang, Zhiyong Chen, Liyu Cai, Jiang Chang, Dazhi He, Yunfeng Guan, Guangyi Liu, Wenjun Zhang]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2504.04797
+scope: core-cfm
+stages: [pretraining]
+objectives: [contrastive-alignment, supervised-multitask, hybrid]
+modalities: [csi, environment]
+tasks: [csi-feedback, positioning, beam-prediction, los-nlos-identification]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

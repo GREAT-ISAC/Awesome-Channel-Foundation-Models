@@ -1,0 +1,30 @@
+kind: paper
+id: laetwin-xl
+short_name: LAETwin-XL
+title: Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO
+authors: [Mengyuan Li, Yu Han, Jiachen Tian, Chao-Kai Wen, Shi Jin]
+year: 2026
+venue: IEEE Journal of Selected Topics in Signal Processing
+paper_url: https://ieeexplore.ieee.org/document/11570058
+scope: core-cfm
+stages: [pretraining]
+objectives: [autoregressive-generative]
+modalities: [csi]
+tasks: [channel-estimation, channel-extrapolation, near-far-field-classification, positioning]
+summary: Uses conditional diffusion pretraining over incomplete channel observations in a digital-twin toolchain.
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/Lmyxxn/LAETwin-XL, provenance: official, availability: available, license: License not stated}
+  datasets:
+    status: available
+    items:
+      - {label: LAETwin-XL datasets, ref: laetwin-xl-dataset, provenance: official, availability: available, license: Dataset-specific terms}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools:
+    status: available
+    items:
+      - {label: LAETwin-XL toolchain, ref: laetwin-xl-toolchain, provenance: official, availability: available, license: License not stated}
+last_verified: "2026-07-13"

@@ -1,0 +1,21 @@
+kind: paper
+id: spikewfm
+short_name: SpikeWFM
+title: "SpikeWFM: Spiking-Aided Wireless Foundation Model for Robust Channel Prediction"
+authors: [Liwen Jing, Yisha Lu, Tingting Yang, Li Sun, Yuxuan Shi, Yuwei Wang, Mengfan Zheng, Leiyang Xu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.00120
+scope: core-cfm
+stages: [backbone]
+objectives: []
+modalities: [csi]
+tasks: [time-channel-extrapolation]
+summary: A spiking-aided hybrid SNN-ANN architecture for robust channel prediction.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

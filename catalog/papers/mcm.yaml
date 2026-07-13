@@ -1,0 +1,20 @@
+kind: paper
+id: mcm
+short_name: MCM
+title: Scalable Pre-Trained Masked Channel Model of Wireless Communications
+authors: [Jianhua Guo, Zhongsheng Deng, Zhen Qiao, Junkai Zhang, Jiang Xue, Dusit Niyato, Zongben Xu]
+year: 2026
+venue: IEEE Transactions on Communications
+paper_url: https://ieeexplore.ieee.org/abstract/document/11442291
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [time-channel-extrapolation, channel-estimation, csi-feedback]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

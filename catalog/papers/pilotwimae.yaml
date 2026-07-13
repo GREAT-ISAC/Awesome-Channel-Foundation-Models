@@ -1,0 +1,35 @@
+kind: paper
+id: pilotwimae
+short_name: PilotWiMAE
+title: "PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels"
+authors: [Berkay Guler, Giovanni Geraci, Hamid Jafarkhani]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.22856
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [pilot-observations, csi]
+tasks: [beam-prediction, los-nlos-identification, channel-estimation]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/BerkIGuler/PilotWiMAE, provenance: official, availability: available, license: License not stated}
+  datasets:
+    status: available
+    items:
+      - {label: PilotWiMAE channel data, ref: pilotwimae-channels, provenance: official, availability: available, license: License not stated}
+  models:
+    status: available
+    items:
+      - {label: PilotWiMAE weights, ref: pilotwimae-model, provenance: official, availability: available, license: License not stated}
+  benchmarks:
+    status: available
+    items:
+      - {label: PilotWiMAE evaluation, ref: pilotwimae-evaluation, provenance: official, availability: available, license: License not stated}
+  simulation_tools:
+    status: available
+    items:
+      - {label: CSIGen, ref: csigen, provenance: official, availability: available, license: License not stated}
+last_verified: "2026-07-13"

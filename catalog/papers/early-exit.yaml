@@ -1,0 +1,21 @@
+kind: paper
+id: early-exit
+short_name: Early-Exit
+title: Fast Wireless Foundation Models with Early-Exits
+authors: [Omar Mashaal, Hatem Abou-Zeid]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.29640
+scope: related-method
+stages: [inference-deployment]
+objectives: []
+modalities: [iq]
+tasks: [rf-fingerprinting, beam-prediction, modulation-classification, interference-classification, aoa-estimation]
+summary: Attaches lightweight task heads to intermediate stages of frozen wireless foundation-model encoders.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

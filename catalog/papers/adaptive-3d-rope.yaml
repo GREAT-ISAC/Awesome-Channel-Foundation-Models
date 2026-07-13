@@ -1,0 +1,20 @@
+kind: paper
+id: adaptive-3d-rope
+short_name: Adaptive 3D-RoPE
+title: "Adaptive 3D-RoPE: Physics-Aligned Rotary Positional Encoding for Wireless Foundation Models"
+authors: [Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.00968
+scope: related-method
+stages: [backbone]
+objectives: []
+modalities: [csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation, channel-reconstruction]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

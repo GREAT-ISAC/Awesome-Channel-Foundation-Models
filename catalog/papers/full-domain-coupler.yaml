@@ -1,0 +1,34 @@
+kind: paper
+id: full-domain-coupler
+short_name: Full-Domain Coupler
+title: "Full-Domain Coupler: A Wireless Native Neural Backbone for Channel Representation and Deduction"
+authors: [Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.22038
+scope: core-cfm
+stages: [backbone]
+objectives: []
+modalities: [csi, cir]
+tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]
+summary: A backbone for full-domain time-space-frequency channel coupling and representation learning.
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/XIronMan0220/Coupler-Channel-Deduction, provenance: official, availability: available, license: License not stated}
+  datasets:
+    status: available
+    items:
+      - {label: DeepMIMO, ref: deepmimo, provenance: official, availability: available, license: Apache-2.0}
+      - {label: DICHASUS, ref: dichasus, provenance: official, availability: available, license: Dataset-specific terms}
+  models:
+    status: available
+    items:
+      - {label: Released checkpoints, ref: coupler-checkpoints, provenance: official, availability: available, license: License not stated}
+  benchmarks:
+    status: available
+    items:
+      - {label: Channel deduction evaluation, ref: coupler-channel-deduction, provenance: official, availability: available, license: License not stated}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

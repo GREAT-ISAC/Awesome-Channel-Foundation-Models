@@ -1,0 +1,21 @@
+kind: paper
+id: rafc
+short_name: RAFC
+title: A Unified Adaptive Feature Composition Framework for Multi-Task Generalization in Wireless Foundation Models
+authors: [Yuxuan Shi, Tingting Yang, Kangning Ma, Liwen Jing, Yuwei Wang, Mengfan Zheng, Li Sun]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.10277
+scope: related-method
+stages: [adaptation]
+objectives: []
+modalities: [csi]
+tasks: [channel-estimation, time-channel-extrapolation, beam-prediction, positioning]
+summary: A lightweight feature-composition framework for adapting pretrained representations to multiple downstream tasks.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

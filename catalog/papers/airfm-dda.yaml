@@ -1,0 +1,21 @@
+kind: paper
+id: airfm-dda
+short_name: AirFM-DDA
+title: "AirFM-DDA: Air-Interface Foundation Model in the Delay–Doppler–Angle Domain for AI-Native 6G"
+authors: [Kejia Bian, Meixia Tao, Jianhua Mo, Zhiyong Chen, Leyan Chen]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.00020
+scope: core-cfm
+stages: [backbone, pretraining]
+objectives: [masked-reconstruction]
+modalities: [delay-doppler-angle]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation, channel-estimation]
+summary: A DDA-domain architecture with window attention and frame-structure-aware positional encoding.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

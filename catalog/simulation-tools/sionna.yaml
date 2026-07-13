@@ -1,0 +1,13 @@
+kind: simulation-tool
+id: sionna
+name: Sionna
+description: An open-source GPU-accelerated library for link-level simulation, ray tracing, and differentiable wireless system research.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official repository, url: https://github.com/NVlabs/sionna, provenance: official, availability: available, license: Apache-2.0}
+license: Apache-2.0
+related_papers: [laetwin-xl, pilotwimae]
+last_verified: "2026-07-13"
+tool_type: ray-tracing
+access: open
+capabilities: [ray-tracing, link-level-simulation, system-level-simulation, differentiable-modeling]

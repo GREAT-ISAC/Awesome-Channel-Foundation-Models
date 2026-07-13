@@ -1,0 +1,13 @@
+kind: simulation-tool
+id: wireless-insite
+name: Wireless InSite
+description: Commercial site-specific radio-propagation and three-dimensional ray-tracing software from Remcom.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official product page, url: https://www.remcom.com/wireless-insite-propagation-software, provenance: official, availability: restricted, license: Proprietary commercial license}
+license: Proprietary commercial license
+related_papers: []
+last_verified: "2026-07-13"
+tool_type: commercial
+access: restricted
+capabilities: [ray-tracing, propagation-modeling, site-specific-simulation, mimo]

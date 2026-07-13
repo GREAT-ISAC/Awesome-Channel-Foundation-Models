@@ -1,0 +1,23 @@
+kind: paper
+id: lwlm
+short_name: LWLM
+title: "Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks"
+authors: [Guangjin Pan, Kaixuan Huang, Hui Chen, Shunqing Zhang, Christian Häger, Henk Wymeersch]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2505.10134
+scope: core-cfm
+stages: [pretraining]
+objectives: [hybrid]
+modalities: [csi]
+tasks: [toa-estimation, aoa-estimation, positioning]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/6G-DISAC-SNS/LWLM, provenance: official, availability: available, license: License not stated}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

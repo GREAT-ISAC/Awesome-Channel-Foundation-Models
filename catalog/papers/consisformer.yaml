@@ -1,0 +1,21 @@
+kind: paper
+id: consisformer
+short_name: ConsisFormer
+title: "ConsisFormer: Compute-Efficient Transformer for Wireless Foundation Models Based on Channel Consistency"
+authors: [Yuwei Wang, Li Sun, Tingting Yang, Liwen Jing, Yuxuan Shi, Maged Elkashlan, Mérouane Debbah]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.19953
+scope: core-cfm
+stages: [backbone, pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [los-nlos-identification, frequency-channel-extrapolation, positioning, beam-prediction]
+summary: A compute-efficient WFM backbone using channel-consistency-aware token aggregation and feature recovery.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

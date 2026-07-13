@@ -1,0 +1,20 @@
+kind: paper
+id: radio-fm-indoor-localization
+short_name: J. Ott et al.
+title: "Radio Foundation Models: Pre-training Transformers for 5G-based Indoor Localization"
+authors: [Jonathan Ott, Jonas Pirkl, Maximilian Stahlke, Tobias Feigl, Christopher Mutschler]
+year: 2024
+venue: arXiv
+paper_url: https://arxiv.org/abs/2410.00617
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

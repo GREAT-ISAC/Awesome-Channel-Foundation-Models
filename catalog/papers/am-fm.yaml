@@ -1,0 +1,20 @@
+kind: paper
+id: am-fm
+short_name: AM-FM
+title: "AM-FM: A Foundation Model for Ambient Intelligence Through WiFi"
+authors: [Guozhen Zhu, Yuqian Hu, Sakila Jayaweera, Weihang Gao, Wei-Hsiang Wang, Jiaxuan Zhang, Beibei Wang, Chenshu Wu, K. J. Ray Liu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2602.11200
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+modalities: [csi]
+tasks: [fall-detection, human-activity-recognition, gesture-recognition, user-identification, positioning, motion-source-recognition, occupancy-detection, proximity-estimation, wifi-imaging]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-released, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

@@ -1,0 +1,21 @@
+kind: paper
+id: ra-lwlm
+short_name: RA-LWLM
+title: "RA-LWLM: Retrieval-Augmented In-Context Localization with Wireless Foundation Models"
+authors: [Guangjin Pan, Hui Chen, Hei Victor Cheng, Henk Wymeersch]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.01899
+scope: related-method
+stages: [adaptation]
+objectives: []
+modalities: [csi]
+tasks: [positioning]
+summary: Combines LWLM representations with retrieval-augmented in-context localization.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

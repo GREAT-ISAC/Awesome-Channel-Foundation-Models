@@ -1,0 +1,13 @@
+kind: simulation-tool
+id: quadriga
+name: QuaDRiGa
+description: A geometry-based stochastic radio-channel model supporting multi-link, multi-antenna, and mobility simulations.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official project site, url: https://quadriga-channel-model.de/, provenance: official, availability: available, license: QuaDRiGa license}
+license: QuaDRiGa license; non-commercial scientific, educational, and standardization use
+related_papers: []
+last_verified: "2026-07-13"
+tool_type: channel
+access: open
+capabilities: [channel-modeling, mobility, mimo, multi-link-simulation]

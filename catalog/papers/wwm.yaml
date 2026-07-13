@@ -1,0 +1,20 @@
+kind: paper
+id: wwm
+short_name: WWM
+title: A Wireless World Model for AI-Native 6G Networks
+authors: [Ziqi Chen, Yi Ren, Yixuan Huang, Qi Sun, Nan Li, Yuhong Huang, Chih-Lin I, Yifan Li, Liang Xia]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2603.25216
+scope: core-cfm
+stages: [pretraining]
+objectives: [predictive-latent]
+modalities: [csi, point-cloud, trajectory]
+tasks: [beam-prediction, positioning, time-channel-extrapolation, frequency-channel-extrapolation, csi-feedback]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

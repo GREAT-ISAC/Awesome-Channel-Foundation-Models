@@ -1,0 +1,20 @@
+kind: paper
+id: csi2vec
+short_name: CSI2Vec
+title: "CSI2Vec: Towards a Universal CSI Feature Representation for Positioning and Channel Charting"
+authors: [Victoria Palhares, Sueda Taner, Christoph Studer]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2506.05237
+scope: core-cfm
+stages: [pretraining]
+objectives: [contrastive-alignment]
+modalities: [csi]
+tasks: [positioning, channel-charting]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

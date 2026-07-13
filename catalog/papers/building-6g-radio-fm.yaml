@@ -1,0 +1,20 @@
+kind: paper
+id: building-6g-radio-fm
+short_name: A. Aboulfotouh et al.
+title: Building 6G Radio Foundation Models with Transformer Architectures
+authors: [Ahmed Aboulfotouh, Ashkan Eshaghbeigi, Hatem Abou-Zeid]
+year: 2024
+venue: arXiv
+paper_url: https://arxiv.org/abs/2411.09996
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [spectrogram]
+tasks: [human-activity-sensing, spectrogram-segmentation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

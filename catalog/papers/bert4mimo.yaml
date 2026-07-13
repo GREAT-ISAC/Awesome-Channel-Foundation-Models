@@ -1,0 +1,20 @@
+kind: paper
+id: bert4mimo
+short_name: BERT4MIMO
+title: "BERT4MIMO: A Foundation Model using BERT Architecture for Massive MIMO Channel State Information Prediction"
+authors: [Ferhat Ozgur Catak, Murat Kuzlu, Umit Cali]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2501.01802
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [channel-reconstruction]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

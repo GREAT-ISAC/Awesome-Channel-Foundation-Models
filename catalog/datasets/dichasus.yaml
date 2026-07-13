@@ -1,0 +1,14 @@
+kind: dataset
+id: dichasus
+name: DICHASUS
+description: Measured distributed massive-MIMO channel datasets published by the University of Stuttgart for channel learning and localization research.
+scope: core-cfm
+links:
+  - {label: Official dataset portal, url: https://dichasus.inue.uni-stuttgart.de/datasets/, provenance: official, availability: available, license: Dataset-specific terms}
+license: Dataset-specific terms; consult each dataset page
+related_papers: [full-domain-coupler]
+last_verified: "2026-07-13"
+modalities: [csi]
+data_origin: measured
+access: open
+tasks: [channel-deduction, positioning]

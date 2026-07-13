@@ -1,0 +1,20 @@
+kind: paper
+id: 6g-wavesfm
+short_name: 6G WavesFM
+title: "6G WavesFM: A Foundation Model for Sensing, Communication, and Localization"
+authors: [Ahmed Aboulfotouh, Elsayed Mohammed, Hatem Abou-Zeid]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2504.14100
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [hybrid]
+modalities: [csi, iq, spectrogram, resource-grid]
+tasks: [positioning, channel-estimation, rf-signal-classification, human-activity-sensing]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

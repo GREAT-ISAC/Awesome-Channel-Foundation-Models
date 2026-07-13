@@ -1,0 +1,20 @@
+kind: paper
+id: contrawimae
+short_name: ContraWiMAE
+title: A Multi-Task Foundation Model for Wireless Channel Representation Using Contrastive and Masked Autoencoder Learning
+authors: [Berkay Guler, Giovanni Geraci, Hamid Jafarkhani]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2505.09160
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+modalities: [csi]
+tasks: [cross-frequency-beam-prediction, los-nlos-identification, channel-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

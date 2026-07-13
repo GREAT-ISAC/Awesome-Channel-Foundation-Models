@@ -1,0 +1,14 @@
+kind: benchmark
+id: lwm-2025-challenge
+name: LWM Challenge 2025
+description: An official competition and starter repository for comparing wireless representations on multiple downstream tasks.
+scope: core-cfm
+links:
+  - {label: Official challenge page, url: https://lwm-wireless.net/challenge, provenance: official, availability: available, license: Challenge-specific terms}
+  - {label: Official starter repository, url: https://huggingface.co/wi-lab/lwm-competition-2025, provenance: official, availability: available, license: Challenge-specific terms}
+license: Challenge-specific terms
+related_papers: [lwm]
+last_verified: "2026-07-13"
+tasks: [beam-prediction, los-nlos-identification, positioning, channel-prediction]
+datasets: [lwm-challenge]
+metrics: [Task-specific classification score, NMSE, Localization error]

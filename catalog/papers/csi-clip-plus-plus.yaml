@@ -1,0 +1,20 @@
+kind: paper
+id: csi-clip-plus-plus
+short_name: CSI-CLIP++
+title: "CSI-CLIP++: A Scalable Channel Foundation Model for Wireless Communication via CIR-CSI Consistency"
+authors: [Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.25714
+scope: core-cfm
+stages: [pretraining]
+objectives: [contrastive-alignment]
+modalities: [cir, csi]
+tasks: [los-nlos-identification, beam-prediction, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

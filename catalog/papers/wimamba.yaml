@@ -1,0 +1,26 @@
+kind: paper
+id: wimamba
+short_name: WiMamba
+title: "WiMamba: Linear-Scale Wireless Foundation Model"
+authors: [Tomer Raviv, Nir Shlezinger]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2603.26367
+scope: core-cfm
+stages: [backbone]
+objectives: []
+modalities: [csi]
+tasks: [los-nlos-identification, channel-interpolation, beam-prediction, positioning]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/tomerraviv95/mamba-lwm-project, provenance: official, availability: available, license: License not stated}
+  datasets:
+    status: available
+    items:
+      - {label: DeepMIMO, ref: deepmimo, provenance: official, availability: available, license: Apache-2.0}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

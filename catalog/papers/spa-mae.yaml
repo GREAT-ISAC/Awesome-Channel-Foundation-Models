@@ -1,0 +1,20 @@
+kind: paper
+id: spa-mae
+short_name: SPA-MAE
+title: "SPA-MAE: A Physics-Guided CSI Foundation Model for Wireless Physical Layer"
+authors: [Chen Chen, Weijie Jin, Hengtao He, Xiaoheng Sun, Shi Jin]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.19849
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+modalities: [csi]
+tasks: [channel-estimation, beam-prediction, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

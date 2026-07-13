@@ -1,0 +1,20 @@
+kind: paper
+id: wirelessgpt
+short_name: WirelessGPT
+title: "WirelessGPT: A Generative Pre-trained Multi-task Learning Framework for Wireless Communication"
+authors: [Tingting Yang, Ping Zhang, Mengfan Zheng, Yuxuan Shi, Liwen Jing, Jianbo Huang, Nan Li]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2502.06877
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [autoregressive-generative, supervised-multitask]
+modalities: [csi]
+tasks: [channel-estimation, time-channel-extrapolation, pose-recognition]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

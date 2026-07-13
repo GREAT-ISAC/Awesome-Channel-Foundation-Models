@@ -1,0 +1,20 @@
+kind: paper
+id: csi-clip
+short_name: CSI-CLIP
+title: A MIMO Wireless Channel Foundation Model via CIR-CSI Consistency
+authors: [Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu]
+year: 2025
+venue: IEEE International Conference on Machine Learning for Communication and Networking
+paper_url: https://arxiv.org/abs/2502.11965
+scope: core-cfm
+stages: [pretraining]
+objectives: [contrastive-alignment]
+modalities: [cir, csi]
+tasks: [los-nlos-identification, beam-prediction, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

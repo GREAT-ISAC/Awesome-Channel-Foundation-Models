@@ -1,0 +1,20 @@
+kind: paper
+id: wireless-multitask-prediction
+short_name: Y. Sheng et al.
+title: A Wireless Foundation Model for Multi-Task Prediction
+authors: [Yucheng Sheng, Jiacheng Wang, Xingyu Zhou, Le Liang, Hao Ye, Shi Jin, Geoffrey Ye Li]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2507.05938
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [autoregressive-generative, supervised-multitask]
+modalities: [csi, traffic-sequence]
+tasks: [time-channel-extrapolation, angle-prediction, traffic-prediction]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

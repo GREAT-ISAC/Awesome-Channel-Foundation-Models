@@ -57,6 +57,31 @@ DISPLAY = {
     "hybrid": "Hybrid Objectives",
 }
 
+ACRONYMS = {
+    "3d": "3D",
+    "5g": "5G",
+    "6g": "6G",
+    "aoa": "AoA",
+    "cir": "CIR",
+    "csi": "CSI",
+    "dda": "DDA",
+    "fm": "FM",
+    "gnss": "GNSS",
+    "iq": "IQ",
+    "los": "LOS",
+    "mae": "MAE",
+    "mimo": "MIMO",
+    "mmwave": "mmWave",
+    "nlos": "NLOS",
+    "nmse": "NMSE",
+    "rf": "RF",
+    "sinr": "SINR",
+    "snr": "SNR",
+    "toa": "ToA",
+    "wifi": "WiFi",
+    "xl": "XL",
+}
+
 ARTIFACT_LABELS = {
     "code": "Code",
     "datasets": "Data",
@@ -180,7 +205,9 @@ def validate_records(records: Sequence[Mapping[str, Any]]) -> None:
 
 
 def label(value: str) -> str:
-    return DISPLAY.get(value, value.replace("-", " ").replace("csi", "CSI").replace("iq", "IQ").title())
+    if value in DISPLAY:
+        return DISPLAY[value]
+    return " ".join(ACRONYMS.get(token, token.capitalize()) for token in value.split("-"))
 
 
 def markdown_link(text: str, target: str) -> str:
@@ -192,6 +219,13 @@ def paper_link(paper: Mapping[str, Any], prefix: str = "../") -> str:
     if url.startswith("docs/"):
         url = prefix + url
     return markdown_link(paper["short_name"], url)
+
+
+def full_paper_link(paper: Mapping[str, Any], prefix: str = "../") -> str:
+    url = paper["paper_url"]
+    if url.startswith("docs/"):
+        url = prefix + url
+    return markdown_link(paper["title"], url)
 
 
 def artifact_cell(paper: Mapping[str, Any], slot_name: str) -> str:
@@ -254,8 +288,32 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
                 artifact_cell(paper, "datasets"),
                 artifact_cell(paper, "models"),
                 artifact_cell(paper, "benchmarks"),
+                artifact_cell(paper, "simulation_tools"),
             ]
         )
+    details = ["## Paper records"]
+    for paper in papers:
+        details.extend(
+            [
+                f"### {paper['short_name']} ({paper['year']})",
+                f"- **Paper:** {full_paper_link(paper)}",
+                f"- **Authors:** {', '.join(paper['authors'])}",
+                f"- **Venue:** {paper['venue']}",
+                f"- **Scope:** {label(paper['scope'])}",
+                f"- **Research stages:** {', '.join(label(item) for item in paper['stages'])}",
+                f"- **Pretraining objectives:** {', '.join(label(item) for item in paper['objectives']) or 'Not applicable'}",
+                f"- **Modalities:** {', '.join(label(item) for item in paper['modalities']) or 'Not specified'}",
+                f"- **Downstream tasks:** {', '.join(label(item) for item in paper['tasks']) or 'Not specified'}",
+                "- **Resources:** "
+                + "; ".join(
+                    f"{ARTIFACT_LABELS[name]} — {artifact_cell(paper, name)}"
+                    for name in ARTIFACT_LABELS
+                ),
+                f"- **Last verified:** {paper['last_verified']}",
+            ]
+        )
+        if paper.get("summary"):
+            details.append(f"- **Note:** {paper['summary']}")
     sections = [
         generated_header(
             "CFM Papers",
@@ -263,9 +321,10 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
         ),
         "## Master catalog\n\n"
         + make_table(
-            ["Paper", "Year", "Scope", "Stage", "Modality", "Objective", "Tasks", "Code", "Data", "Weights", "Benchmark"],
+            ["Paper", "Year", "Scope", "Stage", "Modality", "Objective", "Tasks", "Code", "Data", "Weights", "Benchmark", "Simulator"],
             rows,
         ),
+        "\n\n".join(details),
         grouped_paper_view(papers, "stages", "Browse by research stage"),
         grouped_paper_view(papers, "objectives", "Browse by pretraining objective"),
         grouped_paper_view(papers, "modalities", "Browse by modality"),
@@ -296,7 +355,11 @@ def first_available_link(record: Mapping[str, Any]) -> str:
     return record["name"]
 
 
-def render_resources(kind: str, records: Sequence[Mapping[str, Any]]) -> str:
+def render_resources(
+    kind: str,
+    records: Sequence[Mapping[str, Any]],
+    all_records: Sequence[Mapping[str, Any]],
+) -> str:
     config = {
         "dataset": (
             "Datasets",
@@ -320,8 +383,8 @@ def render_resources(kind: str, records: Sequence[Mapping[str, Any]]) -> str:
         ),
     }
     title, intro, headers = config[kind]
-    by_id = {record["id"]: record for record in records}
-    papers = {record["id"]: record for record in load_records() if record.get("kind") == "paper"}
+    by_id = {record["id"]: record for record in all_records}
+    papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
     rows = []
     for record in sorted(records, key=lambda item: item["name"].lower()):
         name = f"<a id=\"{record['id']}\"></a>{first_available_link(record)}"
@@ -401,10 +464,10 @@ def render_outputs(records: Sequence[Mapping[str, Any]]) -> Dict[Path, str]:
     return {
         OUTPUTS["readme"]: render_readme(records),
         OUTPUTS["paper"]: render_papers(by_kind["paper"]),
-        OUTPUTS["dataset"]: render_resources("dataset", by_kind["dataset"]),
-        OUTPUTS["model"]: render_resources("model", by_kind["model"]),
-        OUTPUTS["benchmark"]: render_resources("benchmark", by_kind["benchmark"]),
-        OUTPUTS["simulation-tool"]: render_resources("simulation-tool", by_kind["simulation-tool"]),
+        OUTPUTS["dataset"]: render_resources("dataset", by_kind["dataset"], records),
+        OUTPUTS["model"]: render_resources("model", by_kind["model"], records),
+        OUTPUTS["benchmark"]: render_resources("benchmark", by_kind["benchmark"], records),
+        OUTPUTS["simulation-tool"]: render_resources("simulation-tool", by_kind["simulation-tool"], records),
     }
 
 

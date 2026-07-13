@@ -1,0 +1,20 @@
+kind: paper
+id: wifo-cf
+short_name: WiFo-CF
+title: "WiFo-CF: Wireless Foundation Model for CSI Feedback"
+authors: [Xuanyu Liu, Shijian Gao, Boxun Liu, Xiang Cheng, Liuqing Yang]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2508.04068
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [csi-feedback, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

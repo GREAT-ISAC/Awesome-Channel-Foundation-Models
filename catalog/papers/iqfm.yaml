@@ -1,0 +1,20 @@
+kind: paper
+id: iqfm
+short_name: IQFM
+title: "IQFM: A Wireless Foundational Model for IQ Streams in AI-Native 6G"
+authors: [Omar Mashaal, Hatem Abou-Zeid]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2506.06718
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [contrastive-alignment]
+modalities: [iq]
+tasks: [modulation-classification, aoa-estimation, beam-prediction, rf-fingerprinting]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

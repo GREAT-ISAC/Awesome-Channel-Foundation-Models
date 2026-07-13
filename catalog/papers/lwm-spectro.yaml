@@ -1,0 +1,26 @@
+kind: paper
+id: lwm-spectro
+short_name: LWM-Spectro
+title: "LWM-Spectro: A Foundation Model for Wireless Baseband Signal Spectrograms"
+authors: [Namhyun Kim, Sadjad Alikhani, Ahmed Alkhateeb]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.08780
+scope: broader-wireless-radio-fm
+stages: [pretraining]
+objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+modalities: [spectrogram]
+tasks: [modulation-classification, snr-doppler-classification]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official model repository, url: https://huggingface.co/wi-lab/lwm-spectro, provenance: official, availability: available, license: License not stated}
+  datasets: {status: not-found, items: []}
+  models:
+    status: available
+    items:
+      - {label: LWM-Spectro checkpoint, ref: lwm-spectro-model, provenance: official, availability: available, license: License not stated}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

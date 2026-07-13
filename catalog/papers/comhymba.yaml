@@ -1,0 +1,20 @@
+kind: paper
+id: comhymba
+short_name: ComHymba
+title: "ComHymba: Low-Complexity Domain-Informed Foundation Model for Wireless Communications"
+authors: [Bowen Yang, Wei Chen, Jiaming Cheng, Bo Ai]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.23468
+scope: core-cfm
+stages: [backbone, pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [channel-reconstruction, positioning, path-loss-prediction, beam-prediction, los-nlos-identification]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

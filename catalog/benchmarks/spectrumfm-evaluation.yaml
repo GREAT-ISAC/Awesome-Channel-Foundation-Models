@@ -1,0 +1,13 @@
+kind: benchmark
+id: spectrumfm-evaluation
+name: SpectrumFM Evaluation Project
+description: The authors' training and evaluation project for spectrum sensing, anomaly detection, and wireless technology classification.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official repository, url: https://github.com/ChunyuLiu188/SpectrumFM, provenance: official, availability: available, license: License not stated}
+license: License not stated
+related_papers: [spectrumfm]
+last_verified: "2026-07-13"
+tasks: [spectrum-sensing, anomaly-detection, wireless-technology-classification]
+datasets: []
+metrics: [Accuracy, AUROC]

@@ -1,0 +1,23 @@
+kind: paper
+id: hetercsi
+short_name: HeterCSI
+title: "HeterCSI: Channel-Adaptive Heterogeneous CSI Pretraining Framework for Generalized Wireless Foundation Models"
+authors: [Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui, Xiaofeng Tao]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.18200
+scope: core-cfm
+stages: [pretraining]
+objectives: [masked-reconstruction]
+modalities: [csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models:
+    status: available
+    items:
+      - {label: HeterCSI model card, ref: hetercsi-model, provenance: official, availability: available, license: Apache-2.0}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-13"

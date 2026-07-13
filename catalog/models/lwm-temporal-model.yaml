@@ -1,0 +1,14 @@
+kind: model
+id: lwm-temporal-model
+name: LWM-Temporal
+description: Official LWM-Temporal model repository for sparse spatio-temporal channel representation learning.
+scope: core-cfm
+links:
+  - {label: Official Hugging Face repository, url: https://huggingface.co/wi-lab/lwm-temporal, provenance: official, availability: available, license: License not stated}
+license: License not stated
+related_papers: [lwm-temporal]
+last_verified: "2026-07-13"
+framework: PyTorch
+modalities: [csi]
+tasks: [time-channel-extrapolation]
+access: open
