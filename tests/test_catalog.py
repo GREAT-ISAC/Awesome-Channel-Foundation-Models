@@ -107,8 +107,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_paper_page_has_one_hierarchical_entry_per_paper(self):
         papers = [record for record in self.records if record["kind"] == "paper"]
-        models = [record for record in self.records if record["kind"] == "model"]
-        rendered = catalog.render_papers(papers, models, self.records)
+        rendered = catalog.render_papers(papers, self.records)
         for paper in papers:
             with self.subTest(paper=paper["id"]):
                 self.assertEqual(rendered.count(f'<a id="{paper["id"]}"></a>'), 1)
@@ -124,20 +123,30 @@ class CatalogTests(unittest.TestCase):
             "### Hybrid Objectives",
             "## Adaptation & Transfer",
             "## Inference & Deployment",
-            "## Pretrained Models",
         ):
             self.assertIn(heading, rendered)
 
-    def test_models_and_benchmarks_are_merged_into_parent_pages(self):
+    def test_models_and_benchmarks_are_embedded_without_public_sections(self):
         outputs = catalog.render_outputs(self.records)
         paper_page = outputs[catalog.OUTPUTS["paper"]]
         dataset_page = outputs[catalog.OUTPUTS["dataset"]]
-        for model in (record for record in self.records if record["kind"] == "model"):
-            self.assertEqual(paper_page.count(f'<a id="{model["id"]}"></a>'), 1)
+        by_id = {record["id"]: record for record in self.records}
+        for paper in (record for record in self.records if record["kind"] == "paper"):
+            for slot_name in ("models", "benchmarks"):
+                for item in paper["artifacts"][slot_name]["items"]:
+                    if "ref" in item:
+                        self.assertIn(catalog.primary_resource_url(by_id[item["ref"]]), paper_page)
         for benchmark in (record for record in self.records if record["kind"] == "benchmark"):
-            self.assertEqual(dataset_page.count(f'<a id="{benchmark["id"]}"></a>'), 1)
-        self.assertIn("## Benchmark Projects", dataset_page)
+            if benchmark["datasets"]:
+                self.assertIn(catalog.primary_resource_url(benchmark), dataset_page)
+            self.assertNotIn(f'<a id="{benchmark["id"]}"></a>', dataset_page)
+        for model in (record for record in self.records if record["kind"] == "model"):
+            self.assertNotIn(f'<a id="{model["id"]}"></a>', paper_page)
+        self.assertNotIn("## Pretrained Models", paper_page)
+        self.assertNotIn("## Benchmark Projects", dataset_page)
         homepage = outputs[catalog.OUTPUTS["readme"]]
+        self.assertNotIn("Pretrained Models", homepage)
+        self.assertNotIn("Benchmark Projects", homepage)
         self.assertNotIn("models/README.md", homepage)
         self.assertNotIn("benchmarks/README.md", homepage)
         self.assertFalse((ROOT / "models" / "README.md").exists())

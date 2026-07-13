@@ -236,24 +236,43 @@ def qualified_link(item: Mapping[str, Any], target: Optional[str] = None) -> str
     return markdown_link(text, target or item["url"])
 
 
-def available_artifacts(paper: Mapping[str, Any]) -> List[str]:
+def primary_resource_url(record: Mapping[str, Any]) -> str:
+    for link in record["links"]:
+        if link["availability"] in {"available", "restricted"}:
+            return link["url"]
+    return record["links"][0]["url"]
+
+
+def available_artifacts(
+    paper: Mapping[str, Any], by_id: Mapping[str, Mapping[str, Any]]
+) -> List[str]:
     ref_targets = {
         "datasets": "../datasets/README.md#{}",
-        "models": "#{}",
-        "benchmarks": "../datasets/README.md#{}",
         "simulation_tools": "../simulation-tools/README.md#{}",
     }
-    links = []
+    by_target: Dict[str, Dict[str, Any]] = {}
     for slot_name, slot in paper["artifacts"].items():
         if slot["status"] not in {"available", "restricted"}:
             continue
-        item_links = []
         for item in slot["items"]:
-            target = item.get("url") or ref_targets[slot_name].format(item["ref"])
-            item_links.append(qualified_link(item, target))
-        if item_links:
-            links.append(f"**{ARTIFACT_LABELS[slot_name]}:** {', '.join(item_links)}")
-    return links
+            target = item.get("url")
+            if not target and slot_name in {"models", "benchmarks"}:
+                target = primary_resource_url(by_id[item["ref"]])
+            if not target:
+                target = ref_targets[slot_name].format(item["ref"])
+            group = by_target.setdefault(target, {"item": item, "types": []})
+            artifact_type = ARTIFACT_LABELS[slot_name]
+            if artifact_type not in group["types"]:
+                group["types"].append(artifact_type)
+
+    by_types: Dict[Tuple[str, ...], List[str]] = {}
+    for target, group in by_target.items():
+        types = tuple(group["types"])
+        by_types.setdefault(types, []).append(qualified_link(group["item"], target))
+    return [
+        f"**{' / '.join(types)}:** {', '.join(item_links)}"
+        for types, item_links in by_types.items()
+    ]
 
 
 def generated_header(title: str, intro: str) -> str:
@@ -265,7 +284,9 @@ def generated_header(title: str, intro: str) -> str:
     )
 
 
-def render_paper_entry(paper: Mapping[str, Any]) -> str:
+def render_paper_entry(
+    paper: Mapping[str, Any], by_id: Mapping[str, Mapping[str, Any]]
+) -> str:
     lines = [
         f'<a id="{paper["id"]}"></a>',
         f"- **{paper['short_name']}** — {full_paper_link(paper)} "
@@ -279,7 +300,7 @@ def render_paper_entry(paper: Mapping[str, Any]) -> str:
         profile.append(f"**Tasks:** {', '.join(label(item) for item in paper['tasks'])}")
     if profile:
         lines.append("  - " + " · ".join(profile))
-    resources = available_artifacts(paper)
+    resources = available_artifacts(paper, by_id)
     if resources:
         lines.append("  - " + " · ".join(resources))
     return "\n".join(lines)
@@ -294,10 +315,15 @@ def primary_objective(paper: Mapping[str, Any]) -> str:
     return objectives[0] if objectives else "objective-not-specified"
 
 
-def render_stage(title: str, anchor: str, papers: Sequence[Mapping[str, Any]]) -> str:
+def render_stage(
+    title: str,
+    anchor: str,
+    papers: Sequence[Mapping[str, Any]],
+    by_id: Mapping[str, Mapping[str, Any]],
+) -> str:
     chunks = [f'<a id="{anchor}"></a>\n## {title}']
     chunks.extend(
-        render_paper_entry(paper)
+        render_paper_entry(paper, by_id)
         for paper in sorted(
             papers,
             key=lambda item: (-item["year"], item["short_name"].lower()),
@@ -308,9 +334,9 @@ def render_stage(title: str, anchor: str, papers: Sequence[Mapping[str, Any]]) -
 
 def render_papers(
     papers: Sequence[Mapping[str, Any]],
-    models: Sequence[Mapping[str, Any]],
     all_records: Sequence[Mapping[str, Any]],
 ) -> str:
+    by_id = {record["id"]: record for record in all_records}
     by_stage: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
     for paper in papers:
         by_stage[paper["stages"][0]].append(paper)
@@ -331,10 +357,9 @@ def render_papers(
         "  - [Supervised/Multitask](#objective-supervised-multitask)\n"
         "  - [Hybrid](#objective-hybrid)\n"
         "- [Adaptation & Transfer](#adaptation)\n"
-        "- [Inference & Deployment](#inference-deployment)\n"
-        "- [Pretrained Models](#pretrained-models)",
-        render_stage(label("survey"), "surveys", by_stage["survey"]),
-        render_stage(label("backbone"), "backbones", by_stage["backbone"]),
+        "- [Inference & Deployment](#inference-deployment)",
+        render_stage(label("survey"), "surveys", by_stage["survey"], by_id),
+        render_stage(label("backbone"), "backbones", by_stage["backbone"], by_id),
     ]
 
     objective_order = [
@@ -360,40 +385,24 @@ def render_papers(
         heading = "Objective Not Specified" if objective == "objective-not-specified" else label(objective)
         pretraining.append(f'<a id="objective-{objective}"></a>\n### {heading}')
         pretraining.extend(
-            render_paper_entry(paper)
+            render_paper_entry(paper, by_id)
             for paper in sorted(
                 entries,
                 key=lambda item: (-item["year"], item["short_name"].lower()),
             )
         )
     sections.append("\n\n".join(pretraining))
-    sections.append(render_stage(label("adaptation"), "adaptation", by_stage["adaptation"]))
+    sections.append(
+        render_stage(label("adaptation"), "adaptation", by_stage["adaptation"], by_id)
+    )
     sections.append(
         render_stage(
             label("inference-deployment"),
             "inference-deployment",
             by_stage["inference-deployment"],
+            by_id,
         )
     )
-    if models:
-        by_id = {record["id"]: record for record in all_records}
-        papers_by_id = {paper["id"]: paper for paper in papers}
-        model_section = [
-            '<a id="pretrained-models"></a>\n## Pretrained Models',
-            "Released checkpoints and model cards are kept with the paper catalog. Weight links in paper entries point to these records.",
-        ]
-        model_section.extend(
-            render_resource_record(
-                "model",
-                model,
-                by_id,
-                papers_by_id,
-                heading_level=3,
-                paper_target="#{}",
-            )
-            for model in sorted(models, key=lambda item: item["name"].lower())
-        )
-        sections.append("\n\n".join(model_section))
     return "\n\n".join(sections).rstrip() + "\n"
 
 
@@ -415,11 +424,10 @@ def related_paper_links(
 def render_resource_record(
     kind: str,
     record: Mapping[str, Any],
-    by_id: Mapping[str, Mapping[str, Any]],
     papers: Mapping[str, Mapping[str, Any]],
     heading_level: int = 2,
     paper_target: str = "../papers/README.md#{}",
-    dataset_target: str = "../datasets/README.md#{}",
+    evaluations: Sequence[Mapping[str, Any]] = (),
 ) -> str:
     heading = "#" * heading_level
     lines = [
@@ -435,24 +443,18 @@ def render_resource_record(
         ]
         lines.append(f"- **Profile:** {' · '.join(item for item in profile if item)}")
         lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
-    elif kind == "model":
-        profile = [
-            record["framework"],
-            label(record["access"]),
-            ", ".join(label(item) for item in record["modalities"]),
-        ]
-        lines.append(f"- **Profile:** {' · '.join(item for item in profile if item)}")
-        lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
-    elif kind == "benchmark":
-        datasets = ", ".join(
-            markdown_link(by_id[item]["name"], dataset_target.format(item))
-            for item in record["datasets"]
-        )
-        lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
-        if datasets:
-            lines.append(f"- **Datasets:** {datasets}")
-        if record["metrics"]:
-            lines.append(f"- **Metrics:** {', '.join(record['metrics'])}")
+        if evaluations:
+            resource_urls = {item["url"] for item in record["links"]}
+            evaluation_labels = []
+            for item in evaluations:
+                url = primary_resource_url(item)
+                evaluation_labels.append(
+                    item["name"] if url in resource_urls else markdown_link(item["name"], url)
+                )
+            lines.append(
+                "- **Evaluation:** "
+                + " · ".join(evaluation_labels)
+            )
     else:
         lines.append(
             f"- **Profile:** {label(record['tool_type'])} · {label(record['access'])}"
@@ -467,49 +469,30 @@ def render_resource_record(
     return "\n".join(lines)
 
 
-def render_datasets_and_benchmarks(
+def render_datasets(
     datasets: Sequence[Mapping[str, Any]],
     benchmarks: Sequence[Mapping[str, Any]],
     all_records: Sequence[Mapping[str, Any]],
 ) -> str:
-    by_id = {record["id"]: record for record in all_records}
     papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
+    evaluations: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
+    for benchmark in benchmarks:
+        for dataset_id in benchmark["datasets"]:
+            evaluations[dataset_id].append(benchmark)
     sections = [
         generated_header(
-            "Datasets & Benchmark Projects",
-            "Datasets and their associated evaluation projects are presented together so tasks, data, and metrics can be followed in one place.",
+            "Datasets",
+            "Measured and simulated datasets relevant to CFM research. Existing evaluation projects are attached directly to the datasets they use.",
         ),
-        "## Contents\n\n"
-        "- [Datasets](#datasets)\n"
-        "- [Benchmark Projects](#benchmark-projects)",
-        '<a id="datasets"></a>\n## Datasets',
     ]
     sections.extend(
         render_resource_record(
             "dataset",
             record,
-            by_id,
             papers,
-            heading_level=3,
+            evaluations=evaluations[record["id"]],
         )
         for record in sorted(datasets, key=lambda item: item["name"].lower())
-    )
-    sections.extend(
-        [
-            '<a id="benchmark-projects"></a>\n## Benchmark Projects',
-            "These are existing external evaluation projects; this repository does not provide a new benchmark runner in v1.",
-        ]
-    )
-    sections.extend(
-        render_resource_record(
-            "benchmark",
-            record,
-            by_id,
-            papers,
-            heading_level=3,
-            dataset_target="#{}",
-        )
-        for record in sorted(benchmarks, key=lambda item: item["name"].lower())
     )
     return "\n\n".join(sections).rstrip() + "\n"
 
@@ -518,7 +501,6 @@ def render_simulation_tools(
     records: Sequence[Mapping[str, Any]],
     all_records: Sequence[Mapping[str, Any]],
 ) -> str:
-    by_id = {record["id"]: record for record in all_records}
     papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
     sections = [
         generated_header(
@@ -527,7 +509,7 @@ def render_simulation_tools(
         )
     ]
     sections.extend(
-        render_resource_record("simulation-tool", record, by_id, papers)
+        render_resource_record("simulation-tool", record, papers)
         for record in sorted(records, key=lambda item: item["name"].lower())
     )
     if not records:
@@ -545,8 +527,8 @@ def render_outputs(records: Sequence[Mapping[str, Any]]) -> Dict[Path, str]:
         by_kind[record["kind"]].append(record)
     return {
         OUTPUTS["readme"]: render_readme(records),
-        OUTPUTS["paper"]: render_papers(by_kind["paper"], by_kind["model"], records),
-        OUTPUTS["dataset"]: render_datasets_and_benchmarks(
+        OUTPUTS["paper"]: render_papers(by_kind["paper"], records),
+        OUTPUTS["dataset"]: render_datasets(
             by_kind["dataset"], by_kind["benchmark"], records
         ),
         OUTPUTS["simulation-tool"]: render_simulation_tools(

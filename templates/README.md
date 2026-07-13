@@ -8,15 +8,15 @@ A community-maintained catalog of **Channel Foundation Model (CFM)** research an
 
 | Browse | What you will find |
 |---|---|
-| [CFM papers & pretrained models](papers/README.md) | Research taxonomy with released checkpoints attached to their papers |
-| [Datasets & benchmark projects](datasets/README.md) | Measured and simulated data together with evaluation tasks and metrics |
+| [CFM papers](papers/README.md) | Research taxonomy with available code, data, weights, and evaluations attached to each paper |
+| [Datasets](datasets/README.md) | Measured and simulated data with associated evaluation links |
 | [Simulation tools](simulation-tools/README.md) | Channel, ray-tracing, and system-level simulation infrastructure |
 
 ## Organization
 
-The [papers page](papers/README.md) follows one reading path: **Surveys → Backbones → Pretraining Methods → Adaptation → Inference & Deployment → Pretrained Models**. Pretraining work is grouped by learning objective, and released weights remain connected to their source papers.
+The [papers page](papers/README.md) follows one reading path: **Surveys → Backbones → Pretraining Methods → Adaptation → Inference & Deployment**. Pretraining work is grouped by learning objective, while released code, data, weights, and evaluations remain attached directly to their source papers.
 
-The [datasets page](datasets/README.md) places benchmark projects after the datasets they evaluate, while simulation infrastructure remains in a separate [tools page](simulation-tools/README.md).
+The [datasets page](datasets/README.md) keeps evaluation links with the datasets they use, while simulation infrastructure remains in a separate [tools page](simulation-tools/README.md).
 
 The structured YAML records under [`catalog/`](catalog/) remain the source of truth for multidimensional metadata and maintenance checks. See the [taxonomy](docs/taxonomy.md) and [inclusion criteria](docs/inclusion-criteria.md) for curation policy.
 
