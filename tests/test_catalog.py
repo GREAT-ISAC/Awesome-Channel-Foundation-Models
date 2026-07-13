@@ -162,6 +162,7 @@ class CatalogTests(unittest.TestCase):
             "Reproducibility snapshot",
             "Last catalog verification",
             "## Scope",
+            "## Organization",
         ):
             self.assertNotIn(phrase, homepage)
         for phrase in ("Not found", "Not released", "**Scope:**", "Last verified", "Browse by"):
