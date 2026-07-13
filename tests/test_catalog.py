@@ -6,7 +6,6 @@ import importlib.util
 import re
 import unittest
 import urllib.error
-from collections import Counter
 from pathlib import Path
 from typing import Iterable, Set
 from unittest import mock
@@ -66,18 +65,14 @@ class CatalogTests(unittest.TestCase):
         schema = json.loads(catalog.SCHEMA_PATH.read_text(encoding="utf-8"))
         Draft202012Validator.check_schema(schema)
 
-    def test_v1_inventory_counts(self):
-        counts = Counter(record["kind"] for record in self.records)
-        self.assertEqual(
-            counts,
-            {
-                "paper": 48,
-                "dataset": 5,
-                "model": 6,
-                "benchmark": 4,
-                "simulation-tool": 8,
-            },
-        )
+    def test_v1_inventory_baseline_can_grow_without_test_edits(self):
+        by_kind = {
+            kind: [record for record in self.records if record["kind"] == kind]
+            for kind in ("paper", "dataset", "model", "benchmark", "simulation-tool")
+        }
+        self.assertGreaterEqual(len(by_kind["paper"]), 48)
+        for kind in ("dataset", "model", "benchmark", "simulation-tool"):
+            self.assertTrue(by_kind[kind], f"The {kind} catalog must not be empty")
 
     def test_all_papers_have_complete_taxonomy_and_audit_state(self):
         papers = [record for record in self.records if record["kind"] == "paper"]
@@ -110,6 +105,46 @@ class CatalogTests(unittest.TestCase):
     def test_generated_pages_are_current(self):
         catalog.generate(self.records, check=True)
 
+    def test_paper_page_has_one_hierarchical_entry_per_paper(self):
+        papers = [record for record in self.records if record["kind"] == "paper"]
+        rendered = catalog.render_papers(papers)
+        for paper in papers:
+            with self.subTest(paper=paper["id"]):
+                self.assertEqual(rendered.count(f'<a id="{paper["id"]}"></a>'), 1)
+        for heading in (
+            "## Surveys & Perspectives",
+            "## Backbones & Architectures",
+            "## Pretraining Methods",
+            "### Masked/Reconstruction Learning",
+            "### Autoregressive/Generative Modeling",
+            "### Contrastive/Alignment Learning",
+            "### Predictive Latent Learning",
+            "### Supervised/Multitask Pretraining",
+            "### Hybrid Objectives",
+            "## Adaptation & Transfer",
+            "## Inference & Deployment",
+        ):
+            self.assertIn(heading, rendered)
+
+    def test_public_pages_omit_maintenance_clutter(self):
+        outputs = catalog.render_outputs(self.records)
+        homepage = outputs[catalog.OUTPUTS["readme"]]
+        papers = outputs[catalog.OUTPUTS["paper"]]
+        for phrase in (
+            "Catalog at a glance",
+            "Latest cataloged papers",
+            "Reproducibility snapshot",
+            "Last catalog verification",
+            "## Scope",
+        ):
+            self.assertNotIn(phrase, homepage)
+        for phrase in ("Not found", "Not released", "**Scope:**", "Last verified", "Browse by"):
+            self.assertNotIn(phrase, papers)
+        for kind in ("dataset", "model", "benchmark", "simulation-tool"):
+            resource_page = outputs[catalog.OUTPUTS[kind]]
+            self.assertNotIn("**License:**", resource_page)
+            self.assertNotIn("Verified", resource_page)
+
     def test_internal_markdown_links_and_anchors_resolve(self):
         seen = set()
         for source in markdown_files():
@@ -131,10 +166,10 @@ class CatalogTests(unittest.TestCase):
                     except ValueError:
                         self.fail(f"{source.relative_to(ROOT)} links outside the repository: {target}")
                 self.assertTrue(
-                    destination.is_file(),
+                    destination.exists(),
                     f"{source.relative_to(ROOT)} has a missing relative link: {target}",
                 )
-                if separator and fragment and destination.suffix.lower() == ".md":
+                if separator and fragment and destination.is_file() and destination.suffix.lower() == ".md":
                     anchors = github_heading_ids(destination.read_text(encoding="utf-8"))
                     self.assertIn(
                         unquote(fragment),

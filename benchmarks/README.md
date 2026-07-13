@@ -7,9 +7,37 @@ Existing external evaluation projects; this repository does not provide a new be
 [← Back to the main catalog](../README.md)
 
 
-| Benchmark | Description | Tasks | Datasets | Metrics | Links | License | Related papers | Verified |
-|---|---|---|---|---|---|---|---|---|
-| <a id="coupler-channel-deduction"></a>[Full-Domain Coupler Channel Deduction Evaluation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) | Official evaluation code and configurations for channel interpolation, extrapolation, estimation, and feedback across simulated and measured data. | Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback | DeepMIMO, DICHASUS | NMSE, Correlation | [Official evaluation repository (official, available)](https://github.com/XIronMan0220/Coupler-Channel-Deduction) | License not stated | [Full-Domain Coupler](https://arxiv.org/abs/2606.22038) | 2026-07-13 |
-| <a id="lwm-2025-challenge"></a>[LWM Challenge 2025](https://lwm-wireless.net/challenge) | An official competition and starter repository for comparing wireless representations on multiple downstream tasks. | Beam Prediction, LOS/NLOS Identification, Positioning, Channel Prediction | LWM Challenge 2025 Assets | Task-specific classification score, NMSE, Localization error | [Official challenge page (official, available)](https://lwm-wireless.net/challenge)<br>[Official starter repository (official, available)](https://huggingface.co/wi-lab/lwm-competition-2025) | Challenge-specific terms | [LWM](https://arxiv.org/abs/2411.08872) | 2026-07-13 |
-| <a id="pilotwimae-evaluation"></a>[PilotWiMAE Evaluation Project](https://github.com/BerkIGuler/PilotWiMAE) | Official experiment code for evaluating pilot-native representations on estimation, beam prediction, and propagation classification. | Channel Estimation, Beam Prediction, LOS/NLOS Identification | PilotWiMAE Channel Data | NMSE, Classification accuracy | [Official repository (official, available)](https://github.com/BerkIGuler/PilotWiMAE) | License not stated | [PilotWiMAE](https://arxiv.org/abs/2605.22856) | 2026-07-13 |
-| <a id="spectrumfm-evaluation"></a>[SpectrumFM Evaluation Project](https://github.com/ChunyuLiu188/SpectrumFM) | The authors' training and evaluation project for spectrum sensing, anomaly detection, and wireless technology classification. | Spectrum Sensing, Anomaly Detection, Wireless Technology Classification | — | Accuracy, AUROC | [Official repository (official, available)](https://github.com/ChunyuLiu188/SpectrumFM) | License not stated | [SpectrumFM](https://arxiv.org/abs/2505.06256) | 2026-07-13 |
+<a id="coupler-channel-deduction"></a>
+## Full-Domain Coupler Channel Deduction Evaluation
+Official evaluation code and configurations for channel interpolation, extrapolation, estimation, and feedback across simulated and measured data.
+- **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
+- **Datasets:** [DeepMIMO](../datasets/README.md#deepmimo), [DICHASUS](../datasets/README.md#dichasus)
+- **Metrics:** NMSE, Correlation
+- **Links:** [Official evaluation repository](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
+- **Related papers:** [Full-Domain Coupler](https://arxiv.org/abs/2606.22038)
+
+<a id="lwm-2025-challenge"></a>
+## LWM Challenge 2025
+An official competition and starter repository for comparing wireless representations on multiple downstream tasks.
+- **Tasks:** Beam Prediction, LOS/NLOS Identification, Positioning, Channel Prediction
+- **Datasets:** [LWM Challenge 2025 Assets](../datasets/README.md#lwm-challenge)
+- **Metrics:** Task-specific classification score, NMSE, Localization error
+- **Links:** [Official challenge page](https://lwm-wireless.net/challenge) · [Official starter repository](https://huggingface.co/wi-lab/lwm-competition-2025)
+- **Related papers:** [LWM](https://arxiv.org/abs/2411.08872)
+
+<a id="pilotwimae-evaluation"></a>
+## PilotWiMAE Evaluation Project
+Official experiment code for evaluating pilot-native representations on estimation, beam prediction, and propagation classification.
+- **Tasks:** Channel Estimation, Beam Prediction, LOS/NLOS Identification
+- **Datasets:** [PilotWiMAE Channel Data](../datasets/README.md#pilotwimae-channels)
+- **Metrics:** NMSE, Classification accuracy
+- **Links:** [Official repository](https://github.com/BerkIGuler/PilotWiMAE)
+- **Related papers:** [PilotWiMAE](https://arxiv.org/abs/2605.22856)
+
+<a id="spectrumfm-evaluation"></a>
+## SpectrumFM Evaluation Project
+The authors' training and evaluation project for spectrum sensing, anomaly detection, and wireless technology classification.
+- **Tasks:** Spectrum Sensing, Anomaly Detection, Wireless Technology Classification
+- **Metrics:** Accuracy, AUROC
+- **Links:** [Official repository](https://github.com/ChunyuLiu188/SpectrumFM)
+- **Related papers:** [SpectrumFM](https://arxiv.org/abs/2505.06256)

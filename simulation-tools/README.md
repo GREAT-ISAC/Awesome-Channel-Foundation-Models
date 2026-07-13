@@ -7,13 +7,61 @@ Open-first channel, ray-tracing, and system simulation infrastructure useful for
 [← Back to the main catalog](../README.md)
 
 
-| Tool | Description | Type | Access | Capabilities | Links | License | Related papers | Verified |
-|---|---|---|---|---|---|---|---|---|
-| <a id="csigen"></a>[CSIGen](https://github.com/BerkIGuler/CSIGen) | An author-released Sionna-based workflow for generating ray-traced CSI used by PilotWiMAE experiments. | Ray Tracing | Open | Ray Tracing, CSI Generation, Scenario Configuration | [Official repository (official, available)](https://github.com/BerkIGuler/CSIGen) | License not stated | [PilotWiMAE](https://arxiv.org/abs/2605.22856) | 2026-07-13 |
-| <a id="laetwin-xl-toolchain"></a>[LAETwin-XL Toolchain](https://github.com/Lmyxxn/LAETwin-XL) | A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios built around Sionna ray tracing. | Ray Tracing | Open | Ray Tracing, Channel Generation, Digital Twin, XL MIMO | [Official repository (official, available)](https://github.com/Lmyxxn/LAETwin-XL) | License not stated | [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058) | 2026-07-13 |
-| <a id="matlab-5g-toolbox"></a>[MATLAB 5G Toolbox](https://www.mathworks.com/help/5g/index.html) | Commercial 5G waveform, link-level, channel-modeling, and conformance-test functionality from MathWorks. | Commercial | Restricted | Waveform Generation, Channel Modeling, Link Level Simulation, Conformance Testing | [Official documentation (official, restricted)](https://www.mathworks.com/help/5g/index.html) | Proprietary commercial license | — | 2026-07-13 |
-| <a id="ns-3"></a>[ns-3](https://www.nsnam.org/) | A discrete-event network simulator used for open, reproducible communication-system and protocol experiments. | System | Open | Network Simulation, Protocol Modeling, System Level Simulation | [Official project site (official, available)](https://www.nsnam.org/) | GPL-2.0-only | — | 2026-07-13 |
-| <a id="nyusim"></a>[NYUSIM](https://wireless.engineering.nyu.edu/nyusim-thz-mmwave-channel-simulator-research/) | A statistical spatial channel simulator for millimeter-wave, sub-terahertz, and terahertz wireless systems. | Channel | Open | Channel Modeling, mmWave, Sub Terahertz, Terahertz, MIMO | [Official NYU project page (official, available)](https://wireless.engineering.nyu.edu/nyusim-thz-mmwave-channel-simulator-research/) | Project-specific terms | — | 2026-07-13 |
-| <a id="quadriga"></a>[QuaDRiGa](https://quadriga-channel-model.de/) | A geometry-based stochastic radio-channel model supporting multi-link, multi-antenna, and mobility simulations. | Channel | Open | Channel Modeling, Mobility, MIMO, Multi Link Simulation | [Official project site (official, available)](https://quadriga-channel-model.de/) | QuaDRiGa license; non-commercial scientific, educational, and standardization use | — | 2026-07-13 |
-| <a id="sionna"></a>[Sionna](https://github.com/NVlabs/sionna) | An open-source GPU-accelerated library for link-level simulation, ray tracing, and differentiable wireless system research. | Ray Tracing | Open | Ray Tracing, Link Level Simulation, System Level Simulation, Differentiable Modeling | [Official repository (official, available)](https://github.com/NVlabs/sionna) | Apache-2.0 | [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058), [PilotWiMAE](https://arxiv.org/abs/2605.22856) | 2026-07-13 |
-| <a id="wireless-insite"></a>[Wireless InSite](https://www.remcom.com/wireless-insite-propagation-software) | Commercial site-specific radio-propagation and three-dimensional ray-tracing software from Remcom. | Commercial | Restricted | Ray Tracing, Propagation Modeling, Site Specific Simulation, MIMO | [Official product page (official, restricted)](https://www.remcom.com/wireless-insite-propagation-software) | Proprietary commercial license | — | 2026-07-13 |
+<a id="csigen"></a>
+## CSIGen
+An author-released Sionna-based workflow for generating ray-traced CSI used by PilotWiMAE experiments.
+- **Profile:** Ray Tracing · Open
+- **Capabilities:** Ray Tracing, CSI Generation, Scenario Configuration
+- **Links:** [Official repository](https://github.com/BerkIGuler/CSIGen)
+- **Related papers:** [PilotWiMAE](https://arxiv.org/abs/2605.22856)
+
+<a id="laetwin-xl-toolchain"></a>
+## LAETwin-XL Toolchain
+A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios built around Sionna ray tracing.
+- **Profile:** Ray Tracing · Open
+- **Capabilities:** Ray Tracing, Channel Generation, Digital Twin, XL MIMO
+- **Links:** [Official repository](https://github.com/Lmyxxn/LAETwin-XL)
+- **Related papers:** [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058)
+
+<a id="matlab-5g-toolbox"></a>
+## MATLAB 5G Toolbox
+Commercial 5G waveform, link-level, channel-modeling, and conformance-test functionality from MathWorks.
+- **Profile:** Commercial · Restricted
+- **Capabilities:** Waveform Generation, Channel Modeling, Link Level Simulation, Conformance Testing
+- **Links:** [Official documentation (restricted)](https://www.mathworks.com/help/5g/index.html)
+
+<a id="ns-3"></a>
+## ns-3
+A discrete-event network simulator used for open, reproducible communication-system and protocol experiments.
+- **Profile:** System · Open
+- **Capabilities:** Network Simulation, Protocol Modeling, System Level Simulation
+- **Links:** [Official project site](https://www.nsnam.org/)
+
+<a id="nyusim"></a>
+## NYUSIM
+A statistical spatial channel simulator for millimeter-wave, sub-terahertz, and terahertz wireless systems.
+- **Profile:** Channel · Open
+- **Capabilities:** Channel Modeling, mmWave, Sub Terahertz, Terahertz, MIMO
+- **Links:** [Official NYU project page](https://wireless.engineering.nyu.edu/nyusim-thz-mmwave-channel-simulator-research/)
+
+<a id="quadriga"></a>
+## QuaDRiGa
+A geometry-based stochastic radio-channel model supporting multi-link, multi-antenna, and mobility simulations.
+- **Profile:** Channel · Open
+- **Capabilities:** Channel Modeling, Mobility, MIMO, Multi Link Simulation
+- **Links:** [Official project site](https://quadriga-channel-model.de/)
+
+<a id="sionna"></a>
+## Sionna
+An open-source GPU-accelerated library for link-level simulation, ray tracing, and differentiable wireless system research.
+- **Profile:** Ray Tracing · Open
+- **Capabilities:** Ray Tracing, Link Level Simulation, System Level Simulation, Differentiable Modeling
+- **Links:** [Official repository](https://github.com/NVlabs/sionna)
+- **Related papers:** [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058), [PilotWiMAE](https://arxiv.org/abs/2605.22856)
+
+<a id="wireless-insite"></a>
+## Wireless InSite
+Commercial site-specific radio-propagation and three-dimensional ray-tracing software from Remcom.
+- **Profile:** Commercial · Restricted
+- **Capabilities:** Ray Tracing, Propagation Modeling, Site Specific Simulation, MIMO
+- **Links:** [Official product page (restricted)](https://www.remcom.com/wireless-insite-propagation-software)

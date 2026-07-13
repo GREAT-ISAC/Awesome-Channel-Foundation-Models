@@ -7,11 +7,50 @@ Public checkpoints and model cards associated with cataloged foundation models.
 [← Back to the main catalog](../README.md)
 
 
-| Model | Description | Framework | Access | Modalities | Tasks | Links | License | Related papers | Verified |
-|---|---|---|---|---|---|---|---|---|---|
-| <a id="coupler-checkpoints"></a>[Full-Domain Coupler Checkpoints](https://github.com/XIronMan0220/Coupler-Channel-Deduction) | Pretrained experiment archives released by the authors for channel representation and deduction evaluations. | PyTorch | Open | CSI, CIR | Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback | [Official repository and download instructions (official, available)](https://github.com/XIronMan0220/Coupler-Channel-Deduction) | License not stated | [Full-Domain Coupler](https://arxiv.org/abs/2606.22038) | 2026-07-13 |
-| <a id="hetercsi-model"></a>[HeterCSI](https://huggingface.co/Chenyu8998/HeterCSI) | Author-published HeterCSI model card and files for heterogeneous CSI pretraining. | PyTorch | Open | CSI | Time Channel Extrapolation, Frequency Channel Extrapolation | [Official Hugging Face repository (official, available)](https://huggingface.co/Chenyu8998/HeterCSI) | Apache-2.0 | [HeterCSI](https://arxiv.org/abs/2601.18200) | 2026-07-13 |
-| <a id="lwm-model"></a>[Large Wireless Model (LWM)](https://huggingface.co/wi-lab/lwm) | Official pretrained LWM checkpoint and accompanying inference code for wireless channel representations. | PyTorch | Open | CSI | Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction | [Official Hugging Face repository (official, available)](https://huggingface.co/wi-lab/lwm)<br>[Official project page (official, available)](https://lwm-wireless.net/) | MIT | [LWM](https://arxiv.org/abs/2411.08872), [LWM-CDE](https://arxiv.org/abs/2605.24077) | 2026-07-13 |
-| <a id="lwm-spectro-model"></a>[LWM-Spectro](https://huggingface.co/wi-lab/lwm-spectro) | Official LWM-Spectro model repository for baseband signal spectrogram representations. | PyTorch | Open | Spectrogram | Modulation Classification, Joint SNR and Doppler Classification | [Official Hugging Face repository (official, available)](https://huggingface.co/wi-lab/lwm-spectro) | License not stated | [LWM-Spectro](https://arxiv.org/abs/2601.08780) | 2026-07-13 |
-| <a id="lwm-temporal-model"></a>[LWM-Temporal](https://huggingface.co/wi-lab/lwm-temporal) | Official LWM-Temporal model repository for sparse spatio-temporal channel representation learning. | PyTorch | Open | CSI | Time Channel Extrapolation | [Official Hugging Face repository (official, available)](https://huggingface.co/wi-lab/lwm-temporal) | License not stated | [LWM-Temporal](https://arxiv.org/abs/2603.10024) | 2026-07-13 |
-| <a id="pilotwimae-model"></a>[PilotWiMAE Weights](https://github.com/BerkIGuler/PilotWiMAE) | Model weights and reference implementation released with the PilotWiMAE paper. | PyTorch | Open | Pilot Observations, CSI | Channel Estimation, Beam Prediction, LOS/NLOS Identification | [Official repository (official, available)](https://github.com/BerkIGuler/PilotWiMAE) | License not stated | [PilotWiMAE](https://arxiv.org/abs/2605.22856) | 2026-07-13 |
+<a id="coupler-checkpoints"></a>
+## Full-Domain Coupler Checkpoints
+Pretrained experiment archives released by the authors for channel representation and deduction evaluations.
+- **Profile:** PyTorch · Open · CSI, CIR
+- **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
+- **Links:** [Official repository and download instructions](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
+- **Related papers:** [Full-Domain Coupler](https://arxiv.org/abs/2606.22038)
+
+<a id="hetercsi-model"></a>
+## HeterCSI
+Author-published HeterCSI model card and files for heterogeneous CSI pretraining.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
+- **Links:** [Official Hugging Face repository](https://huggingface.co/Chenyu8998/HeterCSI)
+- **Related papers:** [HeterCSI](https://arxiv.org/abs/2601.18200)
+
+<a id="lwm-model"></a>
+## Large Wireless Model (LWM)
+Official pretrained LWM checkpoint and accompanying inference code for wireless channel representations.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm) · [Official project page](https://lwm-wireless.net/)
+- **Related papers:** [LWM](https://arxiv.org/abs/2411.08872), [LWM-CDE](https://arxiv.org/abs/2605.24077)
+
+<a id="lwm-spectro-model"></a>
+## LWM-Spectro
+Official LWM-Spectro model repository for baseband signal spectrogram representations.
+- **Profile:** PyTorch · Open · Spectrogram
+- **Tasks:** Modulation Classification, Joint SNR and Doppler Classification
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-spectro)
+- **Related papers:** [LWM-Spectro](https://arxiv.org/abs/2601.08780)
+
+<a id="lwm-temporal-model"></a>
+## LWM-Temporal
+Official LWM-Temporal model repository for sparse spatio-temporal channel representation learning.
+- **Profile:** PyTorch · Open · CSI
+- **Tasks:** Time Channel Extrapolation
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-temporal)
+- **Related papers:** [LWM-Temporal](https://arxiv.org/abs/2603.10024)
+
+<a id="pilotwimae-model"></a>
+## PilotWiMAE Weights
+Model weights and reference implementation released with the PilotWiMAE paper.
+- **Profile:** PyTorch · Open · Pilot Observations, CSI
+- **Tasks:** Channel Estimation, Beam Prediction, LOS/NLOS Identification
+- **Links:** [Official repository](https://github.com/BerkIGuler/PilotWiMAE)
+- **Related papers:** [PilotWiMAE](https://arxiv.org/abs/2605.22856)

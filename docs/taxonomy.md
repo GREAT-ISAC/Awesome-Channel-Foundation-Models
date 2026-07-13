@@ -35,6 +35,6 @@ Modalities identify model inputs or representations, for example CSI, CIR, IQ, s
 
 Tasks describe evaluated or explicitly targeted uses such as channel estimation, extrapolation, feedback, beam prediction, positioning, sensing, classification, detection, or resource optimization. Use the most specific existing slug that matches the paper; add a new slug only when needed.
 
-## Reproducibility view
+## Resource display
 
-The paper page derives reproducibility groups from linked code, datasets, pretrained weights, benchmark projects, and simulation tools. “Paper only” means no qualifying artifact was located at the latest verification date; it does not imply that reproduction is impossible.
+The paper page shows code, data, pretrained weights, benchmark projects, or simulation tools only when a qualifying link is available. Missing-resource and verification states remain in the YAML records for maintenance and are not repeated in the public paper listing.

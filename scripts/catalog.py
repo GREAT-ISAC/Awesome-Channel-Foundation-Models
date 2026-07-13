@@ -12,7 +12,7 @@ import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import yaml
 from jsonschema import Draft202012Validator, FormatChecker
@@ -233,28 +233,32 @@ def full_paper_link(paper: Mapping[str, Any], prefix: str = "../") -> str:
     return markdown_link(paper["title"], url)
 
 
-def artifact_cell(paper: Mapping[str, Any], slot_name: str) -> str:
-    slot = paper["artifacts"][slot_name]
-    status = slot["status"]
-    if status == "not-found":
-        return "Not found"
-    if status == "not-released":
-        return "Not released"
+def qualified_link(item: Mapping[str, Any], target: Optional[str] = None) -> str:
+    qualifiers = []
+    if item["provenance"] == "community":
+        qualifiers.append("community")
+    if item["availability"] != "available":
+        qualifiers.append(item["availability"])
+    text = item["label"]
+    if qualifiers:
+        text += f" ({', '.join(qualifiers)})"
+    return markdown_link(text, target or item["url"])
+
+
+def available_artifacts(paper: Mapping[str, Any]) -> List[str]:
     links = []
-    for item in slot["items"]:
-        suffix_parts = [item["provenance"]]
-        if item["availability"] != "available":
-            suffix_parts.append(item["availability"])
-        suffix = ", ".join(suffix_parts)
-        target = item.get("url") or f"../{slot_name.replace('_', '-')}/README.md#{item['ref']}"
-        links.append(markdown_link(f"{item['label']} ({suffix})", target))
-    return "<br>".join(links) if links else label(status)
-
-
-def make_table(headers: Sequence[str], rows: Iterable[Sequence[str]]) -> str:
-    rendered = ["| " + " | ".join(headers) + " |", "|" + "|".join("---" for _ in headers) + "|"]
-    rendered.extend("| " + " | ".join(str(cell).replace("\n", " ") for cell in row) + " |" for row in rows)
-    return "\n".join(rendered)
+    for slot_name, slot in paper["artifacts"].items():
+        if slot["status"] not in {"available", "restricted"}:
+            continue
+        item_links = []
+        for item in slot["items"]:
+            target = item.get("url") or (
+                f"../{slot_name.replace('_', '-')}/README.md#{item['ref']}"
+            )
+            item_links.append(qualified_link(item, target))
+        if item_links:
+            links.append(f"**{ARTIFACT_LABELS[slot_name]}:** {', '.join(item_links)}")
+    return links
 
 
 def generated_header(title: str, intro: str) -> str:
@@ -266,108 +270,173 @@ def generated_header(title: str, intro: str) -> str:
     )
 
 
-def grouped_paper_view(papers: Sequence[Mapping[str, Any]], field: str, heading: str) -> str:
-    grouped: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
-    for paper in papers:
-        for value in paper[field]:
-            grouped[value].append(paper)
-    chunks = [f"## {heading}"]
-    for value in sorted(grouped, key=lambda item: label(item).lower()):
-        entries = sorted(grouped[value], key=lambda paper: (-paper["year"], paper["short_name"].lower()))
-        chunks.append(f"### {label(value)}")
-        chunks.extend(f"- {paper_link(paper)} ({paper['year']})" for paper in entries)
+def render_paper_entry(paper: Mapping[str, Any]) -> str:
+    lines = [
+        f'<a id="{paper["id"]}"></a>',
+        f"- **{paper['short_name']}** — {full_paper_link(paper)} "
+        f"({paper['year']} · {paper['venue']})",
+        f"  - **Authors:** {', '.join(paper['authors'])}",
+    ]
+    profile = []
+    if paper["modalities"]:
+        profile.append(f"**Modalities:** {', '.join(label(item) for item in paper['modalities'])}")
+    if paper["tasks"]:
+        profile.append(f"**Tasks:** {', '.join(label(item) for item in paper['tasks'])}")
+    if profile:
+        lines.append("  - " + " · ".join(profile))
+    resources = available_artifacts(paper)
+    if resources:
+        lines.append("  - " + " · ".join(resources))
+    return "\n".join(lines)
+
+
+def primary_objective(paper: Mapping[str, Any]) -> str:
+    objectives = paper["objectives"]
+    if "hybrid" in objectives:
+        return "hybrid"
+    if "supervised-multitask" in objectives:
+        return "supervised-multitask"
+    return objectives[0] if objectives else "objective-not-specified"
+
+
+def render_stage(title: str, anchor: str, papers: Sequence[Mapping[str, Any]]) -> str:
+    chunks = [f'<a id="{anchor}"></a>\n## {title}']
+    chunks.extend(
+        render_paper_entry(paper)
+        for paper in sorted(
+            papers,
+            key=lambda item: (-item["year"], item["short_name"].lower()),
+        )
+    )
     return "\n\n".join(chunks)
 
 
 def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
-    papers = sorted(papers, key=lambda paper: (-paper["year"], paper["short_name"].lower()))
-    rows = []
+    by_stage: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
     for paper in papers:
-        rows.append(
-            [
-                f"<a id=\"{paper['id']}\"></a>{paper_link(paper)}",
-                str(paper["year"]),
-                label(paper["scope"]),
-                ", ".join(label(item) for item in paper["stages"]),
-                ", ".join(label(item) for item in paper["modalities"]) or "—",
-                ", ".join(label(item) for item in paper["objectives"]) or "—",
-                ", ".join(label(item) for item in paper["tasks"]) or "—",
-                artifact_cell(paper, "code"),
-                artifact_cell(paper, "datasets"),
-                artifact_cell(paper, "models"),
-                artifact_cell(paper, "benchmarks"),
-                artifact_cell(paper, "simulation_tools"),
-            ]
-        )
-    details = ["## Paper records"]
-    for paper in papers:
-        detail_lines = [
-                f"### {paper['short_name']} ({paper['year']})",
-                f"- **Paper:** {full_paper_link(paper)}",
-                f"- **Authors:** {', '.join(paper['authors'])}",
-                f"- **Venue:** {paper['venue']}",
-                f"- **Scope:** {label(paper['scope'])}",
-                f"- **Research stages:** {', '.join(label(item) for item in paper['stages'])}",
-                f"- **Pretraining objectives:** {', '.join(label(item) for item in paper['objectives']) or 'Not applicable'}",
-                f"- **Modalities:** {', '.join(label(item) for item in paper['modalities']) or 'Not specified'}",
-                f"- **Downstream tasks:** {', '.join(label(item) for item in paper['tasks']) or 'Not specified'}",
-                "- **Resources:** "
-                + "; ".join(
-                    f"{ARTIFACT_LABELS[name]} — {artifact_cell(paper, name)}"
-                    for name in ARTIFACT_LABELS
-                ),
-                f"- **Last verified:** {paper['last_verified']}",
-            ]
-        if paper.get("summary"):
-            detail_lines.append(f"- **Note:** {paper['summary']}")
-        details.append("\n".join(detail_lines))
+        by_stage[paper["stages"][0]].append(paper)
+
     sections = [
         generated_header(
             "CFM Papers",
-            "A structured, non-exclusive view of CFM and adjacent wireless foundation-model research.",
+            "Each paper appears once in a stage-first hierarchy. Pretraining papers are further grouped by their primary learning objective; additional taxonomy remains in the YAML record.",
         ),
-        "## Master catalog\n\n"
-        + make_table(
-            ["Paper", "Year", "Scope", "Stage", "Modality", "Objective", "Tasks", "Code", "Data", "Weights", "Benchmark", "Simulator"],
-            rows,
-        ),
-        "\n\n".join(details),
-        grouped_paper_view(papers, "stages", "Browse by research stage"),
-        grouped_paper_view(papers, "objectives", "Browse by pretraining objective"),
-        grouped_paper_view(papers, "modalities", "Browse by modality"),
-        grouped_paper_view(papers, "tasks", "Browse by downstream task"),
+        "## Contents\n\n"
+        "- [Surveys & Perspectives](#surveys)\n"
+        "- [Backbones & Architectures](#backbones)\n"
+        "- [Pretraining Methods](#pretraining)\n"
+        "  - [Masked/Reconstruction](#objective-masked-reconstruction)\n"
+        "  - [Autoregressive/Generative](#objective-autoregressive-generative)\n"
+        "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
+        "  - [Predictive Latent](#objective-predictive-latent)\n"
+        "  - [Supervised/Multitask](#objective-supervised-multitask)\n"
+        "  - [Hybrid](#objective-hybrid)\n"
+        "- [Adaptation & Transfer](#adaptation)\n"
+        "- [Inference & Deployment](#inference-deployment)",
+        render_stage(label("survey"), "surveys", by_stage["survey"]),
+        render_stage(label("backbone"), "backbones", by_stage["backbone"]),
     ]
 
-    reproducibility = defaultdict(list)
-    for paper in papers:
-        available = [
-            ARTIFACT_LABELS[name]
-            for name, slot in paper["artifacts"].items()
-            if slot["status"] in {"available", "restricted"}
-        ]
-        key = ", ".join(available) if available else "Paper only"
-        reproducibility[key].append(paper)
-    repro_chunks = ["## Browse by reproducibility status"]
-    for status in sorted(reproducibility):
-        repro_chunks.append(f"### {status}")
-        repro_chunks.extend(f"- {paper_link(paper)} ({paper['year']})" for paper in reproducibility[status])
-    sections.append("\n\n".join(repro_chunks))
+    objective_order = [
+        "masked-reconstruction",
+        "autoregressive-generative",
+        "contrastive-alignment",
+        "predictive-latent",
+        "supervised-multitask",
+        "hybrid",
+        "objective-not-specified",
+    ]
+    by_objective: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
+    for paper in by_stage["pretraining"]:
+        by_objective[primary_objective(paper)].append(paper)
+    pretraining = [
+        '<a id="pretraining"></a>\n## Pretraining Methods',
+        "Papers with multiple objectives are placed under Hybrid when explicitly tagged as hybrid, or under Supervised/Multitask when multitask learning is their primary organization.",
+    ]
+    for objective in objective_order:
+        entries = by_objective[objective]
+        if not entries:
+            continue
+        heading = "Objective Not Specified" if objective == "objective-not-specified" else label(objective)
+        pretraining.append(f'<a id="objective-{objective}"></a>\n### {heading}')
+        pretraining.extend(
+            render_paper_entry(paper)
+            for paper in sorted(
+                entries,
+                key=lambda item: (-item["year"], item["short_name"].lower()),
+            )
+        )
+    sections.append("\n\n".join(pretraining))
+    sections.append(render_stage(label("adaptation"), "adaptation", by_stage["adaptation"]))
+    sections.append(
+        render_stage(
+            label("inference-deployment"),
+            "inference-deployment",
+            by_stage["inference-deployment"],
+        )
+    )
     return "\n\n".join(sections).rstrip() + "\n"
 
 
-def first_available_link(record: Mapping[str, Any]) -> str:
-    for item in record["links"]:
-        if item["availability"] in {"available", "restricted"}:
-            return markdown_link(record["name"], item["url"])
-    return record["name"]
-
-
 def resource_links(record: Mapping[str, Any]) -> str:
-    links = []
-    for item in record["links"]:
-        details = f"{item['provenance']}, {item['availability']}"
-        links.append(markdown_link(f"{item['label']} ({details})", item["url"]))
-    return "<br>".join(links)
+    return " · ".join(qualified_link(item) for item in record["links"])
+
+
+def related_paper_links(
+    record: Mapping[str, Any], papers: Mapping[str, Mapping[str, Any]]
+) -> str:
+    return ", ".join(paper_link(papers[item]) for item in record["related_papers"])
+
+
+def render_resource_record(
+    kind: str,
+    record: Mapping[str, Any],
+    by_id: Mapping[str, Mapping[str, Any]],
+    papers: Mapping[str, Mapping[str, Any]],
+) -> str:
+    lines = [
+        f'<a id="{record["id"]}"></a>',
+        f"## {record['name']}",
+        record["description"],
+    ]
+    if kind == "dataset":
+        profile = [
+            record["data_origin"].capitalize(),
+            label(record["access"]),
+            ", ".join(label(item) for item in record["modalities"]),
+        ]
+        lines.append(f"- **Profile:** {' · '.join(item for item in profile if item)}")
+        lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
+    elif kind == "model":
+        profile = [
+            record["framework"],
+            label(record["access"]),
+            ", ".join(label(item) for item in record["modalities"]),
+        ]
+        lines.append(f"- **Profile:** {' · '.join(item for item in profile if item)}")
+        lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
+    elif kind == "benchmark":
+        datasets = ", ".join(
+            markdown_link(by_id[item]["name"], f"../datasets/README.md#{item}")
+            for item in record["datasets"]
+        )
+        lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
+        if datasets:
+            lines.append(f"- **Datasets:** {datasets}")
+        if record["metrics"]:
+            lines.append(f"- **Metrics:** {', '.join(record['metrics'])}")
+    else:
+        lines.append(
+            f"- **Profile:** {label(record['tool_type'])} · {label(record['access'])}"
+        )
+        lines.append(
+            f"- **Capabilities:** {', '.join(label(item) for item in record['capabilities'])}"
+        )
+    lines.append(f"- **Links:** {resource_links(record)}")
+    related = related_paper_links(record, papers)
+    if related:
+        lines.append(f"- **Related papers:** {related}")
+    return "\n".join(lines)
 
 
 def render_resources(
@@ -379,99 +448,35 @@ def render_resources(
         "dataset": (
             "Datasets",
             "Measured and simulated datasets relevant to channel foundation-model training and evaluation.",
-            ["Dataset", "Description", "Origin", "Access", "Modalities", "Tasks", "Links", "License", "Related papers", "Verified"],
         ),
         "model": (
             "Pretrained Models",
             "Public checkpoints and model cards associated with cataloged foundation models.",
-            ["Model", "Description", "Framework", "Access", "Modalities", "Tasks", "Links", "License", "Related papers", "Verified"],
         ),
         "benchmark": (
             "Benchmark Projects",
             "Existing external evaluation projects; this repository does not provide a new benchmark runner in v1.",
-            ["Benchmark", "Description", "Tasks", "Datasets", "Metrics", "Links", "License", "Related papers", "Verified"],
         ),
         "simulation-tool": (
             "Simulation Tools",
             "Open-first channel, ray-tracing, and system simulation infrastructure useful for CFM data workflows.",
-            ["Tool", "Description", "Type", "Access", "Capabilities", "Links", "License", "Related papers", "Verified"],
         ),
     }
-    title, intro, headers = config[kind]
+    title, intro = config[kind]
     by_id = {record["id"]: record for record in all_records}
     papers = {record["id"]: record for record in all_records if record.get("kind") == "paper"}
-    rows = []
-    for record in sorted(records, key=lambda item: item["name"].lower()):
-        name = f"<a id=\"{record['id']}\"></a>{first_available_link(record)}"
-        related = ", ".join(paper_link(papers[item]) for item in record["related_papers"]) or "—"
-        links = resource_links(record)
-        if kind == "dataset":
-            row = [name, record["description"], record["data_origin"].capitalize(), label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), links, record["license"], related, record["last_verified"]]
-        elif kind == "model":
-            row = [name, record["description"], record["framework"], label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), links, record["license"], related, record["last_verified"]]
-        elif kind == "benchmark":
-            dataset_names = ", ".join(by_id.get(item, {}).get("name", item) for item in record["datasets"]) or "—"
-            row = [name, record["description"], ", ".join(label(x) for x in record["tasks"]), dataset_names, ", ".join(record["metrics"]) or "—", links, record["license"], related, record["last_verified"]]
-        else:
-            row = [name, record["description"], label(record["tool_type"]), label(record["access"]), ", ".join(label(x) for x in record["capabilities"]), links, record["license"], related, record["last_verified"]]
-        rows.append(row)
-    if not rows:
-        rows = [["No verified records yet"] + ["—"] * (len(headers) - 1)]
-    return generated_header(title, intro) + "\n\n" + make_table(headers, rows) + "\n"
+    sections = [generated_header(title, intro)]
+    sections.extend(
+        render_resource_record(kind, record, by_id, papers)
+        for record in sorted(records, key=lambda item: item["name"].lower())
+    )
+    if not records:
+        sections.append("## No entries yet")
+    return "\n\n".join(sections).rstrip() + "\n"
 
 
-def render_readme(records: Sequence[Mapping[str, Any]]) -> str:
-    by_kind = Counter(record["kind"] for record in records)
-    papers = sorted(
-        (record for record in records if record["kind"] == "paper"),
-        key=lambda paper: (-paper["year"], paper["short_name"].lower()),
-    )
-    template = README_TEMPLATE.read_text(encoding="utf-8")
-    stats = " · ".join(
-        [
-            f"**{by_kind['paper']} papers**",
-            f"**{by_kind['dataset']} datasets**",
-            f"**{by_kind['model']} pretrained models**",
-            f"**{by_kind['benchmark']} benchmark projects**",
-            f"**{by_kind['simulation-tool']} simulation tools**",
-        ]
-    )
-    stage_counts = Counter(stage for paper in papers for stage in paper["stages"])
-    taxonomy = "\n".join(
-        f"- [{label(stage)}](papers/README.md#browse-by-research-stage) — "
-        f"{stage_counts[stage]} {'entry' if stage_counts[stage] == 1 else 'entries'}"
-        for stage in ["survey", "backbone", "pretraining", "adaptation", "inference-deployment"]
-        if stage_counts[stage]
-    )
-    recent_rows = [
-        [paper_link(paper, prefix=""), str(paper["year"]), label(paper["scope"]), ", ".join(label(stage) for stage in paper["stages"])]
-        for paper in papers[:12]
-    ]
-    recent = make_table(["Paper", "Year", "Scope", "Research stage"], recent_rows)
-    artifact_counts = Counter()
-    for paper in papers:
-        for slot_name, slot in paper["artifacts"].items():
-            if slot["status"] in {"available", "restricted"}:
-                artifact_counts[slot_name] += 1
-    reproducibility = make_table(
-        ["Artifact", "Papers with a verified resource", "Coverage"],
-        [
-            [
-                ARTIFACT_LABELS[name],
-                str(artifact_counts[name]),
-                f"{(100 * artifact_counts[name] / len(papers)):.1f}%" if papers else "0.0%",
-            ]
-            for name in ARTIFACT_LABELS
-        ],
-    )
-    last_verified = max((record["last_verified"] for record in records), default="Not available")
-    return (
-        template.replace("{{STATS}}", stats)
-        .replace("{{TAXONOMY}}", taxonomy)
-        .replace("{{RECENT_PAPERS}}", recent)
-        .replace("{{REPRODUCIBILITY}}", reproducibility)
-        .replace("{{LAST_VERIFIED}}", last_verified)
-    )
+def render_readme(_records: Sequence[Mapping[str, Any]]) -> str:
+    return README_TEMPLATE.read_text(encoding="utf-8")
 
 
 def render_outputs(records: Sequence[Mapping[str, Any]]) -> Dict[Path, str]:

@@ -7,10 +7,42 @@ Measured and simulated datasets relevant to channel foundation-model training an
 [← Back to the main catalog](../README.md)
 
 
-| Dataset | Description | Origin | Access | Modalities | Tasks | Links | License | Related papers | Verified |
-|---|---|---|---|---|---|---|---|---|---|
-| <a id="deepmimo"></a>[DeepMIMO](https://github.com/DeepMIMO/DeepMIMO) | A scenario-based wireless channel dataset and generation interface built from ray-tracing data for machine-learning research. | Simulated | Open | CSI, CIR | Channel Estimation, Channel Prediction, Beam Prediction, Positioning | [Official repository (official, available)](https://github.com/DeepMIMO/DeepMIMO) | Apache-2.0 | [Full-Domain Coupler](https://arxiv.org/abs/2606.22038), [WiMamba](https://arxiv.org/abs/2603.26367), [LWM](https://arxiv.org/abs/2411.08872) | 2026-07-13 |
-| <a id="dichasus"></a>[DICHASUS](https://dichasus.inue.uni-stuttgart.de/datasets/) | Measured distributed massive-MIMO channel datasets published by the University of Stuttgart for channel learning and localization research. | Measured | Open | CSI | Channel Deduction, Positioning | [Official dataset portal (official, available)](https://dichasus.inue.uni-stuttgart.de/datasets/) | Dataset-specific terms; consult each dataset page | [Full-Domain Coupler](https://arxiv.org/abs/2606.22038) | 2026-07-13 |
-| <a id="laetwin-xl-dataset"></a>[LAETwin-XL Low-Altitude XL-MIMO Datasets](https://lmyxxn.github.io/6GXLMIMODatasets/) | Digital-twin channel datasets for low-altitude extra-large MIMO experiments released with LAETwin-XL. | Simulated | Open | CSI | Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning | [Official dataset page (official, available)](https://lmyxxn.github.io/6GXLMIMODatasets/)<br>[Official repository (official, available)](https://github.com/Lmyxxn/LAETwin-XL) | Dataset-specific terms; repository license not stated | [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058) | 2026-07-13 |
-| <a id="lwm-challenge"></a>[LWM Challenge 2025 Assets](https://huggingface.co/wi-lab/lwm-competition-2025) | Official competition assets and starter material for evaluating LWM representations on wireless downstream tasks. | Hybrid | Registration | CSI | Beam Prediction, LOS/NLOS Identification, Positioning, Channel Prediction | [Official Hugging Face repository (official, available)](https://huggingface.co/wi-lab/lwm-competition-2025)<br>[Official challenge page (official, available)](https://lwm-wireless.net/challenge) | Challenge-specific terms | [LWM](https://arxiv.org/abs/2411.08872) | 2026-07-13 |
-| <a id="pilotwimae-channels"></a>[PilotWiMAE Channel Data](https://github.com/BerkIGuler/PilotWiMAE) | Public channel-generation recipes and experiment data interfaces used by the PilotWiMAE reference implementation. | Simulated | Open | Pilot Observations, CSI | Channel Estimation, Beam Prediction, LOS/NLOS Identification | [PilotWiMAE repository (official, available)](https://github.com/BerkIGuler/PilotWiMAE)<br>[CSIGen repository (official, available)](https://github.com/BerkIGuler/CSIGen) | License not stated | [PilotWiMAE](https://arxiv.org/abs/2605.22856) | 2026-07-13 |
+<a id="deepmimo"></a>
+## DeepMIMO
+A scenario-based wireless channel dataset and generation interface built from ray-tracing data for machine-learning research.
+- **Profile:** Simulated · Open · CSI, CIR
+- **Tasks:** Channel Estimation, Channel Prediction, Beam Prediction, Positioning
+- **Links:** [Official repository](https://github.com/DeepMIMO/DeepMIMO)
+- **Related papers:** [Full-Domain Coupler](https://arxiv.org/abs/2606.22038), [WiMamba](https://arxiv.org/abs/2603.26367), [LWM](https://arxiv.org/abs/2411.08872)
+
+<a id="dichasus"></a>
+## DICHASUS
+Measured distributed massive-MIMO channel datasets published by the University of Stuttgart for channel learning and localization research.
+- **Profile:** Measured · Open · CSI
+- **Tasks:** Channel Deduction, Positioning
+- **Links:** [Official dataset portal](https://dichasus.inue.uni-stuttgart.de/datasets/)
+- **Related papers:** [Full-Domain Coupler](https://arxiv.org/abs/2606.22038)
+
+<a id="laetwin-xl-dataset"></a>
+## LAETwin-XL Low-Altitude XL-MIMO Datasets
+Digital-twin channel datasets for low-altitude extra-large MIMO experiments released with LAETwin-XL.
+- **Profile:** Simulated · Open · CSI
+- **Tasks:** Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
+- **Links:** [Official dataset page](https://lmyxxn.github.io/6GXLMIMODatasets/) · [Official repository](https://github.com/Lmyxxn/LAETwin-XL)
+- **Related papers:** [LAETwin-XL](https://ieeexplore.ieee.org/document/11570058)
+
+<a id="lwm-challenge"></a>
+## LWM Challenge 2025 Assets
+Official competition assets and starter material for evaluating LWM representations on wireless downstream tasks.
+- **Profile:** Hybrid · Registration · CSI
+- **Tasks:** Beam Prediction, LOS/NLOS Identification, Positioning, Channel Prediction
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-competition-2025) · [Official challenge page](https://lwm-wireless.net/challenge)
+- **Related papers:** [LWM](https://arxiv.org/abs/2411.08872)
+
+<a id="pilotwimae-channels"></a>
+## PilotWiMAE Channel Data
+Public channel-generation recipes and experiment data interfaces used by the PilotWiMAE reference implementation.
+- **Profile:** Simulated · Open · Pilot Observations, CSI
+- **Tasks:** Channel Estimation, Beam Prediction, LOS/NLOS Identification
+- **Links:** [PilotWiMAE repository](https://github.com/BerkIGuler/PilotWiMAE) · [CSIGen repository](https://github.com/BerkIGuler/CSIGen)
+- **Related papers:** [PilotWiMAE](https://arxiv.org/abs/2605.22856)
