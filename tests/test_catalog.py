@@ -126,6 +126,87 @@ class CatalogTests(unittest.TestCase):
         ):
             self.assertIn(heading, rendered)
 
+    def test_survey_descriptions_are_preserved_without_profile_labels(self):
+        by_id = {record["id"]: record for record in self.records}
+        expected_summary = (
+            "This paper introduces the concept of channel foundation models (CFMs) "
+            "for the first time, providing a comprehensive survey on motivations, "
+            "methodologies, and future opportunities."
+        )
+        expected_abstract = (
+            "The integration of Artificial Intelligence (AI) and communication has "
+            "emerged as a key target and hallmarks for sixth-generation wireless "
+            "communication systems. Based on the discussion of the understanding of "
+            "Native AI and the summary of the evolution of AI research paradigms in "
+            "wireless communications, this paper points out that traditional "
+            "task-specific AI models have various limitations, making them hardly "
+            "serve as an important component of future 6G Native AI. Accordingly, we "
+            "propose Channel Foundation Models (CFMs) and systematically introduce "
+            "their pretraining methods, as well as their potential adaptation to "
+            "various channel-related tasks. As an exploration and sharing on issues "
+            "such as \"what is Native AI\" and \"what kind of AI capabilities future "
+            "6G systems need\", we argue that 6G Native AI must possess strong task "
+            "adaptability and scenario generalization ability, and CFMs are expected "
+            "to become one of the technical options for future 6G Native AI."
+        )
+        expected_abstract_zh = (
+            "人工智能（Artificial intelligence, AI）与通信的深度结合已成为6G的关键目标和标志之一。"
+            "内生智能（Native AI）被认为是6G重要特征。本文在给出对内生智能理解探讨的基础上总结"
+            "无线AI研究范式演进，指出基于监督学习的传统AI模型存在诸多局限，使其很难作为未来6G"
+            "内生智能的重要组成部分。基于此，我们提出了信道基础模型（Channel Foundation Models, "
+            "CFMs）并系统地介绍了其预训练方法，以及对各类信道相关任务的可能适配。作为对“什么是"
+            "内生智能，什么样的AI能力是未来6G系统需要的”等问题的探讨和分享，我们认为6G内生智能"
+            "需要具备强大任务适应性和场景泛化能力，CFMs有可能成为未来6G内生智能的技术选项之一。"
+        )
+        expected_note = (
+            "This invited position paper on CFM and 6G Native AI will be published by "
+            "ZTE Communications soon (in Chinese). An early access version can be found "
+            "in [CNKI](https://link.cnki.net/urlid/34.1228.TN.20260225.0923.002)."
+        )
+
+        towards = by_id["towards-cfm"]
+        native_ai = by_id["6g-native-ai-cfm"]
+        self.assertEqual(towards["summary"], expected_summary)
+        self.assertEqual(native_ai["abstract"], expected_abstract)
+        self.assertEqual(native_ai["abstract_zh"], expected_abstract_zh)
+        self.assertEqual(native_ai["note"], expected_note)
+        for paper in (towards, native_ai):
+            entry = catalog.render_paper_entry(paper, by_id)
+            self.assertNotIn("**Modalities:**", entry)
+            self.assertNotIn("**Tasks:**", entry)
+        self.assertIn(f"**Summary:** {expected_summary}", catalog.render_paper_entry(towards, by_id))
+        native_entry = catalog.render_paper_entry(native_ai, by_id)
+        self.assertIn(f"**Abstract:** {expected_abstract}", native_entry)
+        self.assertIn(f"**摘要:** {expected_abstract_zh}", native_entry)
+        self.assertIn(f"**Note:** {expected_note}", native_entry)
+
+    def test_paper_profiles_and_artifacts_are_compact(self):
+        by_id = {record["id"]: record for record in self.records}
+        temporal_entry = catalog.render_paper_entry(by_id["lwm-temporal"], by_id)
+        self.assertIn(
+            "  - **Modalities:** CSI\n  - **Tasks:** Time Channel Extrapolation",
+            temporal_entry,
+        )
+        self.assertNotIn(" · **Tasks:**", temporal_entry)
+
+        coupler_entry = catalog.render_paper_entry(by_id["full-domain-coupler"], by_id)
+        self.assertIn("**Code:** [Official implementation]", coupler_entry)
+        self.assertNotIn("Code / Weights / Benchmark", coupler_entry)
+        rendered = catalog.render_papers(
+            [record for record in self.records if record["kind"] == "paper"],
+            self.records,
+        )
+        self.assertNotIn("**Data:**", rendered)
+
+    def test_deepmimo_is_cataloged_as_dataset_and_simulation_tool(self):
+        by_id = {record["id"]: record for record in self.records}
+        self.assertEqual(by_id["deepmimo"]["kind"], "dataset")
+        self.assertEqual(by_id["deepmimo-toolchain"]["kind"], "simulation-tool")
+        self.assertNotIn("ns-3", by_id)
+        tool_page = catalog.render_outputs(self.records)[catalog.OUTPUTS["simulation-tool"]]
+        self.assertIn('<a id="deepmimo-toolchain"></a>', tool_page)
+        self.assertNotIn('<a id="ns-3"></a>', tool_page)
+
     def test_models_and_benchmarks_are_embedded_without_public_sections(self):
         outputs = catalog.render_outputs(self.records)
         paper_page = outputs[catalog.OUTPUTS["paper"]]

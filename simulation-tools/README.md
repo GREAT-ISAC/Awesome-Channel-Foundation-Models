@@ -15,6 +15,14 @@ An author-released Sionna-based workflow for generating ray-traced CSI used by P
 - **Links:** [Official repository](https://github.com/BerkIGuler/CSIGen)
 - **Related papers:** [PilotWiMAE](../papers/README.md#pilotwimae)
 
+<a id="deepmimo-toolchain"></a>
+## DeepMIMO
+A scenario-based wireless channel dataset generation toolkit built from ray-tracing data for machine-learning research.
+- **Profile:** Channel · Open
+- **Capabilities:** Channel Generation, Dataset Generation, Scenario Configuration, MIMO
+- **Links:** [Official repository](https://github.com/DeepMIMO/DeepMIMO)
+- **Related papers:** [Full-Domain Coupler](../papers/README.md#full-domain-coupler), [WiMamba](../papers/README.md#wimamba), [LWM](../papers/README.md#lwm)
+
 <a id="laetwin-xl-toolchain"></a>
 ## LAETwin-XL Toolchain
 A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios built around Sionna ray tracing.
@@ -29,13 +37,6 @@ Commercial 5G waveform, link-level, channel-modeling, and conformance-test funct
 - **Profile:** Commercial · Restricted
 - **Capabilities:** Waveform Generation, Channel Modeling, Link Level Simulation, Conformance Testing
 - **Links:** [Official documentation (restricted)](https://www.mathworks.com/help/5g/index.html)
-
-<a id="ns-3"></a>
-## ns-3
-A discrete-event network simulator used for open, reproducible communication-system and protocol experiments.
-- **Profile:** System · Open
-- **Capabilities:** Network Simulation, Protocol Modeling, System Level Simulation
-- **Links:** [Official project site](https://www.nsnam.org/)
 
 <a id="nyusim"></a>
 ## NYUSIM

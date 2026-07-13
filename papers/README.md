@@ -27,12 +27,14 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
 <a id="6g-native-ai-cfm"></a>
 - **6G Native AI and CFM** — [6G Native AI and Channel Foundation Models](../docs/6G%20Native%20AI%20and%20Channel%20Foundation%20Models.pdf) (2026 · ZTE Technology Journal)
   - **Authors:** Shugong Xu, Jun Jiang
-  - **Modalities:** CSI
+  - **Abstract:** The integration of Artificial Intelligence (AI) and communication has emerged as a key target and hallmarks for sixth-generation wireless communication systems. Based on the discussion of the understanding of Native AI and the summary of the evolution of AI research paradigms in wireless communications, this paper points out that traditional task-specific AI models have various limitations, making them hardly serve as an important component of future 6G Native AI. Accordingly, we propose Channel Foundation Models (CFMs) and systematically introduce their pretraining methods, as well as their potential adaptation to various channel-related tasks. As an exploration and sharing on issues such as "what is Native AI" and "what kind of AI capabilities future 6G systems need", we argue that 6G Native AI must possess strong task adaptability and scenario generalization ability, and CFMs are expected to become one of the technical options for future 6G Native AI.
+  - **摘要:** 人工智能（Artificial intelligence, AI）与通信的深度结合已成为6G的关键目标和标志之一。内生智能（Native AI）被认为是6G重要特征。本文在给出对内生智能理解探讨的基础上总结无线AI研究范式演进，指出基于监督学习的传统AI模型存在诸多局限，使其很难作为未来6G内生智能的重要组成部分。基于此，我们提出了信道基础模型（Channel Foundation Models, CFMs）并系统地介绍了其预训练方法，以及对各类信道相关任务的可能适配。作为对“什么是内生智能，什么样的AI能力是未来6G系统需要的”等问题的探讨和分享，我们认为6G内生智能需要具备强大任务适应性和场景泛化能力，CFMs有可能成为未来6G内生智能的技术选项之一。
+  - **Note:** This invited position paper on CFM and 6G Native AI will be published by ZTE Communications soon (in Chinese). An early access version can be found in [CNKI](https://link.cnki.net/urlid/34.1228.TN.20260225.0923.002).
 
 <a id="towards-cfm"></a>
 - **Towards CFMs** — [Towards channel foundation models (CFMs): Motivations, methodologies and opportunities](https://arxiv.org/abs/2507.13637) (2025 · arXiv)
   - **Authors:** Jun Jiang, Yuan Gao, Xinyi Wu, Shugong Xu
-  - **Modalities:** CSI
+  - **Summary:** This paper introduces the concept of channel foundation models (CFMs) for the first time, providing a comprehensive survey on motivations, methodologies, and future opportunities.
 
 <a id="backbones"></a>
 ## Backbones & Architectures
@@ -40,45 +42,53 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
 <a id="adaptive-3d-rope"></a>
 - **Adaptive 3D-RoPE** — [Adaptive 3D-RoPE: Physics-Aligned Rotary Positional Encoding for Wireless Foundation Models](https://arxiv.org/abs/2605.00968) (2026 · arXiv)
   - **Authors:** Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Reconstruction
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Reconstruction
 
 <a id="airfm-dda"></a>
 - **AirFM-DDA** — [AirFM-DDA: Air-Interface Foundation Model in the Delay–Doppler–Angle Domain for AI-Native 6G](https://arxiv.org/abs/2605.00020) (2026 · arXiv)
   - **Authors:** Kejia Bian, Meixia Tao, Jianhua Mo, Zhiyong Chen, Leyan Chen
-  - **Modalities:** Delay–Doppler–Angle · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Estimation
+  - **Modalities:** Delay–Doppler–Angle
+  - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Estimation
 
 <a id="comhymba"></a>
 - **ComHymba** — [ComHymba: Low-Complexity Domain-Informed Foundation Model for Wireless Communications](https://arxiv.org/abs/2605.23468) (2026 · arXiv)
   - **Authors:** Bowen Yang, Wei Chen, Jiaming Cheng, Bo Ai
-  - **Modalities:** CSI · **Tasks:** Channel Reconstruction, Positioning, Path Loss Prediction, Beam Prediction, LOS/NLOS Identification
+  - **Modalities:** CSI
+  - **Tasks:** Channel Reconstruction, Positioning, Path Loss Prediction, Beam Prediction, LOS/NLOS Identification
 
 <a id="consisformer"></a>
 - **ConsisFormer** — [ConsisFormer: Compute-Efficient Transformer for Wireless Foundation Models Based on Channel Consistency](https://arxiv.org/abs/2606.19953) (2026 · arXiv)
   - **Authors:** Yuwei Wang, Li Sun, Tingting Yang, Liwen Jing, Yuxuan Shi, Maged Elkashlan, Mérouane Debbah
-  - **Modalities:** CSI · **Tasks:** LOS/NLOS Identification, Frequency Channel Extrapolation, Positioning, Beam Prediction
+  - **Modalities:** CSI
+  - **Tasks:** LOS/NLOS Identification, Frequency Channel Extrapolation, Positioning, Beam Prediction
 
 <a id="full-domain-coupler"></a>
 - **Full-Domain Coupler** — [Full-Domain Coupler: A Wireless Native Neural Backbone for Channel Representation and Deduction](https://arxiv.org/abs/2606.22038) (2026 · arXiv)
   - **Authors:** Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah
-  - **Modalities:** CSI, CIR · **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
-  - **Code / Weights / Benchmark:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo), [DICHASUS](../datasets/README.md#dichasus)
+  - **Modalities:** CSI, CIR
+  - **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
+  - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
 
 <a id="lwm-temporal"></a>
 - **LWM-Temporal** — [LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning](https://arxiv.org/abs/2603.10024) (2026 · arXiv)
   - **Authors:** Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation
-  - **Code / Weights:** [Official model repository](https://huggingface.co/wi-lab/lwm-temporal)
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-temporal)
 
 <a id="spikewfm"></a>
 - **SpikeWFM** — [SpikeWFM: Spiking-Aided Wireless Foundation Model for Robust Channel Prediction](https://arxiv.org/abs/2606.00120) (2026 · arXiv)
   - **Authors:** Liwen Jing, Yisha Lu, Tingting Yang, Li Sun, Yuxuan Shi, Yuwei Wang, Mengfan Zheng, Leiyang Xu
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation
 
 <a id="wimamba"></a>
 - **WiMamba** — [WiMamba: Linear-Scale Wireless Foundation Model](https://arxiv.org/abs/2603.26367) (2026 · arXiv)
   - **Authors:** Tomer Raviv, Nir Shlezinger
-  - **Modalities:** CSI · **Tasks:** LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
-  - **Code:** [Official implementation](https://github.com/tomerraviv95/mamba-lwm-project) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo)
+  - **Modalities:** CSI
+  - **Tasks:** LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
+  - **Code:** [Official implementation](https://github.com/tomerraviv95/mamba-lwm-project)
 
 <a id="pretraining"></a>
 ## Pretraining Methods
@@ -91,71 +101,84 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="csi-mae"></a>
 - **CSI-MAE** — [CSI-MAE: A Masked Autoencoder-based Channel Foundation Model](https://arxiv.org/abs/2601.03789) (2026 · arXiv)
   - **Authors:** Jun Jiang, Xiaolong Ruan, Shugong Xu
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, CSI Feedback, Positioning
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, CSI Feedback, Positioning
 
 <a id="hetercsi"></a>
 - **HeterCSI** — [HeterCSI: Channel-Adaptive Heterogeneous CSI Pretraining Framework for Generalized Wireless Foundation Models](https://arxiv.org/abs/2601.18200) (2026 · arXiv)
   - **Authors:** Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui, Xiaofeng Tao
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
   - **Weights:** [HeterCSI model card](https://huggingface.co/Chenyu8998/HeterCSI)
 
 <a id="mcm"></a>
 - **MCM** — [Scalable Pre-Trained Masked Channel Model of Wireless Communications](https://ieeexplore.ieee.org/abstract/document/11442291) (2026 · IEEE Transactions on Communications)
   - **Authors:** Jianhua Guo, Zhongsheng Deng, Zhen Qiao, Junkai Zhang, Jiang Xue, Dusit Niyato, Zongben Xu
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Channel Estimation, CSI Feedback
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation, Channel Estimation, CSI Feedback
 
 <a id="pilotwimae"></a>
 - **PilotWiMAE** — [PilotWiMAE: Pilot-Native Representation Learning for Wireless Channels](https://arxiv.org/abs/2605.22856) (2026 · arXiv)
   - **Authors:** Berkay Guler, Giovanni Geraci, Hamid Jafarkhani
-  - **Modalities:** Pilot Observations, CSI · **Tasks:** Beam Prediction, LOS/NLOS Identification, Channel Estimation
-  - **Code / Weights / Benchmark:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Data:** [PilotWiMAE channel data](../datasets/README.md#pilotwimae-channels) · **Simulator:** [CSIGen](../simulation-tools/README.md#csigen)
+  - **Modalities:** Pilot Observations, CSI
+  - **Tasks:** Beam Prediction, LOS/NLOS Identification, Channel Estimation
+  - **Code:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Simulator:** [CSIGen](../simulation-tools/README.md#csigen)
 
 <a id="bert4mimo"></a>
 - **BERT4MIMO** — [BERT4MIMO: A Foundation Model using BERT Architecture for Massive MIMO Channel State Information Prediction](https://arxiv.org/abs/2501.01802) (2025 · arXiv)
   - **Authors:** Ferhat Ozgur Catak, Murat Kuzlu, Umit Cali
-  - **Modalities:** CSI · **Tasks:** Channel Reconstruction
+  - **Modalities:** CSI
+  - **Tasks:** Channel Reconstruction
 
 <a id="unified-wireless-technology-fm"></a>
 - **M. Cheraghinia et al.** — [A Unified Foundation Model for Wireless Technology Recognition and Localization](https://arxiv.org/abs/2505.19390) (2025 · arXiv)
   - **Authors:** Mohammad Cheraghinia, Eli De Poorter, Jaron Fontaine, Merouane Debbah, Adnan Shahid
-  - **Modalities:** CIR, IQ · **Tasks:** Wireless Technology Classification, LOS/NLOS Identification, Ranging Error Correction
+  - **Modalities:** CIR, IQ
+  - **Tasks:** Wireless Technology Classification, LOS/NLOS Identification, Ranging Error Correction
 
 <a id="spectrumfm"></a>
 - **SpectrumFM** — [SpectrumFM: A Foundation Model for Intelligent Spectrum Management](https://arxiv.org/abs/2505.06256) (2025 · IEEE Journal on Selected Areas in Communications)
   - **Authors:** Fuhui Zhou, Chunyu Liu, Hao Zhang, Wei Wu, Qihui Wu, Tony Q. S. Quek, Chan-Byoung Chae
-  - **Modalities:** Spectrum · **Tasks:** Spectrum Sensing, Anomaly Detection, Wireless Technology Classification
-  - **Code / Benchmark:** [Official implementation](https://github.com/ChunyuLiu188/SpectrumFM)
+  - **Modalities:** Spectrum
+  - **Tasks:** Spectrum Sensing, Anomaly Detection, Wireless Technology Classification
+  - **Code:** [Official implementation](https://github.com/ChunyuLiu188/SpectrumFM)
 
 <a id="bert4beam"></a>
 - **UBERT / BERT4beam** — [BERT4beam: Large AI Model Enabled Generalized Beamforming Optimization](https://arxiv.org/abs/2509.11056) (2025 · arXiv)
   - **Authors:** Yuhang Li, Yang Lu, Wei Chen, Bo Ai, Zhiguo Ding, Dusit Niyato
-  - **Modalities:** CSI · **Tasks:** Beamforming
+  - **Modalities:** CSI
+  - **Tasks:** Beamforming
 
 <a id="wifo-cf"></a>
 - **WiFo-CF** — [WiFo-CF: Wireless Foundation Model for CSI Feedback](https://arxiv.org/abs/2508.04068) (2025 · arXiv)
   - **Authors:** Xuanyu Liu, Shijian Gao, Boxun Liu, Xiang Cheng, Liuqing Yang
-  - **Modalities:** CSI · **Tasks:** CSI Feedback, Positioning
+  - **Modalities:** CSI
+  - **Tasks:** CSI Feedback, Positioning
 
 <a id="building-6g-radio-fm"></a>
 - **A. Aboulfotouh et al.** — [Building 6G Radio Foundation Models with Transformer Architectures](https://arxiv.org/abs/2411.09996) (2024 · arXiv)
   - **Authors:** Ahmed Aboulfotouh, Ashkan Eshaghbeigi, Hatem Abou-Zeid
-  - **Modalities:** Spectrogram · **Tasks:** Human Activity Sensing, Spectrogram Segmentation
+  - **Modalities:** Spectrogram
+  - **Tasks:** Human Activity Sensing, Spectrogram Segmentation
 
 <a id="radio-fm-indoor-localization"></a>
 - **J. Ott et al.** — [Radio Foundation Models: Pre-training Transformers for 5G-based Indoor Localization](https://arxiv.org/abs/2410.00617) (2024 · arXiv)
   - **Authors:** Jonathan Ott, Jonas Pirkl, Maximilian Stahlke, Tobias Feigl, Christopher Mutschler
-  - **Modalities:** CSI · **Tasks:** Positioning
+  - **Modalities:** CSI
+  - **Tasks:** Positioning
 
 <a id="lwm"></a>
 - **LWM** — [Large Wireless Model (LWM): A Foundation Model for Wireless Channels](https://arxiv.org/abs/2411.08872) (2024 · arXiv)
   - **Authors:** Sadjad Alikhani, Gouranga Charan, Ahmed Alkhateeb
-  - **Modalities:** CSI · **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
-  - **Code / Weights:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Data:** [DeepMIMO](../datasets/README.md#deepmimo) · **Benchmark:** [LWM Challenge](https://lwm-wireless.net/challenge)
+  - **Modalities:** CSI
+  - **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Benchmark:** [LWM Challenge](https://lwm-wireless.net/challenge)
 
 <a id="wifo"></a>
 - **WiFo** — [WiFo: Wireless Foundation Model for Channel Prediction](https://arxiv.org/abs/2412.08908) (2024 · arXiv)
   - **Authors:** Boxun Liu, Shijian Gao, Xuanyu Liu, Xiang Cheng, Liuqing Yang
-  - **Modalities:** CSI · **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
+  - **Modalities:** CSI
+  - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
 
 <a id="objective-autoregressive-generative"></a>
 ### Autoregressive/Generative Modeling
@@ -163,8 +186,9 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="laetwin-xl"></a>
 - **LAETwin-XL** — [Digital Twin-Based Channel Generation Toolchain and Foundation Model for Low-Altitude XL-MIMO](https://ieeexplore.ieee.org/document/11570058) (2026 · IEEE Journal of Selected Topics in Signal Processing)
   - **Authors:** Mengyuan Li, Yu Han, Jiachen Tian, Chao-Kai Wen, Shi Jin
-  - **Modalities:** CSI · **Tasks:** Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
-  - **Code:** [Official implementation](https://github.com/Lmyxxn/LAETwin-XL) · **Data:** [LAETwin-XL datasets](../datasets/README.md#laetwin-xl-dataset) · **Simulator:** [LAETwin-XL toolchain](../simulation-tools/README.md#laetwin-xl-toolchain)
+  - **Modalities:** CSI
+  - **Tasks:** Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
+  - **Code:** [Official implementation](https://github.com/Lmyxxn/LAETwin-XL) · **Simulator:** [LAETwin-XL toolchain](../simulation-tools/README.md#laetwin-xl-toolchain)
 
 <a id="objective-contrastive-alignment"></a>
 ### Contrastive/Alignment Learning
@@ -172,27 +196,32 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="csi-clip-plus-plus"></a>
 - **CSI-CLIP++** — [CSI-CLIP++: A Scalable Channel Foundation Model for Wireless Communication via CIR-CSI Consistency](https://arxiv.org/abs/2606.25714) (2026 · arXiv)
   - **Authors:** Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu
-  - **Modalities:** CIR, CSI · **Tasks:** LOS/NLOS Identification, Beam Prediction, Positioning
+  - **Modalities:** CIR, CSI
+  - **Tasks:** LOS/NLOS Identification, Beam Prediction, Positioning
 
 <a id="csi-clip"></a>
 - **CSI-CLIP** — [A MIMO Wireless Channel Foundation Model via CIR-CSI Consistency](https://arxiv.org/abs/2502.11965) (2025 · IEEE International Conference on Machine Learning for Communication and Networking)
   - **Authors:** Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu
-  - **Modalities:** CIR, CSI · **Tasks:** LOS/NLOS Identification, Beam Prediction, Positioning
+  - **Modalities:** CIR, CSI
+  - **Tasks:** LOS/NLOS Identification, Beam Prediction, Positioning
 
 <a id="csi2vec"></a>
 - **CSI2Vec** — [CSI2Vec: Towards a Universal CSI Feature Representation for Positioning and Channel Charting](https://arxiv.org/abs/2506.05237) (2025 · arXiv)
   - **Authors:** Victoria Palhares, Sueda Taner, Christoph Studer
-  - **Modalities:** CSI · **Tasks:** Positioning, Channel Charting
+  - **Modalities:** CSI
+  - **Tasks:** Positioning, Channel Charting
 
 <a id="iqfm"></a>
 - **IQFM** — [IQFM: A Wireless Foundational Model for IQ Streams in AI-Native 6G](https://arxiv.org/abs/2506.06718) (2025 · arXiv)
   - **Authors:** Omar Mashaal, Hatem Abou-Zeid
-  - **Modalities:** IQ · **Tasks:** Modulation Classification, AoA Estimation, Beam Prediction, RF Fingerprinting
+  - **Modalities:** IQ
+  - **Tasks:** Modulation Classification, AoA Estimation, Beam Prediction, RF Fingerprinting
 
 <a id="self-supervised-radio-multiple-tasks"></a>
 - **O. Kanu et al.** — [Self-supervised Radio Representation Learning: Can we Learn Multiple Tasks?](https://arxiv.org/abs/2509.03077) (2025 · IEEE International Conference on Communications)
   - **Authors:** Ogechukwu Kanu, Ashkan Eshaghbeigi, Hatem Abou-Zeid
-  - **Modalities:** IQ · **Tasks:** AoA Estimation, Modulation Classification
+  - **Modalities:** IQ
+  - **Tasks:** AoA Estimation, Modulation Classification
 
 <a id="objective-predictive-latent"></a>
 ### Predictive Latent Learning
@@ -200,17 +229,20 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="latentwave"></a>
 - **LatentWave** — [LatentWave: JEPA Pretraining for Wireless Foundation Models](https://arxiv.org/abs/2606.06373) (2026 · arXiv)
   - **Authors:** Ahmed Mohamed, Ahmed Aboulfotouh, Hatem Abou-Zeid
-  - **Modalities:** CSI, IQ · **Tasks:** RF Signal Classification, Positioning, Beam Prediction, LOS/NLOS Identification
+  - **Modalities:** CSI, IQ
+  - **Tasks:** RF Signal Classification, Positioning, Beam Prediction, LOS/NLOS Identification
 
 <a id="wirelessjepa"></a>
 - **WirelessJEPA** — [WirelessJEPA: A Multi-Antenna Foundation Model using Spatio-temporal Wireless Latent Predictions](https://arxiv.org/abs/2601.20190) (2026 · arXiv)
   - **Authors:** Viet Chu, Omar Mashaal, Hatem Abou-Zeid
-  - **Modalities:** IQ · **Tasks:** Modulation Classification, AoA Estimation, GNSS Jamming Detection, RF Fingerprinting, Protocol Classification, Interference Classification
+  - **Modalities:** IQ
+  - **Tasks:** Modulation Classification, AoA Estimation, GNSS Jamming Detection, RF Fingerprinting, Protocol Classification, Interference Classification
 
 <a id="wwm"></a>
 - **WWM** — [A Wireless World Model for AI-Native 6G Networks](https://arxiv.org/abs/2603.25216) (2026 · arXiv)
   - **Authors:** Ziqi Chen, Yi Ren, Yixuan Huang, Qi Sun, Nan Li, Yuhong Huang, Chih-Lin I, Yifan Li, Liang Xia
-  - **Modalities:** CSI, Point Cloud, Trajectory · **Tasks:** Beam Prediction, Positioning, Time Channel Extrapolation, Frequency Channel Extrapolation, CSI Feedback
+  - **Modalities:** CSI, Point Cloud, Trajectory
+  - **Tasks:** Beam Prediction, Positioning, Time Channel Extrapolation, Frequency Channel Extrapolation, CSI Feedback
 
 <a id="objective-supervised-multitask"></a>
 ### Supervised/Multitask Pretraining
@@ -218,27 +250,32 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="icwlm"></a>
 - **ICWLM** — [ICWLM: A Multi-Task Wireless Large Model via In-Context Learning](https://doi.org/10.1109/TCOMM.2026.3655778) (2026 · IEEE Transactions on Communications)
   - **Authors:** Yuxuan Wen, Xiaoming Chen, Maojun Zhang, Zhaohui Yang, Chongwen Huang, Zhaoyang Zhang
-  - **Modalities:** CSI · **Tasks:** Sum Rate Maximization, Max–Min SINR Optimization, Time Channel Extrapolation
+  - **Modalities:** CSI
+  - **Tasks:** Sum Rate Maximization, Max–Min SINR Optimization, Time Channel Extrapolation
 
 <a id="muse-fm"></a>
 - **MUSE-FM** — [MUSE-FM: Multi-task Environment-aware Foundation Model for Wireless Communications](https://arxiv.org/abs/2509.01967) (2025 · arXiv)
   - **Authors:** Tianyue Zheng, Jiajia Guo, Linglong Dai, Shi Jin, Jun Zhang
-  - **Modalities:** CSI, Environment, Received Symbols · **Tasks:** Channel Estimation, MIMO Precoding, MIMO Detection, Channel Decoding, Positioning
+  - **Modalities:** CSI, Environment, Received Symbols
+  - **Tasks:** Channel Estimation, MIMO Precoding, MIMO Detection, Channel Decoding, Positioning
 
 <a id="wifo-2"></a>
 - **WiFo-2** — [WiFo-2: a generalist foundation model unifies heterogeneous wireless system design](https://arxiv.org/abs/2511.22222v2) (2025 · arXiv)
   - **Authors:** Boxun Liu, Xuanyu Liu, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing Yang
-  - **Modalities:** CSI, Vision, Received Symbols · **Tasks:** LOS/NLOS Identification, Cross Band Beam Prediction, Positioning, Frequency Channel Extrapolation, CSI Feedback, AoA Estimation, Cross Band Channel Prediction, Signal Detection
+  - **Modalities:** CSI, Vision, Received Symbols
+  - **Tasks:** LOS/NLOS Identification, Cross Band Beam Prediction, Positioning, Frequency Channel Extrapolation, CSI Feedback, AoA Estimation, Cross Band Channel Prediction, Signal Detection
 
 <a id="wirelessgpt"></a>
 - **WirelessGPT** — [WirelessGPT: A Generative Pre-trained Multi-task Learning Framework for Wireless Communication](https://arxiv.org/abs/2502.06877) (2025 · arXiv)
   - **Authors:** Tingting Yang, Ping Zhang, Mengfan Zheng, Yuxuan Shi, Liwen Jing, Jianbo Huang, Nan Li
-  - **Modalities:** CSI · **Tasks:** Channel Estimation, Time Channel Extrapolation, Pose Recognition
+  - **Modalities:** CSI
+  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Pose Recognition
 
 <a id="wireless-multitask-prediction"></a>
 - **Y. Sheng et al.** — [A Wireless Foundation Model for Multi-Task Prediction](https://arxiv.org/abs/2507.05938) (2025 · arXiv)
   - **Authors:** Yucheng Sheng, Jiacheng Wang, Xingyu Zhou, Le Liang, Hao Ye, Shi Jin, Geoffrey Ye Li
-  - **Modalities:** CSI, Traffic Sequence · **Tasks:** Time Channel Extrapolation, Angle Prediction, Traffic Prediction
+  - **Modalities:** CSI, Traffic Sequence
+  - **Tasks:** Time Channel Extrapolation, Angle Prediction, Traffic Prediction
 
 <a id="objective-hybrid"></a>
 ### Hybrid Objectives
@@ -246,39 +283,46 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="am-fm"></a>
 - **AM-FM** — [AM-FM: A Foundation Model for Ambient Intelligence Through WiFi](https://arxiv.org/abs/2602.11200) (2026 · arXiv)
   - **Authors:** Guozhen Zhu, Yuqian Hu, Sakila Jayaweera, Weihang Gao, Wei-Hsiang Wang, Jiaxuan Zhang, Beibei Wang, Chenshu Wu, K. J. Ray Liu
-  - **Modalities:** CSI · **Tasks:** Fall Detection, Human Activity Recognition, Gesture Recognition, User Identification, Positioning, Motion Source Recognition, Occupancy Detection, Proximity Estimation, WiFi Imaging
+  - **Modalities:** CSI
+  - **Tasks:** Fall Detection, Human Activity Recognition, Gesture Recognition, User Identification, Positioning, Motion Source Recognition, Occupancy Detection, Proximity Estimation, WiFi Imaging
 
 <a id="lwm-spectro"></a>
 - **LWM-Spectro** — [LWM-Spectro: A Foundation Model for Wireless Baseband Signal Spectrograms](https://arxiv.org/abs/2601.08780) (2026 · arXiv)
   - **Authors:** Namhyun Kim, Sadjad Alikhani, Ahmed Alkhateeb
-  - **Modalities:** Spectrogram · **Tasks:** Modulation Classification, Joint SNR and Doppler Classification
-  - **Code / Weights:** [Official model repository](https://huggingface.co/wi-lab/lwm-spectro)
+  - **Modalities:** Spectrogram
+  - **Tasks:** Modulation Classification, Joint SNR and Doppler Classification
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm-spectro)
 
 <a id="spa-mae"></a>
 - **SPA-MAE** — [SPA-MAE: A Physics-Guided CSI Foundation Model for Wireless Physical Layer](https://arxiv.org/abs/2605.19849) (2026 · arXiv)
   - **Authors:** Chen Chen, Weijie Jin, Hengtao He, Xiaoheng Sun, Shi Jin
-  - **Modalities:** CSI · **Tasks:** Channel Estimation, Beam Prediction, Positioning
+  - **Modalities:** CSI
+  - **Tasks:** Channel Estimation, Beam Prediction, Positioning
 
 <a id="6g-wavesfm"></a>
 - **6G WavesFM** — [6G WavesFM: A Foundation Model for Sensing, Communication, and Localization](https://arxiv.org/abs/2504.14100) (2025 · arXiv)
   - **Authors:** Ahmed Aboulfotouh, Elsayed Mohammed, Hatem Abou-Zeid
-  - **Modalities:** CSI, IQ, Spectrogram, Resource Grid · **Tasks:** Positioning, Channel Estimation, RF Signal Classification, Human Activity Sensing
+  - **Modalities:** CSI, IQ, Spectrogram, Resource Grid
+  - **Tasks:** Positioning, Channel Estimation, RF Signal Classification, Human Activity Sensing
 
 <a id="contrawimae"></a>
 - **ContraWiMAE** — [A Multi-Task Foundation Model for Wireless Channel Representation Using Contrastive and Masked Autoencoder Learning](https://arxiv.org/abs/2505.09160) (2025 · arXiv)
   - **Authors:** Berkay Guler, Giovanni Geraci, Hamid Jafarkhani
-  - **Modalities:** CSI · **Tasks:** Cross Frequency Beam Prediction, LOS/NLOS Identification, Channel Estimation
+  - **Modalities:** CSI
+  - **Tasks:** Cross Frequency Beam Prediction, LOS/NLOS Identification, Channel Estimation
 
 <a id="lwlm"></a>
 - **LWLM** — [Large Wireless Localization Model (LWLM): A Foundation Model for Positioning in 6G Networks](https://arxiv.org/abs/2505.10134) (2025 · arXiv)
   - **Authors:** Guangjin Pan, Kaixuan Huang, Hui Chen, Shunqing Zhang, Christian Häger, Henk Wymeersch
-  - **Modalities:** CSI · **Tasks:** ToA Estimation, AoA Estimation, Positioning
+  - **Modalities:** CSI
+  - **Tasks:** ToA Estimation, AoA Estimation, Positioning
   - **Code:** [Official implementation](https://github.com/6G-DISAC-SNS/LWLM)
 
 <a id="multimodal-ai-6g"></a>
 - **T. Jiao et al.** — [Addressing the Curse of Scenario and Task Generalization in AI-6G: A Multi-Modal Paradigm](https://arxiv.org/abs/2504.04797) (2025 · arXiv)
   - **Authors:** Tianyu Jiao, Zhuoran Xiao, Yin Xu, Chenhui Ye, Yihang Huang, Zhiyong Chen, Liyu Cai, Jiang Chang, Dazhi He, Yunfeng Guan, Guangyi Liu, Wenjun Zhang
-  - **Modalities:** CSI, Environment · **Tasks:** CSI Feedback, Positioning, Beam Prediction, LOS/NLOS Identification
+  - **Modalities:** CSI, Environment
+  - **Tasks:** CSI Feedback, Positioning, Beam Prediction, LOS/NLOS Identification
 
 <a id="adaptation"></a>
 ## Adaptation & Transfer
@@ -286,18 +330,21 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="lwm-cde"></a>
 - **LWM-CDE** — [LWM-CDE: A Representation Space for Wireless Data Reasoning and Transferability](https://arxiv.org/abs/2605.24077) (2026 · arXiv)
   - **Authors:** Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb
-  - **Modalities:** CSI · **Tasks:** LOS/NLOS Identification, Beam Prediction
+  - **Modalities:** CSI
+  - **Tasks:** LOS/NLOS Identification, Beam Prediction
   - **Weights:** [LWM base checkpoint](https://huggingface.co/wi-lab/lwm)
 
 <a id="ra-lwlm"></a>
 - **RA-LWLM** — [RA-LWLM: Retrieval-Augmented In-Context Localization with Wireless Foundation Models](https://arxiv.org/abs/2606.01899) (2026 · arXiv)
   - **Authors:** Guangjin Pan, Hui Chen, Hei Victor Cheng, Henk Wymeersch
-  - **Modalities:** CSI · **Tasks:** Positioning
+  - **Modalities:** CSI
+  - **Tasks:** Positioning
 
 <a id="rafc"></a>
 - **RAFC** — [A Unified Adaptive Feature Composition Framework for Multi-Task Generalization in Wireless Foundation Models](https://arxiv.org/abs/2606.10277) (2026 · arXiv)
   - **Authors:** Yuxuan Shi, Tingting Yang, Kangning Ma, Liwen Jing, Yuwei Wang, Mengfan Zheng, Li Sun
-  - **Modalities:** CSI · **Tasks:** Channel Estimation, Time Channel Extrapolation, Beam Prediction, Positioning
+  - **Modalities:** CSI
+  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Beam Prediction, Positioning
 
 <a id="inference-deployment"></a>
 ## Inference & Deployment
@@ -305,4 +352,5 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
 <a id="early-exit"></a>
 - **Early-Exit** — [Fast Wireless Foundation Models with Early-Exits](https://arxiv.org/abs/2606.29640) (2026 · arXiv)
   - **Authors:** Omar Mashaal, Hatem Abou-Zeid
-  - **Modalities:** IQ · **Tasks:** RF Fingerprinting, Beam Prediction, Modulation Classification, Interference Classification, AoA Estimation
+  - **Modalities:** IQ
+  - **Tasks:** RF Fingerprinting, Beam Prediction, Modulation Classification, Interference Classification, AoA Estimation

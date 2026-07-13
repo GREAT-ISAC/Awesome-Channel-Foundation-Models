@@ -12,7 +12,12 @@ stages: [survey]
 objectives: []
 modalities: [csi]
 tasks: []
-summary: A position paper connecting channel foundation models with the requirements of 6G native AI.
+abstract: >-
+  The integration of Artificial Intelligence (AI) and communication has emerged as a key target and hallmarks for sixth-generation wireless communication systems. Based on the discussion of the understanding of Native AI and the summary of the evolution of AI research paradigms in wireless communications, this paper points out that traditional task-specific AI models have various limitations, making them hardly serve as an important component of future 6G Native AI. Accordingly, we propose Channel Foundation Models (CFMs) and systematically introduce their pretraining methods, as well as their potential adaptation to various channel-related tasks. As an exploration and sharing on issues such as "what is Native AI" and "what kind of AI capabilities future 6G systems need", we argue that 6G Native AI must possess strong task adaptability and scenario generalization ability, and CFMs are expected to become one of the technical options for future 6G Native AI.
+abstract_zh: >-
+  人工智能（Artificial intelligence, AI）与通信的深度结合已成为6G的关键目标和标志之一。内生智能（Native AI）被认为是6G重要特征。本文在给出对内生智能理解探讨的基础上总结无线AI研究范式演进，指出基于监督学习的传统AI模型存在诸多局限，使其很难作为未来6G内生智能的重要组成部分。基于此，我们提出了信道基础模型（Channel Foundation Models, CFMs）并系统地介绍了其预训练方法，以及对各类信道相关任务的可能适配。作为对“什么是内生智能，什么样的AI能力是未来6G系统需要的”等问题的探讨和分享，我们认为6G内生智能需要具备强大任务适应性和场景泛化能力，CFMs有可能成为未来6G内生智能的技术选项之一。
+note: >-
+  This invited position paper on CFM and 6G Native AI will be published by ZTE Communications soon (in Chinese). An early access version can be found in [CNKI](https://link.cnki.net/urlid/34.1228.TN.20260225.0923.002).
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}

@@ -252,6 +252,10 @@ def available_artifacts(
     }
     by_target: Dict[str, Dict[str, Any]] = {}
     for slot_name, slot in paper["artifacts"].items():
+        # Dataset relationships remain in YAML and on the dataset page. Repeating
+        # them under individual papers makes the paper index harder to scan.
+        if slot_name == "datasets":
+            continue
         if slot["status"] not in {"available", "restricted"}:
             continue
         for item in slot["items"]:
@@ -268,6 +272,10 @@ def available_artifacts(
     by_types: Dict[Tuple[str, ...], List[str]] = {}
     for target, group in by_target.items():
         types = tuple(group["types"])
+        # A single implementation repository often hosts code, checkpoints, and
+        # evaluation scripts. One Code link conveys that without repeating roles.
+        if "Code" in types:
+            types = ("Code",)
         by_types.setdefault(types, []).append(qualified_link(group["item"], target))
     return [
         f"**{' / '.join(types)}:** {', '.join(item_links)}"
@@ -293,13 +301,22 @@ def render_paper_entry(
         f"({paper['year']} · {paper['venue']})",
         f"  - **Authors:** {', '.join(paper['authors'])}",
     ]
-    profile = []
-    if paper["modalities"]:
-        profile.append(f"**Modalities:** {', '.join(label(item) for item in paper['modalities'])}")
-    if paper["tasks"]:
-        profile.append(f"**Tasks:** {', '.join(label(item) for item in paper['tasks'])}")
-    if profile:
-        lines.append("  - " + " · ".join(profile))
+    is_survey = "survey" in paper["stages"]
+    if not is_survey and paper["modalities"]:
+        lines.append(
+            f"  - **Modalities:** {', '.join(label(item) for item in paper['modalities'])}"
+        )
+    if not is_survey and paper["tasks"]:
+        lines.append(f"  - **Tasks:** {', '.join(label(item) for item in paper['tasks'])}")
+    if is_survey:
+        for field, field_label in (
+            ("summary", "Summary"),
+            ("abstract", "Abstract"),
+            ("abstract_zh", "摘要"),
+            ("note", "Note"),
+        ):
+            if paper.get(field):
+                lines.append(f"  - **{field_label}:** {paper[field]}")
     resources = available_artifacts(paper, by_id)
     if resources:
         lines.append("  - " + " · ".join(resources))

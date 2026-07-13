@@ -153,6 +153,9 @@
         "modalities": { "$ref": "#/$defs/slugList" },
         "tasks": { "$ref": "#/$defs/slugList" },
         "summary": { "type": "string", "minLength": 1 },
+        "abstract": { "type": "string", "minLength": 1 },
+        "abstract_zh": { "type": "string", "minLength": 1 },
+        "note": { "type": "string", "minLength": 1 },
         "artifacts": {
           "type": "object",
           "required": ["code", "datasets", "models", "benchmarks", "simulation_tools"],

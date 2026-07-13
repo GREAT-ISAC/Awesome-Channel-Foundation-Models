@@ -11,7 +11,7 @@ stages: [survey]
 objectives: []
 modalities: [csi]
 tasks: []
-summary: Introduces the CFM concept and surveys motivations, methodologies, and research opportunities.
+summary: This paper introduces the concept of channel foundation models (CFMs) for the first time, providing a comprehensive survey on motivations, methodologies, and future opportunities.
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
