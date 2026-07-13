@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Inclusion criteria
+    url: https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models/blob/main/docs/inclusion-criteria.md
+    about: Check the catalog scope and verification policy before proposing a resource.

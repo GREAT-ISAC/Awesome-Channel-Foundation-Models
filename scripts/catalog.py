@@ -55,6 +55,11 @@ DISPLAY = {
     "predictive-latent": "Predictive Latent Learning",
     "supervised-multitask": "Supervised/Multitask Pretraining",
     "hybrid": "Hybrid Objectives",
+    "delay-doppler-angle": "Delay–Doppler–Angle",
+    "los-nlos-identification": "LOS/NLOS Identification",
+    "near-far-field-classification": "Near-/Far-Field Classification",
+    "max-min-sinr-optimization": "Max–Min SINR Optimization",
+    "snr-doppler-classification": "Joint SNR and Doppler Classification",
 }
 
 ACRONYMS = {
@@ -237,7 +242,10 @@ def artifact_cell(paper: Mapping[str, Any], slot_name: str) -> str:
         return "Not released"
     links = []
     for item in slot["items"]:
-        suffix = "official" if item["provenance"] == "official" else "community"
+        suffix_parts = [item["provenance"]]
+        if item["availability"] != "available":
+            suffix_parts.append(item["availability"])
+        suffix = ", ".join(suffix_parts)
         target = item.get("url") or f"../{slot_name.replace('_', '-')}/README.md#{item['ref']}"
         links.append(markdown_link(f"{item['label']} ({suffix})", target))
     return "<br>".join(links) if links else label(status)
@@ -293,8 +301,7 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
         )
     details = ["## Paper records"]
     for paper in papers:
-        details.extend(
-            [
+        detail_lines = [
                 f"### {paper['short_name']} ({paper['year']})",
                 f"- **Paper:** {full_paper_link(paper)}",
                 f"- **Authors:** {', '.join(paper['authors'])}",
@@ -311,9 +318,9 @@ def render_papers(papers: Sequence[Mapping[str, Any]]) -> str:
                 ),
                 f"- **Last verified:** {paper['last_verified']}",
             ]
-        )
         if paper.get("summary"):
-            details.append(f"- **Note:** {paper['summary']}")
+            detail_lines.append(f"- **Note:** {paper['summary']}")
+        details.append("\n".join(detail_lines))
     sections = [
         generated_header(
             "CFM Papers",
@@ -355,6 +362,14 @@ def first_available_link(record: Mapping[str, Any]) -> str:
     return record["name"]
 
 
+def resource_links(record: Mapping[str, Any]) -> str:
+    links = []
+    for item in record["links"]:
+        details = f"{item['provenance']}, {item['availability']}"
+        links.append(markdown_link(f"{item['label']} ({details})", item["url"]))
+    return "<br>".join(links)
+
+
 def render_resources(
     kind: str,
     records: Sequence[Mapping[str, Any]],
@@ -364,22 +379,22 @@ def render_resources(
         "dataset": (
             "Datasets",
             "Measured and simulated datasets relevant to channel foundation-model training and evaluation.",
-            ["Dataset", "Origin", "Access", "Modalities", "Tasks", "License", "Related papers", "Verified"],
+            ["Dataset", "Description", "Origin", "Access", "Modalities", "Tasks", "Links", "License", "Related papers", "Verified"],
         ),
         "model": (
             "Pretrained Models",
             "Public checkpoints and model cards associated with cataloged foundation models.",
-            ["Model", "Framework", "Access", "Modalities", "Tasks", "License", "Related papers", "Verified"],
+            ["Model", "Description", "Framework", "Access", "Modalities", "Tasks", "Links", "License", "Related papers", "Verified"],
         ),
         "benchmark": (
             "Benchmark Projects",
             "Existing external evaluation projects; this repository does not provide a new benchmark runner in v1.",
-            ["Benchmark", "Tasks", "Datasets", "Metrics", "License", "Related papers", "Verified"],
+            ["Benchmark", "Description", "Tasks", "Datasets", "Metrics", "Links", "License", "Related papers", "Verified"],
         ),
         "simulation-tool": (
             "Simulation Tools",
             "Open-first channel, ray-tracing, and system simulation infrastructure useful for CFM data workflows.",
-            ["Tool", "Type", "Access", "Capabilities", "License", "Related papers", "Verified"],
+            ["Tool", "Description", "Type", "Access", "Capabilities", "Links", "License", "Related papers", "Verified"],
         ),
     }
     title, intro, headers = config[kind]
@@ -389,15 +404,16 @@ def render_resources(
     for record in sorted(records, key=lambda item: item["name"].lower()):
         name = f"<a id=\"{record['id']}\"></a>{first_available_link(record)}"
         related = ", ".join(paper_link(papers[item]) for item in record["related_papers"]) or "—"
+        links = resource_links(record)
         if kind == "dataset":
-            row = [name, label(record["data_origin"]), label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), record["license"], related, record["last_verified"]]
+            row = [name, record["description"], record["data_origin"].capitalize(), label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), links, record["license"], related, record["last_verified"]]
         elif kind == "model":
-            row = [name, record["framework"], label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), record["license"], related, record["last_verified"]]
+            row = [name, record["description"], record["framework"], label(record["access"]), ", ".join(label(x) for x in record["modalities"]), ", ".join(label(x) for x in record["tasks"]), links, record["license"], related, record["last_verified"]]
         elif kind == "benchmark":
             dataset_names = ", ".join(by_id.get(item, {}).get("name", item) for item in record["datasets"]) or "—"
-            row = [name, ", ".join(label(x) for x in record["tasks"]), dataset_names, ", ".join(record["metrics"]) or "—", record["license"], related, record["last_verified"]]
+            row = [name, record["description"], ", ".join(label(x) for x in record["tasks"]), dataset_names, ", ".join(record["metrics"]) or "—", links, record["license"], related, record["last_verified"]]
         else:
-            row = [name, label(record["tool_type"]), label(record["access"]), ", ".join(label(x) for x in record["capabilities"]), record["license"], related, record["last_verified"]]
+            row = [name, record["description"], label(record["tool_type"]), label(record["access"]), ", ".join(label(x) for x in record["capabilities"]), links, record["license"], related, record["last_verified"]]
         rows.append(row)
     if not rows:
         rows = [["No verified records yet"] + ["—"] * (len(headers) - 1)]
@@ -422,7 +438,8 @@ def render_readme(records: Sequence[Mapping[str, Any]]) -> str:
     )
     stage_counts = Counter(stage for paper in papers for stage in paper["stages"])
     taxonomy = "\n".join(
-        f"- [{label(stage)}](papers/README.md#browse-by-research-stage) — {stage_counts[stage]} entries"
+        f"- [{label(stage)}](papers/README.md#browse-by-research-stage) — "
+        f"{stage_counts[stage]} {'entry' if stage_counts[stage] == 1 else 'entries'}"
         for stage in ["survey", "backbone", "pretraining", "adaptation", "inference-deployment"]
         if stage_counts[stage]
     )

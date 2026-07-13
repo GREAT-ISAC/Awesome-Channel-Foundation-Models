@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: If you use this catalog, please cite the repository and the original papers or resources you rely on.
+title: Awesome Channel Foundation Models
+type: dataset
+authors:
+  - family-names: Jiang
+    given-names: Jun
+    email: Jun.Jiang25@student.xjtlu.edu.cn
+  - family-names: Xu
+    given-names: Shugong
+repository-code: https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models
+url: https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models
+license: CC-BY-4.0
+abstract: A structured community catalog of channel foundation-model papers, datasets, pretrained models, benchmark projects, and simulation tools.
+keywords:
+  - channel foundation models
+  - wireless foundation models
+  - 6G
+  - channel state information
