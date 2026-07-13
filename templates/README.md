@@ -1,0 +1,57 @@
+# Awesome Channel Foundation Models
+
+### Papers · Datasets · Pretrained Models · Benchmarks · Simulation Tools
+
+<!-- This file is generated from catalog/*.yaml. Run `python3 scripts/catalog.py generate`. -->
+
+A community-maintained, structured catalog of **Channel Foundation Model (CFM)** research and reusable resources for AI-native wireless systems. Entries connect papers with code, datasets, pretrained checkpoints, evaluation projects, and simulation infrastructure, while recording provenance and verification status.
+
+> Resource links are labeled as official or community-maintained and are periodically verified. An absent artifact is reported explicitly rather than inferred.
+
+## Catalog at a glance
+
+{{STATS}}
+
+| Browse | What you will find |
+|---|---|
+| [CFM papers](papers/README.md) | Research taxonomy, modalities, tasks, and artifact availability |
+| [Datasets](datasets/README.md) | Measured and simulated wireless datasets relevant to CFM research |
+| [Pretrained models](models/README.md) | Publicly accessible checkpoints and model cards |
+| [Benchmark projects](benchmarks/README.md) | Existing evaluation projects, datasets, tasks, and reported metrics |
+| [Simulation tools](simulation-tools/README.md) | Channel, ray-tracing, and system-level simulation infrastructure |
+
+## Scope
+
+The catalog uses three explicit scope tiers:
+
+- **Core CFM** — reusable pretrained representations or models centered on channel data and transferable channel-related tasks.
+- **Broader Wireless/Radio FM** — foundation models for radio signals, spectrum, sensing, or wider wireless tasks that inform CFM research.
+- **Related Method** — backbone, adaptation, inference, or evaluation work designed for foundation models without introducing a new pretrained CFM.
+
+See the [inclusion criteria](docs/inclusion-criteria.md) for the complete policy.
+
+## Research taxonomy
+
+The original method-oriented organization is preserved as a set of non-exclusive views:
+
+{{TAXONOMY}}
+
+Papers can also be browsed by [modality](papers/README.md#browse-by-modality), [downstream task](papers/README.md#browse-by-downstream-task), and [reproducibility status](papers/README.md#browse-by-reproducibility-status).
+
+## Recently added papers
+
+{{RECENT_PAPERS}}
+
+## Reproducibility snapshot
+
+{{REPRODUCIBILITY}}
+
+## Contributing
+
+Contributions from the community are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and use the resource proposal issue form or submit a pull request that updates the structured catalog.
+
+For questions or corrections, open an issue or contact Jun Jiang at `Jun.Jiang25@student.xjtlu.edu.cn`.
+
+Catalog metadata and documentation are licensed under [CC BY 4.0](LICENSE-CONTENT); repository scripts are licensed under the [MIT License](LICENSE-CODE). Linked resources retain their own licenses.
+
+Last catalog verification: **{{LAST_VERIFIED}}**.

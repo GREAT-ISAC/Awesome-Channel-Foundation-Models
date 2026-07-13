@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models/schemas/catalog.schema.json",
+  "title": "Awesome Channel Foundation Models catalog record",
+  "oneOf": [
+    { "$ref": "#/$defs/paper" },
+    { "$ref": "#/$defs/dataset" },
+    { "$ref": "#/$defs/model" },
+    { "$ref": "#/$defs/benchmark" },
+    { "$ref": "#/$defs/simulationTool" }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "slugList": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" },
+      "uniqueItems": true
+    },
+    "scope": {
+      "enum": [
+        "core-cfm",
+        "broader-wireless-radio-fm",
+        "related-method"
+      ]
+    },
+    "provenance": {
+      "enum": ["official", "community"]
+    },
+    "availability": {
+      "enum": [
+        "available",
+        "restricted",
+        "not-released",
+        "not-found",
+        "broken"
+      ]
+    },
+    "externalLink": {
+      "type": "object",
+      "required": ["label", "url", "provenance", "availability"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "availability": {
+          "enum": ["available", "restricted", "broken"]
+        },
+        "license": { "type": "string", "minLength": 1 }
+      }
+    },
+    "artifactItem": {
+      "type": "object",
+      "required": ["label", "provenance", "availability"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "ref": { "$ref": "#/$defs/id" },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "availability": {
+          "enum": ["available", "restricted", "broken"]
+        },
+        "license": { "type": "string", "minLength": 1 }
+      },
+      "oneOf": [
+        { "required": ["url"] },
+        { "required": ["ref"] }
+      ]
+    },
+    "artifactSlot": {
+      "type": "object",
+      "required": ["status", "items"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "$ref": "#/$defs/availability" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/artifactItem" }
+        }
+      }
+    },
+    "paper": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "short_name",
+        "title",
+        "authors",
+        "year",
+        "venue",
+        "paper_url",
+        "scope",
+        "stages",
+        "objectives",
+        "modalities",
+        "tasks",
+        "artifacts",
+        "last_verified"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "const": "paper" },
+        "id": { "$ref": "#/$defs/id" },
+        "short_name": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "authors": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "year": { "type": "integer", "minimum": 2000, "maximum": 2100 },
+        "venue": { "type": "string", "minLength": 1 },
+        "paper_url": { "type": "string", "minLength": 1 },
+        "local_url": { "type": "string", "minLength": 1 },
+        "scope": { "$ref": "#/$defs/scope" },
+        "stages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "survey",
+              "backbone",
+              "pretraining",
+              "adaptation",
+              "inference-deployment"
+            ]
+          }
+        },
+        "objectives": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "masked-reconstruction",
+              "autoregressive-generative",
+              "contrastive-alignment",
+              "predictive-latent",
+              "supervised-multitask",
+              "hybrid"
+            ]
+          }
+        },
+        "modalities": { "$ref": "#/$defs/slugList" },
+        "tasks": { "$ref": "#/$defs/slugList" },
+        "summary": { "type": "string", "minLength": 1 },
+        "artifacts": {
+          "type": "object",
+          "required": ["code", "datasets", "models", "benchmarks", "simulation_tools"],
+          "additionalProperties": false,
+          "properties": {
+            "code": { "$ref": "#/$defs/artifactSlot" },
+            "datasets": { "$ref": "#/$defs/artifactSlot" },
+            "models": { "$ref": "#/$defs/artifactSlot" },
+            "benchmarks": { "$ref": "#/$defs/artifactSlot" },
+            "simulation_tools": { "$ref": "#/$defs/artifactSlot" }
+          }
+        },
+        "last_verified": { "$ref": "#/$defs/date" }
+      }
+    },
+    "catalogResourceBase": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "name",
+        "description",
+        "scope",
+        "links",
+        "license",
+        "related_papers",
+        "last_verified"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "kind": {
+          "enum": ["dataset", "model", "benchmark", "simulation-tool"]
+        },
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "scope": { "$ref": "#/$defs/scope" },
+        "links": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/externalLink" }
+        },
+        "license": { "type": "string", "minLength": 1 },
+        "related_papers": { "$ref": "#/$defs/slugList" },
+        "last_verified": { "$ref": "#/$defs/date" }
+      }
+    },
+    "dataset": {
+      "allOf": [
+        { "$ref": "#/$defs/catalogResourceBase" },
+        {
+          "type": "object",
+          "required": ["modalities", "data_origin", "access", "tasks"],
+          "properties": {
+            "kind": { "const": "dataset" },
+            "modalities": { "$ref": "#/$defs/slugList" },
+            "data_origin": { "enum": ["measured", "simulated", "hybrid"] },
+            "access": { "enum": ["open", "registration", "restricted"] },
+            "tasks": { "$ref": "#/$defs/slugList" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "model": {
+      "allOf": [
+        { "$ref": "#/$defs/catalogResourceBase" },
+        {
+          "type": "object",
+          "required": ["framework", "modalities", "tasks", "access"],
+          "properties": {
+            "kind": { "const": "model" },
+            "framework": { "type": "string", "minLength": 1 },
+            "modalities": { "$ref": "#/$defs/slugList" },
+            "tasks": { "$ref": "#/$defs/slugList" },
+            "access": { "enum": ["open", "registration", "restricted"] }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "benchmark": {
+      "allOf": [
+        { "$ref": "#/$defs/catalogResourceBase" },
+        {
+          "type": "object",
+          "required": ["tasks", "datasets", "metrics"],
+          "properties": {
+            "kind": { "const": "benchmark" },
+            "tasks": { "$ref": "#/$defs/slugList" },
+            "datasets": { "$ref": "#/$defs/slugList" },
+            "metrics": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 },
+              "uniqueItems": true
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "simulationTool": {
+      "allOf": [
+        { "$ref": "#/$defs/catalogResourceBase" },
+        {
+          "type": "object",
+          "required": ["tool_type", "access", "capabilities"],
+          "properties": {
+            "kind": { "const": "simulation-tool" },
+            "tool_type": {
+              "enum": ["channel", "ray-tracing", "system", "commercial"]
+            },
+            "access": { "enum": ["open", "registration", "restricted"] },
+            "capabilities": { "$ref": "#/$defs/slugList" }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    }
+  }
+}
