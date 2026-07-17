@@ -46,6 +46,7 @@ DISPLAY = {
     "adaptation": "Adaptation & Transfer",
     "inference-deployment": "Inference & Deployment",
     "masked-reconstruction": "Masked/Reconstruction Learning",
+    "direct-forecasting": "Direct Forecasting",
     "autoregressive-generative": "Autoregressive/Generative Modeling",
     "contrastive-alignment": "Contrastive/Alignment Learning",
     "predictive-latent": "Predictive Latent Learning",
@@ -370,6 +371,7 @@ def render_papers(
         "- [Backbones & Architectures](#backbones)\n"
         "- [Pretraining Methods](#pretraining)\n"
         "  - [Masked/Reconstruction](#objective-masked-reconstruction)\n"
+        "  - [Direct Forecasting](#objective-direct-forecasting)\n"
         "  - [Autoregressive/Generative](#objective-autoregressive-generative)\n"
         "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
         "  - [Predictive Latent](#objective-predictive-latent)\n"
@@ -383,6 +385,7 @@ def render_papers(
 
     objective_order = [
         "masked-reconstruction",
+        "direct-forecasting",
         "autoregressive-generative",
         "contrastive-alignment",
         "predictive-latent",
@@ -395,7 +398,7 @@ def render_papers(
         by_objective[primary_objective(paper)].append(paper)
     pretraining = [
         '<a id="pretraining"></a>\n## Pretraining Methods',
-        "Papers with multiple objectives are placed under Hybrid when explicitly tagged as hybrid, or under Supervised/Multitask when multitask learning is their primary organization.",
+        "Classification follows the optimization objective used during pretraining, not the number of downstream tasks. Papers are placed under Hybrid only when pretraining explicitly combines distinct objective families.",
     ]
     for objective in objective_order:
         entries = by_objective[objective]

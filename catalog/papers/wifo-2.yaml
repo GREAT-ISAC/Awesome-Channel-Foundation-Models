@@ -8,7 +8,7 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2511.22222v2
 scope: core-cfm
 stages: [pretraining]
-objectives: [masked-reconstruction, supervised-multitask]
+objectives: [masked-reconstruction]
 modalities: [csi, vision, received-symbols]
 tasks: [los-nlos-identification, cross-band-beam-prediction, positioning, frequency-channel-extrapolation, csi-feedback, aoa-estimation, cross-band-channel-prediction, signal-detection]
 artifacts:
@@ -17,4 +17,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-17"

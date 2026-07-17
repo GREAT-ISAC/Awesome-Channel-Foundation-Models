@@ -13,6 +13,7 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
 - [Backbones & Architectures](#backbones)
 - [Pretraining Methods](#pretraining)
   - [Masked/Reconstruction](#objective-masked-reconstruction)
+  - [Direct Forecasting](#objective-direct-forecasting)
   - [Autoregressive/Generative](#objective-autoregressive-generative)
   - [Contrastive/Alignment](#objective-contrastive-alignment)
   - [Predictive Latent](#objective-predictive-latent)
@@ -93,7 +94,7 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
 <a id="pretraining"></a>
 ## Pretraining Methods
 
-Papers with multiple objectives are placed under Hybrid when explicitly tagged as hybrid, or under Supervised/Multitask when multitask learning is their primary organization.
+Classification follows the optimization objective used during pretraining, not the number of downstream tasks. Papers are placed under Hybrid only when pretraining explicitly combines distinct objective families.
 
 <a id="objective-masked-reconstruction"></a>
 ### Masked/Reconstruction Learning
@@ -149,11 +150,23 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
   - **Modalities:** CSI
   - **Tasks:** Beamforming
 
+<a id="wifo-2"></a>
+- **WiFo-2** — [WiFo-2: a generalist foundation model unifies heterogeneous wireless system design](https://arxiv.org/abs/2511.22222v2) (2025 · arXiv)
+  - **Authors:** Boxun Liu, Xuanyu Liu, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing Yang
+  - **Modalities:** CSI, Vision, Received Symbols
+  - **Tasks:** LOS/NLOS Identification, Cross Band Beam Prediction, Positioning, Frequency Channel Extrapolation, CSI Feedback, AoA Estimation, Cross Band Channel Prediction, Signal Detection
+
 <a id="wifo-cf"></a>
 - **WiFo-CF** — [WiFo-CF: Wireless Foundation Model for CSI Feedback](https://arxiv.org/abs/2508.04068) (2025 · arXiv)
   - **Authors:** Xuanyu Liu, Shijian Gao, Boxun Liu, Xiang Cheng, Liuqing Yang
   - **Modalities:** CSI
   - **Tasks:** CSI Feedback, Positioning
+
+<a id="wirelessgpt"></a>
+- **WirelessGPT** — [WirelessGPT: A Generative Pre-trained Multi-task Learning Framework for Wireless Communication](https://arxiv.org/abs/2502.06877) (2025 · arXiv)
+  - **Authors:** Tingting Yang, Ping Zhang, Mengfan Zheng, Yuxuan Shi, Liwen Jing, Jianbo Huang, Nan Li
+  - **Modalities:** CSI
+  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Pose Recognition
 
 <a id="building-6g-radio-fm"></a>
 - **A. Aboulfotouh et al.** — [Building 6G Radio Foundation Models with Transformer Architectures](https://arxiv.org/abs/2411.09996) (2024 · arXiv)
@@ -180,6 +193,15 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
   - **Modalities:** CSI
   - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
   - **Code:** [Official implementation](https://github.com/PKU-PCNI/WiFo) · **Simulator:** [QuaDRiGa](../simulation-tools/README.md#quadriga)
+
+<a id="objective-direct-forecasting"></a>
+### Direct Forecasting
+
+<a id="wireless-multitask-prediction"></a>
+- **Y. Sheng et al.** — [A Wireless Foundation Model for Multi-Task Prediction](https://arxiv.org/abs/2507.05938) (2025 · arXiv)
+  - **Authors:** Yucheng Sheng, Jiacheng Wang, Xingyu Zhou, Le Liang, Hao Ye, Shi Jin, Geoffrey Ye Li
+  - **Modalities:** CSI, Traffic Sequence
+  - **Tasks:** Time Channel Extrapolation, Angle Prediction, Traffic Prediction
 
 <a id="objective-autoregressive-generative"></a>
 ### Autoregressive/Generative Modeling
@@ -259,24 +281,6 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
   - **Authors:** Tianyue Zheng, Jiajia Guo, Linglong Dai, Shi Jin, Jun Zhang
   - **Modalities:** CSI, Environment, Received Symbols
   - **Tasks:** Channel Estimation, MIMO Precoding, MIMO Detection, Channel Decoding, Positioning
-
-<a id="wifo-2"></a>
-- **WiFo-2** — [WiFo-2: a generalist foundation model unifies heterogeneous wireless system design](https://arxiv.org/abs/2511.22222v2) (2025 · arXiv)
-  - **Authors:** Boxun Liu, Xuanyu Liu, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing Yang
-  - **Modalities:** CSI, Vision, Received Symbols
-  - **Tasks:** LOS/NLOS Identification, Cross Band Beam Prediction, Positioning, Frequency Channel Extrapolation, CSI Feedback, AoA Estimation, Cross Band Channel Prediction, Signal Detection
-
-<a id="wirelessgpt"></a>
-- **WirelessGPT** — [WirelessGPT: A Generative Pre-trained Multi-task Learning Framework for Wireless Communication](https://arxiv.org/abs/2502.06877) (2025 · arXiv)
-  - **Authors:** Tingting Yang, Ping Zhang, Mengfan Zheng, Yuxuan Shi, Liwen Jing, Jianbo Huang, Nan Li
-  - **Modalities:** CSI
-  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Pose Recognition
-
-<a id="wireless-multitask-prediction"></a>
-- **Y. Sheng et al.** — [A Wireless Foundation Model for Multi-Task Prediction](https://arxiv.org/abs/2507.05938) (2025 · arXiv)
-  - **Authors:** Yucheng Sheng, Jiacheng Wang, Xingyu Zhou, Le Liang, Hao Ye, Shi Jin, Geoffrey Ye Li
-  - **Modalities:** CSI, Traffic Sequence
-  - **Tasks:** Time Channel Extrapolation, Angle Prediction, Traffic Prediction
 
 <a id="objective-hybrid"></a>
 ### Hybrid Objectives

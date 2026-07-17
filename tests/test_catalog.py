@@ -116,6 +116,7 @@ class CatalogTests(unittest.TestCase):
             "## Backbones & Architectures",
             "## Pretraining Methods",
             "### Masked/Reconstruction Learning",
+            "### Direct Forecasting",
             "### Autoregressive/Generative Modeling",
             "### Contrastive/Alignment Learning",
             "### Predictive Latent Learning",
@@ -197,6 +198,30 @@ class CatalogTests(unittest.TestCase):
             self.records,
         )
         self.assertNotIn("**Data:**", rendered)
+
+    def test_pretraining_objectives_follow_training_mechanism_not_task_count(self):
+        by_id = {record["id"]: record for record in self.records}
+        self.assertEqual(by_id["wifo-2"]["objectives"], ["masked-reconstruction"])
+        self.assertEqual(by_id["wirelessgpt"]["objectives"], ["masked-reconstruction"])
+        self.assertEqual(
+            by_id["wireless-multitask-prediction"]["objectives"],
+            ["direct-forecasting"],
+        )
+
+        rendered = catalog.render_papers(
+            [record for record in self.records if record["kind"] == "paper"],
+            self.records,
+        )
+        self.assertIn(
+            "Classification follows the optimization objective used during pretraining, "
+            "not the number of downstream tasks.",
+            rendered,
+        )
+        supervised_section = rendered.split(
+            '<a id="objective-supervised-multitask"></a>', 1
+        )[1].split('<a id="objective-hybrid"></a>', 1)[0]
+        for paper_id in ("wifo-2", "wirelessgpt", "wireless-multitask-prediction"):
+            self.assertNotIn(f'<a id="{paper_id}"></a>', supervised_section)
 
     def test_deepmimo_is_only_cataloged_as_a_simulation_tool(self):
         by_id = {record["id"]: record for record in self.records}

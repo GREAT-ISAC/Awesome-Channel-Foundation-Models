@@ -8,7 +8,7 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2507.05938
 scope: broader-wireless-radio-fm
 stages: [pretraining]
-objectives: [autoregressive-generative, supervised-multitask]
+objectives: [direct-forecasting]
 modalities: [csi, traffic-sequence]
 tasks: [time-channel-extrapolation, angle-prediction, traffic-prediction]
 artifacts:
@@ -17,4 +17,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-17"
