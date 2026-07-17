@@ -207,6 +207,27 @@ class CatalogTests(unittest.TestCase):
         self.assertIn('<a id="deepmimo-toolchain"></a>', tool_page)
         self.assertNotIn('<a id="ns-3"></a>', tool_page)
 
+    def test_featured_cfm_bench_is_first_dataset(self):
+        outputs = catalog.render_outputs(self.records)
+        dataset_page = outputs[catalog.OUTPUTS["dataset"]]
+        first_entry = dataset_page.index('<a id="cfm-bench"></a>')
+        other_entries = [
+            dataset_page.index(f'<a id="{record["id"]}"></a>')
+            for record in self.records
+            if record["kind"] == "dataset" and record["id"] != "cfm-bench"
+        ]
+        self.assertTrue(all(first_entry < position for position in other_entries))
+        self.assertIn("https://www.chaspark.com/#/s/CFM-Bench", dataset_page)
+
+    def test_great_x_is_cataloged_from_official_sources(self):
+        by_id = {record["id"]: record for record in self.records}
+        great_x = by_id["great-x"]
+        self.assertEqual(great_x["kind"], "simulation-tool")
+        self.assertEqual(great_x["license"], "Apache-2.0")
+        urls = {link["url"] for link in great_x["links"]}
+        self.assertIn("https://github.com/hkw-xg/Great-MCD", urls)
+        self.assertIn("https://arxiv.org/abs/2507.08716", urls)
+
     def test_models_and_benchmarks_are_embedded_without_public_sections(self):
         outputs = catalog.render_outputs(self.records)
         paper_page = outputs[catalog.OUTPUTS["paper"]]

@@ -14,6 +14,6 @@ A community-maintained catalog of **Channel Foundation Model (CFM)** research an
 
 ## Contributing
 
-Contributions from the community are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and use the resource proposal issue form or submit a pull request that updates the structured catalog.
+Use the [resource proposal Issue Form](https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models/issues/new?template=resource-proposal.yml) to suggest a paper or resource; no YAML editing is required. Direct pull requests can follow the short [contribution guide](CONTRIBUTING.md).
 
 For questions or corrections, open an issue or contact Jun Jiang at `Jun.Jiang25@student.xjtlu.edu.cn`.

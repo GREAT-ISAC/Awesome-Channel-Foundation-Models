@@ -1,5 +1,5 @@
 name: Propose a catalog resource
-description: Suggest a paper, dataset, pretrained model, benchmark project, or simulation tool.
+description: Suggest a paper, dataset/benchmark, simulation tool, or catalog correction.
 title: "[Resource]: "
 labels: [catalog-proposal]
 body:
@@ -11,11 +11,10 @@ body:
     attributes:
       label: Resource type
       options:
-        - Paper
-        - Dataset
-        - Pretrained model
-        - Benchmark project
+        - CFM or wireless foundation-model paper
+        - Dataset or benchmark
         - Simulation tool
+        - Correction to an existing entry
     validations:
       required: true
   - type: input

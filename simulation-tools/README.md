@@ -23,6 +23,13 @@ A scenario-based wireless channel dataset generation toolkit built from ray-trac
 - **Links:** [Official repository](https://github.com/DeepMIMO/DeepMIMO)
 - **Related papers:** [Full-Domain Coupler](../papers/README.md#full-domain-coupler), [WiMamba](../papers/README.md#wimamba), [LWM](../papers/README.md#lwm)
 
+<a id="great-x"></a>
+## GREAT-X
+An Unreal Engine-based single-engine multimodal ISAC data-twin platform that synchronously generates CSI, RGB, radar, and LiDAR data.
+- **Profile:** Ray Tracing · Open
+- **Capabilities:** Ray Tracing, Channel Generation, Multimodal Simulation, CSI Generation, RGB Generation, Radar Simulation, LiDAR Generation, Digital Twin
+- **Links:** [Official repository](https://github.com/hkw-xg/Great-MCD) · [Paper](https://arxiv.org/abs/2507.08716)
+
 <a id="laetwin-xl-toolchain"></a>
 ## LAETwin-XL Toolchain
 A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios built around Sionna ray tracing.

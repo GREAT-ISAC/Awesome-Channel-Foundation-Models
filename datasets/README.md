@@ -7,6 +7,13 @@ Measured and simulated datasets relevant to CFM research. Existing evaluation pr
 [← Back to the main catalog](../README.md)
 
 
+<a id="cfm-bench"></a>
+## CFM-Bench
+A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, measured, and multimodal channel configurations.
+- **Profile:** Hybrid · Open · CSI, RGB, LiDAR, Inertial
+- **Tasks:** CSI Feedback, Frequency Channel Extrapolation, Time Channel Extrapolation, LOS/NLOS Identification, Beam Prediction, Positioning
+- **Links:** [Official download](https://www.chaspark.com/#/s/CFM-Bench) · [Paper and evaluation protocol](https://arxiv.org/abs/2607.14975)
+
 <a id="deepmimo"></a>
 ## DeepMIMO
 A scenario-based wireless channel dataset and generation interface built from ray-tracing data for machine-learning research.

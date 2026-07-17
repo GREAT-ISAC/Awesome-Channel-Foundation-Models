@@ -71,6 +71,7 @@ ACRONYMS = {
     "fm": "FM",
     "gnss": "GNSS",
     "iq": "IQ",
+    "lidar": "LiDAR",
     "los": "LOS",
     "mae": "MAE",
     "mimo": "MIMO",
@@ -78,6 +79,7 @@ ACRONYMS = {
     "nlos": "NLOS",
     "nmse": "NMSE",
     "rf": "RF",
+    "rgb": "RGB",
     "sinr": "SINR",
     "snr": "SNR",
     "toa": "ToA",
@@ -509,7 +511,10 @@ def render_datasets(
             papers,
             evaluations=evaluations[record["id"]],
         )
-        for record in sorted(datasets, key=lambda item: item["name"].lower())
+        for record in sorted(
+            datasets,
+            key=lambda item: (not item.get("featured", False), item["name"].lower()),
+        )
     )
     return "\n\n".join(sections).rstrip() + "\n"
 

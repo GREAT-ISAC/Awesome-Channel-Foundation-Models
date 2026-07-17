@@ -200,6 +200,7 @@
         },
         "license": { "type": "string", "minLength": 1 },
         "related_papers": { "$ref": "#/$defs/slugList" },
+        "featured": { "type": "boolean" },
         "last_verified": { "$ref": "#/$defs/date" }
       }
     },

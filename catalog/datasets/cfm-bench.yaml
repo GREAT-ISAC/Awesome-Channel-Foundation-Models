@@ -1,0 +1,24 @@
+kind: dataset
+id: cfm-bench
+name: CFM-Bench
+description: A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, measured, and multimodal channel configurations.
+scope: core-cfm
+featured: true
+links:
+  - label: Official download
+    url: "https://www.chaspark.com/#/s/CFM-Bench"
+    provenance: official
+    availability: available
+    license: Domain-specific upstream terms
+  - label: Paper and evaluation protocol
+    url: https://arxiv.org/abs/2607.14975
+    provenance: official
+    availability: available
+    license: arXiv terms
+license: Domain-specific upstream terms
+related_papers: []
+last_verified: "2026-07-17"
+modalities: [csi, rgb, lidar, inertial]
+data_origin: hybrid
+access: open
+tasks: [csi-feedback, frequency-channel-extrapolation, time-channel-extrapolation, los-nlos-identification, beam-prediction, positioning]

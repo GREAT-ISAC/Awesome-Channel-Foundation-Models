@@ -1,60 +1,27 @@
 # Contributing to Awesome Channel Foundation Models
 
-Thank you for helping maintain a reliable community catalog. Contributions may add a paper or resource, correct metadata, update availability, or report a broken link.
+Contributions may add a resource, correct metadata, or report a broken link. The easiest path is the [resource proposal Issue Form](https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models/issues/new?template=resource-proposal.yml); proposing an item does not require editing YAML.
 
-## Before proposing an entry
+Please check the [inclusion criteria](docs/inclusion-criteria.md) and provide primary sources such as the paper page, author repository, or official dataset/tool page. Do not guess URLs, licenses, or release status. Community implementations must be identified as community-maintained.
 
-Read the [inclusion criteria](docs/inclusion-criteria.md) and [taxonomy](docs/taxonomy.md). A record must have a clear relationship to channel foundation models, broader wireless/radio foundation models, or a directly relevant method. Inclusion documents relevance and availability; it is not an endorsement or a paper-quality ranking.
+## Direct pull requests
 
-Prefer primary sources:
+If you prefer to edit the catalog directly:
 
-- the paper page, DOI page, or author project page;
-- an author or institution repository;
-- an official dataset, model, benchmark, or product page.
+- add or update one record in the matching `catalog/` directory;
+- use a stable lowercase, hyphen-separated `id`;
+- quote dates such as `"2026-07-17"`;
+- update `last_verified` and regenerate the public pages.
 
-Community implementations are welcome when useful, but they must use `provenance: community`. Never present a third-party reproduction as the official implementation.
-
-## Catalog workflow
-
-Each item is maintained in one YAML file under the matching `catalog/` directory:
-
-```text
-catalog/
-├── papers/
-├── datasets/
-├── models/
-├── benchmarks/
-└── simulation-tools/
-```
-
-Use a stable lowercase, hyphen-separated ID for both the filename and `id`. Quote ISO dates such as `"2026-07-13"` so YAML does not convert them to date objects. Reuse an existing resource record through `ref` instead of duplicating its URL in multiple paper records.
-
-For an artifact that could not be located, use `not-found`. Use `not-released` only when the authors explicitly state that it is unavailable. Do not guess URLs, licenses, metrics, or release status.
-
-## Local checks
-
-Install the lightweight validation dependencies and run:
+Run:
 
 ```bash
-python3 -m pip install -r requirements.txt
 python3 scripts/catalog.py validate
 python3 scripts/catalog.py generate
 python3 scripts/catalog.py generate --check
 python3 -m unittest discover -s tests -v
 ```
 
-The README and the five resource pages are generated. Edit YAML or `templates/README.md`, then regenerate; do not hand-edit generated files.
-
-External link checks are intentionally separate because network responses are not deterministic:
-
-```bash
-python3 scripts/catalog.py check-links
-```
-
-HTTP `403` and `429` responses and temporary network failures are reported as indeterminate. They are not grounds for automatically changing an entry to `broken`.
-
-## Pull requests
-
-Keep a pull request focused and complete the repository PR checklist. Include the source used to verify every new or changed URL and set `last_verified` to the actual check date. Generated files must be committed with the corresponding YAML change.
+Public catalog pages are generated. Edit YAML or `templates/README.md`, then regenerate; do not hand-edit generated sections. Include the sources used to verify changed URLs in the pull request.
 
 By contributing catalog metadata or documentation, you agree to license that contribution under [CC BY 4.0](LICENSE-CONTENT). Contributions to validation or generation code are licensed under [MIT](LICENSE-CODE). External linked resources retain their own licenses.
