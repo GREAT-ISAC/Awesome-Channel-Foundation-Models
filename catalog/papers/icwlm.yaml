@@ -8,7 +8,10 @@ venue: IEEE Transactions on Communications
 paper_url: https://doi.org/10.1109/TCOMM.2026.3655778
 scope: broader-wireless-radio-fm
 stages: [pretraining]
-objectives: [supervised-multitask]
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: task-conditioned
 modalities: [csi]
 tasks: [sum-rate-maximization, max-min-sinr-optimization, time-channel-extrapolation]
 artifacts:

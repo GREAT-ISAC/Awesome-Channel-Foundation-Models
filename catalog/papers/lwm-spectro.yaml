@@ -8,14 +8,14 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2601.08780
 scope: broader-wireless-radio-fm
 stages: [pretraining]
-objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+objectives: [masked-reconstruction, contrastive-alignment]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [spectrogram]
 tasks: [modulation-classification, snr-doppler-classification]
 artifacts:
-  code:
-    status: available
-    items:
-      - {label: Official model repository, url: https://huggingface.co/wi-lab/lwm-spectro, provenance: official, availability: available, license: License not stated}
+  code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models:
     status: available

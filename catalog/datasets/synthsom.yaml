@@ -12,3 +12,10 @@ modalities: [csi, rgb, depth, lidar, radar, path-loss]
 data_origin: simulated
 access: open
 tasks: [channel-modeling, beam-prediction, positioning, multimodal-sensing]
+specifications:
+  version: null
+  scale: More than 9.5 million multimodal groups, including 1.5 million channel matrices
+  download_size: 2.91 TB hosted snapshot; authors report more than 10 TB for the full corpus
+  frequency_bands: [Multiple frequency bands; exact values vary by scenario]
+  scenarios: [Vehicle-road coordination, Low-altitude economy, Smart campus, Urban, Suburban, Rural, PKU Yan Garden, PKU New Yan Garden]
+  antenna_configurations: [Multiple antenna arrays; exact configurations vary by scenario]

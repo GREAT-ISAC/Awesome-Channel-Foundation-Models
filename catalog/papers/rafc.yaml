@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.10277
 scope: related-method
 stages: [adaptation]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: [channel-estimation, time-channel-extrapolation, beam-prediction, positioning]
 summary: A lightweight feature-composition framework for adapting pretrained representations to multiple downstream tasks.

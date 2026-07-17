@@ -5,11 +5,17 @@ description: Digital-twin channel datasets for low-altitude extra-large MIMO exp
 scope: core-cfm
 links:
   - {label: Official dataset page, url: https://lmyxxn.github.io/6GXLMIMODatasets/, provenance: official, availability: available, license: Dataset-specific terms}
-  - {label: Official repository, url: https://github.com/Lmyxxn/LAETwin-XL, provenance: official, availability: available, license: License not stated}
-license: Dataset-specific terms; repository license not stated
+license: Dataset-specific terms
 related_papers: [laetwin-xl]
 last_verified: "2026-07-13"
 modalities: [csi]
 data_origin: simulated
 access: open
 tasks: [channel-estimation, channel-extrapolation, near-far-field-classification, positioning]
+specifications:
+  version: null
+  scale: Multiple digital-twin channel datasets released for LAETwin-XL experiments
+  download_size: null
+  frequency_bands: []
+  scenarios: [Low-altitude air-to-ground digital-twin channels]
+  antenna_configurations: [XL-MIMO arrays; configuration varies by dataset]

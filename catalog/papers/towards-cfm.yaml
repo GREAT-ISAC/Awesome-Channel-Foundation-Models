@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2507.13637
 scope: core-cfm
 stages: [survey]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: []
 summary: This paper introduces the concept of channel foundation models (CFMs) for the first time, providing a comprehensive survey on motivations, methodologies, and future opportunities.

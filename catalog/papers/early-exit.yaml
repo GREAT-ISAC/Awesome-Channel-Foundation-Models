@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.29640
 scope: related-method
 stages: [inference-deployment]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [iq]
 tasks: [rf-fingerprinting, beam-prediction, modulation-classification, interference-classification, aoa-estimation]
 summary: Attaches lightweight task heads to intermediate stages of frozen wireless foundation-model encoders.

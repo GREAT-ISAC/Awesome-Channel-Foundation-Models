@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2601.03789
 scope: core-cfm
 stages: [pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [time-channel-extrapolation, frequency-channel-extrapolation, csi-feedback, positioning]
 artifacts:

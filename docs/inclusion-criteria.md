@@ -28,6 +28,8 @@ The tiers are descriptive, not a ranking.
 
 Benchmark v1 indexes existing evaluation projects. It does not claim that this repository supplies a unified benchmark runner.
 
+Dataset records separate release and coverage facts from prose. Each record includes version, scale, download size, frequency bands, scenarios, and antenna configurations. Use `null` or an empty list when an official source does not state a value; do not infer missing specifications.
+
 ## Normally excluded
 
 - A task-specific model with no reusable pretraining, generalization, or direct foundation-model contribution.
@@ -43,6 +45,8 @@ Benchmark v1 indexes existing evaluation projects. It does not claim that this r
 
 Community resources must never be described as official. When both exist, list the official source first.
 
+Each direct resource URL has one canonical role in the catalog. Papers should reference an existing dataset, model, benchmark, or simulation-tool record by `ref` instead of repeating that resource's URL. A repository that only contains ordinary training or evaluation code remains a paper code artifact rather than becoming a second model or benchmark record.
+
 ## Availability
 
 - `available` — the linked resource is publicly reachable and usable under its stated terms.
@@ -52,6 +56,8 @@ Community resources must never be described as official. When both exist, list t
 - `broken` — a previously valid link is persistently unavailable after manual confirmation.
 
 HTTP `403`, `429`, timeouts, DNS errors, and transient server failures are uncertain observations, not automatic evidence that a link is broken.
+
+The automated audit retries transient failures, falls back from `HEAD` to a ranged `GET`, and writes a machine-readable report. A high proportion of indeterminate results fails the scheduled audit so that a network-wide outage or blocked runner cannot be mistaken for a healthy catalog. It never rewrites catalog status automatically.
 
 ## Verification requirements
 

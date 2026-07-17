@@ -14,3 +14,10 @@ modalities: [csi, rgb, depth, lidar, radar, gnss, imu]
 data_origin: simulated
 access: open
 tasks: [channel-modeling, beam-prediction, positioning, multimodal-sensing, collaborative-perception]
+specifications:
+  version: Initial ICC 2026 release
+  scale: 161,400 synchronized frames sampled at 100 Hz across 16 communication scenarios
+  download_size: null
+  frequency_bands: []
+  scenarios: [Four CARLA virtual towns, Sixteen communication scenarios, Three weather conditions]
+  antenna_configurations: [Configuration-driven V2X links; exact arrays vary by scenario]

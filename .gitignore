@@ -4,3 +4,4 @@
 # Python-generated files
 __pycache__/
 *.py[cod]
+link-report.json

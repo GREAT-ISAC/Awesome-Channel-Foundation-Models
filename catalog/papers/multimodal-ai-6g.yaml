@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2504.04797
 scope: core-cfm
 stages: [pretraining]
-objectives: [contrastive-alignment, supervised-multitask, hybrid]
+objectives: [contrastive-alignment, task-supervised]
+primary_objective: contrastive-alignment
+training_signals: [self-supervised, supervised]
+task_regime: multitask
 modalities: [csi, environment]
 tasks: [csi-feedback, positioning, beam-prediction, los-nlos-identification]
 artifacts:

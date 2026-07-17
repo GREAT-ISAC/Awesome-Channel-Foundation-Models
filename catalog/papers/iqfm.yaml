@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2506.06718
 scope: broader-wireless-radio-fm
 stages: [pretraining]
 objectives: [contrastive-alignment]
+primary_objective: contrastive-alignment
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [iq]
 tasks: [modulation-classification, aoa-estimation, beam-prediction, rf-fingerprinting]
 artifacts:

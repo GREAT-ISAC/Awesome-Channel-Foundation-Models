@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.22038
 scope: core-cfm
 stages: [backbone]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi, cir]
 tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]
 summary: A backbone for full-domain time-space-frequency channel coupling and representation learning.
@@ -25,10 +28,7 @@ artifacts:
     status: available
     items:
       - {label: Released checkpoints, ref: coupler-checkpoints, provenance: official, availability: available, license: License not stated}
-  benchmarks:
-    status: available
-    items:
-      - {label: Channel deduction evaluation, ref: coupler-channel-deduction, provenance: official, availability: available, license: License not stated}
+  benchmarks: {status: not-found, items: []}
   simulation_tools:
     status: available
     items:

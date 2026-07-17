@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2509.01967
 scope: broader-wireless-radio-fm
 stages: [pretraining]
-objectives: [supervised-multitask]
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: task-conditioned
 modalities: [csi, environment, received-symbols]
 tasks: [channel-estimation, mimo-precoding, mimo-detection, channel-decoding, positioning]
 artifacts:

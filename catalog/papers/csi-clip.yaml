@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2502.11965
 scope: core-cfm
 stages: [pretraining]
 objectives: [contrastive-alignment]
+primary_objective: contrastive-alignment
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [cir, csi]
 tasks: [los-nlos-identification, beam-prediction, positioning]
 artifacts:

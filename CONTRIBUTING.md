@@ -11,6 +11,7 @@ If you prefer to edit the catalog directly:
 - add or update one record in the matching `catalog/` directory;
 - use a stable lowercase, hyphen-separated `id`;
 - quote dates such as `"2026-07-17"`;
+- for datasets, fill the structured `specifications` fields from official sources and leave unknown values null or empty;
 - update `last_verified` and regenerate the public pages.
 
 Run:

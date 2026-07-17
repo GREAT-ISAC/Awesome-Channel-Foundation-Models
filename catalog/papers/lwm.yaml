@@ -9,13 +9,13 @@ paper_url: https://arxiv.org/abs/2411.08872
 scope: core-cfm
 stages: [pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [robust-beamforming, los-nlos-identification, cross-band-beam-prediction]
 artifacts:
-  code:
-    status: available
-    items:
-      - {label: Official model repository, url: https://huggingface.co/wi-lab/lwm, provenance: official, availability: available, license: MIT}
+  code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models:
     status: available

@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2605.24077
 scope: related-method
 stages: [adaptation]
-objectives: [contrastive-alignment]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: [los-nlos-identification, beam-prediction]
 summary: Learns dataset-level embeddings over LWM representations to reason about transferability.

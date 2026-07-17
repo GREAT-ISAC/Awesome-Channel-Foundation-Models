@@ -12,3 +12,10 @@ modalities: [csi]
 data_origin: measured
 access: open
 tasks: [channel-deduction, positioning]
+specifications:
+  version: Collection of independently versioned measurement campaigns
+  scale: Multiple distributed massive-MIMO datasets; sample counts vary by campaign
+  download_size: null
+  frequency_bands: []
+  scenarios: [Indoor distributed massive-MIMO measurement campaigns]
+  antenna_configurations: [Distributed arrays; configuration varies by campaign]

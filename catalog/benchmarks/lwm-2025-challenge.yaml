@@ -5,7 +5,6 @@ description: An official competition and starter repository for comparing wirele
 scope: core-cfm
 links:
   - {label: Official challenge page, url: https://lwm-wireless.net/challenge, provenance: official, availability: available, license: Challenge-specific terms}
-  - {label: Official starter repository, url: https://huggingface.co/wi-lab/lwm-competition-2025, provenance: official, availability: available, license: Challenge-specific terms}
 license: Challenge-specific terms
 related_papers: [lwm]
 last_verified: "2026-07-13"

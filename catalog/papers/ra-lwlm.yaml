@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.01899
 scope: related-method
 stages: [adaptation]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: [positioning]
 summary: Combines LWLM representations with retrieval-augmented in-context localization.

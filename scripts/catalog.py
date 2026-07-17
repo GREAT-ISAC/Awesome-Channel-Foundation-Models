@@ -8,9 +8,11 @@ import concurrent.futures
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Mapping, Optional, Sequence, Tuple
 
@@ -50,8 +52,7 @@ DISPLAY = {
     "autoregressive-generative": "Autoregressive/Generative Modeling",
     "contrastive-alignment": "Contrastive/Alignment Learning",
     "predictive-latent": "Predictive Latent Learning",
-    "supervised-multitask": "Supervised/Multitask Pretraining",
-    "hybrid": "Hybrid Objectives",
+    "task-supervised": "Task-Supervised Learning",
     "delay-doppler-angle": "Delay–Doppler–Angle",
     "los-nlos-identification": "LOS/NLOS Identification",
     "near-far-field-classification": "Near-/Far-Field Classification",
@@ -129,6 +130,7 @@ def validate_records(records: Sequence[Mapping[str, Any]]) -> None:
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     errors: List[str] = []
     by_id: Dict[str, Mapping[str, Any]] = {}
+    url_owners: Dict[str, str] = {}
 
     for record in records:
         relpath = record["_path"].relative_to(ROOT)
@@ -166,6 +168,27 @@ def validate_records(records: Sequence[Mapping[str, Any]]) -> None:
     for record in records:
         relpath = record["_path"].relative_to(ROOT)
         if record.get("kind") == "paper":
+            stages = record.get("stages", [])
+            objectives = record.get("objectives", [])
+            primary_objective = record.get("primary_objective")
+            training_signals = record.get("training_signals", [])
+            task_regime = record.get("task_regime")
+            if "pretraining" in stages:
+                if not objectives:
+                    errors.append(f"{relpath}: pretraining papers require at least one objective")
+                if not training_signals:
+                    errors.append(f"{relpath}: pretraining papers require at least one training signal")
+                if primary_objective not in objectives:
+                    errors.append(
+                        f"{relpath}: primary_objective must be one of the paper's objectives"
+                    )
+                if task_regime == "not-applicable":
+                    errors.append(f"{relpath}: pretraining papers cannot use task_regime 'not-applicable'")
+            else:
+                if primary_objective is not None:
+                    errors.append(f"{relpath}: non-pretraining papers require primary_objective: null")
+                if task_regime != "not-applicable":
+                    errors.append(f"{relpath}: non-pretraining papers require task_regime 'not-applicable'")
             for slot_name, slot in record.get("artifacts", {}).items():
                 status = slot.get("status")
                 items = slot.get("items", [])
@@ -195,6 +218,20 @@ def validate_records(records: Sequence[Mapping[str, Any]]) -> None:
                 for dataset_id in record.get("datasets", []):
                     if dataset_id not in kind_ids["dataset"]:
                         errors.append(f"{relpath}: datasets references unknown dataset {dataset_id!r}")
+
+        direct_urls = [link["url"] for link in record.get("links", [])]
+        for slot_name, slot in record.get("artifacts", {}).items():
+            direct_urls.extend(
+                item["url"] for item in slot.get("items", []) if item.get("url")
+            )
+        for url in direct_urls:
+            owner = url_owners.get(url)
+            if owner:
+                errors.append(
+                    f"{relpath}: URL {url!r} is already maintained by {owner}; use a resource ref or one canonical role"
+                )
+            else:
+                url_owners[url] = str(relpath)
 
     for record in records:
         paper_url = record.get("paper_url")
@@ -327,12 +364,7 @@ def render_paper_entry(
 
 
 def primary_objective(paper: Mapping[str, Any]) -> str:
-    objectives = paper["objectives"]
-    if "hybrid" in objectives:
-        return "hybrid"
-    if "supervised-multitask" in objectives:
-        return "supervised-multitask"
-    return objectives[0] if objectives else "objective-not-specified"
+    return paper.get("primary_objective") or "objective-not-specified"
 
 
 def render_stage(
@@ -375,8 +407,7 @@ def render_papers(
         "  - [Autoregressive/Generative](#objective-autoregressive-generative)\n"
         "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
         "  - [Predictive Latent](#objective-predictive-latent)\n"
-        "  - [Supervised/Multitask](#objective-supervised-multitask)\n"
-        "  - [Hybrid](#objective-hybrid)\n"
+        "  - [Task-Supervised](#objective-task-supervised)\n"
         "- [Adaptation & Transfer](#adaptation)\n"
         "- [Inference & Deployment](#inference-deployment)",
         render_stage(label("survey"), "surveys", by_stage["survey"], by_id),
@@ -389,8 +420,7 @@ def render_papers(
         "autoregressive-generative",
         "contrastive-alignment",
         "predictive-latent",
-        "supervised-multitask",
-        "hybrid",
+        "task-supervised",
         "objective-not-specified",
     ]
     by_objective: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
@@ -398,7 +428,7 @@ def render_papers(
         by_objective[primary_objective(paper)].append(paper)
     pretraining = [
         '<a id="pretraining"></a>\n## Pretraining Methods',
-        "Classification follows the optimization objective used during pretraining, not the number of downstream tasks. Papers are placed under Hybrid only when pretraining explicitly combines distinct objective families.",
+        "Classification follows the primary optimization objective used during pretraining, not the number of downstream tasks. Training signal and task regime are tracked independently in the source record.",
     ]
     for objective in objective_order:
         entries = by_objective[objective]
@@ -465,6 +495,26 @@ def render_resource_record(
         ]
         lines.append(f"- **Profile:** {' · '.join(item for item in profile if item)}")
         lines.append(f"- **Tasks:** {', '.join(label(item) for item in record['tasks'])}")
+        specifications = record["specifications"]
+        release_details = []
+        if specifications["version"]:
+            release_details.append(f"Version: {specifications['version']}")
+        if specifications["scale"]:
+            release_details.append(f"Scale: {specifications['scale']}")
+        if specifications["download_size"]:
+            release_details.append(f"Download: {specifications['download_size']}")
+        if release_details:
+            lines.append(f"- **Release:** {' · '.join(release_details)}")
+        coverage = []
+        for field, field_label in (
+            ("frequency_bands", "Bands"),
+            ("scenarios", "Scenarios"),
+            ("antenna_configurations", "Antennas"),
+        ):
+            if specifications[field]:
+                coverage.append(f"{field_label}: {', '.join(specifications[field])}")
+        if coverage:
+            lines.append(f"- **Coverage:** {' · '.join(coverage)}")
         if evaluations:
             resource_urls = {item["url"] for item in record["links"]}
             evaluation_labels = []
@@ -586,45 +636,104 @@ def collect_urls(records: Sequence[Mapping[str, Any]]) -> List[str]:
     return sorted(urls)
 
 
-def check_url(url: str, timeout: float) -> Tuple[str, str, str]:
+def check_url(
+    url: str,
+    timeout: float,
+    retries: int = 2,
+    retry_delay: float = 0.5,
+) -> Tuple[str, str, str]:
     headers = {"User-Agent": "Awesome-CFM-link-checker/1.0 (+https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models)"}
-    for method in ("HEAD", "GET"):
-        request = urllib.request.Request(url, headers=headers, method=method)
-        if method == "GET":
-            request.add_header("Range", "bytes=0-1023")
-        try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                status = response.getcode()
-            if 200 <= status < 400:
-                return url, "ok", str(status)
-        except urllib.error.HTTPError as exc:
-            if exc.code in {403, 405, 429} and method == "HEAD":
-                continue
-            if exc.code in {403, 429}:
-                return url, "indeterminate", str(exc.code)
-            if method == "HEAD" and exc.code in {400, 405, 501}:
-                continue
-            return url, "broken", str(exc.code)
-        except (urllib.error.URLError, TimeoutError, OSError) as exc:
-            if method == "HEAD":
-                continue
-            return url, "indeterminate", str(exc.reason if hasattr(exc, "reason") else exc)
-    return url, "indeterminate", "no response"
+    last_detail = "no response"
+    for attempt in range(retries + 1):
+        for method in ("HEAD", "GET"):
+            request = urllib.request.Request(url, headers=headers, method=method)
+            if method == "GET":
+                request.add_header("Range", "bytes=0-1023")
+            try:
+                with urllib.request.urlopen(request, timeout=timeout) as response:
+                    status = response.getcode()
+                if 200 <= status < 400:
+                    return url, "ok", str(status)
+                last_detail = str(status)
+            except urllib.error.HTTPError as exc:
+                last_detail = str(exc.code)
+                # Always try GET after a HEAD failure. Some otherwise healthy
+                # project hosts reject or misroute HEAD requests.
+                if method == "HEAD":
+                    continue
+                if exc.code in {403, 429} or 500 <= exc.code < 600:
+                    break
+                return url, "broken", str(exc.code)
+            except (urllib.error.URLError, TimeoutError, OSError) as exc:
+                last_detail = str(exc.reason if hasattr(exc, "reason") else exc)
+                if method == "HEAD":
+                    continue
+                break
+        if attempt < retries and retry_delay:
+            time.sleep(retry_delay * (2**attempt))
+    return url, "indeterminate", last_detail
 
 
-def check_links(records: Sequence[Mapping[str, Any]], workers: int, timeout: float) -> None:
+def check_links(
+    records: Sequence[Mapping[str, Any]],
+    workers: int,
+    timeout: float,
+    retries: int = 2,
+    retry_delay: float = 0.5,
+    report_path: Optional[Path] = None,
+    max_indeterminate_rate: float = 0.5,
+) -> Dict[str, Any]:
+    if workers < 1:
+        raise CatalogError("workers must be at least 1")
+    if timeout <= 0:
+        raise CatalogError("timeout must be positive")
+    if retries < 0:
+        raise CatalogError("retries cannot be negative")
+    if retry_delay < 0:
+        raise CatalogError("retry delay cannot be negative")
+    if not 0 <= max_indeterminate_rate <= 1:
+        raise CatalogError("max indeterminate rate must be between 0 and 1")
     urls = collect_urls(records)
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = [executor.submit(check_url, url, timeout) for url in urls]
+        futures = [
+            executor.submit(check_url, url, timeout, retries, retry_delay) for url in urls
+        ]
         for future in concurrent.futures.as_completed(futures):
             results.append(future.result())
     counts = Counter(status for _, status, _ in results)
     for url, status, detail in sorted(results):
         print(f"{status:13} {detail:20} {url}")
     print(f"Checked {len(urls)} URLs: {counts['ok']} ok, {counts['indeterminate']} indeterminate, {counts['broken']} broken")
+    indeterminate_rate = counts["indeterminate"] / len(urls) if urls else 0.0
+    report = {
+        "checked_at": datetime.now(timezone.utc).isoformat(),
+        "summary": {
+            "total": len(urls),
+            "ok": counts["ok"],
+            "indeterminate": counts["indeterminate"],
+            "broken": counts["broken"],
+            "indeterminate_rate": round(indeterminate_rate, 4),
+        },
+        "results": [
+            {"url": url, "status": status, "detail": detail}
+            for url, status, detail in sorted(results)
+        ],
+    }
+    if report_path:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        print(f"Wrote link audit report to {report_path}")
+    failures = []
     if counts["broken"]:
-        raise CatalogError(f"{counts['broken']} broken URL(s) found")
+        failures.append(f"{counts['broken']} broken URL(s)")
+    if indeterminate_rate > max_indeterminate_rate:
+        failures.append(
+            f"indeterminate rate {indeterminate_rate:.1%} exceeds {max_indeterminate_rate:.1%}"
+        )
+    if failures:
+        raise CatalogError("Link audit failed: " + "; ".join(failures))
+    return report
 
 
 def parse_args(argv: Sequence[str]) -> argparse.Namespace:
@@ -636,6 +745,10 @@ def parse_args(argv: Sequence[str]) -> argparse.Namespace:
     links_parser = subparsers.add_parser("check-links", help="check catalog HTTP(S) links without modifying data")
     links_parser.add_argument("--workers", type=int, default=min(8, (os.cpu_count() or 2) * 2))
     links_parser.add_argument("--timeout", type=float, default=15.0)
+    links_parser.add_argument("--retries", type=int, default=2)
+    links_parser.add_argument("--retry-delay", type=float, default=0.5)
+    links_parser.add_argument("--report", type=Path, default=Path("link-report.json"))
+    links_parser.add_argument("--max-indeterminate-rate", type=float, default=0.5)
     return parser.parse_args(argv)
 
 
@@ -650,7 +763,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             generate(records, check=args.check)
             print("Generated catalog files are current." if args.check else "Generated catalog files.")
         elif args.command == "check-links":
-            check_links(records, workers=args.workers, timeout=args.timeout)
+            check_links(
+                records,
+                workers=args.workers,
+                timeout=args.timeout,
+                retries=args.retries,
+                retry_delay=args.retry_delay,
+                report_path=args.report,
+                max_indeterminate_rate=args.max_indeterminate_rate,
+            )
     except CatalogError as exc:
         print(str(exc), file=sys.stderr)
         return 1

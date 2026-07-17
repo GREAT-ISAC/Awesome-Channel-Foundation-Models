@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import re
+import tempfile
 import unittest
 import urllib.error
 from pathlib import Path
@@ -84,6 +86,9 @@ class CatalogTests(unittest.TestCase):
                 self.assertTrue(paper["scope"])
                 self.assertTrue(paper["stages"])
                 self.assertIn("objectives", paper)
+                self.assertIn("primary_objective", paper)
+                self.assertIn("training_signals", paper)
+                self.assertIn("task_regime", paper)
                 self.assertIn("modalities", paper)
                 self.assertIn("tasks", paper)
                 self.assertEqual(
@@ -101,6 +106,19 @@ class CatalogTests(unittest.TestCase):
                         continue
                     with self.subTest(paper=paper["id"], resource=item["ref"]):
                         self.assertIn(paper["id"], by_id[item["ref"]]["related_papers"])
+
+    def test_direct_resource_urls_have_one_canonical_owner(self):
+        owners = {}
+        for record in self.records:
+            direct_urls = [link["url"] for link in record.get("links", [])]
+            for slot in record.get("artifacts", {}).values():
+                direct_urls.extend(
+                    item["url"] for item in slot["items"] if item.get("url")
+                )
+            for url in direct_urls:
+                with self.subTest(url=url):
+                    self.assertNotIn(url, owners, f"also maintained by {owners.get(url)}")
+                    owners[url] = record["id"]
 
     def test_generated_pages_are_current(self):
         catalog.generate(self.records, check=True)
@@ -120,8 +138,7 @@ class CatalogTests(unittest.TestCase):
             "### Autoregressive/Generative Modeling",
             "### Contrastive/Alignment Learning",
             "### Predictive Latent Learning",
-            "### Supervised/Multitask Pretraining",
-            "### Hybrid Objectives",
+            "### Task-Supervised Learning",
             "## Adaptation & Transfer",
             "## Inference & Deployment",
         ):
@@ -207,21 +224,52 @@ class CatalogTests(unittest.TestCase):
             by_id["wireless-multitask-prediction"]["objectives"],
             ["direct-forecasting"],
         )
+        self.assertEqual(by_id["wifo-2"]["task_regime"], "multitask")
+        self.assertEqual(by_id["wirelessgpt"]["task_regime"], "multitask")
+        self.assertEqual(
+            by_id["wireless-multitask-prediction"]["task_regime"], "multitask"
+        )
+        for paper_id in ("wifo-2", "wirelessgpt", "wireless-multitask-prediction"):
+            self.assertNotIn("task-supervised", by_id[paper_id]["objectives"])
 
         rendered = catalog.render_papers(
             [record for record in self.records if record["kind"] == "paper"],
             self.records,
         )
         self.assertIn(
-            "Classification follows the optimization objective used during pretraining, "
-            "not the number of downstream tasks.",
+            "Classification follows the primary optimization objective used during "
+            "pretraining, not the number of downstream tasks.",
             rendered,
         )
         supervised_section = rendered.split(
-            '<a id="objective-supervised-multitask"></a>', 1
-        )[1].split('<a id="objective-hybrid"></a>', 1)[0]
+            '<a id="objective-task-supervised"></a>', 1
+        )[1].split('<a id="adaptation"></a>', 1)[0]
         for paper_id in ("wifo-2", "wirelessgpt", "wireless-multitask-prediction"):
             self.assertNotIn(f'<a id="{paper_id}"></a>', supervised_section)
+
+    def test_multi_objective_papers_use_concrete_labels_and_explicit_primary(self):
+        by_id = {record["id"]: record for record in self.records}
+        for paper_id in ("am-fm", "contrawimae", "lwlm", "lwm-spectro", "spa-mae"):
+            with self.subTest(paper=paper_id):
+                paper = by_id[paper_id]
+                self.assertGreater(len(paper["objectives"]), 1)
+                self.assertIn(paper["primary_objective"], paper["objectives"])
+                self.assertNotIn("hybrid", paper["objectives"])
+
+    def test_datasets_have_structured_release_and_coverage_metadata(self):
+        for dataset in (record for record in self.records if record["kind"] == "dataset"):
+            with self.subTest(dataset=dataset["id"]):
+                self.assertEqual(
+                    set(dataset["specifications"]),
+                    {
+                        "version",
+                        "scale",
+                        "download_size",
+                        "frequency_bands",
+                        "scenarios",
+                        "antenna_configurations",
+                    },
+                )
 
     def test_deepmimo_is_only_cataloged_as_a_simulation_tool(self):
         by_id = {record["id"]: record for record in self.records}
@@ -388,9 +436,12 @@ class CatalogTests(unittest.TestCase):
         for status in (403, 429):
             error = urllib.error.HTTPError("https://example.test", status, "blocked", {}, None)
             with self.subTest(status=status), mock.patch.object(
-                catalog.urllib.request, "urlopen", side_effect=[error, error]
+                catalog.urllib.request, "urlopen", side_effect=error
             ):
-                self.assertEqual(catalog.check_url("https://example.test", 1)[1], "indeterminate")
+                self.assertEqual(
+                    catalog.check_url("https://example.test", 1, retries=0)[1],
+                    "indeterminate",
+                )
 
     @mock.patch.object(
         catalog.urllib.request,
@@ -398,7 +449,9 @@ class CatalogTests(unittest.TestCase):
         side_effect=urllib.error.HTTPError("https://example.test", 404, "missing", {}, None),
     )
     def test_link_checker_reports_confirmed_http_failure(self, _urlopen):
-        self.assertEqual(catalog.check_url("https://example.test", 1)[1], "broken")
+        self.assertEqual(
+            catalog.check_url("https://example.test", 1, retries=0)[1], "broken"
+        )
 
     def test_link_checker_retries_head_with_get(self):
         head_error = urllib.error.HTTPError("https://example.test", 405, "method", {}, None)
@@ -407,6 +460,56 @@ class CatalogTests(unittest.TestCase):
         ) as urlopen:
             self.assertEqual(catalog.check_url("https://example.test", 1)[1], "ok")
             self.assertEqual(urlopen.call_count, 2)
+
+    def test_link_checker_retries_head_404_with_get(self):
+        head_error = urllib.error.HTTPError("https://example.test", 404, "missing", {}, None)
+        with mock.patch.object(
+            catalog.urllib.request, "urlopen", side_effect=[head_error, FakeResponse(200)]
+        ) as urlopen:
+            self.assertEqual(
+                catalog.check_url("https://example.test", 1, retries=0)[1], "ok"
+            )
+            self.assertEqual(urlopen.call_count, 2)
+
+    def test_link_checker_treats_server_errors_as_indeterminate(self):
+        error = urllib.error.HTTPError("https://example.test", 503, "temporary", {}, None)
+        with mock.patch.object(catalog.urllib.request, "urlopen", side_effect=error):
+            self.assertEqual(
+                catalog.check_url(
+                    "https://example.test", 1, retries=2, retry_delay=0
+                )[1],
+                "indeterminate",
+            )
+
+    def test_link_audit_writes_report_and_alerts_on_high_uncertainty(self):
+        records = [
+            {
+                "links": [
+                    {
+                        "url": "https://example.test/resource",
+                    }
+                ]
+            }
+        ]
+        with tempfile.TemporaryDirectory() as directory, mock.patch.object(
+            catalog,
+            "check_url",
+            return_value=("https://example.test/resource", "indeterminate", "timeout"),
+        ):
+            report_path = Path(directory) / "link-report.json"
+            with self.assertRaises(catalog.CatalogError):
+                catalog.check_links(
+                    records,
+                    workers=1,
+                    timeout=1,
+                    retries=0,
+                    retry_delay=0,
+                    report_path=report_path,
+                    max_indeterminate_rate=0.5,
+                )
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertEqual(report["summary"]["indeterminate"], 1)
+            self.assertEqual(report["summary"]["indeterminate_rate"], 1.0)
 
 
 if __name__ == "__main__":

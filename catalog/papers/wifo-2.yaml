@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2511.22222v2
 scope: core-cfm
 stages: [pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: multitask
 modalities: [csi, vision, received-symbols]
 tasks: [los-nlos-identification, cross-band-beam-prediction, positioning, frequency-channel-extrapolation, csi-feedback, aoa-estimation, cross-band-channel-prediction, signal-detection]
 artifacts:

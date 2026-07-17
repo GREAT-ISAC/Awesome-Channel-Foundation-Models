@@ -30,6 +30,16 @@
         "related-method"
       ]
     },
+    "pretrainingObjective": {
+      "enum": [
+        "masked-reconstruction",
+        "direct-forecasting",
+        "autoregressive-generative",
+        "contrastive-alignment",
+        "predictive-latent",
+        "task-supervised"
+      ]
+    },
     "provenance": {
       "enum": ["official", "community"]
     },
@@ -100,7 +110,10 @@
         "paper_url",
         "scope",
         "stages",
+        "training_signals",
         "objectives",
+        "primary_objective",
+        "task_regime",
         "modalities",
         "tasks",
         "artifacts",
@@ -139,17 +152,29 @@
         "objectives": {
           "type": "array",
           "uniqueItems": true,
+          "items": { "$ref": "#/$defs/pretrainingObjective" }
+        },
+        "primary_objective": {
+          "oneOf": [
+            { "$ref": "#/$defs/pretrainingObjective" },
+            { "type": "null" }
+          ]
+        },
+        "training_signals": {
+          "type": "array",
+          "uniqueItems": true,
           "items": {
-            "enum": [
-              "masked-reconstruction",
-              "direct-forecasting",
-              "autoregressive-generative",
-              "contrastive-alignment",
-              "predictive-latent",
-              "supervised-multitask",
-              "hybrid"
-            ]
+            "enum": ["self-supervised", "supervised", "weakly-supervised"]
           }
+        },
+        "task_regime": {
+          "enum": [
+            "single-task",
+            "multitask",
+            "task-conditioned",
+            "not-specified",
+            "not-applicable"
+          ]
         },
         "modalities": { "$ref": "#/$defs/slugList" },
         "tasks": { "$ref": "#/$defs/slugList" },
@@ -210,13 +235,45 @@
         { "$ref": "#/$defs/catalogResourceBase" },
         {
           "type": "object",
-          "required": ["modalities", "data_origin", "access", "tasks"],
+          "required": ["modalities", "data_origin", "access", "tasks", "specifications"],
           "properties": {
             "kind": { "const": "dataset" },
             "modalities": { "$ref": "#/$defs/slugList" },
             "data_origin": { "enum": ["measured", "simulated", "hybrid"] },
             "access": { "enum": ["open", "registration", "restricted"] },
-            "tasks": { "$ref": "#/$defs/slugList" }
+            "tasks": { "$ref": "#/$defs/slugList" },
+            "specifications": {
+              "type": "object",
+              "required": [
+                "version",
+                "scale",
+                "download_size",
+                "frequency_bands",
+                "scenarios",
+                "antenna_configurations"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "version": { "type": ["string", "null"] },
+                "scale": { "type": ["string", "null"] },
+                "download_size": { "type": ["string", "null"] },
+                "frequency_bands": {
+                  "type": "array",
+                  "items": { "type": "string", "minLength": 1 },
+                  "uniqueItems": true
+                },
+                "scenarios": {
+                  "type": "array",
+                  "items": { "type": "string", "minLength": 1 },
+                  "uniqueItems": true
+                },
+                "antenna_configurations": {
+                  "type": "array",
+                  "items": { "type": "string", "minLength": 1 },
+                  "uniqueItems": true
+                }
+              }
+            }
           }
         }
       ],

@@ -14,3 +14,10 @@ modalities: [csi, rgb, depth, lidar, radar, imu, uav-pose]
 data_origin: simulated
 access: open
 tasks: [beam-prediction, positioning, channel-modeling, radar-sensing, multimodal-sensing]
+specifications:
+  version: Initial 2026 release
+  scale: 20 downloadable BS/UAV trajectory subsets plus a complete archive
+  download_size: null
+  frequency_bands: []
+  scenarios: [Urban blocks, Urban squares, Skyscraper, Suburban open ground, Mountain, SJTU campus]
+  antenna_configurations: [One or two base stations with one or two UAVs; subset-specific configurations]

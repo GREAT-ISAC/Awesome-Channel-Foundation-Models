@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2504.14100
 scope: broader-wireless-radio-fm
 stages: [pretraining]
-objectives: [hybrid]
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: multitask
 modalities: [csi, iq, spectrogram, resource-grid]
 tasks: [positioning, channel-estimation, rf-signal-classification, human-activity-sensing]
 artifacts:

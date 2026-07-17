@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2505.19390
 scope: broader-wireless-radio-fm
 stages: [pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [cir, iq]
 tasks: [wireless-technology-classification, los-nlos-identification, ranging-error-correction]
 artifacts:

@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2505.10134
 scope: core-cfm
 stages: [pretraining]
-objectives: [hybrid]
+objectives: [masked-reconstruction, contrastive-alignment]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [toa-estimation, aoa-estimation, positioning]
 artifacts:

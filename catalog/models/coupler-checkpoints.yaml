@@ -4,10 +4,10 @@ name: Full-Domain Coupler Checkpoints
 description: Pretrained experiment archives released by the authors for channel representation and deduction evaluations.
 scope: core-cfm
 links:
-  - {label: Official repository and download instructions, url: https://github.com/XIronMan0220/Coupler-Channel-Deduction, provenance: official, availability: available, license: License not stated}
+  - {label: Official pretrained archive, url: "https://drive.google.com/drive/folders/1txq8lt7TbZAF9zNReNRpWBAvzefrBs-I?usp=sharing", provenance: official, availability: available, license: License not stated}
 license: License not stated
 related_papers: [full-domain-coupler]
-last_verified: "2026-07-13"
+last_verified: "2026-07-17"
 framework: PyTorch
 modalities: [csi, cir]
 tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]

@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2507.05938
 scope: broader-wireless-radio-fm
 stages: [pretraining]
 objectives: [direct-forecasting]
+primary_objective: direct-forecasting
+training_signals: [self-supervised]
+task_regime: multitask
 modalities: [csi, traffic-sequence]
 tasks: [time-channel-extrapolation, angle-prediction, traffic-prediction]
 artifacts:

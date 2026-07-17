@@ -22,3 +22,10 @@ modalities: [csi, rgb, lidar, inertial]
 data_origin: hybrid
 access: open
 tasks: [csi-feedback, frequency-channel-extrapolation, time-channel-extrapolation, los-nlos-identification, beam-prediction, positioning]
+specifications:
+  version: null
+  scale: Multi-domain and multi-task benchmark assembled from statistical, ray-traced, measured, and multimodal channel configurations
+  download_size: null
+  frequency_bands: []
+  scenarios: [Statistical channels, Ray-traced channels, Measured channels, Multimodal channels]
+  antenna_configurations: []

@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2605.00020
 scope: core-cfm
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [delay-doppler-angle]
 tasks: [time-channel-extrapolation, frequency-channel-extrapolation, channel-estimation]
 summary: A DDA-domain architecture with window attention and frame-structure-aware positional encoding.

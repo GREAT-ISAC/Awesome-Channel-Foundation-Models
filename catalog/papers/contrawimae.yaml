@@ -8,7 +8,10 @@ venue: arXiv
 paper_url: https://arxiv.org/abs/2505.09160
 scope: core-cfm
 stages: [pretraining]
-objectives: [masked-reconstruction, contrastive-alignment, hybrid]
+objectives: [masked-reconstruction, contrastive-alignment]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [cross-frequency-beam-prediction, los-nlos-identification, channel-estimation]
 artifacts:

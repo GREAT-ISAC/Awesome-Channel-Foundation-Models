@@ -10,6 +10,9 @@ local_url: docs/6G Native AI and Channel Foundation Models.pdf
 scope: core-cfm
 stages: [survey]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: []
 abstract: >-

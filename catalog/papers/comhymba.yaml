@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2605.23468
 scope: core-cfm
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [channel-reconstruction, positioning, path-loss-prediction, beam-prediction, los-nlos-identification]
 artifacts:

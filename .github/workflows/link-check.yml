@@ -26,4 +26,12 @@ jobs:
       - name: Install validation dependencies
         run: python -m pip install -r requirements.txt
       - name: Audit external links without changing catalog data
-        run: python scripts/catalog.py check-links
+        run: python scripts/catalog.py check-links --report link-report.json --max-indeterminate-rate 0.5
+      - name: Upload link audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cfm-link-audit
+          path: link-report.json
+          if-no-files-found: warn
+          retention-days: 30

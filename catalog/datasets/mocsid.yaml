@@ -13,3 +13,10 @@ modalities: [csi, cir, position, velocity]
 data_origin: simulated
 access: open
 tasks: [channel-charting, positioning, channel-modeling]
+specifications:
+  version: null
+  scale: Spatially consistent pedestrian mobility data covering ten base stations with CSI, locations, velocities, and multipath components
+  download_size: 17.9 GB
+  frequency_bands: []
+  scenarios: [Multi-cell outdoor pedestrian mobility]
+  antenna_configurations: [Ten base stations; array details are provided with the dataset]

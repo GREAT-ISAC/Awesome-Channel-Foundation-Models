@@ -9,14 +9,14 @@ paper_url: https://ieeexplore.ieee.org/document/11570058
 scope: core-cfm
 stages: [pretraining]
 objectives: [autoregressive-generative]
+primary_objective: autoregressive-generative
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [channel-estimation, channel-extrapolation, near-far-field-classification, positioning]
 summary: Uses conditional diffusion pretraining over incomplete channel observations in a digital-twin toolchain.
 artifacts:
-  code:
-    status: available
-    items:
-      - {label: Official implementation, url: https://github.com/Lmyxxn/LAETwin-XL, provenance: official, availability: available, license: License not stated}
+  code: {status: not-found, items: []}
   datasets:
     status: available
     items:

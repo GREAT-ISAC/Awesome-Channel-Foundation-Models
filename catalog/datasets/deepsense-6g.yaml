@@ -12,3 +12,10 @@ modalities: [mmwave, rgb, lidar, radar, gnss]
 data_origin: measured
 access: registration
 tasks: [beam-prediction, blockage-prediction, positioning, multimodal-sensing]
+specifications:
+  version: Continuously expanded dataset portal
+  scale: More than 1 million synchronized sensing-and-communication samples across over 30 scenarios
+  download_size: null
+  frequency_bands: [mmWave]
+  scenarios: [Vehicular, Drone, Indoor, Outdoor]
+  antenna_configurations: [Scenario-specific mmWave arrays]

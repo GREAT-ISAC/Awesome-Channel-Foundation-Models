@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.00120
 scope: core-cfm
 stages: [backbone]
 objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
 modalities: [csi]
 tasks: [time-channel-extrapolation]
 summary: A spiking-aided hybrid SNN-ANN architecture for robust channel prediction.

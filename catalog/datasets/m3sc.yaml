@@ -12,3 +12,10 @@ modalities: [csi, rgb, depth, lidar, radar, path-loss]
 data_origin: simulated
 access: open
 tasks: [channel-modeling, beam-prediction, positioning, multimodal-sensing]
+specifications:
+  version: null
+  scale: 200,000 channel matrices; 300,000 RGB images; 600,000 depth maps; 300,000 LiDAR point clouds; 240,000 radar waveforms; 50,000 path-loss samples
+  download_size: 2.41 TB
+  frequency_bands: [Multiple frequency bands; exact values vary by scenario]
+  scenarios: [Urban, Suburban, Rural, Multiple weather conditions, Multiple time periods, Multiple traffic densities]
+  antenna_configurations: [Multiple antenna arrays; exact configurations vary by scenario]

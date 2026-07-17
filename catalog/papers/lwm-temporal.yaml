@@ -9,14 +9,14 @@ paper_url: https://arxiv.org/abs/2603.10024
 scope: core-cfm
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [time-channel-extrapolation]
 summary: Sparse spatio-temporal attention aligned with wireless propagation structure.
 artifacts:
-  code:
-    status: available
-    items:
-      - {label: Official model repository, url: https://huggingface.co/wi-lab/lwm-temporal, provenance: official, availability: available, license: License not stated}
+  code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models:
     status: available

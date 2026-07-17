@@ -15,13 +15,33 @@ This dimension preserves the original Backbone, Pretraining, Adaptation, and Inf
 ## Pretraining objective
 
 - `masked-reconstruction` — masked autoencoding, denoising, or reconstruction from incomplete observations.
+- `direct-forecasting` — direct prediction of future channel states or other future wireless observations without a masked-token formulation.
 - `autoregressive-generative` — next-token/sequence modeling, diffusion, or another explicitly generative objective.
 - `contrastive-alignment` — contrastive learning or alignment across views, domains, or modalities.
 - `predictive-latent` — JEPA-style or world-model prediction in a learned latent space.
-- `supervised-multitask` — joint pretraining over multiple labeled tasks or task-conditioned objectives.
-- `hybrid` — a method whose central design deliberately combines objective families.
+- `task-supervised` — direct optimization of one or more labeled downstream-task losses during pretraining.
 
-Specific objective labels replace the former ambiguous “Other Pretraining Approaches” section. Papers may carry several objective tags when the method genuinely combines them.
+Specific objective labels replace the former ambiguous “Other Pretraining Approaches” section. Papers carry every concrete objective that is central to the method. A hybrid method is represented by multiple objective labels instead of a generic `hybrid` label, and `primary_objective` controls its single public placement.
+
+## Training signal
+
+The `training_signals` field records where the optimization targets come from, independently of the objective family:
+
+- `self-supervised` — targets are derived from the input data itself, including masks, future observations, augmentations, or alternate views.
+- `supervised` — targets use task annotations or explicitly labeled outputs.
+- `weakly-supervised` — targets use incomplete, noisy, indirect, or automatically derived labels.
+
+Papers may use more than one signal. Non-pretraining papers use an empty list.
+
+## Task regime
+
+The `task_regime` field describes how tasks are organized during pretraining rather than how many downstream evaluations appear in the paper:
+
+- `single-task` — pretraining directly optimizes one task.
+- `multitask` — several tasks are optimized jointly.
+- `task-conditioned` — a prompt, task token, or equivalent condition selects the requested task.
+- `not-specified` — the available paper description does not support a more precise classification.
+- `not-applicable` — the record is not a pretraining paper.
 
 ## Scope
 

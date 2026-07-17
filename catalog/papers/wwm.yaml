@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2603.25216
 scope: core-cfm
 stages: [pretraining]
 objectives: [predictive-latent]
+primary_objective: predictive-latent
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi, point-cloud, trajectory]
 tasks: [beam-prediction, positioning, time-channel-extrapolation, frequency-channel-extrapolation, csi-feedback]
 artifacts:

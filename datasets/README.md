@@ -12,6 +12,8 @@ Measured and simulated datasets relevant to CFM research. Existing evaluation pr
 A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, measured, and multimodal channel configurations.
 - **Profile:** Hybrid · Open · CSI, RGB, LiDAR, Inertial
 - **Tasks:** CSI Feedback, Frequency Channel Extrapolation, Time Channel Extrapolation, LOS/NLOS Identification, Beam Prediction, Positioning
+- **Release:** Scale: Multi-domain and multi-task benchmark assembled from statistical, ray-traced, measured, and multimodal channel configurations
+- **Coverage:** Scenarios: Statistical channels, Ray-traced channels, Measured channels, Multimodal channels
 - **Links:** [Official download](https://www.chaspark.com/#/s/CFM-Bench) · [Paper and evaluation protocol](https://arxiv.org/abs/2607.14975)
 
 <a id="deepsense-6g"></a>
@@ -19,6 +21,8 @@ A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, m
 A real-world sensing-and-communication dataset with more than one million samples across over 30 vehicular, drone, indoor, and outdoor scenarios.
 - **Profile:** Measured · Registration · mmWave, RGB, LiDAR, Radar, GNSS
 - **Tasks:** Beam Prediction, Blockage Prediction, Positioning, Multimodal Sensing
+- **Release:** Version: Continuously expanded dataset portal · Scale: More than 1 million synchronized sensing-and-communication samples across over 30 scenarios
+- **Coverage:** Bands: mmWave · Scenarios: Vehicular, Drone, Indoor, Outdoor · Antennas: Scenario-specific mmWave arrays
 - **Links:** [Official dataset portal](https://www.deepsense6g.net/)
 
 <a id="dichasus"></a>
@@ -26,7 +30,8 @@ A real-world sensing-and-communication dataset with more than one million sample
 Measured distributed massive-MIMO channel datasets published by the University of Stuttgart for channel learning and localization research.
 - **Profile:** Measured · Open · CSI
 - **Tasks:** Channel Deduction, Positioning
-- **Evaluation:** [Full-Domain Coupler Channel Deduction Evaluation](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
+- **Release:** Version: Collection of independently versioned measurement campaigns · Scale: Multiple distributed massive-MIMO datasets; sample counts vary by campaign
+- **Coverage:** Scenarios: Indoor distributed massive-MIMO measurement campaigns · Antennas: Distributed arrays; configuration varies by campaign
 - **Links:** [Official dataset portal](https://dichasus.inue.uni-stuttgart.de/datasets/)
 - **Related papers:** [Full-Domain Coupler](../papers/README.md#full-domain-coupler)
 
@@ -35,7 +40,9 @@ Measured distributed massive-MIMO channel datasets published by the University o
 Digital-twin channel datasets for low-altitude extra-large MIMO experiments released with LAETwin-XL.
 - **Profile:** Simulated · Open · CSI
 - **Tasks:** Channel Estimation, Channel Extrapolation, Near-/Far-Field Classification, Positioning
-- **Links:** [Official dataset page](https://lmyxxn.github.io/6GXLMIMODatasets/) · [Official repository](https://github.com/Lmyxxn/LAETwin-XL)
+- **Release:** Scale: Multiple digital-twin channel datasets released for LAETwin-XL experiments
+- **Coverage:** Scenarios: Low-altitude air-to-ground digital-twin channels · Antennas: XL-MIMO arrays; configuration varies by dataset
+- **Links:** [Official dataset page](https://lmyxxn.github.io/6GXLMIMODatasets/)
 - **Related papers:** [LAETwin-XL](../papers/README.md#laetwin-xl)
 
 <a id="lambda-6g"></a>
@@ -43,6 +50,8 @@ Digital-twin channel datasets for low-altitude extra-large MIMO experiments rele
 A high-fidelity low-altitude dataset synchronizing CSI, RGB, depth, LiDAR, 4D radar, IMU, and UAV trajectories across urban, suburban, mountain, and campus scenarios.
 - **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, IMU, UAV Pose
 - **Tasks:** Beam Prediction, Positioning, Channel Modeling, Radar Sensing, Multimodal Sensing
+- **Release:** Version: Initial 2026 release · Scale: 20 downloadable BS/UAV trajectory subsets plus a complete archive
+- **Coverage:** Scenarios: Urban blocks, Urban squares, Skyscraper, Suburban open ground, Mountain, SJTU campus · Antennas: One or two base stations with one or two UAVs; subset-specific configurations
 - **Links:** [Official download page](https://lambda6g.net/download) · [Full dataset archive](https://doi.org/10.57760/sciencedb.36052) · [Official utilities](https://github.com/SJTU-WirelessAI-Lab/LAMBDA)
 
 <a id="lwm-challenge"></a>
@@ -50,8 +59,10 @@ A high-fidelity low-altitude dataset synchronizing CSI, RGB, depth, LiDAR, 4D ra
 Official competition assets and starter material for evaluating LWM representations on wireless downstream tasks.
 - **Profile:** Hybrid · Registration · CSI
 - **Tasks:** Beam Prediction, LOS/NLOS Identification, Positioning, Channel Prediction
-- **Evaluation:** LWM Challenge 2025
-- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-competition-2025) · [Official challenge page](https://lwm-wireless.net/challenge)
+- **Release:** Version: LWM Challenge 2025 · Scale: Competition training and evaluation assets spanning four downstream task families
+- **Coverage:** Scenarios: Challenge-specific training and held-out evaluation splits
+- **Evaluation:** [LWM Challenge 2025](https://lwm-wireless.net/challenge)
+- **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-competition-2025)
 - **Related papers:** [LWM](../papers/README.md#lwm)
 
 <a id="mocsid"></a>
@@ -59,6 +70,8 @@ Official competition assets and starter material for evaluating LWM representati
 A 17.9 GB spatially consistent multi-cell outdoor CSI dataset covering ten base stations, pedestrian mobility, locations, velocities, and multipath components.
 - **Profile:** Simulated · Open · CSI, CIR, Position, Velocity
 - **Tasks:** Channel Charting, Positioning, Channel Modeling
+- **Release:** Scale: Spatially consistent pedestrian mobility data covering ten base stations with CSI, locations, velocities, and multipath components · Download: 17.9 GB
+- **Coverage:** Scenarios: Multi-cell outdoor pedestrian mobility · Antennas: Ten base stations; array details are provided with the dataset
 - **Links:** [Official Zenodo dataset](https://doi.org/10.5281/zenodo.14535165) · [Official generation code](https://gitlab.inria.fr/channelcharting/outdoor_dataset)
 
 <a id="multimodal-wireless"></a>
@@ -66,6 +79,8 @@ A 17.9 GB spatially consistent multi-cell outdoor CSI dataset covering ten base 
 An open dataset of 161,400 synchronized channel and sensor frames across four virtual towns, 16 communication scenarios, and three weather conditions.
 - **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, GNSS, IMU
 - **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing, Collaborative Perception
+- **Release:** Version: Initial ICC 2026 release · Scale: 161,400 synchronized frames sampled at 100 Hz across 16 communication scenarios
+- **Coverage:** Scenarios: Four CARLA virtual towns, Sixteen communication scenarios, Three weather conditions · Antennas: Configuration-driven V2X links; exact arrays vary by scenario
 - **Links:** [Official download page](https://le-liang.github.io/mmw/download.html) · [Official project page](https://le-liang.github.io/mmw/) · [Replay and extension toolkit](https://github.com/le-liang/Multimodal-Wireless)
 
 <a id="m3sc"></a>
@@ -73,6 +88,8 @@ An open dataset of 161,400 synchronized channel and sensor frames across four vi
 A 2.41 TB mixed multimodal sensing-and-communication dataset with 200,000 channel matrices and synchronized RGB, depth, LiDAR, radar, and path-loss data.
 - **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, Path Loss
 - **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing
+- **Release:** Scale: 200,000 channel matrices; 300,000 RGB images; 600,000 depth maps; 300,000 LiDAR point clouds; 240,000 radar waveforms; 50,000 path-loss samples · Download: 2.41 TB
+- **Coverage:** Bands: Multiple frequency bands; exact values vary by scenario · Scenarios: Urban, Suburban, Rural, Multiple weather conditions, Multiple time periods, Multiple traffic densities · Antennas: Multiple antenna arrays; exact configurations vary by scenario
 - **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_M3SC)
 
 <a id="synthsom"></a>
@@ -80,6 +97,8 @@ A 2.41 TB mixed multimodal sensing-and-communication dataset with 200,000 channe
 A synthetic sensing-and-communication dataset spanning eight scenario families and more than 9.5 million multimodal groups, including 1.5 million channel matrices.
 - **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, Path Loss
 - **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing
+- **Release:** Scale: More than 9.5 million multimodal groups, including 1.5 million channel matrices · Download: 2.91 TB hosted snapshot; authors report more than 10 TB for the full corpus
+- **Coverage:** Bands: Multiple frequency bands; exact values vary by scenario · Scenarios: Vehicle-road coordination, Low-altitude economy, Smart campus, Urban, Suburban, Rural, PKU Yan Garden, PKU New Yan Garden · Antennas: Multiple antenna arrays; exact configurations vary by scenario
 - **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_SynthSoM)
 
 <a id="wifo-channel-dataset"></a>
@@ -87,5 +106,7 @@ A synthetic sensing-and-communication dataset spanning eight scenario families a
 A 4.72 GB collection of 19 QuaDRiGa-generated space-time-frequency CSI configurations, with 12,000 samples per configuration, for WiFo pretraining and generalization.
 - **Profile:** Simulated · Open · CSI
 - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Prediction
-- **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/RF-only_channel_dataset_for_WiFo) · [Official implementation](https://github.com/PKU-PCNI/WiFo)
+- **Release:** Scale: 19 QuaDRiGa configurations with 12,000 samples each (228,000 samples total) · Download: 4.72 GB
+- **Coverage:** Bands: Multiple carrier configurations represented in the released data · Scenarios: Nineteen space-time-frequency QuaDRiGa channel configurations · Antennas: Heterogeneous antenna configurations used for WiFo pretraining and generalization
+- **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/RF-only_channel_dataset_for_WiFo)
 - **Related papers:** [WiFo](../papers/README.md#wifo)

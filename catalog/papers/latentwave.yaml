@@ -9,6 +9,9 @@ paper_url: https://arxiv.org/abs/2606.06373
 scope: broader-wireless-radio-fm
 stages: [pretraining]
 objectives: [predictive-latent]
+primary_objective: predictive-latent
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi, iq]
 tasks: [rf-signal-classification, positioning, beam-prediction, los-nlos-identification]
 artifacts:

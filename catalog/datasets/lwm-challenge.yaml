@@ -5,7 +5,6 @@ description: Official competition assets and starter material for evaluating LWM
 scope: core-cfm
 links:
   - {label: Official Hugging Face repository, url: https://huggingface.co/wi-lab/lwm-competition-2025, provenance: official, availability: available, license: Challenge-specific terms}
-  - {label: Official challenge page, url: https://lwm-wireless.net/challenge, provenance: official, availability: available, license: Challenge-specific terms}
 license: Challenge-specific terms
 related_papers: [lwm]
 last_verified: "2026-07-13"
@@ -13,3 +12,10 @@ modalities: [csi]
 data_origin: hybrid
 access: registration
 tasks: [beam-prediction, los-nlos-identification, positioning, channel-prediction]
+specifications:
+  version: LWM Challenge 2025
+  scale: Competition training and evaluation assets spanning four downstream task families
+  download_size: null
+  frequency_bands: []
+  scenarios: [Challenge-specific training and held-out evaluation splits]
+  antenna_configurations: []
