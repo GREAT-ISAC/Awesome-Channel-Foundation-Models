@@ -1,6 +1,6 @@
 # Research Taxonomy
 
-The catalog uses non-exclusive dimensions. A paper can appear in several views without duplicating its source record.
+The catalog uses non-exclusive dimensions in its source records, while the public paper page places each paper once in a stage-first hierarchy.
 
 ## Research stage
 
@@ -37,4 +37,4 @@ Tasks describe evaluated or explicitly targeted uses such as channel estimation,
 
 ## Resource display
 
-The paper page shows code, data, pretrained weights, benchmark projects, or simulation tools only when a qualifying link is available. Missing-resource and verification states remain in the YAML records for maintenance and are not repeated in the public paper listing.
+The paper page shows qualifying code, pretrained-weight, benchmark, or simulation-tool links. Dataset relationships are presented on the dataset page instead of being repeated under papers. Missing-resource and verification states remain in YAML for maintenance and are not repeated in the public listing.

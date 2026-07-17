@@ -21,10 +21,8 @@ from jsonschema import Draft202012Validator, FormatChecker
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_DIR = ROOT / "catalog"
 SCHEMA_PATH = ROOT / "schemas" / "catalog.schema.json"
-README_TEMPLATE = ROOT / "templates" / "README.md"
 
 OUTPUTS = {
-    "readme": ROOT / "README.md",
     "paper": ROOT / "papers" / "README.md",
     "dataset": ROOT / "datasets" / "README.md",
     "simulation-tool": ROOT / "simulation-tools" / "README.md",
@@ -539,16 +537,11 @@ def render_simulation_tools(
     return "\n\n".join(sections).rstrip() + "\n"
 
 
-def render_readme(_records: Sequence[Mapping[str, Any]]) -> str:
-    return README_TEMPLATE.read_text(encoding="utf-8")
-
-
 def render_outputs(records: Sequence[Mapping[str, Any]]) -> Dict[Path, str]:
     by_kind: Dict[str, List[Mapping[str, Any]]] = defaultdict(list)
     for record in records:
         by_kind[record["kind"]].append(record)
     return {
-        OUTPUTS["readme"]: render_readme(records),
         OUTPUTS["paper"]: render_papers(by_kind["paper"], records),
         OUTPUTS["dataset"]: render_datasets(
             by_kind["dataset"], by_kind["benchmark"], records
