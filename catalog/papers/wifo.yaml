@@ -12,9 +12,18 @@ objectives: [masked-reconstruction]
 modalities: [csi]
 tasks: [time-channel-extrapolation, frequency-channel-extrapolation]
 artifacts:
-  code: {status: not-found, items: []}
-  datasets: {status: not-found, items: []}
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/PKU-PCNI/WiFo, provenance: official, availability: available, license: License not stated}
+  datasets:
+    status: available
+    items:
+      - {label: WiFo channel dataset, ref: wifo-channel-dataset, provenance: official, availability: available, license: Apache-2.0}
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
-  simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+  simulation_tools:
+    status: available
+    items:
+      - {label: QuaDRiGa, ref: quadriga, provenance: official, availability: available, license: QuaDRiGa license}
+last_verified: "2026-07-17"

@@ -9,5 +9,5 @@ license: License not stated
 related_papers: [full-domain-coupler]
 last_verified: "2026-07-13"
 tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]
-datasets: [deepmimo, dichasus]
+datasets: [dichasus]
 metrics: [NMSE, Correlation]

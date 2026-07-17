@@ -16,11 +16,11 @@ artifacts:
     status: available
     items:
       - {label: Official implementation, url: https://github.com/tomerraviv95/mamba-lwm-project, provenance: official, availability: available, license: License not stated}
-  datasets:
-    status: available
-    items:
-      - {label: DeepMIMO, ref: deepmimo, provenance: official, availability: available, license: Apache-2.0}
+  datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
-  simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+  simulation_tools:
+    status: available
+    items:
+      - {label: DeepMIMO, ref: deepmimo-toolchain, provenance: official, availability: available, license: Apache-2.0}
+last_verified: "2026-07-17"

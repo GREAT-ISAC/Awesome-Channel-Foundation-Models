@@ -14,14 +14,12 @@ A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, m
 - **Tasks:** CSI Feedback, Frequency Channel Extrapolation, Time Channel Extrapolation, LOS/NLOS Identification, Beam Prediction, Positioning
 - **Links:** [Official download](https://www.chaspark.com/#/s/CFM-Bench) · [Paper and evaluation protocol](https://arxiv.org/abs/2607.14975)
 
-<a id="deepmimo"></a>
-## DeepMIMO
-A scenario-based wireless channel dataset and generation interface built from ray-tracing data for machine-learning research.
-- **Profile:** Simulated · Open · CSI, CIR
-- **Tasks:** Channel Estimation, Channel Prediction, Beam Prediction, Positioning
-- **Evaluation:** [Full-Domain Coupler Channel Deduction Evaluation](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
-- **Links:** [Official repository](https://github.com/DeepMIMO/DeepMIMO)
-- **Related papers:** [Full-Domain Coupler](../papers/README.md#full-domain-coupler), [WiMamba](../papers/README.md#wimamba), [LWM](../papers/README.md#lwm)
+<a id="deepsense-6g"></a>
+## DeepSense 6G
+A real-world sensing-and-communication dataset with more than one million samples across over 30 vehicular, drone, indoor, and outdoor scenarios.
+- **Profile:** Measured · Registration · mmWave, RGB, LiDAR, Radar, GNSS
+- **Tasks:** Beam Prediction, Blockage Prediction, Positioning, Multimodal Sensing
+- **Links:** [Official dataset portal](https://www.deepsense6g.net/)
 
 <a id="dichasus"></a>
 ## DICHASUS
@@ -40,6 +38,13 @@ Digital-twin channel datasets for low-altitude extra-large MIMO experiments rele
 - **Links:** [Official dataset page](https://lmyxxn.github.io/6GXLMIMODatasets/) · [Official repository](https://github.com/Lmyxxn/LAETwin-XL)
 - **Related papers:** [LAETwin-XL](../papers/README.md#laetwin-xl)
 
+<a id="lambda-6g"></a>
+## LAMBDA
+A high-fidelity low-altitude dataset synchronizing CSI, RGB, depth, LiDAR, 4D radar, IMU, and UAV trajectories across urban, suburban, mountain, and campus scenarios.
+- **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, IMU, UAV Pose
+- **Tasks:** Beam Prediction, Positioning, Channel Modeling, Radar Sensing, Multimodal Sensing
+- **Links:** [Official download page](https://lambda6g.net/download) · [Full dataset archive](https://doi.org/10.57760/sciencedb.36052) · [Official utilities](https://github.com/SJTU-WirelessAI-Lab/LAMBDA)
+
 <a id="lwm-challenge"></a>
 ## LWM Challenge 2025 Assets
 Official competition assets and starter material for evaluating LWM representations on wireless downstream tasks.
@@ -49,11 +54,38 @@ Official competition assets and starter material for evaluating LWM representati
 - **Links:** [Official Hugging Face repository](https://huggingface.co/wi-lab/lwm-competition-2025) · [Official challenge page](https://lwm-wireless.net/challenge)
 - **Related papers:** [LWM](../papers/README.md#lwm)
 
-<a id="pilotwimae-channels"></a>
-## PilotWiMAE Channel Data
-Public channel-generation recipes and experiment data interfaces used by the PilotWiMAE reference implementation.
-- **Profile:** Simulated · Open · Pilot Observations, CSI
-- **Tasks:** Channel Estimation, Beam Prediction, LOS/NLOS Identification
-- **Evaluation:** PilotWiMAE Evaluation Project
-- **Links:** [PilotWiMAE repository](https://github.com/BerkIGuler/PilotWiMAE) · [CSIGen repository](https://github.com/BerkIGuler/CSIGen)
-- **Related papers:** [PilotWiMAE](../papers/README.md#pilotwimae)
+<a id="mocsid"></a>
+## MOCSID
+A 17.9 GB spatially consistent multi-cell outdoor CSI dataset covering ten base stations, pedestrian mobility, locations, velocities, and multipath components.
+- **Profile:** Simulated · Open · CSI, CIR, Position, Velocity
+- **Tasks:** Channel Charting, Positioning, Channel Modeling
+- **Links:** [Official Zenodo dataset](https://doi.org/10.5281/zenodo.14535165) · [Official generation code](https://gitlab.inria.fr/channelcharting/outdoor_dataset)
+
+<a id="multimodal-wireless"></a>
+## Multimodal-Wireless
+An open dataset of 161,400 synchronized channel and sensor frames across four virtual towns, 16 communication scenarios, and three weather conditions.
+- **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, GNSS, IMU
+- **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing, Collaborative Perception
+- **Links:** [Official download page](https://le-liang.github.io/mmw/download.html) · [Official project page](https://le-liang.github.io/mmw/) · [Replay and extension toolkit](https://github.com/le-liang/Multimodal-Wireless)
+
+<a id="m3sc"></a>
+## M³SC
+A 2.41 TB mixed multimodal sensing-and-communication dataset with 200,000 channel matrices and synchronized RGB, depth, LiDAR, radar, and path-loss data.
+- **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, Path Loss
+- **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing
+- **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_M3SC)
+
+<a id="synthsom"></a>
+## SynthSoM
+A synthetic sensing-and-communication dataset spanning eight scenario families and more than 9.5 million multimodal groups, including 1.5 million channel matrices.
+- **Profile:** Simulated · Open · CSI, RGB, Depth, LiDAR, Radar, Path Loss
+- **Tasks:** Channel Modeling, Beam Prediction, Positioning, Multimodal Sensing
+- **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_SynthSoM)
+
+<a id="wifo-channel-dataset"></a>
+## WiFo Channel Dataset
+A 4.72 GB collection of 19 QuaDRiGa-generated space-time-frequency CSI configurations, with 12,000 samples per configuration, for WiFo pretraining and generalization.
+- **Profile:** Simulated · Open · CSI
+- **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Prediction
+- **Links:** [Official Hugging Face dataset](https://huggingface.co/datasets/pku-pcni-lab/RF-only_channel_dataset_for_WiFo) · [Official implementation](https://github.com/PKU-PCNI/WiFo)
+- **Related papers:** [WiFo](../papers/README.md#wifo)

@@ -69,6 +69,7 @@ ACRONYMS = {
     "fm": "FM",
     "gnss": "GNSS",
     "iq": "IQ",
+    "imu": "IMU",
     "lidar": "LiDAR",
     "los": "LOS",
     "mae": "MAE",
@@ -81,6 +82,7 @@ ACRONYMS = {
     "sinr": "SINR",
     "snr": "SNR",
     "toa": "ToA",
+    "uav": "UAV",
     "wifi": "WiFi",
     "xl": "XL",
 }

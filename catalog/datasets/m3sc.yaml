@@ -1,0 +1,14 @@
+kind: dataset
+id: m3sc
+name: M³SC
+description: A 2.41 TB mixed multimodal sensing-and-communication dataset with 200,000 channel matrices and synchronized RGB, depth, LiDAR, radar, and path-loss data.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official Hugging Face dataset, url: https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_M3SC, provenance: official, availability: available, license: MIT}
+license: MIT
+related_papers: []
+last_verified: "2026-07-17"
+modalities: [csi, rgb, depth, lidar, radar, path-loss]
+data_origin: simulated
+access: open
+tasks: [channel-modeling, beam-prediction, positioning, multimodal-sensing]

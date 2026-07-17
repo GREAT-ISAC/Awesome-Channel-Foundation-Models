@@ -16,10 +16,7 @@ artifacts:
     status: available
     items:
       - {label: Official implementation, url: https://github.com/BerkIGuler/PilotWiMAE, provenance: official, availability: available, license: License not stated}
-  datasets:
-    status: available
-    items:
-      - {label: PilotWiMAE channel data, ref: pilotwimae-channels, provenance: official, availability: available, license: License not stated}
+  datasets: {status: not-found, items: []}
   models:
     status: available
     items:
@@ -31,5 +28,5 @@ artifacts:
   simulation_tools:
     status: available
     items:
-      - {label: CSIGen, ref: csigen, provenance: official, availability: available, license: License not stated}
-last_verified: "2026-07-13"
+      - {label: Sionna, ref: sionna, provenance: official, availability: available, license: Apache-2.0}
+last_verified: "2026-07-17"

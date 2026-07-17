@@ -9,5 +9,5 @@ license: License not stated
 related_papers: [pilotwimae]
 last_verified: "2026-07-13"
 tasks: [channel-estimation, beam-prediction, los-nlos-identification]
-datasets: [pilotwimae-channels]
+datasets: []
 metrics: [NMSE, Classification accuracy]

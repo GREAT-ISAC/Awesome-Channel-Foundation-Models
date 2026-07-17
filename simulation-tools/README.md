@@ -7,14 +7,6 @@ Open-first channel, ray-tracing, and system simulation infrastructure useful for
 [← Back to the main catalog](../README.md)
 
 
-<a id="csigen"></a>
-## CSIGen
-An author-released Sionna-based workflow for generating ray-traced CSI used by PilotWiMAE experiments.
-- **Profile:** Ray Tracing · Open
-- **Capabilities:** Ray Tracing, CSI Generation, Scenario Configuration
-- **Links:** [Official repository](https://github.com/BerkIGuler/CSIGen)
-- **Related papers:** [PilotWiMAE](../papers/README.md#pilotwimae)
-
 <a id="deepmimo-toolchain"></a>
 ## DeepMIMO
 A scenario-based wireless channel dataset generation toolkit built from ray-tracing data for machine-learning research.
@@ -58,6 +50,7 @@ A geometry-based stochastic radio-channel model supporting multi-link, multi-ant
 - **Profile:** Channel · Open
 - **Capabilities:** Channel Modeling, Mobility, MIMO, Multi Link Simulation
 - **Links:** [Official project site](https://quadriga-channel-model.de/)
+- **Related papers:** [WiFo](../papers/README.md#wifo)
 
 <a id="sionna"></a>
 ## Sionna

@@ -1,0 +1,16 @@
+kind: dataset
+id: multimodal-wireless
+name: Multimodal-Wireless
+description: An open dataset of 161,400 synchronized channel and sensor frames across four virtual towns, 16 communication scenarios, and three weather conditions.
+scope: broader-wireless-radio-fm
+links:
+  - {label: Official download page, url: https://le-liang.github.io/mmw/download.html, provenance: official, availability: available, license: CC-BY-4.0}
+  - {label: Official project page, url: https://le-liang.github.io/mmw/, provenance: official, availability: available, license: CC-BY-4.0}
+  - {label: Replay and extension toolkit, url: https://github.com/le-liang/Multimodal-Wireless, provenance: official, availability: available, license: MIT}
+license: CC-BY-4.0; toolkit MIT
+related_papers: []
+last_verified: "2026-07-17"
+modalities: [csi, rgb, depth, lidar, radar, gnss, imu]
+data_origin: simulated
+access: open
+tasks: [channel-modeling, beam-prediction, positioning, multimodal-sensing, collaborative-perception]

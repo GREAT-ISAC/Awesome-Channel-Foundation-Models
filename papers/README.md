@@ -68,7 +68,7 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
   - **Authors:** Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah
   - **Modalities:** CSI, CIR
   - **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
-  - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction)
+  - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) · **Simulator:** [DeepMIMO](../simulation-tools/README.md#deepmimo-toolchain)
 
 <a id="lwm-temporal"></a>
 - **LWM-Temporal** — [LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning](https://arxiv.org/abs/2603.10024) (2026 · arXiv)
@@ -88,7 +88,7 @@ Each paper appears once in a stage-first hierarchy. Pretraining papers are furth
   - **Authors:** Tomer Raviv, Nir Shlezinger
   - **Modalities:** CSI
   - **Tasks:** LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
-  - **Code:** [Official implementation](https://github.com/tomerraviv95/mamba-lwm-project)
+  - **Code:** [Official implementation](https://github.com/tomerraviv95/mamba-lwm-project) · **Simulator:** [DeepMIMO](../simulation-tools/README.md#deepmimo-toolchain)
 
 <a id="pretraining"></a>
 ## Pretraining Methods
@@ -122,7 +122,7 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
   - **Authors:** Berkay Guler, Giovanni Geraci, Hamid Jafarkhani
   - **Modalities:** Pilot Observations, CSI
   - **Tasks:** Beam Prediction, LOS/NLOS Identification, Channel Estimation
-  - **Code:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Simulator:** [CSIGen](../simulation-tools/README.md#csigen)
+  - **Code:** [Official implementation](https://github.com/BerkIGuler/PilotWiMAE) · **Simulator:** [Sionna](../simulation-tools/README.md#sionna)
 
 <a id="bert4mimo"></a>
 - **BERT4MIMO** — [BERT4MIMO: A Foundation Model using BERT Architecture for Massive MIMO Channel State Information Prediction](https://arxiv.org/abs/2501.01802) (2025 · arXiv)
@@ -172,13 +172,14 @@ Papers with multiple objectives are placed under Hybrid when explicitly tagged a
   - **Authors:** Sadjad Alikhani, Gouranga Charan, Ahmed Alkhateeb
   - **Modalities:** CSI
   - **Tasks:** Robust Beamforming, LOS/NLOS Identification, Cross Band Beam Prediction
-  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Benchmark:** [LWM Challenge](https://lwm-wireless.net/challenge)
+  - **Code:** [Official model repository](https://huggingface.co/wi-lab/lwm) · **Benchmark:** [LWM Challenge](https://lwm-wireless.net/challenge) · **Simulator:** [DeepMIMO](../simulation-tools/README.md#deepmimo-toolchain)
 
 <a id="wifo"></a>
 - **WiFo** — [WiFo: Wireless Foundation Model for Channel Prediction](https://arxiv.org/abs/2412.08908) (2024 · arXiv)
   - **Authors:** Boxun Liu, Shijian Gao, Xuanyu Liu, Xiang Cheng, Liuqing Yang
   - **Modalities:** CSI
   - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation
+  - **Code:** [Official implementation](https://github.com/PKU-PCNI/WiFo) · **Simulator:** [QuaDRiGa](../simulation-tools/README.md#quadriga)
 
 <a id="objective-autoregressive-generative"></a>
 ### Autoregressive/Generative Modeling

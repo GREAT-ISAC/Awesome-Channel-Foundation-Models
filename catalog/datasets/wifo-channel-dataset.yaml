@@ -1,0 +1,15 @@
+kind: dataset
+id: wifo-channel-dataset
+name: WiFo Channel Dataset
+description: A 4.72 GB collection of 19 QuaDRiGa-generated space-time-frequency CSI configurations, with 12,000 samples per configuration, for WiFo pretraining and generalization.
+scope: core-cfm
+links:
+  - {label: Official Hugging Face dataset, url: https://huggingface.co/datasets/pku-pcni-lab/RF-only_channel_dataset_for_WiFo, provenance: official, availability: available, license: Apache-2.0}
+  - {label: Official implementation, url: https://github.com/PKU-PCNI/WiFo, provenance: official, availability: available, license: License not stated}
+license: Apache-2.0
+related_papers: [wifo]
+last_verified: "2026-07-17"
+modalities: [csi]
+data_origin: simulated
+access: open
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation, channel-prediction]

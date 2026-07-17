@@ -198,14 +198,47 @@ class CatalogTests(unittest.TestCase):
         )
         self.assertNotIn("**Data:**", rendered)
 
-    def test_deepmimo_is_cataloged_as_dataset_and_simulation_tool(self):
+    def test_deepmimo_is_only_cataloged_as_a_simulation_tool(self):
         by_id = {record["id"]: record for record in self.records}
-        self.assertEqual(by_id["deepmimo"]["kind"], "dataset")
+        self.assertNotIn("deepmimo", by_id)
         self.assertEqual(by_id["deepmimo-toolchain"]["kind"], "simulation-tool")
+        self.assertNotIn("csigen", by_id)
+        self.assertNotIn("pilotwimae-channels", by_id)
         self.assertNotIn("ns-3", by_id)
-        tool_page = catalog.render_outputs(self.records)[catalog.OUTPUTS["simulation-tool"]]
+        outputs = catalog.render_outputs(self.records)
+        dataset_page = outputs[catalog.OUTPUTS["dataset"]]
+        tool_page = outputs[catalog.OUTPUTS["simulation-tool"]]
+        self.assertNotIn('<a id="deepmimo"></a>', dataset_page)
         self.assertIn('<a id="deepmimo-toolchain"></a>', tool_page)
+        self.assertNotIn('<a id="csigen"></a>', tool_page)
         self.assertNotIn('<a id="ns-3"></a>', tool_page)
+
+    def test_verified_large_scale_datasets_are_cataloged(self):
+        by_id = {record["id"]: record for record in self.records}
+        expected = {
+            "wifo-channel-dataset",
+            "lambda-6g",
+            "m3sc",
+            "synthsom",
+            "deepsense-6g",
+            "multimodal-wireless",
+            "mocsid",
+        }
+        self.assertTrue(expected.issubset(by_id))
+        for dataset_id in expected:
+            with self.subTest(dataset=dataset_id):
+                self.assertEqual(by_id[dataset_id]["kind"], "dataset")
+                self.assertEqual(by_id[dataset_id]["last_verified"], "2026-07-17")
+
+        wifo = by_id["wifo"]
+        self.assertEqual(wifo["artifacts"]["datasets"]["items"][0]["ref"], "wifo-channel-dataset")
+        self.assertEqual(wifo["artifacts"]["simulation_tools"]["items"][0]["ref"], "quadriga")
+        self.assertEqual(by_id["wifo-cf"]["artifacts"]["datasets"]["status"], "not-found")
+
+    def test_laetwin_dataset_and_toolchain_remain_distinct(self):
+        by_id = {record["id"]: record for record in self.records}
+        self.assertEqual(by_id["laetwin-xl-dataset"]["kind"], "dataset")
+        self.assertEqual(by_id["laetwin-xl-toolchain"]["kind"], "simulation-tool")
 
     def test_featured_cfm_bench_is_first_dataset(self):
         outputs = catalog.render_outputs(self.records)
