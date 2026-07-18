@@ -7,7 +7,7 @@ year: 2026
 venue: IEEE Transactions on Wireless Communications
 paper_url: https://arxiv.org/abs/2508.04068
 scope: cfm-ecosystem
-stages: [pretraining]
+stages: [pretraining, application]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]

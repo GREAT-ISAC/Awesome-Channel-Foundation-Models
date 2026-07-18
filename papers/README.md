@@ -339,7 +339,6 @@ Classification follows the primary optimization objective used during pretrainin
   - **Authors:** Tianyue Zheng, Chao Jiang, Linglong Dai
   - **Modalities:** Resource Grid, CSI
   - **Tasks:** Channel Estimation, Signal Detection, Channel Decoding
-  - **Simulator:** [Sionna](../simulation-tools/README.md#sionna)
 
 <a id="lwm-cde"></a>
 - **LWM-CDE** — [LWM-CDE: A Representation Space for Wireless Data Reasoning and Transferability](https://arxiv.org/abs/2605.24077) (2026 · arXiv)

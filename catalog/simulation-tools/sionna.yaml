@@ -6,7 +6,7 @@ scope: cfm-ecosystem
 links:
   - {label: Official repository, url: https://github.com/NVlabs/sionna, provenance: official, availability: available, license: Apache-2.0}
 license: Apache-2.0
-related_papers: [fm-receiver, laetwin-xl, pilotwimae]
+related_papers: [laetwin-xl, pilotwimae]
 last_verified: "2026-07-18"
 tool_type: ray-tracing
 access: open

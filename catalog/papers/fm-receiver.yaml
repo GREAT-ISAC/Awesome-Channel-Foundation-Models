@@ -20,8 +20,5 @@ artifacts:
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
-  simulation_tools:
-    status: available
-    items:
-      - {label: Sionna, ref: sionna, provenance: official, availability: available, license: Apache-2.0}
+  simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

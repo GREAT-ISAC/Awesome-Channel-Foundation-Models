@@ -373,9 +373,10 @@ class CatalogTests(unittest.TestCase):
             ["channel-estimation", "signal-detection", "channel-decoding"],
         )
         self.assertEqual(
-            receiver["artifacts"]["simulation_tools"]["items"][0]["ref"],
-            "sionna",
+            receiver["artifacts"]["simulation_tools"]["status"], "not-found"
         )
+        self.assertEqual(receiver["artifacts"]["simulation_tools"]["items"], [])
+        self.assertNotIn("fm-receiver", by_id["sionna"]["related_papers"])
 
         rendered = catalog.render_papers(
             [record for record in self.records if record["kind"] == "paper"],
@@ -385,6 +386,15 @@ class CatalogTests(unittest.TestCase):
             '<a id="inference-deployment"></a>', 1
         )[0]
         self.assertIn('<a id="fm-receiver"></a>', application_section)
+
+        wifo_cf = by_id["wifo-cf"]
+        self.assertEqual(wifo_cf["stages"], ["pretraining", "application"])
+        self.assertEqual(wifo_cf["primary_objective"], "masked-reconstruction")
+        masked_section = rendered.split(
+            '<a id="objective-masked-reconstruction"></a>', 1
+        )[1].split('<a id="objective-contrastive-alignment"></a>', 1)[0]
+        self.assertIn('<a id="wifo-cf"></a>', masked_section)
+        self.assertNotIn('<a id="wifo-cf"></a>', application_section)
 
         m3f = by_id["m3f-uav"]
         self.assertEqual(
