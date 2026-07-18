@@ -410,9 +410,9 @@ def render_papers(
         "- [Backbones & Architectures](#backbones)\n"
         "- [Pretraining Methods](#pretraining)\n"
         "  - [Masked/Reconstruction](#objective-masked-reconstruction)\n"
+        "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
         "  - [Reconstruction + Contrastive](#objective-reconstruction-contrastive)\n"
         "  - [Predictive/Generative](#objective-predictive-generative)\n"
-        "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
         "  - [Predictive Latent](#objective-predictive-latent)\n"
         "  - [Task-Supervised](#objective-task-supervised)\n"
         "- [Applications, Adaptation & Transfer](#adaptation)\n"
@@ -423,9 +423,9 @@ def render_papers(
 
     objective_order = [
         "masked-reconstruction",
+        "contrastive-alignment",
         "reconstruction-contrastive",
         "predictive-generative",
-        "contrastive-alignment",
         "predictive-latent",
         "task-supervised",
         "objective-not-specified",

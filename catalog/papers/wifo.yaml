@@ -3,8 +3,8 @@ id: wifo
 short_name: WiFo
 title: "WiFo: Wireless Foundation Model for Channel Prediction"
 authors: [Boxun Liu, Shijian Gao, Xuanyu Liu, Xiang Cheng, Liuqing Yang]
-year: 2024
-venue: arXiv
+year: 2025
+venue: Science China Information Sciences
 paper_url: https://arxiv.org/abs/2412.08908
 scope: cfm-ecosystem
 stages: [pretraining]
@@ -29,4 +29,4 @@ artifacts:
     status: available
     items:
       - {label: QuaDRiGa, ref: quadriga, provenance: official, availability: available, license: QuaDRiGa license}
-last_verified: "2026-07-17"
+last_verified: "2026-07-18"

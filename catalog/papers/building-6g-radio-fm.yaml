@@ -3,8 +3,8 @@ id: building-6g-radio-fm
 short_name: A. Aboulfotouh et al.
 title: Building 6G Radio Foundation Models with Transformer Architectures
 authors: [Ahmed Aboulfotouh, Ashkan Eshaghbeigi, Hatem Abou-Zeid]
-year: 2024
-venue: arXiv
+year: 2025
+venue: IEEE International Conference on Communications
 paper_url: https://arxiv.org/abs/2411.09996
 scope: cfm-ecosystem
 stages: [pretraining]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

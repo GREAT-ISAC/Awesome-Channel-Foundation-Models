@@ -4,7 +4,7 @@ short_name: Early-Exit
 title: Fast Wireless Foundation Models with Early-Exits
 authors: [Omar Mashaal, Hatem Abou-Zeid]
 year: 2026
-venue: arXiv
+venue: IEEE Communications Letters
 paper_url: https://arxiv.org/abs/2606.29640
 scope: related-method
 stages: [inference-deployment]
@@ -21,4 +21,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

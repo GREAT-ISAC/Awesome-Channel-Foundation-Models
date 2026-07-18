@@ -4,7 +4,7 @@ short_name: 6G WavesFM
 title: "6G WavesFM: A Foundation Model for Sensing, Communication, and Localization"
 authors: [Ahmed Aboulfotouh, Elsayed Mohammed, Hatem Abou-Zeid]
 year: 2025
-venue: arXiv
+venue: IEEE Open Journal of the Communications Society
 paper_url: https://arxiv.org/abs/2504.14100
 scope: cfm-ecosystem
 stages: [pretraining]

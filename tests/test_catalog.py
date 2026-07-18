@@ -153,15 +153,26 @@ class CatalogTests(unittest.TestCase):
             "## Backbones & Architectures",
             "## Pretraining Methods",
             "### Masked/Reconstruction Learning",
+            "### Contrastive/Alignment Learning",
             "### Reconstruction + Contrastive Learning",
             "### Predictive/Generative Modeling",
-            "### Contrastive/Alignment Learning",
             "### Predictive Latent Learning",
             "### Task-Supervised Learning",
             "## Applications, Adaptation & Transfer",
             "## Inference & Deployment",
         ):
             self.assertIn(heading, rendered)
+
+        ordered_headings = (
+            "### Masked/Reconstruction Learning",
+            "### Contrastive/Alignment Learning",
+            "### Reconstruction + Contrastive Learning",
+            "### Predictive/Generative Modeling",
+            "### Predictive Latent Learning",
+            "### Task-Supervised Learning",
+        )
+        positions = [rendered.index(heading) for heading in ordered_headings]
+        self.assertEqual(positions, sorted(positions))
 
     def test_survey_descriptions_are_preserved_without_profile_labels(self):
         by_id = {record["id"]: record for record in self.records}

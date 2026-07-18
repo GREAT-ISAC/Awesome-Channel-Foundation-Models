@@ -3,8 +3,8 @@ id: contrawimae
 short_name: ContraWiMAE
 title: A Multi-Task Foundation Model for Wireless Channel Representation Using Contrastive and Masked Autoencoder Learning
 authors: [Berkay Guler, Giovanni Geraci, Hamid Jafarkhani]
-year: 2025
-venue: arXiv
+year: 2026
+venue: IEEE Journal on Selected Areas in Communications
 paper_url: https://arxiv.org/abs/2505.09160
 scope: cfm-ecosystem
 stages: [pretraining]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

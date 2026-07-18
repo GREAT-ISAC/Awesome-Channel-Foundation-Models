@@ -4,7 +4,7 @@ short_name: J. Ott et al.
 title: "Radio Foundation Models: Pre-training Transformers for 5G-based Indoor Localization"
 authors: [Jonathan Ott, Jonas Pirkl, Maximilian Stahlke, Tobias Feigl, Christopher Mutschler]
 year: 2024
-venue: arXiv
+venue: International Conference on Indoor Positioning and Indoor Navigation
 paper_url: https://arxiv.org/abs/2410.00617
 scope: cfm-ecosystem
 stages: [pretraining]

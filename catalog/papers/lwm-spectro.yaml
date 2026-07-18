@@ -4,7 +4,7 @@ short_name: LWM-Spectro
 title: "LWM-Spectro: A Foundation Model for Wireless Baseband Signal Spectrograms"
 authors: [Namhyun Kim, Sadjad Alikhani, Ahmed Alkhateeb]
 year: 2026
-venue: arXiv
+venue: IEEE International Conference on Communications
 paper_url: https://arxiv.org/abs/2601.08780
 scope: cfm-ecosystem
 stages: [pretraining]

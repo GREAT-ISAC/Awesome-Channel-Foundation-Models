@@ -4,7 +4,7 @@ short_name: WirelessGPT
 title: "WirelessGPT: A Generative Pre-trained Multi-task Learning Framework for Wireless Communication"
 authors: [Tingting Yang, Ping Zhang, Mengfan Zheng, Yuxuan Shi, Liwen Jing, Jianbo Huang, Nan Li]
 year: 2025
-venue: arXiv
+venue: IEEE Network
 paper_url: https://arxiv.org/abs/2502.06877
 scope: cfm-ecosystem
 stages: [pretraining]

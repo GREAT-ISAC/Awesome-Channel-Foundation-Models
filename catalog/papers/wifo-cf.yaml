@@ -3,8 +3,8 @@ id: wifo-cf
 short_name: WiFo-CF
 title: "WiFo-CF: Wireless Foundation Model for CSI Feedback"
 authors: [Xuanyu Liu, Shijian Gao, Boxun Liu, Xiang Cheng, Liuqing Yang]
-year: 2025
-venue: arXiv
+year: 2026
+venue: IEEE Transactions on Wireless Communications
 paper_url: https://arxiv.org/abs/2508.04068
 scope: cfm-ecosystem
 stages: [pretraining]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-17"
+last_verified: "2026-07-18"

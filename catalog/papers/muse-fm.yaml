@@ -3,8 +3,8 @@ id: muse-fm
 short_name: MUSE-FM
 title: "MUSE-FM: Multi-task Environment-aware Foundation Model for Wireless Communications"
 authors: [Tianyue Zheng, Jiajia Guo, Linglong Dai, Shi Jin, Jun Zhang]
-year: 2025
-venue: arXiv
+year: 2026
+venue: IEEE Transactions on Wireless Communications
 paper_url: https://arxiv.org/abs/2509.01967
 scope: cfm-ecosystem
 stages: [pretraining]
