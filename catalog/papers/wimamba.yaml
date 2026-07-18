@@ -6,12 +6,12 @@ authors: [Tomer Raviv, Nir Shlezinger]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2603.26367
-scope: core-cfm
-stages: [backbone]
-objectives: []
-primary_objective: null
-training_signals: []
-task_regime: not-applicable
+scope: cfm-ecosystem
+stages: [backbone, pretraining]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [los-nlos-identification, channel-interpolation, beam-prediction, positioning]
 artifacts:
@@ -26,4 +26,4 @@ artifacts:
     status: available
     items:
       - {label: DeepMIMO, ref: deepmimo-toolchain, provenance: official, availability: available, license: Apache-2.0}
-last_verified: "2026-07-17"
+last_verified: "2026-07-18"

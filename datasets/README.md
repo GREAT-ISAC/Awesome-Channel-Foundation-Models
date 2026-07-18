@@ -53,6 +53,7 @@ A high-fidelity low-altitude dataset synchronizing CSI, RGB, depth, LiDAR, 4D ra
 - **Release:** Version: Initial 2026 release · Scale: 20 downloadable BS/UAV trajectory subsets plus a complete archive
 - **Coverage:** Scenarios: Urban blocks, Urban squares, Skyscraper, Suburban open ground, Mountain, SJTU campus · Antennas: One or two base stations with one or two UAVs; subset-specific configurations
 - **Links:** [Official download page](https://lambda6g.net/download) · [Full dataset archive](https://doi.org/10.57760/sciencedb.36052) · [Official utilities](https://github.com/SJTU-WirelessAI-Lab/LAMBDA)
+- **Related papers:** [M3F-UAV](../papers/README.md#m3f-uav)
 
 <a id="lwm-challenge"></a>
 ## LWM Challenge 2025 Assets

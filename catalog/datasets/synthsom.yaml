@@ -2,7 +2,7 @@ kind: dataset
 id: synthsom
 name: SynthSoM
 description: A synthetic sensing-and-communication dataset spanning eight scenario families and more than 9.5 million multimodal groups, including 1.5 million channel matrices.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official Hugging Face dataset, url: https://huggingface.co/datasets/pku-pcni-lab/Multi-modal_dataset_named_SynthSoM, provenance: official, availability: available, license: MIT}
 license: MIT

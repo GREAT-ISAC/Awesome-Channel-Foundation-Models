@@ -6,7 +6,7 @@ authors: [Ziqi Chen, Yi Ren, Yixuan Huang, Qi Sun, Nan Li, Yuhong Huang, Chih-Li
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2603.25216
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [predictive-latent]
 primary_objective: predictive-latent

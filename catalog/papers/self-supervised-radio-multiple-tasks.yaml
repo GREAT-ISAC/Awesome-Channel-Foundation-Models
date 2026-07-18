@@ -6,7 +6,7 @@ authors: [Ogechukwu Kanu, Ashkan Eshaghbeigi, Hatem Abou-Zeid]
 year: 2025
 venue: IEEE International Conference on Communications
 paper_url: https://arxiv.org/abs/2509.03077
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [contrastive-alignment]
 primary_objective: contrastive-alignment

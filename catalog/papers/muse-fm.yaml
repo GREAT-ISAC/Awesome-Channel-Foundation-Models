@@ -6,11 +6,11 @@ authors: [Tianyue Zheng, Jiajia Guo, Linglong Dai, Shi Jin, Jun Zhang]
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2509.01967
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [task-supervised]
 primary_objective: task-supervised
-training_signals: [supervised]
+training_signals: [self-supervised, supervised]
 task_regime: task-conditioned
 modalities: [csi, environment, received-symbols]
 tasks: [channel-estimation, mimo-precoding, mimo-detection, channel-decoding, positioning]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

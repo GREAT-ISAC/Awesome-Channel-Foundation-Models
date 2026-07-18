@@ -2,7 +2,7 @@ kind: simulation-tool
 id: laetwin-xl-toolchain
 name: LAETwin-XL Toolchain
 description: A digital-twin channel-generation workflow for low-altitude XL-MIMO scenarios built around Sionna ray tracing.
-scope: core-cfm
+scope: cfm-ecosystem
 links:
   - {label: Official repository, url: https://github.com/Lmyxxn/LAETwin-XL, provenance: official, availability: available, license: License not stated}
 license: License not stated

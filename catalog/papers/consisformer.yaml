@@ -6,7 +6,7 @@ authors: [Yuwei Wang, Li Sun, Tingting Yang, Liwen Jing, Yuxuan Shi, Maged Elkas
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2606.19953
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

@@ -6,7 +6,7 @@ authors: [Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2606.25714
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [contrastive-alignment]
 primary_objective: contrastive-alignment

@@ -6,13 +6,13 @@ authors: [Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zh
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2606.22038
-scope: core-cfm
+scope: related-method
 stages: [backbone]
 objectives: []
 primary_objective: null
 training_signals: []
 task_regime: not-applicable
-modalities: [csi, cir]
+modalities: [csi]
 tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]
 summary: A backbone for full-domain time-space-frequency channel coupling and representation learning.
 artifacts:
@@ -33,4 +33,4 @@ artifacts:
     status: available
     items:
       - {label: DeepMIMO, ref: deepmimo-toolchain, provenance: official, availability: available, license: Apache-2.0}
-last_verified: "2026-07-17"
+last_verified: "2026-07-18"

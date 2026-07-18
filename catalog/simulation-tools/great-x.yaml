@@ -2,7 +2,7 @@ kind: simulation-tool
 id: great-x
 name: GREAT-X
 description: An Unreal Engine-based single-engine multimodal ISAC data-twin platform that synchronously generates CSI, RGB, radar, and LiDAR data.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official repository, url: https://github.com/hkw-xg/Great-MCD, provenance: official, availability: available, license: Apache-2.0}
   - {label: Paper, url: https://arxiv.org/abs/2507.08716, provenance: official, availability: available, license: arXiv terms}

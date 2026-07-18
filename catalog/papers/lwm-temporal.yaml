@@ -6,7 +6,7 @@ authors: [Sadjad Alikhani, Akshay Malhotra, Shahab Hamidi-Rad, Ahmed Alkhateeb]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2603.10024
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

@@ -6,11 +6,11 @@ authors: [Yuxuan Wen, Xiaoming Chen, Maojun Zhang, Zhaohui Yang, Chongwen Huang,
 year: 2026
 venue: IEEE Transactions on Communications
 paper_url: https://doi.org/10.1109/TCOMM.2026.3655778
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [task-supervised]
 primary_objective: task-supervised
-training_signals: [supervised]
+training_signals: [self-supervised, weakly-supervised]
 task_regime: task-conditioned
 modalities: [csi]
 tasks: [sum-rate-maximization, max-min-sinr-optimization, time-channel-extrapolation]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

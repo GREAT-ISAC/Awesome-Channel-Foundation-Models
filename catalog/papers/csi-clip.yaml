@@ -6,7 +6,7 @@ authors: [Jun Jiang, Wenjun Yu, Yunfan Li, Yuan Gao, Shugong Xu]
 year: 2025
 venue: IEEE International Conference on Machine Learning for Communication and Networking
 paper_url: https://arxiv.org/abs/2502.11965
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [contrastive-alignment]
 primary_objective: contrastive-alignment

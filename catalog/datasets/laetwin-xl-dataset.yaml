@@ -2,7 +2,7 @@ kind: dataset
 id: laetwin-xl-dataset
 name: LAETwin-XL Low-Altitude XL-MIMO Datasets
 description: Digital-twin channel datasets for low-altitude extra-large MIMO experiments released with LAETwin-XL.
-scope: core-cfm
+scope: cfm-ecosystem
 links:
   - {label: Official dataset page, url: https://lmyxxn.github.io/6GXLMIMODatasets/, provenance: official, availability: available, license: Dataset-specific terms}
 license: Dataset-specific terms

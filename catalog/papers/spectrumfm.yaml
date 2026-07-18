@@ -6,14 +6,14 @@ authors: [Fuhui Zhou, Chunyu Liu, Hao Zhang, Wei Wu, Qihui Wu, Tony Q. S. Quek, 
 year: 2025
 venue: IEEE Journal on Selected Areas in Communications
 paper_url: https://arxiv.org/abs/2505.06256
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [masked-reconstruction]
+objectives: [masked-reconstruction, predictive-generative]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]
-task_regime: not-specified
-modalities: [spectrum]
-tasks: [spectrum-sensing, anomaly-detection, wireless-technology-classification]
+task_regime: multitask
+modalities: [iq]
+tasks: [spectrum-sensing, modulation-classification, anomaly-detection, wireless-technology-classification]
 artifacts:
   code:
     status: available
@@ -23,4 +23,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

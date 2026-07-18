@@ -6,7 +6,7 @@ authors: [Jianhua Guo, Zhongsheng Deng, Zhen Qiao, Junkai Zhang, Jiang Xue, Dusi
 year: 2026
 venue: IEEE Transactions on Communications
 paper_url: https://ieeexplore.ieee.org/abstract/document/11442291
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

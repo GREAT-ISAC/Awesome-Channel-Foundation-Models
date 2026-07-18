@@ -6,10 +6,10 @@ authors: [Yucheng Sheng, Jiacheng Wang, Xingyu Zhou, Le Liang, Hao Ye, Shi Jin, 
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2507.05938
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [direct-forecasting]
-primary_objective: direct-forecasting
+objectives: [predictive-generative]
+primary_objective: predictive-generative
 training_signals: [self-supervised]
 task_regime: multitask
 modalities: [csi, traffic-sequence]

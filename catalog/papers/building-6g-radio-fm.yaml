@@ -6,7 +6,7 @@ authors: [Ahmed Aboulfotouh, Ashkan Eshaghbeigi, Hatem Abou-Zeid]
 year: 2024
 venue: arXiv
 paper_url: https://arxiv.org/abs/2411.09996
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

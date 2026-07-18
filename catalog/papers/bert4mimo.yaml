@@ -6,7 +6,7 @@ authors: [Ferhat Ozgur Catak, Murat Kuzlu, Umit Cali]
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2501.01802
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

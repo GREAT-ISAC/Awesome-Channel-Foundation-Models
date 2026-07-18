@@ -6,7 +6,7 @@ authors: [Kejia Bian, Meixia Tao, Jianhua Mo, Zhiyong Chen, Leyan Chen]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2605.00020
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

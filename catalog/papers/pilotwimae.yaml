@@ -6,7 +6,7 @@ authors: [Berkay Guler, Giovanni Geraci, Hamid Jafarkhani]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2605.22856
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

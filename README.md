@@ -2,6 +2,8 @@
 
 A community-maintained catalog of **Channel Foundation Model (CFM)** research and reusable resources for AI-native wireless systems.
 
+[![Last updated](https://img.shields.io/github/last-commit/GREAT-ISAC/Awesome-Channel-Foundation-Models/main?label=Last%20updated)](https://github.com/GREAT-ISAC/Awesome-Channel-Foundation-Models/commits/main)
+
 ## Browse the catalog
 
 | Browse | What you will find |

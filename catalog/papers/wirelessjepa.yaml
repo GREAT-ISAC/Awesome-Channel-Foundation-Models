@@ -6,7 +6,7 @@ authors: [Viet Chu, Omar Mashaal, Hatem Abou-Zeid]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2601.20190
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [predictive-latent]
 primary_objective: predictive-latent

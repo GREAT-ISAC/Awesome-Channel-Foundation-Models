@@ -6,12 +6,12 @@ authors: [Yuhang Li, Yang Lu, Wei Chen, Bo Ai, Zhiguo Ding, Dusit Niyato]
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2509.11056
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [masked-reconstruction]
-primary_objective: masked-reconstruction
-training_signals: [self-supervised]
-task_regime: not-specified
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: task-conditioned
 modalities: [csi]
 tasks: [beamforming]
 artifacts:
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

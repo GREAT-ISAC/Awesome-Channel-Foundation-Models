@@ -6,13 +6,13 @@ authors: [Ahmed Mohamed, Ahmed Aboulfotouh, Hatem Abou-Zeid]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2606.06373
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [predictive-latent]
 primary_objective: predictive-latent
 training_signals: [self-supervised]
 task_regime: not-specified
-modalities: [csi, iq]
+modalities: [csi, spectrogram]
 tasks: [rf-signal-classification, positioning, beam-prediction, los-nlos-identification]
 artifacts:
   code: {status: not-found, items: []}
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

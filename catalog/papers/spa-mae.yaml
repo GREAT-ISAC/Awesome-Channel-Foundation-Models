@@ -6,11 +6,11 @@ authors: [Chen Chen, Weijie Jin, Hengtao He, Xiaoheng Sun, Shi Jin]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2605.19849
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction, contrastive-alignment]
 primary_objective: masked-reconstruction
-training_signals: [self-supervised]
+training_signals: [self-supervised, weakly-supervised]
 task_regime: not-specified
 modalities: [csi]
 tasks: [channel-estimation, beam-prediction, positioning]
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

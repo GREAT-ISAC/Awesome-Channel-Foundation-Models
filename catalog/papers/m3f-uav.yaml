@@ -1,0 +1,27 @@
+kind: paper
+id: m3f-uav
+short_name: M3F-UAV
+title: "M3F-UAV: A Missing-Modality Multimodal Foundation Model for Low-Altitude Wireless Sensing"
+authors: [Pengxuan Gao, Kai Ying, Botao Wu, Jianhua Mo, Qingsong Wen]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.13678
+scope: cfm-ecosystem
+stages: [pretraining]
+objectives: [masked-reconstruction, task-supervised]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised, supervised]
+task_regime: multitask
+modalities: [rgb, depth, lidar, csi]
+tasks: [positioning, cross-band-beam-prediction, time-channel-extrapolation]
+summary: A missing-modality-aware fusion model that transfers unified visual, geometric, and wireless representations to low-altitude UAV tasks.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: LAMBDA, ref: lambda-6g, provenance: official, availability: available, license: Open and free to use}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-07-18"

@@ -6,12 +6,12 @@ authors: [Tianyu Jiao, Zhuoran Xiao, Yin Xu, Chenhui Ye, Yihang Huang, Zhiyong C
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2504.04797
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [contrastive-alignment, task-supervised]
+objectives: [masked-reconstruction, contrastive-alignment]
 primary_objective: contrastive-alignment
-training_signals: [self-supervised, supervised]
-task_regime: multitask
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi, environment]
 tasks: [csi-feedback, positioning, beam-prediction, los-nlos-identification]
 artifacts:

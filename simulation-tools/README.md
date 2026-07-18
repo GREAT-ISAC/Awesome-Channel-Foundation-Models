@@ -58,7 +58,7 @@ An open-source GPU-accelerated library for link-level simulation, ray tracing, a
 - **Profile:** Ray Tracing · Open
 - **Capabilities:** Ray Tracing, Link Level Simulation, System Level Simulation, Differentiable Modeling
 - **Links:** [Official repository](https://github.com/NVlabs/sionna)
-- **Related papers:** [LAETwin-XL](../papers/README.md#laetwin-xl), [PilotWiMAE](../papers/README.md#pilotwimae)
+- **Related papers:** [FM-Receiver](../papers/README.md#fm-receiver), [LAETwin-XL](../papers/README.md#laetwin-xl), [PilotWiMAE](../papers/README.md#pilotwimae)
 
 <a id="wireless-insite"></a>
 ## Wireless InSite

@@ -2,7 +2,7 @@ kind: simulation-tool
 id: nyusim
 name: NYUSIM
 description: A statistical spatial channel simulator for millimeter-wave, sub-terahertz, and terahertz wireless systems.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official NYU project page, url: https://wireless.engineering.nyu.edu/nyusim-thz-mmwave-channel-simulator-research/, provenance: official, availability: available, license: Project-specific terms}
 license: Project-specific terms

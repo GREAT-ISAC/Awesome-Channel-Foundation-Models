@@ -6,18 +6,18 @@ authors: [Boxun Liu, Xuanyu Liu, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing 
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2511.22222v2
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [masked-reconstruction]
+objectives: [masked-reconstruction, predictive-generative]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]
-task_regime: multitask
+task_regime: task-conditioned
 modalities: [csi, vision, received-symbols]
-tasks: [los-nlos-identification, cross-band-beam-prediction, positioning, frequency-channel-extrapolation, csi-feedback, aoa-estimation, cross-band-channel-prediction, signal-detection]
+tasks: [channel-estimation, time-channel-extrapolation, frequency-channel-extrapolation, los-nlos-identification, cross-band-beam-prediction, positioning, csi-feedback, aoa-estimation, doppler-estimation, cross-band-channel-prediction, vision-aided-frequency-channel-prediction, signal-detection]
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-17"
+last_verified: "2026-07-18"

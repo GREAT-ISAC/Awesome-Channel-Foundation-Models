@@ -6,13 +6,13 @@ authors: [Guozhen Zhu, Yuqian Hu, Sakila Jayaweera, Weihang Gao, Wei-Hsiang Wang
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2602.11200
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [masked-reconstruction, contrastive-alignment]
+objectives: [masked-reconstruction, contrastive-alignment, predictive-generative]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]
 task_regime: not-specified
-modalities: [csi]
+modalities: [wifi-csi]
 tasks: [fall-detection, human-activity-recognition, gesture-recognition, user-identification, positioning, motion-source-recognition, occupancy-detection, proximity-estimation, wifi-imaging]
 artifacts:
   code: {status: not-found, items: []}
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

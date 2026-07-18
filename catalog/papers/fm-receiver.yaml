@@ -1,0 +1,27 @@
+kind: paper
+id: fm-receiver
+short_name: FM-Receiver
+title: "FM-Receiver: A Foundation Model Enabled Unified Inner and Outer Neural Receiver Towards AI-Native Wireless Communications"
+authors: [Tianyue Zheng, Chao Jiang, Linglong Dai]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.12555
+scope: cfm-ecosystem
+stages: [application, pretraining]
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: multitask
+modalities: [resource-grid, csi]
+tasks: [channel-estimation, signal-detection, channel-decoding]
+summary: A configuration-adaptive foundation-model receiver that jointly performs outer-receiver processing and symbol-level channel decoding across heterogeneous system configurations.
+artifacts:
+  code: {status: not-released, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  benchmarks: {status: not-found, items: []}
+  simulation_tools:
+    status: available
+    items:
+      - {label: Sionna, ref: sionna, provenance: official, availability: available, license: Apache-2.0}
+last_verified: "2026-07-18"

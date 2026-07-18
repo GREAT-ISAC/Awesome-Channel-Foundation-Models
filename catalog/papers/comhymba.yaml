@@ -6,7 +6,7 @@ authors: [Bowen Yang, Wei Chen, Jiaming Cheng, Bo Ai]
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2605.23468
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [backbone, pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

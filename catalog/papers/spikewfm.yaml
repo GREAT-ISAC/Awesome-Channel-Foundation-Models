@@ -6,12 +6,12 @@ authors: [Liwen Jing, Yisha Lu, Tingting Yang, Li Sun, Yuxuan Shi, Yuwei Wang, M
 year: 2026
 venue: arXiv
 paper_url: https://arxiv.org/abs/2606.00120
-scope: core-cfm
-stages: [backbone]
-objectives: []
-primary_objective: null
-training_signals: []
-task_regime: not-applicable
+scope: cfm-ecosystem
+stages: [backbone, pretraining]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
 modalities: [csi]
 tasks: [time-channel-extrapolation]
 summary: A spiking-aided hybrid SNN-ANN architecture for robust channel prediction.
@@ -21,4 +21,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

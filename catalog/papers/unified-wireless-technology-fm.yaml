@@ -6,7 +6,7 @@ authors: [Mohammad Cheraghinia, Eli De Poorter, Jaron Fontaine, Merouane Debbah,
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2505.19390
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

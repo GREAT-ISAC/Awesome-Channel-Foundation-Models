@@ -6,10 +6,10 @@ authors: [Mengyuan Li, Yu Han, Jiachen Tian, Chao-Kai Wen, Shi Jin]
 year: 2026
 venue: IEEE Journal of Selected Topics in Signal Processing
 paper_url: https://ieeexplore.ieee.org/document/11570058
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [autoregressive-generative]
-primary_objective: autoregressive-generative
+objectives: [predictive-generative]
+primary_objective: predictive-generative
 training_signals: [self-supervised]
 task_regime: not-specified
 modalities: [csi]

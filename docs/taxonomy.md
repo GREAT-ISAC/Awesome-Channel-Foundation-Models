@@ -7,21 +7,25 @@ The catalog uses non-exclusive dimensions in its source records, while the publi
 - `survey` — surveys, perspectives, definitions, and research agendas.
 - `backbone` — reusable architectures, neural operators, positional encodings, or representation backbones.
 - `pretraining` — work that learns transferable representations or general-purpose wireless models.
+- `application` — systems that apply a foundation model to a concrete wireless pipeline without making adaptation itself the primary contribution.
 - `adaptation` — fine-tuning, in-context learning, retrieval, transfer, or feature adaptation.
 - `inference-deployment` — early exit, compression, serving, latency, energy, or deployment methods.
 
-This dimension preserves the original Backbone, Pretraining, Adaptation, and Inference organization. It is no longer a mutually exclusive folder hierarchy.
+This dimension preserves the original Backbone, Pretraining, Adaptation, and Inference organization while accommodating application-oriented systems. On the public page, applications and adaptation methods share one section to avoid a sparse extra category. It is no longer a mutually exclusive folder hierarchy.
 
 ## Pretraining objective
 
 - `masked-reconstruction` — masked autoencoding, denoising, or reconstruction from incomplete observations.
-- `direct-forecasting` — direct prediction of future channel states or other future wireless observations without a masked-token formulation.
-- `autoregressive-generative` — next-token/sequence modeling, diffusion, or another explicitly generative objective.
+- `predictive-generative` — future-value prediction, next-token/sequence modeling, diffusion, or another predictive or generative objective.
 - `contrastive-alignment` — contrastive learning or alignment across views, domains, or modalities.
 - `predictive-latent` — JEPA-style or world-model prediction in a learned latent space.
 - `task-supervised` — direct optimization of one or more labeled downstream-task losses during pretraining.
 
 Specific objective labels replace the former ambiguous “Other Pretraining Approaches” section. Papers carry every concrete objective that is central to the method. A hybrid method is represented by multiple objective labels instead of a generic `hybrid` label, and `primary_objective` controls its single public placement.
+
+Only objectives optimized during pretraining belong in this dimension. A loss introduced solely for downstream fine-tuning or adaptation remains an adaptation detail and does not add a pretraining-objective label.
+
+For readability, papers that jointly optimize reconstruction and contrastive objectives are automatically grouped under **Reconstruction + Contrastive Learning** on the public paper page. This is a presentation group rather than an additional YAML objective; the source record retains both concrete objective labels.
 
 ## Training signal
 
@@ -45,11 +49,11 @@ The `task_regime` field describes how tasks are organized during pretraining rat
 
 ## Scope
 
-The `scope` field separates core channel foundation models from broader wireless/radio foundation models and related methods. See the [inclusion criteria](inclusion-criteria.md) for the decision boundary.
+The catalog intentionally does not separate “core CFM” from “broader wireless/radio FM.” The `scope` field only distinguishes the CFM ecosystem from directly related backbone, adaptation, evaluation, or deployment methods. See the [inclusion criteria](inclusion-criteria.md) for the decision boundary.
 
 ## Modality
 
-Modalities identify model inputs or representations, for example CSI, CIR, IQ, spectrograms, pilot observations, delay–Doppler–angle tensors, environment data, point clouds, trajectories, or received symbols. New slugs should be reused consistently and should describe a data representation rather than a task.
+Modalities identify model inputs or representations, for example CSI, WiFi CSI, 5G CSI, CIR, IQ, spectrograms, pilot observations, delay–Doppler–angle tensors, environment data, point clouds, trajectories, or received symbols. Use protocol-specific labels such as `wifi-csi` or `5g-csi` when the source is explicit, and retain the broader `csi` label for simulated, protocol-agnostic, or unspecified CSI. New slugs should be reused consistently and should describe a data representation rather than a task.
 
 ## Downstream task
 

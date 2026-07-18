@@ -39,17 +39,17 @@ KIND_DIRS = {
 }
 
 DISPLAY = {
-    "core-cfm": "Core CFM",
-    "broader-wireless-radio-fm": "Broader Wireless/Radio FM",
+    "cfm-ecosystem": "CFM Ecosystem",
     "related-method": "Related Method",
     "survey": "Surveys & Perspectives",
     "backbone": "Backbones & Architectures",
     "pretraining": "Pretraining Methods",
+    "application": "Applications",
     "adaptation": "Adaptation & Transfer",
     "inference-deployment": "Inference & Deployment",
     "masked-reconstruction": "Masked/Reconstruction Learning",
-    "direct-forecasting": "Direct Forecasting",
-    "autoregressive-generative": "Autoregressive/Generative Modeling",
+    "reconstruction-contrastive": "Reconstruction + Contrastive Learning",
+    "predictive-generative": "Predictive/Generative Modeling",
     "contrastive-alignment": "Contrastive/Alignment Learning",
     "predictive-latent": "Predictive Latent Learning",
     "task-supervised": "Task-Supervised Learning",
@@ -185,8 +185,12 @@ def validate_records(records: Sequence[Mapping[str, Any]]) -> None:
                 if task_regime == "not-applicable":
                     errors.append(f"{relpath}: pretraining papers cannot use task_regime 'not-applicable'")
             else:
+                if objectives:
+                    errors.append(f"{relpath}: non-pretraining papers require objectives: []")
                 if primary_objective is not None:
                     errors.append(f"{relpath}: non-pretraining papers require primary_objective: null")
+                if training_signals:
+                    errors.append(f"{relpath}: non-pretraining papers require training_signals: []")
                 if task_regime != "not-applicable":
                     errors.append(f"{relpath}: non-pretraining papers require task_regime 'not-applicable'")
             for slot_name, slot in record.get("artifacts", {}).items():
@@ -364,6 +368,9 @@ def render_paper_entry(
 
 
 def primary_objective(paper: Mapping[str, Any]) -> str:
+    objectives = set(paper.get("objectives", []))
+    if {"masked-reconstruction", "contrastive-alignment"} <= objectives:
+        return "reconstruction-contrastive"
     return paper.get("primary_objective") or "objective-not-specified"
 
 
@@ -403,12 +410,12 @@ def render_papers(
         "- [Backbones & Architectures](#backbones)\n"
         "- [Pretraining Methods](#pretraining)\n"
         "  - [Masked/Reconstruction](#objective-masked-reconstruction)\n"
-        "  - [Direct Forecasting](#objective-direct-forecasting)\n"
-        "  - [Autoregressive/Generative](#objective-autoregressive-generative)\n"
+        "  - [Reconstruction + Contrastive](#objective-reconstruction-contrastive)\n"
+        "  - [Predictive/Generative](#objective-predictive-generative)\n"
         "  - [Contrastive/Alignment](#objective-contrastive-alignment)\n"
         "  - [Predictive Latent](#objective-predictive-latent)\n"
         "  - [Task-Supervised](#objective-task-supervised)\n"
-        "- [Adaptation & Transfer](#adaptation)\n"
+        "- [Applications, Adaptation & Transfer](#adaptation)\n"
         "- [Inference & Deployment](#inference-deployment)",
         render_stage(label("survey"), "surveys", by_stage["survey"], by_id),
         render_stage(label("backbone"), "backbones", by_stage["backbone"], by_id),
@@ -416,8 +423,8 @@ def render_papers(
 
     objective_order = [
         "masked-reconstruction",
-        "direct-forecasting",
-        "autoregressive-generative",
+        "reconstruction-contrastive",
+        "predictive-generative",
         "contrastive-alignment",
         "predictive-latent",
         "task-supervised",
@@ -445,7 +452,12 @@ def render_papers(
         )
     sections.append("\n\n".join(pretraining))
     sections.append(
-        render_stage(label("adaptation"), "adaptation", by_stage["adaptation"], by_id)
+        render_stage(
+            "Applications, Adaptation & Transfer",
+            "adaptation",
+            [*by_stage["application"], *by_stage["adaptation"]],
+            by_id,
+        )
     )
     sections.append(
         render_stage(

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import copy
 import importlib.util
 import json
 import re
@@ -97,6 +98,24 @@ class CatalogTests(unittest.TestCase):
                 )
                 self.assertRegex(paper["last_verified"], r"^\d{4}-\d{2}-\d{2}$")
 
+    def test_scope_does_not_split_core_and_broader_foundation_models(self):
+        scopes = {record["scope"] for record in self.records}
+        self.assertEqual(scopes, {"cfm-ecosystem", "related-method"})
+        self.assertNotIn("core-cfm", scopes)
+        self.assertNotIn("broader-wireless-radio-fm", scopes)
+
+    def test_non_pretraining_papers_cannot_carry_stale_training_taxonomy(self):
+        records = copy.deepcopy(self.records)
+        paper = next(record for record in records if record["id"] == "early-exit")
+        paper["objectives"] = ["masked-reconstruction"]
+        paper["training_signals"] = ["self-supervised"]
+        with self.assertRaisesRegex(
+            catalog.CatalogError,
+            r"non-pretraining papers require objectives: \[\][\s\S]*"
+            r"non-pretraining papers require training_signals: \[\]",
+        ):
+            catalog.validate_records(records)
+
     def test_paper_resource_references_are_bidirectionally_declared(self):
         by_id = {record["id"]: record for record in self.records}
         for paper in (record for record in self.records if record["kind"] == "paper"):
@@ -134,12 +153,12 @@ class CatalogTests(unittest.TestCase):
             "## Backbones & Architectures",
             "## Pretraining Methods",
             "### Masked/Reconstruction Learning",
-            "### Direct Forecasting",
-            "### Autoregressive/Generative Modeling",
+            "### Reconstruction + Contrastive Learning",
+            "### Predictive/Generative Modeling",
             "### Contrastive/Alignment Learning",
             "### Predictive Latent Learning",
             "### Task-Supervised Learning",
-            "## Adaptation & Transfer",
+            "## Applications, Adaptation & Transfer",
             "## Inference & Deployment",
         ):
             self.assertIn(heading, rendered)
@@ -218,14 +237,19 @@ class CatalogTests(unittest.TestCase):
 
     def test_pretraining_objectives_follow_training_mechanism_not_task_count(self):
         by_id = {record["id"]: record for record in self.records}
-        self.assertEqual(by_id["wifo-2"]["objectives"], ["masked-reconstruction"])
+        self.assertEqual(by_id["6g-wavesfm"]["objectives"], ["masked-reconstruction"])
+        self.assertEqual(by_id["6g-wavesfm"]["training_signals"], ["self-supervised"])
+        self.assertEqual(
+            by_id["wifo-2"]["objectives"],
+            ["masked-reconstruction", "predictive-generative"],
+        )
         self.assertEqual(by_id["wirelessgpt"]["objectives"], ["masked-reconstruction"])
         self.assertEqual(
             by_id["wireless-multitask-prediction"]["objectives"],
-            ["direct-forecasting"],
+            ["predictive-generative"],
         )
-        self.assertEqual(by_id["wifo-2"]["task_regime"], "multitask")
-        self.assertEqual(by_id["wirelessgpt"]["task_regime"], "multitask")
+        self.assertEqual(by_id["wifo-2"]["task_regime"], "task-conditioned")
+        self.assertEqual(by_id["wirelessgpt"]["task_regime"], "not-specified")
         self.assertEqual(
             by_id["wireless-multitask-prediction"]["task_regime"], "multitask"
         )
@@ -249,12 +273,124 @@ class CatalogTests(unittest.TestCase):
 
     def test_multi_objective_papers_use_concrete_labels_and_explicit_primary(self):
         by_id = {record["id"]: record for record in self.records}
-        for paper_id in ("am-fm", "contrawimae", "lwlm", "lwm-spectro", "spa-mae"):
+        for paper_id in (
+            "am-fm",
+            "contrawimae",
+            "lwlm",
+            "m3f-uav",
+            "multimodal-ai-6g",
+            "spa-mae",
+        ):
             with self.subTest(paper=paper_id):
                 paper = by_id[paper_id]
                 self.assertGreater(len(paper["objectives"]), 1)
                 self.assertIn(paper["primary_objective"], paper["objectives"])
                 self.assertNotIn("hybrid", paper["objectives"])
+
+    def test_reconstruction_contrastive_papers_share_a_public_section(self):
+        paper_ids = {
+            "am-fm",
+            "contrawimae",
+            "lwlm",
+            "multimodal-ai-6g",
+            "spa-mae",
+        }
+        rendered = catalog.render_papers(
+            [record for record in self.records if record["kind"] == "paper"],
+            self.records,
+        )
+        section = rendered.split(
+            '<a id="objective-reconstruction-contrastive"></a>', 1
+        )[1].split('<a id="objective-predictive-generative"></a>', 1)[0]
+        for paper_id in paper_ids:
+            with self.subTest(paper=paper_id):
+                self.assertIn(f'<a id="{paper_id}"></a>', section)
+
+        self.assertNotIn('<a id="lwm-spectro"></a>', section)
+
+    def test_audited_stage_objective_and_modality_boundaries(self):
+        by_id = {record["id"]: record for record in self.records}
+
+        for paper_id in ("spikewfm", "wimamba"):
+            with self.subTest(paper=paper_id):
+                paper = by_id[paper_id]
+                self.assertEqual(paper["stages"], ["backbone", "pretraining"])
+                self.assertEqual(paper["objectives"], ["masked-reconstruction"])
+                self.assertEqual(paper["training_signals"], ["self-supervised"])
+
+        self.assertEqual(by_id["bert4beam"]["objectives"], ["task-supervised"])
+        self.assertEqual(by_id["bert4beam"]["training_signals"], ["supervised"])
+        self.assertEqual(by_id["bert4beam"]["task_regime"], "task-conditioned")
+        self.assertEqual(by_id["lwm-spectro"]["objectives"], ["masked-reconstruction"])
+        self.assertEqual(by_id["full-domain-coupler"]["scope"], "related-method")
+        self.assertEqual(by_id["full-domain-coupler"]["modalities"], ["csi"])
+        self.assertEqual(by_id["latentwave"]["modalities"], ["csi", "spectrogram"])
+        self.assertEqual(by_id["radio-fm-indoor-localization"]["modalities"], ["cir"])
+
+    def test_audited_multitask_papers_preserve_all_reported_tasks(self):
+        by_id = {record["id"]: record for record in self.records}
+
+        self.assertEqual(by_id["spectrumfm"]["modalities"], ["iq"])
+        self.assertIn("modulation-classification", by_id["spectrumfm"]["tasks"])
+        self.assertEqual(
+            by_id["spectrumfm"]["objectives"],
+            ["masked-reconstruction", "predictive-generative"],
+        )
+        self.assertEqual(
+            set(by_id["wirelessgpt"]["tasks"]),
+            {
+                "channel-estimation",
+                "time-channel-extrapolation",
+                "human-activity-recognition",
+                "environment-reconstruction",
+            },
+        )
+        self.assertEqual(len(by_id["wifo-2"]["tasks"]), 12)
+        self.assertIn("doppler-estimation", by_id["wifo-2"]["tasks"])
+        self.assertIn("channel-reconstruction", by_id["hetercsi"]["tasks"])
+
+    def test_july_2026_foundation_models_are_cataloged_with_paper_based_taxonomy(self):
+        by_id = {record["id"]: record for record in self.records}
+
+        receiver = by_id["fm-receiver"]
+        self.assertEqual(receiver["stages"], ["application", "pretraining"])
+        self.assertEqual(receiver["objectives"], ["task-supervised"])
+        self.assertEqual(receiver["training_signals"], ["supervised"])
+        self.assertEqual(receiver["task_regime"], "multitask")
+        self.assertEqual(
+            receiver["tasks"],
+            ["channel-estimation", "signal-detection", "channel-decoding"],
+        )
+        self.assertEqual(
+            receiver["artifacts"]["simulation_tools"]["items"][0]["ref"],
+            "sionna",
+        )
+
+        rendered = catalog.render_papers(
+            [record for record in self.records if record["kind"] == "paper"],
+            self.records,
+        )
+        application_section = rendered.split('<a id="adaptation"></a>', 1)[1].split(
+            '<a id="inference-deployment"></a>', 1
+        )[0]
+        self.assertIn('<a id="fm-receiver"></a>', application_section)
+
+        m3f = by_id["m3f-uav"]
+        self.assertEqual(
+            m3f["objectives"], ["masked-reconstruction", "task-supervised"]
+        )
+        self.assertEqual(m3f["modalities"], ["rgb", "depth", "lidar", "csi"])
+        self.assertEqual(m3f["artifacts"]["datasets"]["items"][0]["ref"], "lambda-6g")
+
+
+    def test_wifi_csi_is_distinguished_from_generic_csi(self):
+        by_id = {record["id"]: record for record in self.records}
+        self.assertEqual(by_id["am-fm"]["modalities"], ["wifi-csi"])
+        self.assertEqual(
+            by_id["6g-wavesfm"]["modalities"],
+            ["wifi-csi", "5g-csi", "iq", "spectrogram", "resource-grid"],
+        )
+        self.assertEqual(by_id["lwm-spectro"]["modalities"], ["spectrogram"])
 
     def test_datasets_have_structured_release_and_coverage_metadata(self):
         for dataset in (record for record in self.records if record["kind"] == "dataset"):
@@ -301,7 +437,7 @@ class CatalogTests(unittest.TestCase):
         for dataset_id in expected:
             with self.subTest(dataset=dataset_id):
                 self.assertEqual(by_id[dataset_id]["kind"], "dataset")
-                self.assertEqual(by_id[dataset_id]["last_verified"], "2026-07-17")
+                self.assertGreaterEqual(by_id[dataset_id]["last_verified"], "2026-07-17")
 
         wifo = by_id["wifo"]
         self.assertEqual(wifo["artifacts"]["datasets"]["items"][0]["ref"], "wifo-channel-dataset")
@@ -385,6 +521,11 @@ class CatalogTests(unittest.TestCase):
         self.assertFalse((ROOT / "templates" / "README.md").exists())
         homepage = (ROOT / "README.md").read_text(encoding="utf-8")
         self.assertNotIn("do not edit this file directly", homepage)
+        self.assertIn(
+            "img.shields.io/github/last-commit/"
+            "GREAT-ISAC/Awesome-Channel-Foundation-Models/main",
+            homepage,
+        )
 
     def test_internal_markdown_links_and_anchors_resolve(self):
         seen = set()

@@ -2,14 +2,14 @@ kind: dataset
 id: lambda-6g
 name: LAMBDA
 description: A high-fidelity low-altitude dataset synchronizing CSI, RGB, depth, LiDAR, 4D radar, IMU, and UAV trajectories across urban, suburban, mountain, and campus scenarios.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official download page, url: https://lambda6g.net/download, provenance: official, availability: available, license: Open and free to use}
   - {label: Full dataset archive, url: https://doi.org/10.57760/sciencedb.36052, provenance: official, availability: available, license: Open and free to use}
   - {label: Official utilities, url: https://github.com/SJTU-WirelessAI-Lab/LAMBDA, provenance: official, availability: available, license: Apache-2.0}
 license: Open and free to use; utilities Apache-2.0
-related_papers: []
-last_verified: "2026-07-17"
+related_papers: [m3f-uav]
+last_verified: "2026-07-18"
 modalities: [csi, rgb, depth, lidar, radar, imu, uav-pose]
 data_origin: simulated
 access: open

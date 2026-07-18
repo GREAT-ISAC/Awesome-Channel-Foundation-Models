@@ -2,7 +2,7 @@ kind: model
 id: lwm-spectro-model
 name: LWM-Spectro
 description: Official LWM-Spectro model repository for baseband signal spectrogram representations.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official Hugging Face repository, url: https://huggingface.co/wi-lab/lwm-spectro, provenance: official, availability: available, license: License not stated}
 license: License not stated

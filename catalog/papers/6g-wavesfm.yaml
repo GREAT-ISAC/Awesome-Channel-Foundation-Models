@@ -6,13 +6,13 @@ authors: [Ahmed Aboulfotouh, Elsayed Mohammed, Hatem Abou-Zeid]
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2504.14100
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 stages: [pretraining]
-objectives: [task-supervised]
-primary_objective: task-supervised
-training_signals: [supervised]
-task_regime: multitask
-modalities: [csi, iq, spectrogram, resource-grid]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
+modalities: [wifi-csi, 5g-csi, iq, spectrogram, resource-grid]
 tasks: [positioning, channel-estimation, rf-signal-classification, human-activity-sensing]
 artifacts:
   code: {status: not-found, items: []}
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

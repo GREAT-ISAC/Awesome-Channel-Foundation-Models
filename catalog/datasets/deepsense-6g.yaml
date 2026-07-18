@@ -2,7 +2,7 @@ kind: dataset
 id: deepsense-6g
 name: DeepSense 6G
 description: A real-world sensing-and-communication dataset with more than one million samples across over 30 vehicular, drone, indoor, and outdoor scenarios.
-scope: broader-wireless-radio-fm
+scope: cfm-ecosystem
 links:
   - {label: Official dataset portal, url: https://www.deepsense6g.net/, provenance: official, availability: available, license: DeepSense 6G terms; citation required}
 license: DeepSense 6G terms; citation required

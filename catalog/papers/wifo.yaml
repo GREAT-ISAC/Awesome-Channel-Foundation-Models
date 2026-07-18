@@ -6,7 +6,7 @@ authors: [Boxun Liu, Shijian Gao, Xuanyu Liu, Xiang Cheng, Liuqing Yang]
 year: 2024
 venue: arXiv
 paper_url: https://arxiv.org/abs/2412.08908
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

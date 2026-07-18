@@ -6,13 +6,13 @@ authors: [Jonathan Ott, Jonas Pirkl, Maximilian Stahlke, Tobias Feigl, Christoph
 year: 2024
 venue: arXiv
 paper_url: https://arxiv.org/abs/2410.00617
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]
 task_regime: not-specified
-modalities: [csi]
+modalities: [cir]
 tasks: [positioning]
 artifacts:
   code: {status: not-found, items: []}
@@ -20,4 +20,4 @@ artifacts:
   models: {status: not-found, items: []}
   benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-13"
+last_verified: "2026-07-18"

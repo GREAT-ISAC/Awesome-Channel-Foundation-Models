@@ -2,7 +2,7 @@ kind: model
 id: lwm-model
 name: Large Wireless Model (LWM)
 description: Official pretrained LWM checkpoint and accompanying inference code for wireless channel representations.
-scope: core-cfm
+scope: cfm-ecosystem
 links:
   - {label: Official Hugging Face repository, url: https://huggingface.co/wi-lab/lwm, provenance: official, availability: available, license: MIT}
   - {label: Official project page, url: https://lwm-wireless.net/, provenance: official, availability: available, license: MIT}

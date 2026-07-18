@@ -2,7 +2,7 @@ kind: dataset
 id: cfm-bench
 name: CFM-Bench
 description: A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, measured, and multimodal channel configurations.
-scope: core-cfm
+scope: cfm-ecosystem
 featured: true
 links:
   - label: Official download

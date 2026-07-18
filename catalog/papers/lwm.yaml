@@ -6,7 +6,7 @@ authors: [Sadjad Alikhani, Gouranga Charan, Ahmed Alkhateeb]
 year: 2024
 venue: arXiv
 paper_url: https://arxiv.org/abs/2411.08872
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [pretraining]
 objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction

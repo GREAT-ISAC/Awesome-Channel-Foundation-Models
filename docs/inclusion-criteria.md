@@ -2,25 +2,21 @@
 
 This policy defines what belongs in Awesome Channel Foundation Models and how resource claims are represented.
 
-## Scope tiers
+## Scope
 
-### Core CFM
+### CFM Ecosystem
 
-Work centered on reusable pretrained channel representations or general-purpose channel models that transfer across channel-related scenarios or downstream tasks. CSI, CIR, channel tensors, pilot observations, and physically equivalent channel-domain inputs are included.
-
-### Broader Wireless/Radio FM
-
-Foundation-model work for radio signals, spectrum, sensing, localization, resource management, or multimodal wireless systems that contributes reusable methods or infrastructure to CFM research.
+This catalog uses one inclusive CFM-ecosystem scope. It covers reusable pretrained channel representations, general-purpose wireless models, datasets, checkpoints, benchmarks, and simulation infrastructure for CSI, CIR, channel tensors, pilot observations, radio signals, spectrum, sensing, localization, resource management, and multimodal wireless systems. It does not rank or separate “core CFM” from “broader wireless/radio FM.”
 
 ### Related Method
 
 Backbone, adaptation, inference, retrieval, evaluation, or deployment work designed around wireless foundation models but not introducing a new pretrained CFM.
 
-The tiers are descriptive, not a ranking.
+The distinction between the CFM ecosystem and related methods is descriptive, not a ranking.
 
 ## Eligible records
 
-- Papers that fit one of the three scope tiers and have a stable paper or publisher page.
+- CFM-ecosystem and directly related-method papers with a stable paper or publisher page.
 - Datasets used directly by a cataloged paper, or general-purpose measured/simulated channel data suitable for CFM training or evaluation.
 - Pretrained models with an accessible checkpoint or model card. Source code without weights belongs under a paper's code artifact, not in the model catalog.
 - Existing benchmark or evaluation projects that identify tasks, datasets, metrics, and a public project link.

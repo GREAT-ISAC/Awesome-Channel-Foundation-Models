@@ -2,7 +2,7 @@ kind: dataset
 id: mocsid
 name: MOCSID
 description: A 17.9 GB spatially consistent multi-cell outdoor CSI dataset covering ten base stations, pedestrian mobility, locations, velocities, and multipath components.
-scope: core-cfm
+scope: cfm-ecosystem
 links:
   - {label: Official Zenodo dataset, url: https://doi.org/10.5281/zenodo.14535165, provenance: official, availability: available, license: ODbL-1.0}
   - {label: Official generation code, url: https://gitlab.inria.fr/channelcharting/outdoor_dataset, provenance: official, availability: available, license: Project-specific terms}

@@ -2,7 +2,7 @@ kind: benchmark
 id: lwm-2025-challenge
 name: LWM Challenge 2025
 description: An official competition and starter repository for comparing wireless representations on multiple downstream tasks.
-scope: core-cfm
+scope: cfm-ecosystem
 links:
   - {label: Official challenge page, url: https://lwm-wireless.net/challenge, provenance: official, availability: available, license: Challenge-specific terms}
 license: Challenge-specific terms

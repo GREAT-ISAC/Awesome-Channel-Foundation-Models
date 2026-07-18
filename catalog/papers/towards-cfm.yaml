@@ -6,7 +6,7 @@ authors: [Jun Jiang, Yuan Gao, Xinyi Wu, Shugong Xu]
 year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2507.13637
-scope: core-cfm
+scope: cfm-ecosystem
 stages: [survey]
 objectives: []
 primary_objective: null

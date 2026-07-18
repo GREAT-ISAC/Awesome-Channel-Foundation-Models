@@ -25,16 +25,14 @@
     },
     "scope": {
       "enum": [
-        "core-cfm",
-        "broader-wireless-radio-fm",
+        "cfm-ecosystem",
         "related-method"
       ]
     },
     "pretrainingObjective": {
       "enum": [
         "masked-reconstruction",
-        "direct-forecasting",
-        "autoregressive-generative",
+        "predictive-generative",
         "contrastive-alignment",
         "predictive-latent",
         "task-supervised"
@@ -144,6 +142,7 @@
               "survey",
               "backbone",
               "pretraining",
+              "application",
               "adaptation",
               "inference-deployment"
             ]
