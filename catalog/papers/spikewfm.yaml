@@ -19,6 +19,5 @@ artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

@@ -1,7 +1,7 @@
 kind: dataset
 id: cfm-bench
 name: CFM-Bench
-description: A unified multi-domain, multi-task benchmark spanning statistical, ray-traced, measured, and multimodal channel configurations.
+description: A unified multi-domain, multi-task benchmark with 157,900 examples across six statistical, ray-traced, measured, and multimodal channel configurations.
 scope: cfm-ecosystem
 featured: true
 links:
@@ -9,23 +9,34 @@ links:
     url: "https://www.chaspark.com/#/s/CFM-Bench"
     provenance: official
     availability: available
-    license: Domain-specific upstream terms
-  - label: Paper and evaluation protocol
-    url: https://arxiv.org/abs/2607.14975
-    provenance: official
-    availability: available
-    license: arXiv terms
-license: Domain-specific upstream terms
+    license: "S1/E1/M1: CC BY 4.0; E2: CC BY-NC 4.0; R2: ODbL 1.0; R1: CC BY-NC-SA 4.0 plus DeepMIMO terms; code/docs: MIT"
+license: "S1/E1/M1: CC BY 4.0; E2: CC BY-NC 4.0; R2: ODbL 1.0; R1: CC BY-NC-SA 4.0 plus DeepMIMO terms; code/docs: MIT"
 related_papers: []
-last_verified: "2026-07-17"
+last_verified: "2026-08-03"
 modalities: [csi, rgb, lidar, inertial]
 data_origin: hybrid
 access: open
 tasks: [csi-feedback, frequency-channel-extrapolation, time-channel-extrapolation, los-nlos-identification, beam-prediction, positioning]
+evaluation:
+  name: CFM-Bench
+  protocol:
+    label: Paper and evaluation protocol
+    url: https://arxiv.org/abs/2607.14975
+    provenance: official
+    availability: available
+    license: arXiv terms
+  metrics:
+    - NMSE (dB)
+    - SGCS
+    - Target-only NMSE (dB)
+    - Macro-F1
+    - Top-1/Top-3 accuracy
+    - Horizon-wise Top-1/Top-3 accuracy
+    - Mean 3D error (m)
 specifications:
   version: null
-  scale: Multi-domain and multi-task benchmark assembled from statistical, ray-traced, measured, and multimodal channel configurations
+  scale: 157,900 single-frame examples (132,525 train / 17,523 validation / 7,852 test) across six domains
   download_size: null
-  frequency_bands: []
-  scenarios: [Statistical channels, Ray-traced channels, Measured channels, Multimodal channels]
-  antenna_configurations: []
+  frequency_bands: [3.5 GHz, 60 GHz, Unspecified carrier (R2), 3.440 GHz, 2.61 GHz, 28 GHz]
+  scenarios: [Three-site UMi street canyon, DeepMIMO O1_60 outdoor urban grid, MOCSID ten-BS campus, DICHASUS ADXX industrial indoor, MaMIMO-UAV outdoor air-to-ground, Town05 CBD V2I]
+  antenna_configurations: [S1 nine links with 64 BS ports, R1 64 BS ports, R2 ten BS links, E1 64 distributed antennas in four 2×8 arrays, E2 64-element BS URA, M1 16×64 RSU-vehicle channel matrix]

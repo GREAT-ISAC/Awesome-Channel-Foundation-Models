@@ -1,0 +1,23 @@
+kind: paper
+id: graph-fm-resource-allocation
+short_name: GFM-RA
+title: A Graph Foundation Model for Wireless Resource Allocation
+authors: [Yucheng Sheng, Jiacheng Wang, Le Liang, Hao Ye, Shi Jin]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2604.07390
+scope: cfm-ecosystem
+stages: [pretraining, backbone, adaptation, application]
+objectives: [masked-reconstruction, contrastive-alignment]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: not-specified
+modalities: [interference-graph, csi]
+tasks: [power-control]
+summary: Learns reusable interference-graph representations by reconstructing masked channel-gain edges and aligning teacher-student graph views before transfer across utilities and network configurations.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

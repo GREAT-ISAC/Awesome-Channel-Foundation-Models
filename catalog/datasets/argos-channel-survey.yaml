@@ -1,0 +1,25 @@
+kind: dataset
+id: argos-channel-survey
+name: Argos Channel Survey
+description: Measured many-antenna MU-MIMO channel traces collected by Rice University across indoor, outdoor, and mobile environments.
+scope: cfm-ecosystem
+links:
+  - label: Official RENEW dataset page
+    url: https://renew.rice.edu/dataset-argos.html
+    provenance: official
+    availability: available
+    license: Rice University data license; citation required and redistribution requires written permission
+license: Rice University data license; commercial, educational, and research use permitted with attribution, but redistribution requires written permission
+related_papers: [wifo-mud]
+last_verified: "2026-08-03"
+modalities: [csi]
+data_origin: measured
+access: registration
+tasks: [multi-user-demodulation, channel-modeling]
+specifications:
+  version: Argos Channel Survey collection
+  scale: Multiple channel-measurement campaigns with up to 104 base-station antennas serving up to 8 users
+  download_size: 102 individually downloadable files; approximately 0.58–29.72 GB per file
+  frequency_bands: [UHF, 2.4 GHz, 5 GHz]
+  scenarios: [Indoor, Outdoor, Mobile]
+  antenna_configurations: [Many-antenna MU-MIMO arrays with up to 104 base-station antennas and 8 users]

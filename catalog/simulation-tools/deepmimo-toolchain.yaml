@@ -6,7 +6,7 @@ scope: cfm-ecosystem
 links:
   - {label: Official repository, url: https://github.com/DeepMIMO/DeepMIMO, provenance: official, availability: available, license: Apache-2.0}
 license: Apache-2.0
-related_papers: [full-domain-coupler, wimamba, lwm]
+related_papers: [full-domain-coupler, wimamba, lwm, wifo-mud]
 last_verified: "2026-07-13"
 tool_type: channel
 access: open

@@ -7,7 +7,7 @@ year: 2026
 venue: IEEE Transactions on Communications
 paper_url: https://doi.org/10.1109/TCOMM.2026.3655778
 scope: cfm-ecosystem
-stages: [pretraining]
+stages: [pretraining, adaptation, backbone]
 objectives: [task-supervised]
 primary_objective: task-supervised
 training_signals: [self-supervised, weakly-supervised]
@@ -18,6 +18,5 @@ artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

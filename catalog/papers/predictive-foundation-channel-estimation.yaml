@@ -1,0 +1,22 @@
+kind: paper
+id: predictive-foundation-channel-estimation
+short_name: X. Zhou et al.
+title: Reducing Pilots in Channel Estimation with Predictive Foundation Models
+authors: [Xingyu Zhou, Le Liang, Hao Ye, Jing Zhang, Chao-Kai Wen, Shi Jin]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2512.15562
+scope: related-method
+stages: [adaptation, application]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [csi, pilot-observations]
+tasks: [channel-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

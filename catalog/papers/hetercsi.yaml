@@ -20,7 +20,6 @@ artifacts:
   models:
     status: available
     items:
-      - {label: HeterCSI model card, ref: hetercsi-model, provenance: official, availability: available, license: Apache-2.0}
-  benchmarks: {status: not-found, items: []}
+      - {label: HeterCSI model card, ref: hetercsi-model}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

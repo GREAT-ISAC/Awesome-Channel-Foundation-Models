@@ -7,17 +7,16 @@ year: 2025
 venue: arXiv
 paper_url: https://arxiv.org/abs/2509.11056
 scope: cfm-ecosystem
-stages: [pretraining]
+stages: [application, backbone, pretraining, adaptation]
 objectives: [task-supervised]
 primary_objective: task-supervised
 training_signals: [supervised]
 task_regime: task-conditioned
-modalities: [csi]
+modalities: [csi, system-metadata]
 tasks: [beamforming]
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

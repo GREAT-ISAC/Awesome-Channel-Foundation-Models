@@ -12,12 +12,12 @@ objectives: [masked-reconstruction]
 primary_objective: masked-reconstruction
 training_signals: [self-supervised]
 task_regime: not-specified
-modalities: [spectrogram]
+modalities: [spectrogram, wifi-csi]
 tasks: [human-activity-sensing, spectrogram-segmentation]
+summary: Pretrains a ViT with self-supervised masked spectrogram modeling on spectrograms derived from over-the-air SDR recordings, then freezes the encoder and transfers it to WiFi-CSI human-activity sensing and NR/LTE spectrogram segmentation.
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-18"
+last_verified: "2026-08-03"

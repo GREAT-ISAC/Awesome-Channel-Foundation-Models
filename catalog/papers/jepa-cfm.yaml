@@ -1,0 +1,22 @@
+kind: paper
+id: jepa-cfm
+short_name: JEPA-CFM
+title: "JEPA-CFM: A Joint Embedding Predictive Architecture-based Channel Foundation Model for Robust Fluid Antenna Systems"
+authors: [Yuan Gao, Yiming Liu, Jun Jiang, Jianbo Du, Shunqing Zhang, Xiaoli Chu, Kai-Kit Wong]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.20202
+scope: cfm-ecosystem
+stages: [pretraining, adaptation, application]
+objectives: [masked-reconstruction, predictive-latent]
+primary_objective: predictive-latent
+training_signals: [self-supervised]
+task_regime: not-specified
+modalities: [csi]
+tasks: [channel-extrapolation, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

@@ -1,0 +1,22 @@
+kind: paper
+id: large-ai-models-wireless-phy
+short_name: J. Guo et al.
+title: Large AI Models for Wireless Physical Layer
+authors: [Jiajia Guo, Yiming Cui, Shi Jin, Jun Zhang]
+year: 2026
+venue: IEEE Communications Magazine
+paper_url: https://doi.org/10.1109/MCOM.001.2500505
+scope: cfm-ecosystem
+stages: [survey]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: []
+tasks: []
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

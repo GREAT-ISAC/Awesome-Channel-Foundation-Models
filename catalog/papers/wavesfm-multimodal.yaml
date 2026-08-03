@@ -1,0 +1,32 @@
+kind: paper
+id: wavesfm-multimodal
+short_name: Multimodal WavesFM
+title: Multimodal Wireless Foundation Models
+authors: [Ahmed Aboulfotouh, Hatem Abou-Zeid]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2511.15162
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [iq, spectrogram, wifi-csi, 5g-csi]
+tasks: [human-activity-sensing, rf-signal-classification, positioning, rf-fingerprinting, interference-detection, interference-classification]
+summary: Masked reconstruction pretraining uses spectrogram and raw-IQ pools; WiFi CSI and 5G CSI are introduced through downstream adapters for activity sensing and positioning rather than claimed as pretraining data.
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official implementation, url: https://github.com/AhmedTarek62/wavesfm, provenance: official, availability: available}
+  datasets:
+    status: available
+    items:
+      - {label: WavesFM evaluation suite, ref: wavesfm-evaluation-suite}
+  models:
+    status: available
+    items:
+      - {label: WavesFM checkpoint, ref: wavesfm-model}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

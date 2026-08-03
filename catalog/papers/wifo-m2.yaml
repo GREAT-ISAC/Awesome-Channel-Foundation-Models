@@ -1,0 +1,22 @@
+kind: paper
+id: wifo-m2
+short_name: WiFo-M²
+title: "WiFo-M²: Empower Wireless Communications With Plug-and-Play Environment Sensing via Foundation Model"
+authors: [Haotian Zhang, Shijian Gao, Xiang Cheng]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.09179
+scope: cfm-ecosystem
+stages: [pretraining, adaptation, application]
+objectives: [contrastive-alignment]
+primary_objective: contrastive-alignment
+training_signals: [self-supervised]
+task_regime: not-specified
+modalities: [csi, environment]
+tasks: [beam-prediction, channel-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

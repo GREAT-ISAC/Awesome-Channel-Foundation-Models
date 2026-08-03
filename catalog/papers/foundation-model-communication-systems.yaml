@@ -1,0 +1,25 @@
+kind: paper
+id: foundation-model-communication-systems
+short_name: D. Buffelli et al.
+title: Towards a Foundation Model for Communication Systems
+authors: [Davide Buffelli, Sowmen Das, Yu-Wei Lin, Sattar Vakili, Chien-Yi Wang, Masoud Attarifar, Pritthijit Nath, Da-shan Shiu]
+year: 2025
+venue: ICML Workshop on Machine Learning for Wireless Communication
+paper_url: https://arxiv.org/abs/2505.14603
+scope: cfm-ecosystem
+stages: [pretraining, backbone]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: multitask
+modalities: [channel-statistics, system-metadata]
+tasks: [transmission-rank-estimation, precoder-selection, doppler-spread-estimation, delay-profile-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools:
+    status: available
+    items:
+      - {label: Sionna, ref: sionna}
+last_verified: "2026-08-03"

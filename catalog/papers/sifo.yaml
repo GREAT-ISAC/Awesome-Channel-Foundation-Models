@@ -1,0 +1,22 @@
+kind: paper
+id: sifo
+short_name: SiFo
+title: "SiFo: Wireless Foundation Model for Low-Overhead Site-Specific CSI Feedback"
+authors: [Cheng-Jie Zhao, Zhaolin Wang, Zongyao Zhao, Yuanwei Liu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.16141
+scope: cfm-ecosystem
+stages: [adaptation, pretraining, application]
+objectives: [task-supervised]
+primary_objective: task-supervised
+training_signals: [supervised]
+task_regime: single-task
+modalities: [csi, rsrp]
+tasks: [csi-feedback]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

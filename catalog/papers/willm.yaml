@@ -1,0 +1,25 @@
+kind: paper
+id: willm
+short_name: WiLLM
+title: "The Universal Language of CSI: Unifying Wireless Sensing Across Devices and Environments"
+authors: [Jiayi Chen, Weiting Ou, Guangxu Zhu]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.09727
+scope: cfm-ecosystem
+stages: [pretraining, backbone, adaptation]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [wifi-csi]
+tasks: [human-activity-recognition, gesture-recognition, user-identification, fall-detection, crowd-counting]
+artifacts:
+  code:
+    status: available
+    items:
+      - {label: Official code repository, url: https://github.com/cjychenjiayi/WiLLM, provenance: official, availability: available, license: MIT}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

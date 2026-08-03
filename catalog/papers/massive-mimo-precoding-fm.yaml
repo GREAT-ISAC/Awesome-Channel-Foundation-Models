@@ -1,0 +1,22 @@
+kind: paper
+id: massive-mimo-precoding-fm
+short_name: J. Emery et al.
+title: A Foundation Model for Massive MIMO Precoding with an Adaptive per-User Rate-Power Tradeoff
+authors: [Jérôme Emery, Ali Hasanzadeh Karkan, Jean-François Frigon, François Leduc-Primeau]
+year: 2025
+venue: IEEE International Symposium on Personal, Indoor and Mobile Radio Communications
+paper_url: https://doi.org/10.1109/PIMRC62392.2025.11274999
+scope: cfm-ecosystem
+stages: [application, adaptation, pretraining]
+objectives: [direct-optimization]
+primary_objective: direct-optimization
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi, system-metadata]
+tasks: [mimo-precoding]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

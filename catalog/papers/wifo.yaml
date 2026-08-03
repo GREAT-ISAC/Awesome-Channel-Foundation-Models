@@ -22,11 +22,10 @@ artifacts:
   datasets:
     status: available
     items:
-      - {label: WiFo channel dataset, ref: wifo-channel-dataset, provenance: official, availability: available, license: Apache-2.0}
+      - {label: WiFo channel dataset, ref: wifo-channel-dataset}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools:
     status: available
     items:
-      - {label: QuaDRiGa, ref: quadriga, provenance: official, availability: available, license: QuaDRiGa license}
+      - {label: QuaDRiGa, ref: quadriga}
 last_verified: "2026-07-18"

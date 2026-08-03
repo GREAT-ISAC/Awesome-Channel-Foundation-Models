@@ -1,0 +1,25 @@
+kind: paper
+id: cross-band-csi-reconstruction
+short_name: H. Zhang et al.
+title: A Foundation Model for Cross-Band CSI Reconstruction
+authors: [Hongpu Zhang, Shu Sun, Ruifeng Gao, Tongjia Zhang, Feng Yang]
+year: 2026
+venue: IEEE/CIC International Conference on Communications in China Workshops
+paper_url: https://arxiv.org/abs/2607.22204
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi, pilot-observations]
+tasks: [cross-band-csi-reconstruction]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: Cross-band ray-tracing datasets, ref: cross-band-rt-datasets}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

@@ -23,14 +23,13 @@ artifacts:
   datasets:
     status: available
     items:
-      - {label: DICHASUS, ref: dichasus, provenance: official, availability: available, license: Dataset-specific terms}
+      - {label: DICHASUS, ref: dichasus}
   models:
     status: available
     items:
-      - {label: Released checkpoints, ref: coupler-checkpoints, provenance: official, availability: available, license: License not stated}
-  benchmarks: {status: not-found, items: []}
+      - {label: Released checkpoints, ref: coupler-checkpoints}
   simulation_tools:
     status: available
     items:
-      - {label: DeepMIMO, ref: deepmimo-toolchain, provenance: official, availability: available, license: Apache-2.0}
+      - {label: DeepMIMO, ref: deepmimo-toolchain}
 last_verified: "2026-07-18"

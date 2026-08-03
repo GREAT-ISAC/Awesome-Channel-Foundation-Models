@@ -1,0 +1,22 @@
+kind: paper
+id: wico-pg
+short_name: WiCo-PG
+title: "WiCo-PG: Wireless Channel Foundation Model for Pathloss Map Generation via Synesthesia of Machines"
+authors: [Mingran Sun, Lu Bai, Ziwei Huang, Xuesong Cai, Xiang Cheng, Jianjun Wu]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2511.15030
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [predictive-generative]
+primary_objective: predictive-generative
+training_signals: [supervised]
+task_regime: single-task
+modalities: [rgb, environment]
+tasks: [pathloss-map-generation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-released, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

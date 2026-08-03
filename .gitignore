@@ -5,3 +5,4 @@
 __pycache__/
 *.py[cod]
 link-report.json
+freshness-report.json

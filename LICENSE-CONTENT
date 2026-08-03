@@ -17,8 +17,14 @@ https://creativecommons.org/licenses/by/4.0/legalcode
 
 SPDX-License-Identifier: CC-BY-4.0
 
-This license does not apply to linked papers, datasets, models, benchmark
+This license does not apply to linked papers, datasets, models, evaluation
 projects, simulation tools, or other third-party resources. Those works remain
-under the terms specified by their respective owners. Validation, generation,
-and link-checking source code in this repository is licensed separately under
-the MIT License in LICENSE-CODE.
+under the terms specified by their respective owners.
+
+For the avoidance of doubt, PDF files under docs/ are expressly excluded from
+CC BY 4.0. This repository grants no license to copy, redistribute, adapt, or
+otherwise reuse those PDF files; any such use requires separate permission
+from the applicable rights holders, except as otherwise permitted by law.
+
+Validation, generation, and link-checking source code in this repository is
+licensed separately under the MIT License in LICENSE-CODE.

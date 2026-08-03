@@ -1,0 +1,15 @@
+kind: model
+id: wavesfm-model
+name: WavesFM
+description: Official multimodal wireless foundation model checkpoint for IQ, spectrogram, CSI, and CIR representations.
+scope: cfm-ecosystem
+links:
+  - {label: Official Hugging Face repository, url: https://huggingface.co/ahmedaboulfo/wavesfm, provenance: official, availability: available, license: Apache-2.0}
+  - {label: Official project page, url: https://wavesfm.waveslab.ai/, provenance: official, availability: available}
+license: Apache-2.0
+related_papers: [wavesfm-multimodal]
+last_verified: "2026-08-03"
+framework: PyTorch
+modalities: [iq, spectrogram, csi, cir]
+tasks: [human-activity-sensing, rf-signal-classification, radar-signal-classification, positioning, rf-fingerprinting, interference-detection, interference-classification, modulation-classification, beam-prediction, los-nlos-identification]
+access: open

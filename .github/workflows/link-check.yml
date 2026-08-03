@@ -1,4 +1,4 @@
-name: External link audit
+name: Catalog maintenance audits
 
 on:
   schedule:
@@ -9,15 +9,18 @@ permissions:
   contents: read
 
 concurrency:
-  group: catalog-link-audit
+  group: catalog-maintenance-audits
   cancel-in-progress: false
 
 jobs:
-  check-links:
+  audit-catalog:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -25,13 +28,17 @@ jobs:
           cache: pip
       - name: Install validation dependencies
         run: python -m pip install -r requirements.txt
+      - name: Report catalog verification freshness
+        run: python scripts/catalog.py check-freshness --report freshness-report.json
       - name: Audit external links without changing catalog data
         run: python scripts/catalog.py check-links --report link-report.json --max-indeterminate-rate 0.5
-      - name: Upload link audit report
+      - name: Upload maintenance audit reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cfm-link-audit
-          path: link-report.json
+          name: cfm-maintenance-audits
+          path: |
+            freshness-report.json
+            link-report.json
           if-no-files-found: warn
           retention-days: 30

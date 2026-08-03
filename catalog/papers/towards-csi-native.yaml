@@ -1,0 +1,22 @@
+kind: paper
+id: towards-csi-native
+short_name: CSI-Native Roadmap
+title: "Towards CSI-Native Foundation Models: A Channel-Adaptive Roadmap for 6G"
+authors: [Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.20670
+scope: cfm-ecosystem
+stages: [backbone, pretraining, application]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi, pilot-observations]
+tasks: [channel-estimation, time-channel-extrapolation, frequency-channel-extrapolation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

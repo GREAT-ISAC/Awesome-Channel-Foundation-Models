@@ -16,17 +16,16 @@ modalities: [csi]
 tasks: [robust-beamforming, los-nlos-identification, cross-band-beam-prediction]
 artifacts:
   code: {status: not-found, items: []}
-  datasets: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: LWM Challenge, ref: lwm-challenge}
   models:
     status: available
     items:
-      - {label: LWM checkpoint, ref: lwm-model, provenance: official, availability: available, license: MIT}
-  benchmarks:
-    status: available
-    items:
-      - {label: LWM Challenge, ref: lwm-2025-challenge, provenance: official, availability: available, license: Challenge-specific terms}
+      - {label: LWM checkpoint, ref: lwm-model}
   simulation_tools:
     status: available
     items:
-      - {label: DeepMIMO, ref: deepmimo-toolchain, provenance: official, availability: available, license: Apache-2.0}
+      - {label: DeepMIMO, ref: deepmimo-toolchain}
 last_verified: "2026-07-17"

@@ -1,0 +1,22 @@
+kind: paper
+id: sigmap
+short_name: SigMap
+title: "Map as a Prompt: Learning Multi-Modal Spatial-Signal Foundation Models for Cross-scenario Wireless Localization"
+authors: [Yong Chu, Xun Zhou, Zenglin Xu, Hui Wang, Yue Yu]
+year: 2026
+venue: International Conference on Learning Representations
+paper_url: https://openreview.net/forum?id=0aBAAS0rRT
+scope: cfm-ecosystem
+stages: [adaptation, pretraining, application]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi, environment]
+tasks: [positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

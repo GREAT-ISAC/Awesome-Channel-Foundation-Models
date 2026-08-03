@@ -6,7 +6,7 @@ scope: cfm-ecosystem
 links:
   - {label: Official project site, url: https://quadriga-channel-model.de/, provenance: official, availability: available, license: QuaDRiGa license}
 license: QuaDRiGa license; non-commercial scientific, educational, and standardization use
-related_papers: [wifo]
+related_papers: [wifo, wifo-mud]
 last_verified: "2026-07-17"
 tool_type: channel
 access: open

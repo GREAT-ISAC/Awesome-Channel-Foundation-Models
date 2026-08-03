@@ -1,0 +1,22 @@
+kind: paper
+id: wifo-e
+short_name: WiFo-E
+title: "WiFo-E: A Scalable Wireless Foundation Model for End-to-End FDD Precoding in Communication Networks"
+authors: [Weibo Wen, Shijian Gao, Haotian Zhang, Xiang Cheng, Liuqing Yang]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.09186
+scope: cfm-ecosystem
+stages: [application, backbone, pretraining, adaptation]
+objectives: [direct-optimization]
+primary_objective: direct-optimization
+training_signals: [self-supervised]
+task_regime: multitask
+modalities: [pilot-observations, quantized-feedback]
+tasks: [mimo-precoding]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

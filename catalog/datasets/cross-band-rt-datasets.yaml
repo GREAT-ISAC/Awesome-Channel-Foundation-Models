@@ -1,0 +1,22 @@
+kind: dataset
+id: cross-band-rt-datasets
+name: Cross-Band Ray-Tracing Datasets
+description: Author-released raw multi-band ray-tracing MPC files used to derive dense CSI for foundation-model-based cross-band reconstruction.
+scope: cfm-ecosystem
+links:
+  - {label: Official repository, url: https://github.com/Zetahp/RT-Datasets, provenance: official, availability: available, license: MIT}
+  - {label: Official data download, url: https://pan.sjtu.edu.cn/web/share/7b6db27da53809e35968b5b3f8e71f10, provenance: official, availability: available, license: License not stated; attribution required}
+license: Repository metadata MIT; dataset files license not stated; attribution required
+related_papers: [cross-band-csi-reconstruction]
+last_verified: "2026-08-03"
+modalities: [multipath-components]
+data_origin: simulated
+access: open
+tasks: [cross-band-csi-reconstruction, channel-generation]
+specifications:
+  version: v1.0.0
+  scale: 203,489 samples per frequency across four ray-traced scenarios
+  download_size: null
+  frequency_bands: [2.4 GHz, 3.5 GHz, 15 GHz, 28 GHz, 40 GHz]
+  scenarios: [BME, D4, EMB, LA]
+  antenna_configurations: [4×4 UPA at 2.4/3.5 GHz, 8×4 UPA at 15 GHz, 8×8 UPA at 28/40 GHz]

@@ -12,6 +12,15 @@ modalities: [csi]
 data_origin: hybrid
 access: registration
 tasks: [beam-prediction, los-nlos-identification, positioning, channel-prediction]
+evaluation:
+  name: LWM Challenge 2025
+  protocol:
+    label: Official challenge page
+    url: https://lwm-wireless.net/challenge
+    provenance: official
+    availability: available
+    license: Challenge-specific terms
+  metrics: [Task-specific classification score, NMSE, Localization error]
 specifications:
   version: LWM Challenge 2025
   scale: Competition training and evaluation assets spanning four downstream task families

@@ -1,0 +1,23 @@
+kind: paper
+id: hierarchical-wfm
+short_name: Hierarchical WFM
+title: Hierarchical Wireless Foundation Model for Multi-Task Optimization
+authors: [Yangjing Wang, Ouya Wang, Shenglong Zhou, Geoffrey Ye Li]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.16877
+scope: cfm-ecosystem
+stages: [backbone, pretraining, adaptation, application]
+objectives: [masked-reconstruction, task-supervised, direct-optimization]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised, supervised]
+task_regime: task-conditioned
+modalities: [csi]
+tasks: [beamforming, user-scheduling, channel-estimation, beam-selection]
+summary: A hierarchical backbone combining a self-supervised masked-reconstruction foundation channel encoder with a task-conditioned optimization decoder trained on beamforming and user scheduling through supervised warm-up followed by label-free direct system-utility optimization; lightweight modules adapt the backbone to channel estimation and beam selection.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

@@ -1,0 +1,22 @@
+kind: paper
+id: filter-and-attend
+short_name: Filter-and-Attend
+title: "Filter-and-Attend: Wireless Channel Foundation Model with Noise-Plus-Interference Suppression Structure"
+authors: [Yuwei Wang, Li Sun, Tingting Yang, Yuxuan Shi, Maged Elkashlan, Xiao Tang]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2509.15993
+scope: related-method
+stages: [backbone, application]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [pilot-observations, csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation, positioning]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

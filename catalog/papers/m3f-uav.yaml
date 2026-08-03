@@ -20,8 +20,7 @@ artifacts:
   datasets:
     status: available
     items:
-      - {label: LAMBDA, ref: lambda-6g, provenance: official, availability: available, license: Open and free to use}
+      - {label: LAMBDA, ref: lambda-6g}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

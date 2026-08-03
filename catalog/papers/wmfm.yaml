@@ -1,0 +1,25 @@
+kind: paper
+id: wmfm
+short_name: WMFM
+title: "Wireless Multimodal Foundation Model (WMFM): Integrating Vision and Communication Modalities for 6G ISAC Systems"
+authors: [Mohammad Farzanullah, Han Zhang, Akram Bin Sediq, Ali Afana, Melike Erol-Kantarci]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2512.23897
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [contrastive-alignment]
+primary_objective: contrastive-alignment
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi, rgb]
+tasks: [positioning, los-nlos-identification]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: DeepVerse6G, ref: deepverse6g}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

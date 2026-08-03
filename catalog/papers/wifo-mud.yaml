@@ -1,0 +1,31 @@
+kind: paper
+id: wifo-mud
+short_name: WiFo-MUD
+title: "WiFo-MUD: Wireless Foundation Model for Heterogeneous Multi-User Demodulator"
+authors: [Zonghui Yang, Shijian Gao, Xuesong Cai, Xiang Cheng, Liuqing Yang]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.00612
+scope: cfm-ecosystem
+stages: [application, inference-deployment, pretraining]
+objectives: [predictive-generative]
+primary_objective: predictive-generative
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [received-symbols, csi, system-metadata]
+tasks: [multi-user-demodulation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: Argos Channel Survey, ref: argos-channel-survey}
+      - {label: SynthSoM, ref: synthsom}
+      - {label: DICHASUS, ref: dichasus}
+  models: {status: not-found, items: []}
+  simulation_tools:
+    status: available
+    items:
+      - {label: QuaDRiGa, ref: quadriga}
+      - {label: DeepMIMO, ref: deepmimo-toolchain}
+last_verified: "2026-08-03"

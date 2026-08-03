@@ -1,0 +1,22 @@
+kind: paper
+id: stronger-over-bigger
+short_name: Stronger over Bigger
+title: "Large Wireless Foundation Models: Stronger over Bigger"
+authors: [Xiang Cheng, Boxun Liu, Xuanyu Liu, Xuesong Cai]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2601.10963
+scope: cfm-ecosystem
+stages: [survey]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: []
+tasks: []
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

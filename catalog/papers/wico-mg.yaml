@@ -1,0 +1,22 @@
+kind: paper
+id: wico-mg
+short_name: WiCo-MG
+title: "WiCo-MG: Wireless Channel Foundation Model for Multipath Generation via Synesthesia of Machines"
+authors: [Zengrui Han, Lu Bai, Xuesong Cai, Xiang Cheng]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2511.15026
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [predictive-generative]
+primary_objective: predictive-generative
+training_signals: [supervised]
+task_regime: single-task
+modalities: [rgb, environment, multipath-components]
+tasks: [multipath-generation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-released, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

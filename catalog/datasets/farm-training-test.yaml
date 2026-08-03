@@ -1,0 +1,21 @@
+kind: dataset
+id: farm-training-test
+name: FARM Training and Evaluation Datasets
+description: The currently released ARM-Omni-derived subsets for FARM training, in-domain evaluation, and zero-shot tests; the authors state that a fuller ARM-Omni release is planned.
+scope: cfm-ecosystem
+links:
+  - {label: Official Hugging Face dataset, url: https://huggingface.co/datasets/jliang097/FARM_training_test, provenance: official, availability: available, license: MIT}
+license: MIT
+related_papers: [farm]
+last_verified: "2026-08-03"
+modalities: [radio-map, environment, system-metadata]
+data_origin: simulated
+access: open
+tasks: [radio-map-generation, radio-map-estimation]
+specifications:
+  version: null
+  scale: 13 released configuration groups (D1-D10, P1, F1, and A1), each listed at volume 15,000
+  download_size: 210 GB
+  frequency_bands: [2.1 GHz, 2.6 GHz, 3.3 GHz, 3.5 GHz, 4.9 GHz, 5.9 GHz, 7.1 GHz]
+  scenarios: [D1-D10 in-domain configurations, P1 spatial transfer, F1 cross-frequency transfer, A1 antenna-pattern transfer]
+  antenna_configurations: [30° beamwidth, 60° beamwidth, 120° beamwidth, isotropic]

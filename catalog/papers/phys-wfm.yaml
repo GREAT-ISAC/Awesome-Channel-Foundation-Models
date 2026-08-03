@@ -1,0 +1,22 @@
+kind: paper
+id: phys-wfm
+short_name: phys-WFM
+title: Physics Equivariance for Robust Generalization in Wireless Foundation Model
+authors: [Haoyu Wang, Xigang Gao, Zhi Sun, Zhaocheng Wang]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.28847
+scope: related-method
+stages: [backbone]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [csi]
+tasks: [channel-acquisition]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

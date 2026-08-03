@@ -1,0 +1,22 @@
+kind: paper
+id: foundation-models-wireless-communications
+short_name: L. Liang et al.
+title: "Foundation Models for Wireless Communications: From PHY Intelligence to Network Autonomy"
+authors: [Le Liang, Jiajia Guo, Jun Zhang, Chan-Byoung Chae, Lu Lu, Shugong Xu, Octavia A. Dobre, Shi Jin, Geoffrey Ye Li]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2606.06239
+scope: cfm-ecosystem
+stages: [survey]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: []
+tasks: []
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

@@ -11,7 +11,7 @@ The catalog uses non-exclusive dimensions in its source records, while the publi
 - `adaptation` — fine-tuning, in-context learning, retrieval, transfer, or feature adaptation.
 - `inference-deployment` — early exit, compression, serving, latency, energy, or deployment methods.
 
-This dimension preserves the original Backbone, Pretraining, Adaptation, and Inference organization while accommodating application-oriented systems. On the public page, applications and adaptation methods share one section to avoid a sparse extra category. It is no longer a mutually exclusive folder hierarchy.
+This dimension preserves the original Backbone, Pretraining, Adaptation, and Inference organization while accommodating application-oriented systems. On the public page, applications and adaptation methods share one section to avoid a sparse extra category. A paper may carry multiple stages: the first value in `stages` is its primary public placement, while the remaining values preserve cross-cutting contributions without duplicating the entry. When pretraining is a secondary stage, the public entry shows a compact profile of its concrete objectives, training signals, and task regime.
 
 ## Pretraining objective
 
@@ -19,6 +19,7 @@ This dimension preserves the original Backbone, Pretraining, Adaptation, and Inf
 - `predictive-generative` — future-value prediction, next-token/sequence modeling, diffusion, or another predictive or generative objective.
 - `contrastive-alignment` — contrastive learning or alignment across views, domains, or modalities.
 - `predictive-latent` — JEPA-style or world-model prediction in a learned latent space.
+- `direct-optimization` — label-free optimization of a differentiable communication objective, such as sum rate, energy, or another physics/system utility.
 - `task-supervised` — direct optimization of one or more labeled downstream-task losses during pretraining.
 
 Specific objective labels replace the former ambiguous “Other Pretraining Approaches” section. Papers carry every concrete objective that is central to the method. A hybrid method is represented by multiple objective labels instead of a generic `hybrid` label, and `primary_objective` controls its single public placement.
@@ -31,7 +32,7 @@ For readability, papers that jointly optimize reconstruction and contrastive obj
 
 The `training_signals` field records where the optimization targets come from, independently of the objective family:
 
-- `self-supervised` — targets are derived from the input data itself, including masks, future observations, augmentations, or alternate views.
+- `self-supervised` — targets or losses are derived without human/task annotations, including masks, future observations, alternate views, or differentiable physical/system utilities.
 - `supervised` — targets use task annotations or explicitly labeled outputs.
 - `weakly-supervised` — targets use incomplete, noisy, indirect, or automatically derived labels.
 
@@ -49,11 +50,11 @@ The `task_regime` field describes how tasks are organized during pretraining rat
 
 ## Scope
 
-The catalog intentionally does not separate “core CFM” from “broader wireless/radio FM.” The `scope` field only distinguishes the CFM ecosystem from directly related backbone, adaptation, evaluation, or deployment methods. See the [inclusion criteria](inclusion-criteria.md) for the decision boundary.
+The catalog intentionally does not separate “core CFM” from “broader wireless/radio FM.” The `scope` field only distinguishes the CFM ecosystem from directly related backbone, adaptation, or deployment methods. Benchmark papers and evaluation protocols are maintained as structured `evaluation` metadata on the corresponding dataset record rather than as standalone benchmark records or duplicate paper-page entries. See the [inclusion criteria](inclusion-criteria.md) for the decision boundary.
 
 ## Modality
 
-Modalities identify model inputs or representations, for example CSI, WiFi CSI, 5G CSI, CIR, IQ, spectrograms, pilot observations, delay–Doppler–angle tensors, environment data, point clouds, trajectories, or received symbols. Use protocol-specific labels such as `wifi-csi` or `5g-csi` when the source is explicit, and retain the broader `csi` label for simulated, protocol-agnostic, or unspecified CSI. New slugs should be reused consistently and should describe a data representation rather than a task.
+Modalities identify model inputs or representations, for example CSI, WiFi CSI, 5G CSI, CIR, channel statistics, IQ, spectrograms, pilot observations, delay–Doppler–angle tensors, environment data, point clouds, trajectories, or received symbols. Use protocol-specific labels such as `wifi-csi` or `5g-csi` when the source is explicit, and retain the broader `csi` label for simulated, protocol-agnostic, or unspecified CSI. New slugs should be reused consistently and should describe a data representation rather than a task.
 
 ## Downstream task
 
@@ -61,4 +62,4 @@ Tasks describe evaluated or explicitly targeted uses such as channel estimation,
 
 ## Resource display
 
-The paper page shows qualifying code, pretrained-weight, benchmark, or simulation-tool links. Dataset relationships are presented on the dataset page instead of being repeated under papers. Missing-resource and verification states remain in YAML for maintenance and are not repeated in the public listing.
+The paper page shows qualifying code, paper-linked pretrained checkpoints, and simulation-tool links. Dataset relationships and structured evaluation protocols are presented only on the dataset page instead of being repeated under papers. Missing-resource and verification states remain in YAML for maintenance and are not repeated in the public listing.

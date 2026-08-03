@@ -1,0 +1,22 @@
+kind: paper
+id: multimodal-wireless-foundational-model
+short_name: V. Yazdnian et al.
+title: A Multi-Modal Foundational Model for Wireless Communication and Sensing
+authors: [Vahid Yazdnian, Yasaman Ghasempour]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2602.04016
+scope: cfm-ecosystem
+stages: [pretraining, backbone, adaptation, application]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: multitask
+modalities: [csi, environment, user-location]
+tasks: [positioning, mimo-precoding, beam-selection]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-released, items: []}
+  models: {status: not-released, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

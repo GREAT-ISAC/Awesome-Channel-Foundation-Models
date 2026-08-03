@@ -1,0 +1,22 @@
+kind: paper
+id: fm-rme
+short_name: FM-RME
+title: "FM-RME: Foundation Model Empowered Radio Map Estimation"
+authors: [Dong Yang, Yue Wang, Songyang Zhang, Yingshu Li, Zhipeng Cai, Zhi Tian]
+year: 2026
+venue: IEEE International Conference on Communications
+paper_url: https://arxiv.org/abs/2602.22231
+scope: cfm-ecosystem
+stages: [pretraining, application]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: multitask
+modalities: [radio-map]
+tasks: [radio-map-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

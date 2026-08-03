@@ -21,7 +21,6 @@ artifacts:
   models:
     status: available
     items:
-      - {label: LWM base checkpoint, ref: lwm-model, provenance: official, availability: available, license: MIT}
-  benchmarks: {status: not-found, items: []}
+      - {label: LWM base checkpoint, ref: lwm-model}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-13"

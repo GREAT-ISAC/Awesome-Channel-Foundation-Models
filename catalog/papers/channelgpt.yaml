@@ -1,0 +1,23 @@
+kind: paper
+id: channelgpt
+short_name: ChannelGPT
+title: "ChannelGPT: A Large Model toward Real-World Channel Foundation Model for 6G Environment Intelligence Communication"
+authors: [Li Yu, Lianzheng Shi, Jianhua Zhang, Zhen Zhang, Yuxiang Zhang, Guangyi Liu]
+year: 2025
+venue: IEEE Communications Magazine
+paper_url: https://doi.org/10.1109/MCOM.001.2400780
+scope: cfm-ecosystem
+stages: [application, adaptation]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [csi, rgb, point-cloud, user-location]
+tasks: [time-channel-extrapolation, channel-reconstruction, path-loss-prediction]
+summary: A multimodal GPT-2-based digital-twin channel prototype using CSI, imagery, point clouds, and location context; reported case studies use task-specific full fine-tuning for CSI forecasting and partial-CSI reconstruction, followed by few-shot simulation-to-real adaptation for path-loss prediction, while a shared pretraining objective is not specified.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

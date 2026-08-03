@@ -24,9 +24,8 @@ artifacts:
     status: available
     items:
       - {label: Released checkpoints, url: https://github.com/BerkIGuler/PilotWiMAE/tree/main/runs, provenance: official, availability: available, license: MIT}
-  benchmarks: {status: not-found, items: []}
   simulation_tools:
     status: available
     items:
-      - {label: Sionna, ref: sionna, provenance: official, availability: available, license: Apache-2.0}
+      - {label: Sionna, ref: sionna}
 last_verified: "2026-07-17"

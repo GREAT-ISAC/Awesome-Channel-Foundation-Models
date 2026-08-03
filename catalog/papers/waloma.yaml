@@ -1,0 +1,22 @@
+kind: paper
+id: waloma
+short_name: WALoMA
+title: "WALoMA: A Multitask Wireless Foundation Model via Adaptive Low-Rank Masked Autoencoders"
+authors: [Madi Makin, Asmaa Abdallah, Abdulkadir Celik, Ahmed M. Eltawil]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.25763
+scope: cfm-ecosystem
+stages: [pretraining, backbone, adaptation]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [csi]
+tasks: [los-nlos-identification, beam-prediction, channel-interpolation, channel-estimation, channel-charting]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

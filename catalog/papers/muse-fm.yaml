@@ -7,17 +7,16 @@ year: 2026
 venue: IEEE Transactions on Wireless Communications
 paper_url: https://arxiv.org/abs/2509.01967
 scope: cfm-ecosystem
-stages: [pretraining]
-objectives: [task-supervised]
+stages: [backbone, application, pretraining, adaptation]
+objectives: [direct-optimization, task-supervised]
 primary_objective: task-supervised
 training_signals: [self-supervised, supervised]
 task_regime: task-conditioned
-modalities: [csi, environment, received-symbols]
+modalities: [csi, pilot-observations, received-symbols, environment, system-metadata]
 tasks: [channel-estimation, mimo-precoding, mimo-detection, channel-decoding, positioning]
 artifacts:
   code: {status: not-found, items: []}
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
-  benchmarks: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
 last_verified: "2026-07-18"

@@ -1,0 +1,25 @@
+kind: paper
+id: farm
+short_name: FARM
+title: "FARM: Foundational Aerial Radio Map for Intelligent Low-Altitude Networking"
+authors: [Shijian Gao, Jiahui Liang, Yifeng Yuan, Wenlihan Lu, Guobin Shen, Liuqing Yang]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2604.17362
+scope: cfm-ecosystem
+stages: [pretraining, application, adaptation]
+objectives: [masked-reconstruction, predictive-generative]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [radio-map, environment, system-metadata]
+tasks: [radio-map-generation, radio-map-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets:
+    status: available
+    items:
+      - {label: Released FARM training and evaluation data, ref: farm-training-test}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

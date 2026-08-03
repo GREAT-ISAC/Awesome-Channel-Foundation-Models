@@ -1,0 +1,23 @@
+kind: paper
+id: cross-domain-wifi-sensing-fm
+short_name: C. Jiang et al.
+title: "Scale What Counts, Mask What Matters: Evaluating Foundation Models for Zero-Shot Cross-Domain Wi-Fi Sensing"
+authors: [Cheng Jiang, Yihe Yan, Yanxiang Wang, Chun Tung Chou, Wen Hu]
+year: 2025
+venue: arXiv
+paper_url: https://arxiv.org/abs/2511.18792
+scope: cfm-ecosystem
+stages: [pretraining, adaptation]
+objectives: [masked-reconstruction]
+primary_objective: masked-reconstruction
+training_signals: [self-supervised]
+task_regime: single-task
+modalities: [wifi-csi]
+tasks: [human-activity-recognition, gesture-recognition, user-identification]
+summary: A masked-autoencoder study of reusable WiFi-CSI representations across datasets, devices, frequency bands, environments, and subjects, with downstream sensing tasks used to test cross-domain transfer.
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

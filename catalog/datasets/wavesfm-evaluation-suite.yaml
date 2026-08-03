@@ -1,0 +1,25 @@
+kind: dataset
+id: wavesfm-evaluation-suite
+name: WavesFM Evaluation Suite
+description: A versioned collection of ten public downstream datasets and thirteen evaluation task rows used by WavesFM across IQ, spectrogram, CSI, and CIR representations; access and license terms remain dataset-specific.
+scope: cfm-ecosystem
+links:
+  - {label: Official dataset index, url: https://wavesfm.waveslab.ai/docs/datasets/, provenance: official, availability: available, license: Dataset-specific terms; consult each source dataset}
+license: Dataset-specific terms; consult each source dataset
+related_papers: [wavesfm-multimodal]
+last_verified: "2026-08-03"
+modalities: [iq, spectrogram, wifi-csi, 5g-csi, cir]
+data_origin: hybrid
+access: registration
+tasks: [human-activity-sensing, rf-signal-classification, positioning, rf-fingerprinting, interference-detection, interference-classification, modulation-classification, los-nlos-identification, beam-prediction]
+evaluation:
+  name: WavesFM Multimodal Evaluation Suite
+  protocol: {label: Official benchmark results and protocols, url: https://wavesfm.waveslab.ai/benchmarks/, provenance: official, availability: available}
+  metrics: [Mean per-class accuracy, Acc@1, Acc@3, Mean localization error, Median localization error, P90 localization error]
+specifications:
+  version: v1.0
+  scale: 10 downstream datasets and 13 reported evaluation task rows across LP, FT2, and LoRA regimes with three random seeds
+  download_size: null
+  frequency_bands: []
+  scenarios: [Wireless sensing, RF classification, 5G NR positioning, UWB positioning, RF fingerprinting, interference monitoring, DeepMIMO channel tasks]
+  antenna_configurations: []

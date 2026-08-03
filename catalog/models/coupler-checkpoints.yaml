@@ -7,8 +7,8 @@ links:
   - {label: Official pretrained archive, url: "https://drive.google.com/drive/folders/1txq8lt7TbZAF9zNReNRpWBAvzefrBs-I?usp=sharing", provenance: official, availability: available, license: License not stated}
 license: License not stated
 related_papers: [full-domain-coupler]
-last_verified: "2026-07-17"
+last_verified: "2026-08-03"
 framework: PyTorch
-modalities: [csi, cir]
+modalities: [csi]
 tasks: [channel-estimation, channel-interpolation, time-channel-extrapolation, csi-feedback]
 access: open

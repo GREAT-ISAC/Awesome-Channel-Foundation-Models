@@ -1,0 +1,22 @@
+kind: paper
+id: scorefm
+short_name: ScoreFM
+title: "Wireless Intelligence Needs a Cerebellum: Score-Based Foundation Models Toward Real-Time Physical-Layer Inference"
+authors: [Chang Cai, Boyu Teng, Xiaojun Yuan, Ying-Jun Angela Zhang]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2607.23712
+scope: cfm-ecosystem
+stages: [pretraining, application, inference-deployment]
+objectives: [predictive-generative]
+primary_objective: predictive-generative
+training_signals: [self-supervised]
+task_regime: not-specified
+modalities: [csi, received-symbols, structured-interference, source-signals]
+tasks: [channel-estimation, positioning, blind-semantic-communication]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

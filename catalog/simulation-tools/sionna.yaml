@@ -6,8 +6,8 @@ scope: cfm-ecosystem
 links:
   - {label: Official repository, url: https://github.com/NVlabs/sionna, provenance: official, availability: available, license: Apache-2.0}
 license: Apache-2.0
-related_papers: [laetwin-xl, pilotwimae]
-last_verified: "2026-07-18"
+related_papers: [pilotwimae, foundation-model-communication-systems]
+last_verified: "2026-08-03"
 tool_type: ray-tracing
 access: open
 capabilities: [ray-tracing, link-level-simulation, system-level-simulation, differentiable-modeling]

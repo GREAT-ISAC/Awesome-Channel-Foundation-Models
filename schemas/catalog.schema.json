@@ -6,7 +6,6 @@
     { "$ref": "#/$defs/paper" },
     { "$ref": "#/$defs/dataset" },
     { "$ref": "#/$defs/model" },
-    { "$ref": "#/$defs/benchmark" },
     { "$ref": "#/$defs/simulationTool" }
   ],
   "$defs": {
@@ -17,6 +16,11 @@
     "date": {
       "type": "string",
       "format": "date"
+    },
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
     },
     "slugList": {
       "type": "array",
@@ -35,6 +39,7 @@
         "predictive-generative",
         "contrastive-alignment",
         "predictive-latent",
+        "direct-optimization",
         "task-supervised"
       ]
     },
@@ -56,7 +61,7 @@
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string", "minLength": 1 },
-        "url": { "type": "string", "format": "uri" },
+        "url": { "$ref": "#/$defs/httpUrl" },
         "provenance": { "$ref": "#/$defs/provenance" },
         "availability": {
           "enum": ["available", "restricted", "broken"]
@@ -64,23 +69,33 @@
         "license": { "type": "string", "minLength": 1 }
       }
     },
-    "artifactItem": {
+    "directArtifactItem": {
       "type": "object",
-      "required": ["label", "provenance", "availability"],
+      "required": ["label", "url", "provenance", "availability"],
       "additionalProperties": false,
       "properties": {
         "label": { "type": "string", "minLength": 1 },
-        "url": { "type": "string", "format": "uri" },
-        "ref": { "$ref": "#/$defs/id" },
+        "url": { "$ref": "#/$defs/httpUrl" },
         "provenance": { "$ref": "#/$defs/provenance" },
         "availability": {
           "enum": ["available", "restricted", "broken"]
         },
         "license": { "type": "string", "minLength": 1 }
-      },
+      }
+    },
+    "artifactReference": {
+      "type": "object",
+      "required": ["label", "ref"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "ref": { "$ref": "#/$defs/id" }
+      }
+    },
+    "artifactItem": {
       "oneOf": [
-        { "required": ["url"] },
-        { "required": ["ref"] }
+        { "$ref": "#/$defs/directArtifactItem" },
+        { "$ref": "#/$defs/artifactReference" }
       ]
     },
     "artifactSlot": {
@@ -183,13 +198,12 @@
         "note": { "type": "string", "minLength": 1 },
         "artifacts": {
           "type": "object",
-          "required": ["code", "datasets", "models", "benchmarks", "simulation_tools"],
+          "required": ["code", "datasets", "models", "simulation_tools"],
           "additionalProperties": false,
           "properties": {
             "code": { "$ref": "#/$defs/artifactSlot" },
             "datasets": { "$ref": "#/$defs/artifactSlot" },
             "models": { "$ref": "#/$defs/artifactSlot" },
-            "benchmarks": { "$ref": "#/$defs/artifactSlot" },
             "simulation_tools": { "$ref": "#/$defs/artifactSlot" }
           }
         },
@@ -209,10 +223,9 @@
         "related_papers",
         "last_verified"
       ],
-      "additionalProperties": true,
       "properties": {
         "kind": {
-          "enum": ["dataset", "model", "benchmark", "simulation-tool"]
+          "enum": ["dataset", "model", "simulation-tool"]
         },
         "id": { "$ref": "#/$defs/id" },
         "name": { "type": "string", "minLength": 1 },
@@ -241,6 +254,21 @@
             "data_origin": { "enum": ["measured", "simulated", "hybrid"] },
             "access": { "enum": ["open", "registration", "restricted"] },
             "tasks": { "$ref": "#/$defs/slugList" },
+            "evaluation": {
+              "type": "object",
+              "required": ["name", "protocol", "metrics"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "protocol": { "$ref": "#/$defs/externalLink" },
+                "metrics": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": { "type": "string", "minLength": 1 }
+                }
+              }
+            },
             "specifications": {
               "type": "object",
               "required": [
@@ -290,26 +318,6 @@
             "modalities": { "$ref": "#/$defs/slugList" },
             "tasks": { "$ref": "#/$defs/slugList" },
             "access": { "enum": ["open", "registration", "restricted"] }
-          }
-        }
-      ],
-      "unevaluatedProperties": false
-    },
-    "benchmark": {
-      "allOf": [
-        { "$ref": "#/$defs/catalogResourceBase" },
-        {
-          "type": "object",
-          "required": ["tasks", "datasets", "metrics"],
-          "properties": {
-            "kind": { "const": "benchmark" },
-            "tasks": { "$ref": "#/$defs/slugList" },
-            "datasets": { "$ref": "#/$defs/slugList" },
-            "metrics": {
-              "type": "array",
-              "items": { "type": "string", "minLength": 1 },
-              "uniqueItems": true
-            }
           }
         }
       ],

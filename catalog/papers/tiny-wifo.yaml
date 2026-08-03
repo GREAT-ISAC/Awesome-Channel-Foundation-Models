@@ -1,0 +1,22 @@
+kind: paper
+id: tiny-wifo
+short_name: Tiny-WiFo
+title: "Tiny-WiFo: A Lightweight Wireless Foundation Model for Channel Prediction via Multi-Component Adaptive Knowledge Distillation"
+authors: [Haotian Zhang, Shijian Gao, Xiang Cheng]
+year: 2026
+venue: IEEE Wireless Communications Letters
+paper_url: https://doi.org/10.1109/LWC.2026.3664439
+scope: related-method
+stages: [inference-deployment]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [csi]
+tasks: [time-channel-extrapolation, frequency-channel-extrapolation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

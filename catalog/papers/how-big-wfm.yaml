@@ -1,0 +1,22 @@
+kind: paper
+id: how-big-wfm
+short_name: W.-L. Cheng et al.
+title: How Big Should a Wireless Foundation Model Be?
+authors: [Wei-Lun Cheng, Wanjiun Liao]
+year: 2026
+venue: arXiv
+paper_url: https://arxiv.org/abs/2605.07266
+scope: related-method
+stages: [inference-deployment, adaptation]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: [csi, pilot-observations]
+tasks: [channel-estimation]
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

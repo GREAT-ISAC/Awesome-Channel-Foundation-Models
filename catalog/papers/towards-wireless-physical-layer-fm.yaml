@@ -1,0 +1,22 @@
+kind: paper
+id: towards-wireless-physical-layer-fm
+short_name: J. Fontaine et al.
+title: "Towards a Wireless Physical-Layer Foundation Model: Challenges and Strategies"
+authors: [Jaron Fontaine, Adnan Shahid, Eli De Poorter]
+year: 2024
+venue: IEEE International Conference on Communications Workshops
+paper_url: https://doi.org/10.1109/ICCWorkshops59551.2024.10615509
+scope: cfm-ecosystem
+stages: [survey]
+objectives: []
+primary_objective: null
+training_signals: []
+task_regime: not-applicable
+modalities: []
+tasks: []
+artifacts:
+  code: {status: not-found, items: []}
+  datasets: {status: not-found, items: []}
+  models: {status: not-found, items: []}
+  simulation_tools: {status: not-found, items: []}
+last_verified: "2026-08-03"

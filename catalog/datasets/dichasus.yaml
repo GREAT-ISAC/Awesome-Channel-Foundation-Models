@@ -6,7 +6,7 @@ scope: cfm-ecosystem
 links:
   - {label: Official dataset portal, url: https://dichasus.inue.uni-stuttgart.de/datasets/, provenance: official, availability: available, license: Dataset-specific terms}
 license: Dataset-specific terms; consult each dataset page
-related_papers: [full-domain-coupler]
+related_papers: [full-domain-coupler, wifo-mud]
 last_verified: "2026-07-13"
 modalities: [csi]
 data_origin: measured
