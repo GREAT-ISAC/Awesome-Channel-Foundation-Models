@@ -772,6 +772,18 @@ class CatalogTests(unittest.TestCase):
                 self.assertEqual(by_id[paper_id]["kind"], "paper")
                 self.assertGreaterEqual(by_id[paper_id]["last_verified"], "2026-08-03")
 
+        author_form_display_names = {
+            "early-exit": "O. Mashaal et al.",
+            "hierarchical-wfm": "Y. Wang et al.",
+            "stronger-over-bigger": "X. Cheng et al.",
+            "towards-csi-native": "C. Zhang et al.",
+            "wavesfm-multimodal": "A. Aboulfotouh et al.",
+            "willm": "J. Chen et al.",
+        }
+        for paper_id, display_name in author_form_display_names.items():
+            with self.subTest(display_name=paper_id):
+                self.assertEqual(by_id[paper_id]["short_name"], display_name)
+
         cross_band = by_id["cross-band-csi-reconstruction"]
         self.assertEqual(cross_band["objectives"], ["masked-reconstruction"])
         self.assertEqual(cross_band["training_signals"], ["self-supervised"])

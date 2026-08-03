@@ -1,6 +1,6 @@
 kind: paper
 id: early-exit
-short_name: Early-Exit
+short_name: O. Mashaal et al.
 title: Fast Wireless Foundation Models with Early-Exits
 authors: [Omar Mashaal, Hatem Abou-Zeid]
 year: 2026
@@ -20,4 +20,4 @@ artifacts:
   datasets: {status: not-found, items: []}
   models: {status: not-found, items: []}
   simulation_tools: {status: not-found, items: []}
-last_verified: "2026-07-18"
+last_verified: "2026-08-03"

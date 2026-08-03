@@ -10,6 +10,7 @@ If you prefer to edit the catalog directly:
 
 - add or update one record in the matching `catalog/` directory;
 - use a stable lowercase, hyphen-separated `id`;
+- use an author-defined model, method, framework, or acronym for `short_name`; otherwise use the first author's initial and family name followed by `et al.`;
 - quote dates such as `"2026-07-17"`;
 - for datasets, fill the structured `specifications` fields from official sources and leave unknown values null or empty; when an evaluation exists, keep its name, protocol link, and metrics in the same dataset record's `evaluation` block rather than creating a benchmark record;
 - update `last_verified` and regenerate the public pages;

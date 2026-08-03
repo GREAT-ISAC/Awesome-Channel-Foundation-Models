@@ -159,7 +159,7 @@ A versioned collection of ten public downstream datasets and thirteen evaluation
 - **Protocol:** [Official benchmark results and protocols](https://wavesfm.waveslab.ai/benchmarks/)
 - **Metrics:** Mean per-class accuracy, Acc@1, Acc@3, Mean localization error, Median localization error, P90 localization error
 - **Links:** [Official dataset index](https://wavesfm.waveslab.ai/docs/datasets/)
-- **Related papers:** [Multimodal WavesFM](../papers/README.md#wavesfm-multimodal)
+- **Related papers:** [A. Aboulfotouh et al.](../papers/README.md#wavesfm-multimodal)
 
 <a id="wifo-channel-dataset"></a>
 ## WiFo Channel Dataset

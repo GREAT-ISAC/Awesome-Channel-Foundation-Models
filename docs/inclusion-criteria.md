@@ -30,6 +30,10 @@ A publication whose primary contribution is a benchmark dataset or evaluation pr
 
 Dataset records separate release and coverage facts from prose. Each record includes version, scale, download size, frequency bands, scenarios, and antenna configurations. Use `null` or an empty list when an official source does not state a value; do not infer missing specifications.
 
+## Paper display names
+
+Use a model, method, framework, or acronym as `short_name` only when the paper's authors explicitly introduce or use that name in the paper. Do not construct a display name from title fragments, generic technical terms, repository names, or maintainer interpretation. When a paper has no author-defined short name, use the first author's initial and family name followed by `et al.` (for example, `C. Zhang et al.`).
+
 ## Normally excluded
 
 - A task-specific model with no reusable pretraining, generalization, or direct foundation-model contribution.

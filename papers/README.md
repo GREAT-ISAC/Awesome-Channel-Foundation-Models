@@ -40,7 +40,7 @@ Each paper appears once in a stage-first hierarchy. Papers whose primary stage i
   - **Authors:** Le Liang, Jiajia Guo, Jun Zhang, Chan-Byoung Chae, Lu Lu, Shugong Xu, Octavia A. Dobre, Shi Jin, Geoffrey Ye Li
 
 <a id="stronger-over-bigger"></a>
-- **Stronger over Bigger** — [Large Wireless Foundation Models: Stronger over Bigger](https://arxiv.org/abs/2601.10963) (2026 · arXiv)
+- **X. Cheng et al.** — [Large Wireless Foundation Models: Stronger over Bigger](https://arxiv.org/abs/2601.10963) (2026 · arXiv)
   - **Authors:** Xiang Cheng, Boxun Liu, Xuanyu Liu, Xuesong Cai
 
 <a id="wireless-ai-evolution"></a>
@@ -72,6 +72,13 @@ Each paper appears once in a stage-first hierarchy. Papers whose primary stage i
   - **Tasks:** Time Channel Extrapolation, Frequency Channel Extrapolation, Channel Estimation
   - **Pretraining:** Masked/Reconstruction Learning · **Signals:** Self-Supervised · **Task regime:** Not Specified
 
+<a id="towards-csi-native"></a>
+- **C. Zhang et al.** — [Towards CSI-Native Foundation Models: A Channel-Adaptive Roadmap for 6G](https://arxiv.org/abs/2606.20670) (2026 · arXiv)
+  - **Authors:** Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui
+  - **Modalities:** CSI, Pilot Observations
+  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Frequency Channel Extrapolation
+  - **Pretraining:** Masked/Reconstruction Learning · **Signals:** Self-Supervised · **Task regime:** Single-Task
+
 <a id="comhymba"></a>
 - **ComHymba** — [ComHymba: Low-Complexity Domain-Informed Foundation Model for Wireless Communications](https://arxiv.org/abs/2605.23468) (2026 · arXiv)
   - **Authors:** Bowen Yang, Wei Chen, Jiaming Cheng, Bo Ai
@@ -86,26 +93,12 @@ Each paper appears once in a stage-first hierarchy. Papers whose primary stage i
   - **Tasks:** LOS/NLOS Identification, Frequency Channel Extrapolation, Positioning, Beam Prediction
   - **Pretraining:** Masked/Reconstruction Learning · **Signals:** Self-Supervised · **Task regime:** Not Specified
 
-<a id="towards-csi-native"></a>
-- **CSI-Native Roadmap** — [Towards CSI-Native Foundation Models: A Channel-Adaptive Roadmap for 6G](https://arxiv.org/abs/2606.20670) (2026 · arXiv)
-  - **Authors:** Chenyu Zhang, Xinchen Lyu, Chenshan Ren, Shuhan Liu, Qimei Cui
-  - **Modalities:** CSI, Pilot Observations
-  - **Tasks:** Channel Estimation, Time Channel Extrapolation, Frequency Channel Extrapolation
-  - **Pretraining:** Masked/Reconstruction Learning · **Signals:** Self-Supervised · **Task regime:** Single-Task
-
 <a id="full-domain-coupler"></a>
 - **Full-Domain Coupler** — [Full-Domain Coupler: A Wireless Native Neural Backbone for Channel Representation and Deduction](https://arxiv.org/abs/2606.22038) (2026 · arXiv)
   - **Authors:** Zirui Chen, Ziqing Xing, Zhaoyang Zhang, Hongning Ruan, Yuzhi Yang, Zhaohui Yang, Chongwen Huang, Merouane Debbah
   - **Modalities:** CSI
   - **Tasks:** Channel Estimation, Channel Interpolation, Time Channel Extrapolation, CSI Feedback
   - **Code:** [Official implementation](https://github.com/XIronMan0220/Coupler-Channel-Deduction) · **Weights:** [Released checkpoints](https://drive.google.com/drive/folders/1txq8lt7TbZAF9zNReNRpWBAvzefrBs-I?usp=sharing) · **Simulator:** [DeepMIMO](../simulation-tools/README.md#deepmimo-toolchain)
-
-<a id="hierarchical-wfm"></a>
-- **Hierarchical WFM** — [Hierarchical Wireless Foundation Model for Multi-Task Optimization](https://arxiv.org/abs/2607.16877) (2026 · arXiv)
-  - **Authors:** Yangjing Wang, Ouya Wang, Shenglong Zhou, Geoffrey Ye Li
-  - **Modalities:** CSI
-  - **Tasks:** Beamforming, User Scheduling, Channel Estimation, Beam Selection
-  - **Pretraining:** Masked/Reconstruction Learning (primary), Task-Supervised Learning, Direct Physical/Utility Optimization · **Signals:** Self-Supervised, Supervised · **Task regime:** Task-Conditioned
 
 <a id="lwm-temporal"></a>
 - **LWM-Temporal** — [LWM-Temporal: Sparse Spatio-Temporal Attention for Wireless Channel Representation Learning](https://arxiv.org/abs/2603.10024) (2026 · IEEE International Conference on Communications)
@@ -142,6 +135,13 @@ Each paper appears once in a stage-first hierarchy. Papers whose primary stage i
   - **Tasks:** LOS/NLOS Identification, Channel Interpolation, Beam Prediction, Positioning
   - **Pretraining:** Masked/Reconstruction Learning · **Signals:** Self-Supervised · **Task regime:** Not Specified
   - **Code:** [Official implementation](https://github.com/tomerraviv95/mamba-lwm-project) · **Simulator:** [DeepMIMO](../simulation-tools/README.md#deepmimo-toolchain)
+
+<a id="hierarchical-wfm"></a>
+- **Y. Wang et al.** — [Hierarchical Wireless Foundation Model for Multi-Task Optimization](https://arxiv.org/abs/2607.16877) (2026 · arXiv)
+  - **Authors:** Yangjing Wang, Ouya Wang, Shenglong Zhou, Geoffrey Ye Li
+  - **Modalities:** CSI
+  - **Tasks:** Beamforming, User Scheduling, Channel Estimation, Beam Selection
+  - **Pretraining:** Masked/Reconstruction Learning (primary), Task-Supervised Learning, Direct Physical/Utility Optimization · **Signals:** Self-Supervised, Supervised · **Task regime:** Task-Conditioned
 
 <a id="filter-and-attend"></a>
 - **Filter-and-Attend** — [Filter-and-Attend: Wireless Channel Foundation Model with Noise-Plus-Interference Suppression Structure](https://arxiv.org/abs/2509.15993) (2025 · arXiv)
@@ -188,6 +188,13 @@ Classification follows the primary optimization objective used during pretrainin
   - **Tasks:** Channel Reconstruction, Time Channel Extrapolation, Frequency Channel Extrapolation
   - **Weights:** [HeterCSI model card](https://huggingface.co/Chenyu8998/HeterCSI)
 
+<a id="willm"></a>
+- **J. Chen et al.** — [The Universal Language of CSI: Unifying Wireless Sensing Across Devices and Environments](https://arxiv.org/abs/2607.09727) (2026 · arXiv)
+  - **Authors:** Jiayi Chen, Weiting Ou, Guangxu Zhu
+  - **Modalities:** WiFi CSI
+  - **Tasks:** Human Activity Recognition, Gesture Recognition, User Identification, Fall Detection, Crowd Counting
+  - **Code:** [Official code repository](https://github.com/cjychenjiayi/WiLLM)
+
 <a id="m3f-uav"></a>
 - **M3F-UAV** — [M3F-UAV: A Missing-Modality Multimodal Foundation Model for Low-Altitude Wireless Sensing](https://arxiv.org/abs/2607.13678) (2026 · arXiv)
   - **Authors:** Pengxuan Gao, Kai Ying, Botao Wu, Jianhua Mo, Qingsong Wen
@@ -225,13 +232,6 @@ Classification follows the primary optimization objective used during pretrainin
   - **Modalities:** CSI
   - **Tasks:** CSI Feedback, Positioning
 
-<a id="willm"></a>
-- **WiLLM** — [The Universal Language of CSI: Unifying Wireless Sensing Across Devices and Environments](https://arxiv.org/abs/2607.09727) (2026 · arXiv)
-  - **Authors:** Jiayi Chen, Weiting Ou, Guangxu Zhu
-  - **Modalities:** WiFi CSI
-  - **Tasks:** Human Activity Recognition, Gesture Recognition, User Identification, Fall Detection, Crowd Counting
-  - **Code:** [Official code repository](https://github.com/cjychenjiayi/WiLLM)
-
 <a id="6g-wavesfm"></a>
 - **6G WavesFM** — [6G WavesFM: A Foundation Model for Sensing, Communication, and Localization](https://arxiv.org/abs/2504.14100) (2025 · IEEE Open Journal of the Communications Society)
   - **Authors:** Ahmed Aboulfotouh, Elsayed Mohammed, Hatem Abou-Zeid
@@ -243,6 +243,13 @@ Classification follows the primary optimization objective used during pretrainin
   - **Authors:** Ahmed Aboulfotouh, Ashkan Eshaghbeigi, Hatem Abou-Zeid
   - **Modalities:** Spectrogram, WiFi CSI
   - **Tasks:** Human Activity Sensing, Spectrogram Segmentation
+
+<a id="wavesfm-multimodal"></a>
+- **A. Aboulfotouh et al.** — [Multimodal Wireless Foundation Models](https://arxiv.org/abs/2511.15162) (2025 · arXiv)
+  - **Authors:** Ahmed Aboulfotouh, Hatem Abou-Zeid
+  - **Modalities:** IQ, Spectrogram, WiFi CSI, 5G CSI
+  - **Tasks:** Human Activity Sensing, RF Signal Classification, Positioning, RF Fingerprinting, Interference Detection, Interference Classification
+  - **Code:** [Official implementation](https://github.com/AhmedTarek62/wavesfm) · **Weights:** [WavesFM checkpoint](https://huggingface.co/ahmedaboulfo/wavesfm)
 
 <a id="bert4mimo"></a>
 - **BERT4MIMO** — [BERT4MIMO: A Foundation Model using BERT Architecture for Massive MIMO Channel State Information Prediction](https://arxiv.org/abs/2501.01802) (2025 · arXiv)
@@ -268,13 +275,6 @@ Classification follows the primary optimization objective used during pretrainin
   - **Authors:** Mohammad Cheraghinia, Eli De Poorter, Jaron Fontaine, Merouane Debbah, Adnan Shahid
   - **Modalities:** CIR, IQ
   - **Tasks:** Wireless Technology Classification, LOS/NLOS Identification, Ranging Error Correction
-
-<a id="wavesfm-multimodal"></a>
-- **Multimodal WavesFM** — [Multimodal Wireless Foundation Models](https://arxiv.org/abs/2511.15162) (2025 · arXiv)
-  - **Authors:** Ahmed Aboulfotouh, Hatem Abou-Zeid
-  - **Modalities:** IQ, Spectrogram, WiFi CSI, 5G CSI
-  - **Tasks:** Human Activity Sensing, RF Signal Classification, Positioning, RF Fingerprinting, Interference Detection, Interference Classification
-  - **Code:** [Official implementation](https://github.com/AhmedTarek62/wavesfm) · **Weights:** [WavesFM checkpoint](https://huggingface.co/ahmedaboulfo/wavesfm)
 
 <a id="wifo"></a>
 - **WiFo** — [WiFo: Wireless Foundation Model for Channel Prediction](https://arxiv.org/abs/2412.08908) (2025 · Science China Information Sciences)
@@ -564,7 +564,7 @@ Classification follows the primary optimization objective used during pretrainin
 ## Inference & Deployment
 
 <a id="early-exit"></a>
-- **Early-Exit** — [Fast Wireless Foundation Models with Early-Exits](https://arxiv.org/abs/2606.29640) (2026 · IEEE Communications Letters)
+- **O. Mashaal et al.** — [Fast Wireless Foundation Models with Early-Exits](https://arxiv.org/abs/2606.29640) (2026 · IEEE Communications Letters)
   - **Authors:** Omar Mashaal, Hatem Abou-Zeid
   - **Modalities:** IQ
   - **Tasks:** RF Fingerprinting, Beam Prediction, Modulation Classification, Interference Classification, AoA Estimation
