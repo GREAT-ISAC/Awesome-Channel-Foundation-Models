@@ -85,7 +85,7 @@ A measured 10-minute 802.11ax WiFi CSI capture from a commodity GL-MT6000 / MT79
 - **Tasks:** Channel Modeling, Human Activity Sensing
 - **Release:** Version: 1.0 · Scale: 57,293 chain records grouped into 7,609 closed measurements over 599.924 seconds · Download: 61.1 MB
 - **Coverage:** Bands: 5 GHz · Scenarios: Single indoor home environment; no cross-room or multi-subject coverage reported · Antennas: 2 Tx x 4 Rx, 256 subcarriers at 80 MHz
-- **Links:** [Official Zenodo dataset](https://doi.org/10.5281/zenodo.23434789) · [Official analysis toolkit v0.1.3](https://github.com/jjjwu/router-csi-toolkit/releases/tag/v0.1.3)
+- **Links:** [Official Zenodo dataset](https://doi.org/10.5281/zenodo.23434789) · [Official analysis toolkit v0.2.0](https://github.com/jjjwu/router-csi-toolkit/releases/tag/v0.2.0) · [Software Heritage v0.2.0 source snapshot](https://archive.softwareheritage.org/browse/snapshot/fd0be29fa36f1a403e7bf267067ee63c29befd8c/)
 
 <a id="laetwin-xl-dataset"></a>
 ## LAETwin-XL Low-Altitude XL-MIMO Datasets
